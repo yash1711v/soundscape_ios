@@ -29,7 +29,12 @@ struct HomeView: View {
                             ScrollView(.horizontal, showsIndicators: false) {
                                 LazyHStack(spacing: 15) {
                                     ForEach(MoodData.moods) { mood in
-                                        MoodSelectView(mood: mood)
+                                        Button {
+                                            print("hi")
+                                        } label: {
+                                            MoodSelectView(mood: mood)
+                                                .foregroundColor(.white)
+                                        }
                                     }
                                 }
                             }
