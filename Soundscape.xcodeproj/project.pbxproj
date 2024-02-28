@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8402A29B2B8F039A00A836CD /* SoundscapeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402A29A2B8F039A00A836CD /* SoundscapeApp.swift */; };
-		8402A29D2B8F039A00A836CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402A29C2B8F039A00A836CD /* ContentView.swift */; };
+		8402A29D2B8F039A00A836CD /* SoundscapeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402A29C2B8F039A00A836CD /* SoundscapeTabView.swift */; };
 		8402A29F2B8F039D00A836CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8402A29E2B8F039D00A836CD /* Assets.xcassets */; };
 		8402A2A22B8F039D00A836CD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8402A2A12B8F039D00A836CD /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		8402A2972B8F039A00A836CD /* Soundscape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soundscape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8402A29A2B8F039A00A836CD /* SoundscapeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapeApp.swift; sourceTree = "<group>"; };
-		8402A29C2B8F039A00A836CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8402A29C2B8F039A00A836CD /* SoundscapeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapeTabView.swift; sourceTree = "<group>"; };
 		8402A29E2B8F039D00A836CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8402A2A12B8F039D00A836CD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				8402A29A2B8F039A00A836CD /* SoundscapeApp.swift */,
-				8402A29C2B8F039A00A836CD /* ContentView.swift */,
+				8402A29C2B8F039A00A836CD /* SoundscapeTabView.swift */,
 				8402A29E2B8F039D00A836CD /* Assets.xcassets */,
 				8402A2A02B8F039D00A836CD /* Preview Content */,
 			);
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8402A29D2B8F039A00A836CD /* ContentView.swift in Sources */,
+				8402A29D2B8F039A00A836CD /* SoundscapeTabView.swift in Sources */,
 				8402A29B2B8F039A00A836CD /* SoundscapeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,18 +278,24 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.appstesting.Soundscape;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appstesting.soundscape;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -307,18 +313,24 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.appstesting.Soundscape;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appstesting.soundscape;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
