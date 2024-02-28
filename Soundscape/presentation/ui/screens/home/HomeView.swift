@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var textSearch: String = ""
+    
     var body: some View {
         NavigationView {
             ZStack {
+                LinearGradient(gradient: Gradient(colors: [.black, Color("brandPurple")]), startPoint: .bottomLeading, endPoint: .topTrailing)
+                    .ignoresSafeArea()
+                
                 VStack {
                     VStack {
                         Text("Hey, Guest!")
@@ -20,6 +25,22 @@ struct HomeView: View {
                     }
                     
                     ScrollView(.vertical, showsIndicators: false) {
+                        HStack {
+                            Image(systemName: "magnifyingglass")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 25, height: 25)
+                                .foregroundColor(.white)
+                                .padding(.leading, 10)
+                            
+                            TextField("Sarch song", text: $textSearch)
+                                .foregroundColor(.white)
+                        }
+                        .padding(8)
+                        .background(Color.gray)
+                        .cornerRadius(30)
+                        .padding(.horizontal, 20)
+                        
                         VStack(alignment: .leading) {
                             Text("For Your Daily Mood")
                                 .font(.custom("WixMadeforText-Regular", size: 20))
@@ -39,6 +60,11 @@ struct HomeView: View {
                                 }
                             }
                             .padding()
+                            
+                            Text("Top Playlists")
+                                .font(.custom("WixMadeforText-Regular", size: 16))
+                                .padding()
+                            
                         }
                     }
                 }

@@ -17,6 +17,7 @@ struct MoodSelectView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 80)
             Text(mood.name)
+                .font(.custom("WixMadeforText-Regular", size: 16))
         }
     }
 }
