@@ -18,6 +18,8 @@
 		8463B0172B8F3F2500EB81DF /* WixMadeforText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8463B0142B8F3F2500EB81DF /* WixMadeforText-Bold.ttf */; };
 		8463B0182B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8463B0152B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf */; };
 		8463B0192B8F3F2500EB81DF /* WixMadeforText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8463B0162B8F3F2500EB81DF /* WixMadeforText-Regular.ttf */; };
+		847F1B1F2B8F43B000EEE645 /* MoodSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847F1B1E2B8F43B000EEE645 /* MoodSelectView.swift */; };
+		847F1B222B8F459500EEE645 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847F1B212B8F459500EEE645 /* Mood.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		8463B0152B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WixMadeforText-SemiBold.ttf"; sourceTree = "<group>"; };
 		8463B0162B8F3F2500EB81DF /* WixMadeforText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WixMadeforText-Regular.ttf"; sourceTree = "<group>"; };
 		8463B01A2B8F3F3B00EB81DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		847F1B1E2B8F43B000EEE645 /* MoodSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSelectView.swift; sourceTree = "<group>"; };
+		847F1B212B8F459500EEE645 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +70,9 @@
 		8402A2992B8F039A00A836CD /* Soundscape */ = {
 			isa = PBXGroup;
 			children = (
-				8463B01A2B8F3F3B00EB81DF /* Info.plist */,
 				8402A2A82B8F238700A836CD /* presentation */,
 				8402A29E2B8F039D00A836CD /* Assets.xcassets */,
+				8463B01A2B8F3F3B00EB81DF /* Info.plist */,
 				8402A2A02B8F039D00A836CD /* Preview Content */,
 			);
 			path = Soundscape;
@@ -105,6 +109,8 @@
 		8402A2AA2B8F23B500A836CD /* home */ = {
 			isa = PBXGroup;
 			children = (
+				847F1B202B8F457A00EEE645 /* model */,
+				847F1B1D2B8F439900EEE645 /* views */,
 				8402A2AE2B8F242200A836CD /* HomeView.swift */,
 			);
 			path = home;
@@ -160,6 +166,22 @@
 				8463B0152B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf */,
 			);
 			path = font;
+			sourceTree = "<group>";
+		};
+		847F1B1D2B8F439900EEE645 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				847F1B1E2B8F43B000EEE645 /* MoodSelectView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		847F1B202B8F457A00EEE645 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				847F1B212B8F459500EEE645 /* Mood.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,7 +259,9 @@
 			files = (
 				8402A2AF2B8F242200A836CD /* HomeView.swift in Sources */,
 				8402A29D2B8F039A00A836CD /* SoundscapeTabView.swift in Sources */,
+				847F1B1F2B8F43B000EEE645 /* MoodSelectView.swift in Sources */,
 				8402A2B32B8F245000A836CD /* LikeView.swift in Sources */,
+				847F1B222B8F459500EEE645 /* Mood.swift in Sources */,
 				8402A2B52B8F246000A836CD /* SettingView.swift in Sources */,
 				8402A2B12B8F244700A836CD /* StoryView.swift in Sources */,
 				8402A29B2B8F039A00A836CD /* SoundscapeApp.swift in Sources */,
@@ -390,7 +414,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.appstesting.soundscape;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appstesting.Soundscape;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -426,7 +450,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.appstesting.soundscape;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appstesting.Soundscape;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

@@ -12,8 +12,30 @@ struct HomeView: View {
         NavigationView {
             ZStack {
                 VStack {
-                    Text("Hi hello")
-                        .font(.custom("WixMadeforText-Regular", size: 20))
+                    VStack {
+                        Text("Hey, Guest!")
+                            .font(.custom("WixMadeforText-Regular", size: 20))
+                        Text("Listen. Focus. Unwind.")
+                            .font(.custom("WixMadeforText-Bold", size: 30))
+                    }
+                    
+                    ScrollView(.vertical, showsIndicators: false) {
+                        VStack(alignment: .leading) {
+                            Text("For Your Daily Mood")
+                                .font(.custom("WixMadeforText-Regular", size: 20))
+                                .bold()
+                                .padding()
+                            
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHStack(spacing: 15) {
+                                    ForEach(MoodData.moods) { mood in
+                                        MoodSelectView(mood: mood)
+                                    }
+                                }
+                            }
+                            .padding()
+                        }
+                    }
                 }
             }
         }
