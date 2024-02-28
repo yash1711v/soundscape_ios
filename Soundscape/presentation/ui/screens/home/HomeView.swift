@@ -9,7 +9,14 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        Text("Home View")
+        NavigationView {
+            ZStack {
+                VStack {
+                    Text("Hi hello")
+                        .font(.custom("WixMadeforText-Regular", size: 20))
+                }
+            }
+        }
     }
 }
 

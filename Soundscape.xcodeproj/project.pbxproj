@@ -15,6 +15,9 @@
 		8402A2B12B8F244700A836CD /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402A2B02B8F244700A836CD /* StoryView.swift */; };
 		8402A2B32B8F245000A836CD /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402A2B22B8F245000A836CD /* LikeView.swift */; };
 		8402A2B52B8F246000A836CD /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402A2B42B8F246000A836CD /* SettingView.swift */; };
+		8463B0172B8F3F2500EB81DF /* WixMadeforText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8463B0142B8F3F2500EB81DF /* WixMadeforText-Bold.ttf */; };
+		8463B0182B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8463B0152B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf */; };
+		8463B0192B8F3F2500EB81DF /* WixMadeforText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8463B0162B8F3F2500EB81DF /* WixMadeforText-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,10 @@
 		8402A2B02B8F244700A836CD /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 		8402A2B22B8F245000A836CD /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
 		8402A2B42B8F246000A836CD /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		8463B0142B8F3F2500EB81DF /* WixMadeforText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WixMadeforText-Bold.ttf"; sourceTree = "<group>"; };
+		8463B0152B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WixMadeforText-SemiBold.ttf"; sourceTree = "<group>"; };
+		8463B0162B8F3F2500EB81DF /* WixMadeforText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WixMadeforText-Regular.ttf"; sourceTree = "<group>"; };
+		8463B01A2B8F3F3B00EB81DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +66,7 @@
 		8402A2992B8F039A00A836CD /* Soundscape */ = {
 			isa = PBXGroup;
 			children = (
+				8463B01A2B8F3F3B00EB81DF /* Info.plist */,
 				8402A2A82B8F238700A836CD /* presentation */,
 				8402A29E2B8F039D00A836CD /* Assets.xcassets */,
 				8402A2A02B8F039D00A836CD /* Preview Content */,
@@ -86,6 +94,7 @@
 		8402A2A92B8F239100A836CD /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				8463B0132B8F3EEF00EB81DF /* font */,
 				8463B0062B8F2A3800EB81DF /* screens */,
 				8463B0052B8F2A2F00EB81DF /* views */,
 				8402A29C2B8F039A00A836CD /* SoundscapeTabView.swift */,
@@ -141,6 +150,16 @@
 				8402A2AA2B8F23B500A836CD /* home */,
 			);
 			path = screens;
+			sourceTree = "<group>";
+		};
+		8463B0132B8F3EEF00EB81DF /* font */ = {
+			isa = PBXGroup;
+			children = (
+				8463B0142B8F3F2500EB81DF /* WixMadeforText-Bold.ttf */,
+				8463B0162B8F3F2500EB81DF /* WixMadeforText-Regular.ttf */,
+				8463B0152B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf */,
+			);
+			path = font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,7 +220,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8463B0172B8F3F2500EB81DF /* WixMadeforText-Bold.ttf in Resources */,
 				8402A2A22B8F039D00A836CD /* Preview Assets.xcassets in Resources */,
+				8463B0192B8F3F2500EB81DF /* WixMadeforText-Regular.ttf in Resources */,
+				8463B0182B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf in Resources */,
 				8402A29F2B8F039D00A836CD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,6 +377,7 @@
 				DEVELOPMENT_TEAM = JR75GG23WH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Soundscape/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -390,6 +413,7 @@
 				DEVELOPMENT_TEAM = JR75GG23WH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Soundscape/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
