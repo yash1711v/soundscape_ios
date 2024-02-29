@@ -20,6 +20,11 @@
 		8463B0192B8F3F2500EB81DF /* WixMadeforText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8463B0162B8F3F2500EB81DF /* WixMadeforText-Regular.ttf */; };
 		847F1B1F2B8F43B000EEE645 /* MoodSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847F1B1E2B8F43B000EEE645 /* MoodSelectView.swift */; };
 		847F1B222B8F459500EEE645 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847F1B212B8F459500EEE645 /* Mood.swift */; };
+		B28FE1622B906555009FB75D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28FE1612B906555009FB75D /* SearchBarView.swift */; };
+		B28FE1642B906719009FB75D /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28FE1632B906719009FB75D /* Playlist.swift */; };
+		B28FE1662B906DE5009FB75D /* PlaylistCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28FE1652B906DE5009FB75D /* PlaylistCardView.swift */; };
+		B28FE1682B907A5C009FB75D /* StorySoundCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28FE1672B907A5C009FB75D /* StorySoundCardView.swift */; };
+		B28FE16A2B907AE6009FB75D /* StorySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28FE1692B907AE6009FB75D /* StorySound.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +43,11 @@
 		8463B01A2B8F3F3B00EB81DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		847F1B1E2B8F43B000EEE645 /* MoodSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSelectView.swift; sourceTree = "<group>"; };
 		847F1B212B8F459500EEE645 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
+		B28FE1612B906555009FB75D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		B28FE1632B906719009FB75D /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		B28FE1652B906DE5009FB75D /* PlaylistCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCardView.swift; sourceTree = "<group>"; };
+		B28FE1672B907A5C009FB75D /* StorySoundCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySoundCardView.swift; sourceTree = "<group>"; };
+		B28FE1692B907AE6009FB75D /* StorySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySound.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +182,9 @@
 			isa = PBXGroup;
 			children = (
 				847F1B1E2B8F43B000EEE645 /* MoodSelectView.swift */,
+				B28FE1612B906555009FB75D /* SearchBarView.swift */,
+				B28FE1652B906DE5009FB75D /* PlaylistCardView.swift */,
+				B28FE1672B907A5C009FB75D /* StorySoundCardView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -180,6 +193,8 @@
 			isa = PBXGroup;
 			children = (
 				847F1B212B8F459500EEE645 /* Mood.swift */,
+				B28FE1632B906719009FB75D /* Playlist.swift */,
+				B28FE1692B907AE6009FB75D /* StorySound.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -258,13 +273,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				8402A2AF2B8F242200A836CD /* HomeView.swift in Sources */,
+				B28FE1622B906555009FB75D /* SearchBarView.swift in Sources */,
+				B28FE1682B907A5C009FB75D /* StorySoundCardView.swift in Sources */,
+				B28FE1662B906DE5009FB75D /* PlaylistCardView.swift in Sources */,
 				8402A29D2B8F039A00A836CD /* SoundscapeTabView.swift in Sources */,
 				847F1B1F2B8F43B000EEE645 /* MoodSelectView.swift in Sources */,
 				8402A2B32B8F245000A836CD /* LikeView.swift in Sources */,
+				B28FE16A2B907AE6009FB75D /* StorySound.swift in Sources */,
 				847F1B222B8F459500EEE645 /* Mood.swift in Sources */,
 				8402A2B52B8F246000A836CD /* SettingView.swift in Sources */,
 				8402A2B12B8F244700A836CD /* StoryView.swift in Sources */,
 				8402A29B2B8F039A00A836CD /* SoundscapeApp.swift in Sources */,
+				B28FE1642B906719009FB75D /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var textSearch: String = ""
+    let columns: [GridItem] = [GridItem(.flexible()),
+                               GridItem(.flexible())]
     
     var body: some View {
         NavigationView {
@@ -25,21 +27,8 @@ struct HomeView: View {
                     }
                     
                     ScrollView(.vertical, showsIndicators: false) {
-                        HStack {
-                            Image(systemName: "magnifyingglass")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 25, height: 25)
-                                .foregroundColor(.white)
-                                .padding(.leading, 10)
-                            
-                            TextField("Sarch song", text: $textSearch)
-                                .foregroundColor(.white)
-                        }
-                        .padding(8)
-                        .background(Color.gray)
-                        .cornerRadius(30)
-                        .padding(.horizontal, 20)
+                        
+                        SearchBarView()
                         
                         VStack(alignment: .leading) {
                             Text("For Your Daily Mood")
@@ -60,12 +49,33 @@ struct HomeView: View {
                                 }
                             }
                             .padding()
-                            
-                            Text("Top Playlists")
-                                .font(.custom("WixMadeforText-Regular", size: 16))
-                                .padding()
-                            
                         }
+                        
+                        VStack {
+                            HStack() {
+                                Text("Top Playlists")
+                                    .font(.custom("WixMadeforText-Regular", size: 16))
+                                    .padding()
+                                Spacer()
+                            }
+                            
+                            LazyVGrid(columns: columns) {
+                                ForEach(PlaylistData.playlists) { playlist in
+                                    PlaylistCardView(playlist: playlist)
+                                }
+                            }
+                        }
+                        
+                        Text("Explore Different Sounds")
+                        
+                        StorySoundCardView()
+                            .padding()
+                        
+                        StorySoundCardView()
+                            .padding()
+                        
+                        StorySoundCardView()
+                            .padding()
                     }
                 }
             }
