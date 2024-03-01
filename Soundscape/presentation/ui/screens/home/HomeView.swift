@@ -38,9 +38,7 @@ struct HomeView: View {
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack(spacing: 15) {
                                 ForEach(MoodData.moods) { mood in
-                                    Button {
-                                        print("hi")
-                                    } label: {
+                                    NavigationLink(destination: MusicListView()) {
                                         MoodSelectView(mood: mood)
                                             .foregroundColor(.white)
                                     }

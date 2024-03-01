@@ -16,18 +16,7 @@ struct PlaylistCardView: View {
                 .resizable()
                 .scaledToFit()
                 .padding(.top)
-                .padding(.horizontal)
-                .overlay(alignment: .center) {
-                    Button {
-                        print("hi")
-                    } label: {
-                        Image(systemName: "play.circle")
-                            .foregroundColor(.white)
-                    }
-                    .background(.gray)
-                    .cornerRadius(10)
-                }
-            
+                .padding(.horizontal)            
             
             Text("\(playlist.listenerCount, specifier: "%.1f")K Listeners")
                 .font(.custom("WixMadeforText-Regular", size: 12))
