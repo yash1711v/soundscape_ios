@@ -56,6 +56,7 @@ struct PlaylistCardView: View {
         .frame(width: 180)
         .background(.gray)
         .cornerRadius(10)
+        .shadow(radius: 10)
     }
 }
 

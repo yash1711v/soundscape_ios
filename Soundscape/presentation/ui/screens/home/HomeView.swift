@@ -21,9 +21,9 @@ struct HomeView: View {
                 VStack {
                     Group {
                         Text("Hey, Guest!")
-                            .font(.custom("WixMadeforText-Regular", size: 20))
+                            .font(.custom("WixMadeforText-Regular", size: 16))
                         Text("Listen. Focus. Unwind.")
-                            .font(.custom("WixMadeforText-Bold", size: 30))
+                            .font(.custom("WixMadeforText-Bold", size: 25))
                     }
                     
                     ScrollView(.vertical, showsIndicators: false) {
@@ -61,6 +61,41 @@ struct HomeView: View {
                         }
                         .padding(.horizontal)
                         
+                        HStack {
+                            Text("Sleep Stories For You")
+                                .font(.custom("WixMadeforText-Regular", size: 16))
+                            Spacer()
+                            Button {
+                                print("hi")
+                            } label: {
+                                Text("View More >")
+                                    .font(.custom("WixMadeforText-Regular", size: 16))
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        .padding()
+                        
+                        HStack {
+                            Button {
+                                print("hi")
+                            } label: {
+                                StoryCardView(title: "The Young Scout",
+                                              imageName: "the_young_scout",
+                                              songLength: "4:38 mins")
+                            }
+                            .foregroundColor(.white)
+                            
+                            Button {
+                                print("hi")
+                            } label: {
+                                StoryCardView(title: "The Starry Journey",
+                                              imageName: "the_starry_journey",
+                                              songLength: "4:09 mins")
+                            }
+                            .foregroundColor(.white)
+                        }
+                        .padding()
+                        
                         Text("Explore Different Sounds")
                             .font(.custom("WixMadeforText-Regular", size: 16))
                             .padding()
@@ -68,10 +103,16 @@ struct HomeView: View {
                         
                         LazyVStack {
                             ForEach(StorySoundData.sampleStoryList) { storySound in
-                                StorySoundCardView(storySound: storySound)
+                                Button {
+                                    print("hi")
+                                } label: {
+                                    StorySoundCardView(storySound: storySound)
+                                }
+                                .foregroundColor(.white)
                             }
                         }
                         .padding(.horizontal)
+                        .padding(.bottom)
                     }
                 }
             }
