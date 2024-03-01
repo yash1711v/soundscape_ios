@@ -11,17 +11,15 @@ struct StorySound: Hashable, Identifiable {
     let id = UUID()
     let name: String
     let imageName: String
+    let listenerCount: Double
 }
 
 struct StorySoundData {
-    static let sampleMood = Mood(name: "Romantic?", imageName: "ic_romantic")
+    static let sampleStorySound = StorySound(name: "Nature", imageName: "ic_nature", listenerCount: 2.5)
     
-    static let moods = [
-        Mood(name: "Romantic?", imageName: "ic_romantic"),
-        Mood(name: "Sad?", imageName: "ic_sad"),
-        Mood(name: "Anxious?", imageName: "ic_anxious"),
-        Mood(name: "Angry?", imageName: "ic_angry"),
-        Mood(name: "Distracted?", imageName: "ic_distracted"),
-        Mood(name: "Tired?", imageName: "ic_tired")
+    static let sampleStoryList = [
+        StorySound(name: "Nature", imageName: "ic_nature", listenerCount: 2.5),
+        StorySound(name: "ASMR", imageName: "ic_asmr", listenerCount: 2.5),
+        StorySound(name: "Instrumental", imageName: "ic_instrumental", listenerCount: 2.5)
     ]
 }

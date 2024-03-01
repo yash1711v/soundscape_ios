@@ -19,7 +19,7 @@ struct HomeView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    VStack {
+                    Group {
                         Text("Hey, Guest!")
                             .font(.custom("WixMadeforText-Regular", size: 20))
                         Text("Listen. Focus. Unwind.")
@@ -30,52 +30,48 @@ struct HomeView: View {
                         
                         SearchBarView()
                         
-                        VStack(alignment: .leading) {
-                            Text("For Your Daily Mood")
-                                .font(.custom("WixMadeforText-Regular", size: 20))
-                                .bold()
-                                .padding()
-                            
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                LazyHStack(spacing: 15) {
-                                    ForEach(MoodData.moods) { mood in
-                                        Button {
-                                            print("hi")
-                                        } label: {
-                                            MoodSelectView(mood: mood)
-                                                .foregroundColor(.white)
-                                        }
+                        Text("For Your Daily Mood")
+                            .font(.custom("WixMadeforText-Bold", size: 20))
+                            .padding()
+                            .font(.custom("WixMadeforText-Regular", size: 16))
+                        
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            LazyHStack(spacing: 15) {
+                                ForEach(MoodData.moods) { mood in
+                                    Button {
+                                        print("hi")
+                                    } label: {
+                                        MoodSelectView(mood: mood)
+                                            .foregroundColor(.white)
                                     }
                                 }
                             }
-                            .padding()
                         }
+                        .padding(.horizontal)
                         
-                        VStack {
-                            HStack() {
-                                Text("Top Playlists")
-                                    .font(.custom("WixMadeforText-Regular", size: 16))
-                                    .padding()
-                                Spacer()
-                            }
-                            
-                            LazyVGrid(columns: columns) {
-                                ForEach(PlaylistData.playlists) { playlist in
-                                    PlaylistCardView(playlist: playlist)
-                                }
+                        Text("Top Playlists")
+                            .font(.custom("WixMadeforText-Regular", size: 16))
+                            .padding()
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        LazyVGrid(columns: columns) {
+                            ForEach(PlaylistData.playlists) { playlist in
+                                PlaylistCardView(playlist: playlist)
                             }
                         }
+                        .padding(.horizontal)
                         
                         Text("Explore Different Sounds")
-                        
-                        StorySoundCardView()
+                            .font(.custom("WixMadeforText-Regular", size: 16))
                             .padding()
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         
-                        StorySoundCardView()
-                            .padding()
-                        
-                        StorySoundCardView()
-                            .padding()
+                        LazyVStack {
+                            ForEach(StorySoundData.sampleStoryList) { storySound in
+                                StorySoundCardView(storySound: storySound)
+                            }
+                        }
+                        .padding(.horizontal)
                     }
                 }
             }

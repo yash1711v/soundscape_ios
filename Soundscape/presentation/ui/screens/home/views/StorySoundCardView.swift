@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct StorySoundCardView: View {
+    var storySound: StorySound
+    
     var body: some View {
         HStack{
             VStack(alignment: .leading, spacing: 10) {
-                Text("Nature")
+                Text(storySound.name)
                     .font(.custom("WixMadeforText-Bold", size: 20))
-                Text("2.5K listeners")
+                Text("\(storySound.listenerCount, specifier: "%.1f")K listeners")
                     .font(.custom("WixMadeforText-Regular", size: 12))
             }
             .padding()
             Spacer()
-            Image("ic_nature")
+            Image(storySound.imageName)
                 .resizable()
                 .frame(width: 80,height: 80)
         }
@@ -28,5 +30,5 @@ struct StorySoundCardView: View {
 }
 
 #Preview {
-    StorySoundCardView()
+    StorySoundCardView(storySound: StorySoundData.sampleStorySound)
 }
