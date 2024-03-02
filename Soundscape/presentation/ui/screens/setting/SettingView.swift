@@ -54,7 +54,8 @@ struct SettingView: View {
                     
                     Text("Version")
                         .font(.wixMadeFont(.bold, fontSize: .body))
-                        .frame(height: 250, alignment: .bottom)
+                        .underline()
+                        .frame(height: 200, alignment: .bottom)
                     
                     Text("1.0.0")
                         .font(.wixMadeFont(.bold, fontSize: .body))
