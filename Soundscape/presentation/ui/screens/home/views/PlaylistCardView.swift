@@ -19,12 +19,12 @@ struct PlaylistCardView: View {
                 .padding(.horizontal)            
             
             Text("\(playlist.listenerCount, specifier: "%.1f")K Listeners")
-                .font(.custom("WixMadeforText-Regular", size: 12))
+                .font(.wixMadeFont(.regular, fontSize: .body))
                 .padding(.leading)
             
             HStack {
                 Text(playlist.name)
-                    .font(.custom("WixMadeforText-Bold", size: 20))
+                    .font(.wixMadeFont(.bold, fontSize: .subHeading))
                 
                 Spacer()
                 
@@ -38,12 +38,14 @@ struct PlaylistCardView: View {
             .padding(.horizontal)
             
             Text(playlist.description)
-                .font(.custom("WixMadeforText-Regular", size: 12))
+                .font(.wixMadeFont(.regular, fontSize: .body))
                 .padding(.leading)
                 .padding(.bottom)
         }
         .frame(width: 180)
-        .background(.gray)
+        .background(
+            BackgroundGradientView(topColor: Color("brandPurple"), bottomColor: .gray)
+        )
         .cornerRadius(10)
         .shadow(radius: 10)
     }

@@ -22,7 +22,9 @@ struct SearchBarView: View {
                 .foregroundColor(.white)
         }
         .padding(8)
-        .background(Color.gray)
+        .background(
+            BackgroundGradientView(topColor: Color("brandPurple"), bottomColor: .gray)
+        )
         .cornerRadius(30)
         .padding(.horizontal, 20)
     }

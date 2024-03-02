@@ -14,21 +14,17 @@ struct MusicListView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     Image("sleep")
                         .resizable()
-                        .scaledToFit()
-                        .frame(alignment: .top)
+                        .scaledToFill()
+                        .frame(height: 250, alignment: .top)
                     
-                    HStack(spacing: 100) {
+                    HStack(spacing: 150) {
                         Button {
                             print("hi")
                         } label: {
                             Label("Play All", systemImage: "play")
                                 .foregroundColor(.white)
                         }
-                        .background(
-                            RoundedRectangle(cornerRadius: 30)
-                                .stroke(Color.white, lineWidth: 1)
-                                .frame(width: 130, height: 40)
-                        )
+                        .modifier(OutlineButtonStyle())
                         
                         Button {
                             print("hi")
@@ -36,36 +32,21 @@ struct MusicListView: View {
                             Label("Shuffle", systemImage: "shuffle")
                                 .foregroundColor(.black)
                         }
-                        .background(
-                            RoundedRectangle(cornerRadius: 30)
-                                .frame(width: 130, height: 40)
-                        )
+                        .modifier(FilledButtonStyle())
                     }
                     .padding(.top)
+                    .padding(.bottom)
                     
-                    Button {
-                        print("hi")
-                    } label: {
-                        HStack {
-                            Text("Soothing")
-                            Spacer()
-                            Image(systemName: "heart.fill")
-                                .foregroundColor(.gray)
+                    LazyVStack {
+                        ForEach(MusicData.musicList) { music in
+                            MusicListItemView(music: music)
                         }
                     }
-                    .padding()
                     
-                    HStack {
-                        Text("Soothing")
-                        Spacer()
-                        Image(systemName: "heart.fill")
-                            .foregroundColor(.gray)
-                    }
-                    .padding()
                 }
-                
             }
             .navigationTitle("Sleep")
+            .ignoresSafeArea()
         }
     }
 }

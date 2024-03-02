@@ -15,15 +15,15 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [.black, Color("brandPurple")]), startPoint: .bottomLeading, endPoint: .topTrailing)
+                BackgroundGradientView(topColor: .black, bottomColor: Color("brandPurple"))
                     .ignoresSafeArea()
                 
                 VStack {
                     Group {
                         Text("Hey, Guest!")
-                            .font(.custom("WixMadeforText-Regular", size: 16))
+                            .font(.wixMadeFont(.regular, fontSize: .subTitle))
                         Text("Listen. Focus. Unwind.")
-                            .font(.custom("WixMadeforText-Bold", size: 25))
+                            .font(.wixMadeFont(.bold, fontSize: .heading))
                     }
                     
                     ScrollView(.vertical, showsIndicators: false) {
@@ -31,9 +31,9 @@ struct HomeView: View {
                         SearchBarView()
                         
                         Text("For Your Daily Mood")
-                            .font(.custom("WixMadeforText-Bold", size: 20))
+                            .font(.wixMadeFont(.regular, fontSize: .title))
                             .padding()
-                            .font(.custom("WixMadeforText-Regular", size: 16))
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack(spacing: 15) {
@@ -48,7 +48,7 @@ struct HomeView: View {
                         .padding(.horizontal)
                         
                         Text("Top Playlists")
-                            .font(.custom("WixMadeforText-Regular", size: 16))
+                            .font(.wixMadeFont(.regular, fontSize: .title))
                             .padding()
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
@@ -61,13 +61,13 @@ struct HomeView: View {
                         
                         HStack {
                             Text("Sleep Stories For You")
-                                .font(.custom("WixMadeforText-Regular", size: 16))
+                                .font(.wixMadeFont(.regular, fontSize: .title))
                             Spacer()
                             Button {
                                 print("hi")
                             } label: {
                                 Text("View More >")
-                                    .font(.custom("WixMadeforText-Regular", size: 16))
+                                    .font(.wixMadeFont(.regular, fontSize: .subTitle))
                                     .foregroundColor(.white)
                             }
                         }
@@ -92,13 +92,13 @@ struct HomeView: View {
                             }
                             .foregroundColor(.white)
                         }
-                        .padding()
+                        .padding(.horizontal)
                         
                         Text("Explore Different Sounds")
-                            .font(.custom("WixMadeforText-Regular", size: 16))
-                            .padding()
+                            .font(.wixMadeFont(.regular, fontSize: .title))
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        
+                            .padding()
+                            
                         LazyVStack {
                             ForEach(StorySoundData.sampleStoryList) { storySound in
                                 Button {

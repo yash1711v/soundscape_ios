@@ -17,17 +17,17 @@ struct StoryCardView: View {
             Spacer()
             VStack() {
                 Text(title)
-                    .font(.custom("WixMadeforText-Bold", size: 14))
+                    .font(.wixMadeFont(.bold, fontSize: .titleSmall))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 5)
                     .padding(.horizontal, 5)
                 
                 HStack {
                     Text("2K Listeners")
-                        .font(.custom("WixMadeforText-Regular", size: 12))
+                        .font(.wixMadeFont(.regular, fontSize: .body))
                         .frame(maxWidth: .infinity, alignment: .leading)
                     Text(songLength)
-                        .font(.custom("WixMadeforText-Regular", size: 12))
+                        .font(.wixMadeFont(.regular, fontSize: .body))
                 }
                 .padding(.horizontal, 5)
                 .padding(.bottom, 10)

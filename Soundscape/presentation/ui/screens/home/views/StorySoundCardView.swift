@@ -14,9 +14,10 @@ struct StorySoundCardView: View {
         HStack{
             VStack(alignment: .leading, spacing: 10) {
                 Text(storySound.name)
-                    .font(.custom("WixMadeforText-Bold", size: 20))
+                    .font(.wixMadeFont(.bold, fontSize: .subHeading))
                 Text("\(storySound.listenerCount, specifier: "%.1f")K listeners")
                     .font(.custom("WixMadeforText-Regular", size: 12))
+                    .font(.wixMadeFont(.regular, fontSize: .body))
             }
             .padding()
             Spacer()
@@ -24,7 +25,9 @@ struct StorySoundCardView: View {
                 .resizable()
                 .frame(width: 80,height: 80)
         }
-        .background(.gray)
+        .background(
+            BackgroundGradientView(topColor: Color("brandPurple"), bottomColor: .gray)
+        )
         .cornerRadius(10)
     }
 }
