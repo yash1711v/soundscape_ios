@@ -25,7 +25,7 @@ struct LikeView: View {
                                 .font(.wixMadeFont(.regular, fontSize: .title))
                                 .foregroundColor(.black)
                         }
-                        .modifier(FilledButtonStyle())
+                        .modifier(FilledSmallButtonStyle())
                         
                         Spacer()
                         
@@ -36,7 +36,7 @@ struct LikeView: View {
                                 .font(.wixMadeFont(.regular, fontSize: .title))
                                 .foregroundColor(.white)
                         }
-                        .modifier(OutlineButtonStyle())
+                        .modifier(OutlineSmallButtonStyle())
                     }
                     .padding(.horizontal, 40)
                     .padding()

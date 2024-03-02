@@ -24,7 +24,7 @@ struct MusicListView: View {
                             Label("Play All", systemImage: "play")
                                 .foregroundColor(.white)
                         }
-                        .modifier(OutlineButtonStyle())
+                        .modifier(OutlineSmallButtonStyle())
                         
                         Button {
                             print("hi")
@@ -32,7 +32,7 @@ struct MusicListView: View {
                             Label("Shuffle", systemImage: "shuffle")
                                 .foregroundColor(.black)
                         }
-                        .modifier(FilledButtonStyle())
+                        .modifier(FilledSmallButtonStyle())
                     }
                     .padding(.top)
                     .padding(.bottom)
