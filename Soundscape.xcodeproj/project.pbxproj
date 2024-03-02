@@ -127,8 +127,6 @@
 				8463B0132B8F3EEF00EB81DF /* font */,
 				8463B0062B8F2A3800EB81DF /* screens */,
 				8463B0052B8F2A2F00EB81DF /* views */,
-				8402A29C2B8F039A00A836CD /* SoundscapeTabView.swift */,
-				B2E38B262B936E65000AAB15 /* SplashView.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -183,6 +181,8 @@
 				8402A2AC2B8F23DC00A836CD /* like */,
 				8402A2AB2B8F23D100A836CD /* story */,
 				8402A2AA2B8F23B500A836CD /* home */,
+				8402A29C2B8F039A00A836CD /* SoundscapeTabView.swift */,
+				B2E38B262B936E65000AAB15 /* SplashView.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
