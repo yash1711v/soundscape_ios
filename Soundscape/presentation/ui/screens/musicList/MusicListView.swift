@@ -17,7 +17,7 @@ struct MusicListView: View {
                         .scaledToFill()
                         .frame(height: 250, alignment: .top)
                     
-                    HStack(spacing: 150) {
+                    HStack(spacing: 130) {
                         Button {
                             print("hi")
                         } label: {

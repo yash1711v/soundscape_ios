@@ -17,14 +17,13 @@ struct MusicListItemView: View {
             } label: {
                 HStack {
                     Text(music.name)
-                        .frame(width: .infinity, alignment: .leading)
+                        .font(.wixMadeFont(.regular, fontSize: .title))
                     Spacer()
                     Button {
                         print("hi")
                     } label: {
                         Image(systemName: "heart.fill")
                             .foregroundColor(.gray)
-                            .frame(width: .infinity, alignment: .trailing)
                     }
                 }
             }

@@ -13,7 +13,7 @@ struct OutlineButtonStyle: ViewModifier {
             .background(
                 RoundedRectangle(cornerRadius: 30)
                     .stroke(Color.white, lineWidth: 1)
-                    .frame(width: 130, height: 40)
+                    .frame(width: 150, height: 40)
             )
     }
 }
@@ -23,7 +23,7 @@ struct FilledButtonStyle: ViewModifier {
         content
             .background(
                 RoundedRectangle(cornerRadius: 30)
-                    .frame(width: 130, height: 40)
+                    .frame(width: 150, height: 40)
             )
     }
 }
