@@ -11,7 +11,7 @@ import SwiftUI
 struct SoundscapeApp: App {
     var body: some Scene {
         WindowGroup {
-            SoundscapeTabView()
+            SplashView()
         }
     }
 }
