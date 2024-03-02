@@ -11,7 +11,7 @@ struct SettingView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                VStack {
+                ScrollView(.vertical, showsIndicators: false) {
                     Text("Account")
                         .font(.wixMadeFont(.bold, fontSize: .heading))
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -52,14 +52,12 @@ struct SettingView: View {
                     }
                     .padding(.horizontal)
                     
-                    Spacer()
-                    
                     Text("Version")
                         .font(.wixMadeFont(.bold, fontSize: .body))
+                        .frame(height: 250, alignment: .bottom)
                     
                     Text("1.0.0")
                         .font(.wixMadeFont(.bold, fontSize: .body))
-                        .padding(.bottom)
                 }
             }
             .background(
@@ -78,7 +76,6 @@ struct SettingView: View {
                         .resizable()
                         .scaledToFill()
                         .frame(width: 400)
-                        
                 }
             )
             .background(
@@ -92,7 +89,6 @@ struct SettingView: View {
                         .frame(width: 500, height: 500)
                         .offset(x: 90, y: -30)
                         .blur(radius: 60)
-                        
                 }
             )
             .background(
@@ -106,7 +102,6 @@ struct SettingView: View {
                         .frame(width: 700, height: 700)
                         .offset(x: -90, y: 120)
                         .blur(radius: 30)
-                        
                 }
             )
             .navigationTitle("Settings")
