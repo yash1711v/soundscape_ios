@@ -44,8 +44,8 @@ struct OnboardingView: View {
                             if selectedIndex < 3 {
                                 withAnimation(.easeInOut) {
                                     selectedIndex += 1
-                                    selectedOnboarding = OnboardingData.onboardingList[selectedIndex]
                                 }
+                                selectedOnboarding = OnboardingData.onboardingList[selectedIndex]
                             }
                         } label: {
                             if selectedIndex == 3 {
