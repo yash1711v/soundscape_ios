@@ -12,15 +12,15 @@ struct OnboardingNextButtonView: View {
         ZStack {
             Capsule()
                 .stroke()
-                .frame(width: 140, height: 50)
+                .frame(width: 130, height: 50)
                 .foregroundColor(.white)
             
             Capsule()
-                .frame(width: 135, height: 45)
+                .frame(width: 125, height: 45)
                 .foregroundColor(.white)
             HStack {
                 Text("Get Started")
-                    .font(.wixMadeFont(.regular, fontSize: .title))
+                    .font(.wixMadeFont(.regular, fontSize: .subTitle))
                     .foregroundColor(.black)
                 
                 Image(systemName: "chevron.backward")

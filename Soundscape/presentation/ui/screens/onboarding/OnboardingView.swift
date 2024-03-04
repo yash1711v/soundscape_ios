@@ -24,6 +24,7 @@ struct OnboardingView: View {
                                 .tag(onboarding)
                         }
                     }
+                    .animation(.default)
                     .tabViewStyle(.page(indexDisplayMode: .never))
                     .onChange(of: selectedOnboarding) { newValue in
                         withAnimation(.easeInOut) {
