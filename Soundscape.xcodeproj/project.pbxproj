@@ -21,6 +21,10 @@
 		8465502B2B95A904008E6176 /* OnboardingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8465502A2B95A904008E6176 /* OnboardingListView.swift */; };
 		8465502D2B95A952008E6176 /* OnboardingArrowButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8465502C2B95A952008E6176 /* OnboardingArrowButtonView.swift */; };
 		8465502F2B95A987008E6176 /* OnboardingNextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8465502E2B95A987008E6176 /* OnboardingNextButtonView.swift */; };
+		846550322B95B7B2008E6176 /* LoginSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846550312B95B7B2008E6176 /* LoginSelectionView.swift */; };
+		846550382B95C27A008E6176 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846550372B95C27A008E6176 /* LoginView.swift */; };
+		8465503A2B95C284008E6176 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846550392B95C284008E6176 /* SignupView.swift */; };
+		8465503C2B95DB44008E6176 /* ForgoutPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8465503B2B95DB44008E6176 /* ForgoutPasswordView.swift */; };
 		847F1B1F2B8F43B000EEE645 /* MoodSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847F1B1E2B8F43B000EEE645 /* MoodSelectView.swift */; };
 		847F1B222B8F459500EEE645 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847F1B212B8F459500EEE645 /* Mood.swift */; };
 		B252D5B32B91BC9500F55DD8 /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252D5B22B91BC9500F55DD8 /* StoryCardView.swift */; };
@@ -57,6 +61,10 @@
 		8465502A2B95A904008E6176 /* OnboardingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingListView.swift; sourceTree = "<group>"; };
 		8465502C2B95A952008E6176 /* OnboardingArrowButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingArrowButtonView.swift; sourceTree = "<group>"; };
 		8465502E2B95A987008E6176 /* OnboardingNextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNextButtonView.swift; sourceTree = "<group>"; };
+		846550312B95B7B2008E6176 /* LoginSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSelectionView.swift; sourceTree = "<group>"; };
+		846550372B95C27A008E6176 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		846550392B95C284008E6176 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		8465503B2B95DB44008E6176 /* ForgoutPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgoutPasswordView.swift; sourceTree = "<group>"; };
 		847F1B1E2B8F43B000EEE645 /* MoodSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSelectView.swift; sourceTree = "<group>"; };
 		847F1B212B8F459500EEE645 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		B252D5B22B91BC9500F55DD8 /* StoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
@@ -186,6 +194,7 @@
 		8463B0062B8F2A3800EB81DF /* screens */ = {
 			isa = PBXGroup;
 			children = (
+				846550302B95B643008E6176 /* login */,
 				B2E38B282B937320000AAB15 /* onboarding */,
 				B252D5B42B92022500F55DD8 /* musicList */,
 				8402A2AD2B8F23F300A836CD /* setting */,
@@ -217,6 +226,17 @@
 				8465502E2B95A987008E6176 /* OnboardingNextButtonView.swift */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		846550302B95B643008E6176 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				846550312B95B7B2008E6176 /* LoginSelectionView.swift */,
+				846550372B95C27A008E6176 /* LoginView.swift */,
+				846550392B95C284008E6176 /* SignupView.swift */,
+				8465503B2B95DB44008E6176 /* ForgoutPasswordView.swift */,
+			);
+			path = login;
 			sourceTree = "<group>";
 		};
 		847F1B1D2B8F439900EEE645 /* views */ = {
@@ -361,6 +381,7 @@
 			files = (
 				8402A2AF2B8F242200A836CD /* HomeView.swift in Sources */,
 				B28FE1622B906555009FB75D /* SearchBarView.swift in Sources */,
+				8465503C2B95DB44008E6176 /* ForgoutPasswordView.swift in Sources */,
 				B28FE1682B907A5C009FB75D /* StorySoundCardView.swift in Sources */,
 				B28FE1662B906DE5009FB75D /* PlaylistCardView.swift in Sources */,
 				8402A29D2B8F039A00A836CD /* SoundscapeTabView.swift in Sources */,
@@ -381,10 +402,13 @@
 				B2E269022B93046B0034147F /* FontExtension.swift in Sources */,
 				8402A2B12B8F244700A836CD /* StoryView.swift in Sources */,
 				8402A29B2B8F039A00A836CD /* SoundscapeApp.swift in Sources */,
+				846550382B95C27A008E6176 /* LoginView.swift in Sources */,
 				B2E38B2C2B937567000AAB15 /* Onboarding.swift in Sources */,
 				B28FE1642B906719009FB75D /* Playlist.swift in Sources */,
 				B2E38B272B936E65000AAB15 /* SplashView.swift in Sources */,
 				B2E38B2A2B937489000AAB15 /* OnboardingView.swift in Sources */,
+				846550322B95B7B2008E6176 /* LoginSelectionView.swift in Sources */,
+				8465503A2B95C284008E6176 /* SignupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,12 +10,12 @@ import SwiftUI
 struct OnboardingView: View {
     @State var selectedOnboarding: Onboarding = OnboardingData.sampleOnboardingData
     @State var selectedIndex: Int = 0
-    @State var openTabView: Bool = false
+    @State var openLoginSelectView: Bool = false
     
     var body: some View {
         ZStack {
-            if openTabView {
-                SoundscapeTabView()
+            if openLoginSelectView {
+                LoginSelectionView()
             } else {
                 VStack {
                     TabView(selection: $selectedOnboarding) {
@@ -53,7 +53,7 @@ struct OnboardingView: View {
                                 OnboardingNextButtonView()
                                     .onTapGesture {
                                         withAnimation(.easeInOut) {
-                                            openTabView = true
+                                            openLoginSelectView = true
                                         }
                                     }
                             } else {
