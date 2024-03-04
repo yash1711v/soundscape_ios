@@ -119,6 +119,7 @@
 		8402A2A82B8F238700A836CD /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				8463B0132B8F3EEF00EB81DF /* font */,
 				8402A2A92B8F239100A836CD /* ui */,
 				8402A29A2B8F039A00A836CD /* SoundscapeApp.swift */,
 			);
@@ -128,7 +129,6 @@
 		8402A2A92B8F239100A836CD /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				8463B0132B8F3EEF00EB81DF /* font */,
 				8463B0062B8F2A3800EB81DF /* screens */,
 				8463B0052B8F2A2F00EB81DF /* views */,
 			);
