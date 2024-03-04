@@ -15,6 +15,7 @@ struct LoginView: View {
     var body: some View {
         if openTabView {
             SoundscapeTabView()
+                .navigationBarHidden(true)
         } else {
                 VStack {
                     Text("LOGIN")
@@ -118,6 +119,8 @@ struct LoginView: View {
                 }
                 .background(
                     Image("login_background")
+                        .resizable()
+                        .scaledToFill()
                         .ignoresSafeArea()
                 )
                 .navigationTitle("")

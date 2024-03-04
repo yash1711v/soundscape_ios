@@ -42,7 +42,8 @@ struct LoginSelectionView: View {
                             .resizable()
                             .scaledToFit()
                     }
-                    .padding()
+                    .padding(.vertical)
+                    .padding(.horizontal, 30)
                     
                     NavigationLink(destination: LoginView()) {
                         Image("login_button")
@@ -50,7 +51,7 @@ struct LoginSelectionView: View {
                             .scaledToFit()
                     }
                     .foregroundColor(.white)
-                    .padding(.horizontal)
+                    .padding(.horizontal, 30)
                     
                     Spacer()
                     

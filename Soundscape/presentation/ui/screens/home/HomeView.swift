@@ -15,9 +15,6 @@ struct HomeView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                BackgroundGradientView(topColor: .black, bottomColor: Color("brandPurple"))
-                    .ignoresSafeArea()
-                
                 VStack {
                     Group {
                         Text("Hey, Guest!")
@@ -114,6 +111,12 @@ struct HomeView: View {
                     }
                 }
             }
+            .background(
+                Image("home_background")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+            )
         }
     }
 }

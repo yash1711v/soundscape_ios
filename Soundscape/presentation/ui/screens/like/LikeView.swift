@@ -40,7 +40,7 @@ struct LikeView: View {
                     }
                     .padding(.horizontal, 40)
                     .padding()
-
+                    
                     LazyVStack {
                         ForEach(MusicData.musicList) { music in
                             MusicListItemView(music: music)
@@ -50,51 +50,11 @@ struct LikeView: View {
                 }
             }
             .background(
-                ZStack {
-                    Circle()
-                        .fill(
-                            .linearGradient(colors: [.darkBlue, .black],
-                                            startPoint: .topTrailing,
-                                            endPoint: .bottom)
-                        )
-                        .frame(width: 600, height: 600)
-                        .offset(x: -100, y: -520)
-                        .blur(radius: 30)
-                    
-                    Image("ic_top_line_shape")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 400)
-                        
-                }
-            )
-            .background(
-                ZStack {
-                    Circle()
-                        .fill(
-                            .linearGradient(colors: [.darkYellow, .black],
-                                            startPoint: .topTrailing,
-                                            endPoint: .bottomLeading)
-                        )
-                        .frame(width: 500, height: 500)
-                        .offset(x: 90, y: -30)
-                        .blur(radius: 100)
-                        
-                }
-            )
-            .background(
-                ZStack {
-                    Circle()
-                        .fill(
-                            .linearGradient(colors: [.darkBlue, .black],
-                                            startPoint: .topTrailing,
-                                            endPoint: .bottom)
-                        )
-                        .frame(width: 700, height: 700)
-                        .offset(x: -90, y: 120)
-                        .blur(radius: 30)
-                        
-                }
+                Image("like_background")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
+                
             )
             .navigationTitle("Liked Tunes")
         }
