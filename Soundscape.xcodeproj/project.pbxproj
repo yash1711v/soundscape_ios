@@ -18,6 +18,9 @@
 		8463B0172B8F3F2500EB81DF /* WixMadeforText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8463B0142B8F3F2500EB81DF /* WixMadeforText-Bold.ttf */; };
 		8463B0182B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8463B0152B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf */; };
 		8463B0192B8F3F2500EB81DF /* WixMadeforText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8463B0162B8F3F2500EB81DF /* WixMadeforText-Regular.ttf */; };
+		8465502B2B95A904008E6176 /* OnboardingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8465502A2B95A904008E6176 /* OnboardingListView.swift */; };
+		8465502D2B95A952008E6176 /* OnboardingArrowButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8465502C2B95A952008E6176 /* OnboardingArrowButtonView.swift */; };
+		8465502F2B95A987008E6176 /* OnboardingNextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8465502E2B95A987008E6176 /* OnboardingNextButtonView.swift */; };
 		847F1B1F2B8F43B000EEE645 /* MoodSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847F1B1E2B8F43B000EEE645 /* MoodSelectView.swift */; };
 		847F1B222B8F459500EEE645 /* Mood.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847F1B212B8F459500EEE645 /* Mood.swift */; };
 		B252D5B32B91BC9500F55DD8 /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252D5B22B91BC9500F55DD8 /* StoryCardView.swift */; };
@@ -51,6 +54,9 @@
 		8463B0152B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WixMadeforText-SemiBold.ttf"; sourceTree = "<group>"; };
 		8463B0162B8F3F2500EB81DF /* WixMadeforText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WixMadeforText-Regular.ttf"; sourceTree = "<group>"; };
 		8463B01A2B8F3F3B00EB81DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8465502A2B95A904008E6176 /* OnboardingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingListView.swift; sourceTree = "<group>"; };
+		8465502C2B95A952008E6176 /* OnboardingArrowButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingArrowButtonView.swift; sourceTree = "<group>"; };
+		8465502E2B95A987008E6176 /* OnboardingNextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNextButtonView.swift; sourceTree = "<group>"; };
 		847F1B1E2B8F43B000EEE645 /* MoodSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSelectView.swift; sourceTree = "<group>"; };
 		847F1B212B8F459500EEE645 /* Mood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mood.swift; sourceTree = "<group>"; };
 		B252D5B22B91BC9500F55DD8 /* StoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
@@ -203,6 +209,16 @@
 			path = font;
 			sourceTree = "<group>";
 		};
+		846550292B95A8DC008E6176 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				8465502A2B95A904008E6176 /* OnboardingListView.swift */,
+				8465502C2B95A952008E6176 /* OnboardingArrowButtonView.swift */,
+				8465502E2B95A987008E6176 /* OnboardingNextButtonView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		847F1B1D2B8F439900EEE645 /* views */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +271,7 @@
 		B2E38B282B937320000AAB15 /* onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				846550292B95A8DC008E6176 /* views */,
 				B2E38B2D2B93756C000AAB15 /* model */,
 				B2E38B292B937489000AAB15 /* OnboardingView.swift */,
 			);
@@ -347,11 +364,14 @@
 				B28FE1682B907A5C009FB75D /* StorySoundCardView.swift in Sources */,
 				B28FE1662B906DE5009FB75D /* PlaylistCardView.swift in Sources */,
 				8402A29D2B8F039A00A836CD /* SoundscapeTabView.swift in Sources */,
+				8465502B2B95A904008E6176 /* OnboardingListView.swift in Sources */,
+				8465502F2B95A987008E6176 /* OnboardingNextButtonView.swift in Sources */,
 				B252D5B62B92023C00F55DD8 /* MusicListView.swift in Sources */,
 				847F1B1F2B8F43B000EEE645 /* MoodSelectView.swift in Sources */,
 				B252D5B32B91BC9500F55DD8 /* StoryCardView.swift in Sources */,
 				B2E38B252B9310EB000AAB15 /* BackgroundGradientView.swift in Sources */,
 				B2E38B232B930D0B000AAB15 /* Music.swift in Sources */,
+				8465502D2B95A952008E6176 /* OnboardingArrowButtonView.swift in Sources */,
 				8402A2B32B8F245000A836CD /* LikeView.swift in Sources */,
 				B2E38B212B930CC3000AAB15 /* MusicListItemView.swift in Sources */,
 				B2729D132B92FDA300FD2B84 /* ButtonModifier.swift in Sources */,

@@ -13,7 +13,7 @@ struct SplashView: View {
     var body: some View {
         ZStack {
             if self.isActive {
-                SoundscapeTabView()
+                OnboardingView()
             } else {
                 VStack {
                     Image("splash_icon")
