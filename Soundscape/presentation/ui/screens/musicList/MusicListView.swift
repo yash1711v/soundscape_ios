@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MusicListView: View {
     var body: some View {
-        NavigationView {
             ZStack {
                 Color.backgroundGray
                 
@@ -55,10 +54,10 @@ struct MusicListView: View {
                         }
                     }
                 }
+                
             }
             .navigationTitle("Sleep")
             .ignoresSafeArea()
-        }
     }
 }
 
