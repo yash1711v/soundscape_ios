@@ -10,44 +10,166 @@ import SwiftUI
 struct StoryView: View {
     var body: some View {
         NavigationView {
-            ZStack {
-                ScrollView(.vertical, showsIndicators: false) {
-                    Text("Your Daily Zen")
-                        .font(.wixMadeFont(.bold, fontSize: .subHeading))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding()
-                    
-                    HStack {
-                        Button {
-                            print("hi")
-                        } label: {
-                            Label("Tunes", systemImage: "music.note")
-                                .font(.wixMadeFont(.regular, fontSize: .title))
-                                .foregroundColor(.black)
-                        }
-                        .modifier(FilledSmallButtonStyle())
-                        
-                        Spacer()
-                        
-                        Button {
-                            print("hi")
-                        } label: {
-                            Label("Stories", systemImage: "books.vertical")
-                                .font(.wixMadeFont(.regular, fontSize: .title))
-                                .foregroundColor(.white)
-                        }
-                        .modifier(OutlineSmallButtonStyle())
-                    }
-                    .padding(.horizontal, 40)
+            ScrollView(.vertical, showsIndicators: false) {
+                Text("Most Popular Stories")
+                    .font(.wixMadeFont(.regular, fontSize: .title))
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()
-                    
-                    LazyVStack {
-                        ForEach(MusicData.musicList) { music in
-                            MusicListItemView(music: music)
-                        }
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        MiniStoryCardView(title: "The Young Scout", imageName: "the_young_scout")
+                        MiniStoryCardView(title: "The Young Scout", imageName: "the_young_scout")
+                        MiniStoryCardView(title: "The Young Scout", imageName: "the_young_scout")
+                        MiniStoryCardView(title: "The Young Scout", imageName: "the_young_scout")
                     }
-                    Spacer()
+                    .padding(.horizontal)
                 }
+                
+                HStack {
+                    Text("Mystery Tales")
+                        .font(.wixMadeFont(.regular, fontSize: .title))
+                    Spacer()
+                    Button {
+                        print("hi")
+                    } label: {
+                        Text("View More >")
+                            .font(.wixMadeFont(.regular, fontSize: .subTitle))
+                            .foregroundColor(.white)
+                    }
+                }
+                .padding()
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                    }
+                    .padding(.horizontal)
+                }
+                
+                HStack {
+                    Text("Inspirtional Stories")
+                        .font(.wixMadeFont(.regular, fontSize: .title))
+                    Spacer()
+                    Button {
+                        print("hi")
+                    } label: {
+                        Text("View More >")
+                            .font(.wixMadeFont(.regular, fontSize: .subTitle))
+                            .foregroundColor(.white)
+                    }
+                }
+                .padding()
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                    }
+                    .padding(.horizontal)
+                }
+                
+                HStack {
+                    Text("Historical Journeys")
+                        .font(.wixMadeFont(.regular, fontSize: .title))
+                    Spacer()
+                    Button {
+                        print("hi")
+                    } label: {
+                        Text("View More >")
+                            .font(.wixMadeFont(.regular, fontSize: .subTitle))
+                            .foregroundColor(.white)
+                    }
+                }
+                .padding()
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                    }
+                    .padding(.horizontal)
+                }
+                
+                HStack {
+                    Text("Fantasy Realms")
+                        .font(.wixMadeFont(.regular, fontSize: .title))
+                    Spacer()
+                    Button {
+                        print("hi")
+                    } label: {
+                        Text("View More >")
+                            .font(.wixMadeFont(.regular, fontSize: .subTitle))
+                            .foregroundColor(.white)
+                    }
+                }
+                .padding()
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                    }
+                    .padding(.horizontal)
+                }
+                
+                HStack {
+                    Text("Adventure Stories")
+                        .font(.wixMadeFont(.regular, fontSize: .title))
+                    Spacer()
+                    Button {
+                        print("hi")
+                    } label: {
+                        Text("View More >")
+                            .font(.wixMadeFont(.regular, fontSize: .subTitle))
+                            .foregroundColor(.white)
+                    }
+                }
+                .padding()
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                    }
+                    .padding(.horizontal)
+                }
+                
+                HStack {
+                    Text("Action Stories")
+                        .font(.wixMadeFont(.regular, fontSize: .title))
+                    Spacer()
+                    Button {
+                        print("hi")
+                    } label: {
+                        Text("View More >")
+                            .font(.wixMadeFont(.regular, fontSize: .subTitle))
+                            .foregroundColor(.white)
+                    }
+                }
+                .padding()
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                    }
+                    .padding(.horizontal)
+                }
+                
             }
             .background(
                 Image("story_background")
@@ -56,7 +178,7 @@ struct StoryView: View {
                     .ignoresSafeArea()
                 
             )
-            .navigationTitle("Liked Tunes")
+            .navigationTitle("Story Time")
         }
     }
 }

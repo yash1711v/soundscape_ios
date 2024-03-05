@@ -11,11 +11,23 @@ struct MusicListView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                Color.backgroundGray
+                
                 ScrollView(.vertical, showsIndicators: false) {
                     Image("sleep")
                         .resizable()
                         .scaledToFill()
                         .frame(height: 250, alignment: .top)
+                        .background(
+                            ZStack {
+                                Rectangle()
+                                    .foregroundColor(.black)
+                                    .opacity(0.7)
+                                    .frame(width: .infinity, height: 60)
+                                    .blur(radius: 10)
+                                    .padding(.top, 190)
+                            }
+                        )
                     
                     HStack(spacing: 130) {
                         Button {
@@ -42,7 +54,6 @@ struct MusicListView: View {
                             MusicListItemView(music: music)
                         }
                     }
-                    
                 }
             }
             .navigationTitle("Sleep")

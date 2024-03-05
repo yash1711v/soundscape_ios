@@ -36,6 +36,9 @@
 		B28FE1662B906DE5009FB75D /* PlaylistCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28FE1652B906DE5009FB75D /* PlaylistCardView.swift */; };
 		B28FE1682B907A5C009FB75D /* StorySoundCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28FE1672B907A5C009FB75D /* StorySoundCardView.swift */; };
 		B28FE16A2B907AE6009FB75D /* StorySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28FE1692B907AE6009FB75D /* StorySound.swift */; };
+		B2D371C52B9700F20072048E /* MiniStoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D371C42B9700F20072048E /* MiniStoryCardView.swift */; };
+		B2D371C72B9703580072048E /* MiniStorySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D371C62B9703580072048E /* MiniStorySound.swift */; };
+		B2D371CA2B9705370072048E /* StoryCardEpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D371C92B9705370072048E /* StoryCardEpView.swift */; };
 		B2E269022B93046B0034147F /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E269012B93046B0034147F /* FontExtension.swift */; };
 		B2E38B212B930CC3000AAB15 /* MusicListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E38B202B930CC3000AAB15 /* MusicListItemView.swift */; };
 		B2E38B232B930D0B000AAB15 /* Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E38B222B930D0B000AAB15 /* Music.swift */; };
@@ -77,6 +80,9 @@
 		B28FE1652B906DE5009FB75D /* PlaylistCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCardView.swift; sourceTree = "<group>"; };
 		B28FE1672B907A5C009FB75D /* StorySoundCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySoundCardView.swift; sourceTree = "<group>"; };
 		B28FE1692B907AE6009FB75D /* StorySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySound.swift; sourceTree = "<group>"; };
+		B2D371C42B9700F20072048E /* MiniStoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniStoryCardView.swift; sourceTree = "<group>"; };
+		B2D371C62B9703580072048E /* MiniStorySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniStorySound.swift; sourceTree = "<group>"; };
+		B2D371C92B9705370072048E /* StoryCardEpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardEpView.swift; sourceTree = "<group>"; };
 		B2E269012B93046B0034147F /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		B2E38B202B930CC3000AAB15 /* MusicListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListItemView.swift; sourceTree = "<group>"; };
 		B2E38B222B930D0B000AAB15 /* Music.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Music.swift; sourceTree = "<group>"; };
@@ -164,6 +170,8 @@
 		8402A2AB2B8F23D100A836CD /* story */ = {
 			isa = PBXGroup;
 			children = (
+				B2D371C82B9703610072048E /* model */,
+				B2D371C32B97007A0072048E /* views */,
 				8402A2B02B8F244700A836CD /* StoryView.swift */,
 			);
 			path = story;
@@ -273,6 +281,23 @@
 				B252D5B52B92023C00F55DD8 /* MusicListView.swift */,
 			);
 			path = musicList;
+			sourceTree = "<group>";
+		};
+		B2D371C32B97007A0072048E /* views */ = {
+			isa = PBXGroup;
+			children = (
+				B2D371C42B9700F20072048E /* MiniStoryCardView.swift */,
+				B2D371C92B9705370072048E /* StoryCardEpView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		B2D371C82B9703610072048E /* model */ = {
+			isa = PBXGroup;
+			children = (
+				B2D371C62B9703580072048E /* MiniStorySound.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		B2E38B1E2B930C93000AAB15 /* model */ = {
@@ -385,7 +410,9 @@
 				8402A2AF2B8F242200A836CD /* HomeView.swift in Sources */,
 				B28FE1622B906555009FB75D /* SearchBarView.swift in Sources */,
 				8465503C2B95DB44008E6176 /* ForgoutPasswordView.swift in Sources */,
+				B2D371CA2B9705370072048E /* StoryCardEpView.swift in Sources */,
 				B28FE1682B907A5C009FB75D /* StorySoundCardView.swift in Sources */,
+				B2D371C72B9703580072048E /* MiniStorySound.swift in Sources */,
 				B28FE1662B906DE5009FB75D /* PlaylistCardView.swift in Sources */,
 				8402A29D2B8F039A00A836CD /* SoundscapeTabView.swift in Sources */,
 				8465502B2B95A904008E6176 /* OnboardingListView.swift in Sources */,
@@ -403,6 +430,7 @@
 				B28FE16A2B907AE6009FB75D /* StorySound.swift in Sources */,
 				847F1B222B8F459500EEE645 /* Mood.swift in Sources */,
 				8402A2B52B8F246000A836CD /* SettingView.swift in Sources */,
+				B2D371C52B9700F20072048E /* MiniStoryCardView.swift in Sources */,
 				B2E269022B93046B0034147F /* FontExtension.swift in Sources */,
 				8402A2B12B8F244700A836CD /* StoryView.swift in Sources */,
 				8402A29B2B8F039A00A836CD /* SoundscapeApp.swift in Sources */,

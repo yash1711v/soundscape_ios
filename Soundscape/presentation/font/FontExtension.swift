@@ -14,6 +14,8 @@ enum WixMadeforText: String {
 }
 
 enum FontSize: CGFloat {
+    case extraSmall = 8
+    case small = 10
     case body = 12
     case titleSmall = 14
     case subTitle = 16
