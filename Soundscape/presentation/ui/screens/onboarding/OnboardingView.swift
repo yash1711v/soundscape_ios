@@ -32,7 +32,7 @@ struct OnboardingView: View {
                         }
                     }
                     
-                    HStack(spacing: 10) {
+                    HStack(spacing: 5) {
                         ForEach(OnboardingData.onboardingList.indices, id: \.self) { index in
                             Capsule()
                                 .fill(index == selectedIndex ? Color.white : Color.gray.opacity(0.5))
