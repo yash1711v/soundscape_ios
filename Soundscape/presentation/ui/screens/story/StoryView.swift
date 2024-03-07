@@ -18,14 +18,7 @@ struct StoryView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        NavigationLink(destination: StoryDetailView()) {
-                            MiniStoryCardView(title: "The Young Scout", imageName: "the_young_scout")
-                        }
-                        .foregroundColor(.white)
                         
-                        MiniStoryCardView(title: "The Young Scout", imageName: "the_young_scout")
-                        MiniStoryCardView(title: "The Young Scout", imageName: "the_young_scout")
-                        MiniStoryCardView(title: "The Young Scout", imageName: "the_young_scout")
                     }
                     .padding(.horizontal)
                 }

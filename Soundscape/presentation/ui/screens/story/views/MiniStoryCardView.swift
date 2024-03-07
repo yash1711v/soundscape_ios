@@ -8,21 +8,20 @@
 import SwiftUI
 
 struct MiniStoryCardView: View {
-    var title: String
-    var imageName: String
+    var miniStorySound: MiniStorySound
     
     var body: some View {
         VStack() {
             Spacer()
             VStack() {
-                Text(title)
+                Text(miniStorySound.name)
                     .font(.wixMadeFont(.bold, fontSize: .small))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 5)
                     .padding(.horizontal, 5)
                 
                 HStack {
-                    Text("2K Listeners")
+                    Text("\(miniStorySound.listenerCount, specifier: "%2.f")K Listeners")
                         .font(.wixMadeFont(.regular, fontSize: .extraSmall))
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
@@ -39,7 +38,7 @@ struct MiniStoryCardView: View {
         }
         .frame(width: 110, height: 160)
         .background(
-            Image(imageName)
+            Image(miniStorySound.imageName)
                 .resizable()
                 .scaledToFill()
         )
@@ -48,5 +47,5 @@ struct MiniStoryCardView: View {
 }
 
 #Preview {
-    MiniStoryCardView(title: "The Young Scout", imageName: "the_young_scout")
+    MiniStoryCardView(miniStorySound: MiniStorySoundData.sampleStorySound)
 }
