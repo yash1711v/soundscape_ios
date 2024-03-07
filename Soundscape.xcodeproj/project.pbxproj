@@ -38,7 +38,7 @@
 		B28FE1682B907A5C009FB75D /* StorySoundCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28FE1672B907A5C009FB75D /* StorySoundCardView.swift */; };
 		B28FE16A2B907AE6009FB75D /* StorySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28FE1692B907AE6009FB75D /* StorySound.swift */; };
 		B2D371C52B9700F20072048E /* MiniStoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D371C42B9700F20072048E /* MiniStoryCardView.swift */; };
-		B2D371C72B9703580072048E /* MiniStorySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D371C62B9703580072048E /* MiniStorySound.swift */; };
+		B2D371C72B9703580072048E /* MainStorySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D371C62B9703580072048E /* MainStorySound.swift */; };
 		B2D371CA2B9705370072048E /* StoryCardEpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D371C92B9705370072048E /* StoryCardEpView.swift */; };
 		B2D371CC2B970EA20072048E /* StoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D371CB2B970EA20072048E /* StoryDetailView.swift */; };
 		B2D371CE2B97263C0072048E /* EpisodeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2D371CD2B97263C0072048E /* EpisodeListView.swift */; };
@@ -85,7 +85,7 @@
 		B28FE1672B907A5C009FB75D /* StorySoundCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySoundCardView.swift; sourceTree = "<group>"; };
 		B28FE1692B907AE6009FB75D /* StorySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySound.swift; sourceTree = "<group>"; };
 		B2D371C42B9700F20072048E /* MiniStoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniStoryCardView.swift; sourceTree = "<group>"; };
-		B2D371C62B9703580072048E /* MiniStorySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniStorySound.swift; sourceTree = "<group>"; };
+		B2D371C62B9703580072048E /* MainStorySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStorySound.swift; sourceTree = "<group>"; };
 		B2D371C92B9705370072048E /* StoryCardEpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardEpView.swift; sourceTree = "<group>"; };
 		B2D371CB2B970EA20072048E /* StoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailView.swift; sourceTree = "<group>"; };
 		B2D371CD2B97263C0072048E /* EpisodeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeListView.swift; sourceTree = "<group>"; };
@@ -303,7 +303,7 @@
 		B2D371C82B9703610072048E /* model */ = {
 			isa = PBXGroup;
 			children = (
-				B2D371C62B9703580072048E /* MiniStorySound.swift */,
+				B2D371C62B9703580072048E /* MainStorySound.swift */,
 				84A4B3522B99D8BC00A3AC68 /* Episode.swift */,
 			);
 			path = model;
@@ -421,7 +421,7 @@
 				8465503C2B95DB44008E6176 /* ForgoutPasswordView.swift in Sources */,
 				B2D371CA2B9705370072048E /* StoryCardEpView.swift in Sources */,
 				B28FE1682B907A5C009FB75D /* StorySoundCardView.swift in Sources */,
-				B2D371C72B9703580072048E /* MiniStorySound.swift in Sources */,
+				B2D371C72B9703580072048E /* MainStorySound.swift in Sources */,
 				B28FE1662B906DE5009FB75D /* PlaylistCardView.swift in Sources */,
 				8402A29D2B8F039A00A836CD /* SoundscapeTabView.swift in Sources */,
 				8465502B2B95A904008E6176 /* OnboardingListView.swift in Sources */,

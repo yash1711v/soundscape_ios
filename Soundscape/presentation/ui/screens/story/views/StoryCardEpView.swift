@@ -8,25 +8,23 @@
 import SwiftUI
 
 struct StoryCardEpView: View {
-    var title: String
-    var imageName: String
-    var episodeCount: Int
+    var mainStorySound: MainStorySound
     
     var body: some View {
         VStack() {
             Spacer()
             VStack() {
-                Text(title)
+                Text(mainStorySound.name)
                     .font(.wixMadeFont(.bold, fontSize: .titleSmall))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 5)
                     .padding(.horizontal, 5)
                 
                 HStack {
-                    Text("2K Listeners")
+                    Text("\(mainStorySound.listenerCount)K Listeners")
                         .font(.wixMadeFont(.regular, fontSize: .body))
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("\(episodeCount) episodes")
+                    Text("\(mainStorySound.listenerCount) episodes")
                         .font(.wixMadeFont(.regular, fontSize: .body))
                 }
                 .padding(.horizontal, 5)
@@ -42,7 +40,7 @@ struct StoryCardEpView: View {
         }
         .frame(width: 180, height: 180)
         .background(
-            Image(imageName)
+            Image(mainStorySound.imageName)
                 .resizable()
                 .scaledToFit()
         )
@@ -51,5 +49,5 @@ struct StoryCardEpView: View {
 }
 
 #Preview {
-    StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+    StoryCardEpView(mainStorySound: MainStorySoundData.sampleStorySound)
 }

@@ -39,10 +39,7 @@ struct StoryView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        
                     }
                     .padding(.horizontal)
                 }
@@ -63,10 +60,7 @@ struct StoryView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        
                     }
                     .padding(.horizontal)
                 }
@@ -87,10 +81,7 @@ struct StoryView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        
                     }
                     .padding(.horizontal)
                 }
@@ -111,10 +102,7 @@ struct StoryView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        
                     }
                     .padding(.horizontal)
                 }
@@ -135,10 +123,7 @@ struct StoryView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        
                     }
                     .padding(.horizontal)
                 }
@@ -159,10 +144,7 @@ struct StoryView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
-                        StoryCardEpView(title: "The Young Scout", imageName: "the_young_scout", episodeCount: 2)
+                        
                     }
                     .padding(.horizontal)
                 }

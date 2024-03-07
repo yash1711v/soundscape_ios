@@ -35,12 +35,6 @@ struct StoryDetailView: View {
                     .padding()
                     .padding(.top, 20)
                 
-                
-                EpisodeListView()
-                EpisodeListView()
-                EpisodeListView()
-                EpisodeListView()
-                
             }
         }
         .navigationTitle("The Young Scout")
