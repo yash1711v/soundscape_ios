@@ -158,7 +158,7 @@ struct MainStorySoundData {
                        ]),
         
         MainStorySound(name: "Myth And The Legends Around the World Part 2",
-                       imageName: "",
+                       imageName: "theGiantBehindTheWaterfallEP1",
                        listenerCount: 2,
                        description: "Discover stories about myths and legends from the past. Listen to engaging tales that unfold the wonders of ancient times and legendary stories from around the world. Explore these stories to learn about the fascinating myths and legends of days gone by.",
                        episodeList: [

@@ -12,7 +12,7 @@ struct EpisodeListView: View {
     
     var body: some View {
         HStack {
-            Image(episode.name)
+            Image(episode.imageName)
                 .resizable()
                 .frame(width: 100, height: 100)
                 .clipShape(Circle())

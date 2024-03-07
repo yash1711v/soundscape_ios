@@ -18,7 +18,9 @@ struct StoryView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        
+                        ForEach(MainStorySoundData.miniStoryList) { mainStorySound in
+                            MiniStoryCardView(mainStorySound: mainStorySound)
+                        }
                     }
                     .padding(.horizontal)
                 }
@@ -39,7 +41,9 @@ struct StoryView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        
+                        ForEach(MainStorySoundData.mysteryTalesList) { mainStorySound in
+                            StoryCardEpView(mainStorySound: mainStorySound)
+                        }
                     }
                     .padding(.horizontal)
                 }

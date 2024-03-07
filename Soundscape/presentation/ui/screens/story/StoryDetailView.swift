@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct StoryDetailView: View {
+    var mainStorySound: MainStorySound
+    
     var body: some View {
         ZStack {
             Color.backgroundGray
             
             ScrollView(.vertical, showsIndicators: false) {
-                Image("the_young_scout")
+                Image(mainStorySound.imageName)
                     .resizable()
                     .frame(height: 250)
                 
@@ -24,7 +26,7 @@ struct StoryDetailView: View {
                     .padding(.horizontal)
                     .padding(.bottom, 5)
                 
-                Text("A doctor, attending to a supposedly sick patient, unwittingly becomes entangled in a perilous situation. The routine medical visit unravels into a suspenseful narrative, revealing hidden dangers and unexpected twists.")
+                Text(mainStorySound.description)
                     .font(.wixMadeFont(.regular, fontSize: .title))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal)
@@ -35,6 +37,11 @@ struct StoryDetailView: View {
                     .padding()
                     .padding(.top, 20)
                 
+                LazyVStack(spacing: 15) {
+                    ForEach(mainStorySound.episodeList) { episode in
+                        EpisodeListView(episode: episode)
+                    }
+                }
             }
         }
         .navigationTitle("The Young Scout")
@@ -43,5 +50,5 @@ struct StoryDetailView: View {
 }
 
 #Preview {
-    StoryDetailView()
+    StoryDetailView(mainStorySound: MainStorySoundData.sampleStorySound)
 }
