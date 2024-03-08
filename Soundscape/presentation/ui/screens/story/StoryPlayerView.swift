@@ -12,6 +12,7 @@ struct StoryPlayerView: View {
     @State var songPlaying: Bool = false
     @State private var currentTime: Double = 0
     @State private var totalDuration: Double = 1000
+    @StateObject private var soundManager = SoundManager()
     
     var body: some View {
         ZStack {
@@ -79,6 +80,13 @@ struct StoryPlayerView: View {
                         .frame(width: 30, height: 30)
                         .onTapGesture {
                             songPlaying.toggle()
+                            soundManager.playSound(sound: episode.songPath)
+                            
+                            if songPlaying {
+                                soundManager.audioPlayer?.play()
+                            } else {
+                                soundManager.audioPlayer?.pause()
+                            }
                         }
                     
                     HStack(spacing: 0) {

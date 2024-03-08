@@ -33,6 +33,7 @@
 		849DBDAE2B9B04DC00A39807 /* StoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849DBDAD2B9B04DC00A39807 /* StoryListView.swift */; };
 		84A4B3532B99D8BC00A3AC68 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4B3522B99D8BC00A3AC68 /* Episode.swift */; };
 		84D57F342B9B1C2E0000D04B /* StoryPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D57F332B9B1C2E0000D04B /* StoryPlayerView.swift */; };
+		84D57F372B9B33E70000D04B /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D57F362B9B33E70000D04B /* SoundManager.swift */; };
 		B252D5B32B91BC9500F55DD8 /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252D5B22B91BC9500F55DD8 /* StoryCardView.swift */; };
 		B252D5B62B92023C00F55DD8 /* MusicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252D5B52B92023C00F55DD8 /* MusicListView.swift */; };
 		B2729D132B92FDA300FD2B84 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2729D122B92FDA300FD2B84 /* ButtonModifier.swift */; };
@@ -84,6 +85,7 @@
 		849DBDAD2B9B04DC00A39807 /* StoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListView.swift; sourceTree = "<group>"; };
 		84A4B3522B99D8BC00A3AC68 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		84D57F332B9B1C2E0000D04B /* StoryPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPlayerView.swift; sourceTree = "<group>"; };
+		84D57F362B9B33E70000D04B /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		B252D5B22B91BC9500F55DD8 /* StoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
 		B252D5B52B92023C00F55DD8 /* MusicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListView.swift; sourceTree = "<group>"; };
 		B2729D122B92FDA300FD2B84 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 		8402A2A92B8F239100A836CD /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				84D57F352B9B33D80000D04B /* manager */,
 				8463B0062B8F2A3800EB81DF /* screens */,
 				8463B0052B8F2A2F00EB81DF /* views */,
 			);
@@ -290,6 +293,14 @@
 				B28FE1692B907AE6009FB75D /* StorySound.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		84D57F352B9B33D80000D04B /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				84D57F362B9B33E70000D04B /* SoundManager.swift */,
+			);
+			path = manager;
 			sourceTree = "<group>";
 		};
 		B252D5B42B92022500F55DD8 /* musicList */ = {
@@ -433,6 +444,7 @@
 				8465503C2B95DB44008E6176 /* ForgoutPasswordView.swift in Sources */,
 				B2D371CA2B9705370072048E /* StoryCardEpView.swift in Sources */,
 				B28FE1682B907A5C009FB75D /* StorySoundCardView.swift in Sources */,
+				84D57F372B9B33E70000D04B /* SoundManager.swift in Sources */,
 				B2D371C72B9703580072048E /* MainStorySound.swift in Sources */,
 				849DBDAA2B9AF3EB00A39807 /* PlaylistListView.swift in Sources */,
 				B28FE1662B906DE5009FB75D /* homePlaylistCardView.swift in Sources */,
