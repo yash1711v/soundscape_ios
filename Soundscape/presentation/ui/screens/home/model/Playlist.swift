@@ -13,7 +13,7 @@ struct Playlist: Hashable, Identifiable {
     let imageName: String
     let description: [String]?
     let listenerCount: Double
-    let arrowToggle: Bool
+    var arrowToggle: Bool
 }
 
 struct PlaylistData {
@@ -88,7 +88,7 @@ struct PlaylistData {
                     "In the arms of night, find the serenity of sleep—a refuge where dreams mend and the spirit rejuvenates.",
                     "As the day surrenders to night, let sleep be your guide—a healing journey into the peaceful realm of dreams."],
                  listenerCount: 4.5,
-                 arrowToggle: false),
+                 arrowToggle: true),
         
         
         Playlist(name: "Meditation",
@@ -197,7 +197,7 @@ struct PlaylistData {
                     "Study is the weaver, intertwining threads of information into the tapestry of comprehension and academic triumph.",
                     "In the mosaic of learning, each study session is a vibrant tile, contributing to the masterpiece of wisdom."],
                  listenerCount: 4.5,
-                 arrowToggle: false),
+                 arrowToggle: true),
         
         Playlist(name: "Fitness",
                  imageName: "fitness",

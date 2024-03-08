@@ -9,6 +9,12 @@ import SwiftUI
 
 struct homePlaylistCardView: View {
     var playlist: Playlist
+    @State var showDescription: Bool
+    
+    init(playlist: Playlist) {
+        self.playlist = playlist
+        showDescription = self.playlist.arrowToggle
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -42,19 +48,22 @@ struct homePlaylistCardView: View {
                 
                 Spacer()
                 
-                Button {
-                    print("hi")
-                } label: {
-                    Image(systemName: "arrow.down.circle")
-                        .foregroundColor(.white)
+                if playlist.name != "Explore More" {
+                    Button {
+                        showDescription.toggle()
+                    } label: {
+                        Image(systemName: showDescription ? "arrow.up.circle" : "arrow.down.circle")
+                            .foregroundColor(.white)
+                    }
                 }
             }
             .padding(.horizontal)
             
-            Text(playlist.description!.first!)
+            Text(showDescription ? playlist.description!.first! : "")
                 .font(.wixMadeFont(.regular, fontSize: .body))
-                .padding(.leading)
-                .padding(.bottom)
+                .multilineTextAlignment(.leading)
+                .padding(.horizontal)
+                .padding(.bottom, showDescription ? 20 : 0)
         }
         .frame(width: 180)
         .background(

@@ -53,7 +53,7 @@ struct HomeView: View {
                             .padding()
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
-                        LazyVGrid(columns: columns) {
+                        LazyVGrid(columns: columns, spacing: 10) {
                             ForEach(PlaylistData.playlistHomeList) { playlist in
                                 NavigationLink(
                                     destination: playlist.name == "Explore More" ? AnyView(PlaylistListView()) : AnyView(MusicListView(
