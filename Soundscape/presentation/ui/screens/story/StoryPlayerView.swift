@@ -10,7 +10,7 @@ import SwiftUI
 struct StoryPlayerView: View {
     var episode: Episode
     @State var songPlaying: Bool = false
-    @State private var currentTime: Double = 7
+    @State private var currentTime: Double = 0
     @State private var totalDuration: Double = 1000
     
     var body: some View {
@@ -92,8 +92,8 @@ struct StoryPlayerView: View {
                     
                     Image(systemName: "arrow.circlepath")
                         .overlay(
-                        Text("1")
-                            .font(.wixMadeFont(.bold, fontSize: .body))
+                            Text("1")
+                                .font(.wixMadeFont(.bold, fontSize: .body))
                         )
                         .foregroundColor(.gray)
                 }
@@ -104,7 +104,7 @@ struct StoryPlayerView: View {
                 
                 Spacer()
             }
-
+            
         }
         .background(
             Image("player_background")
@@ -112,6 +112,7 @@ struct StoryPlayerView: View {
                 .scaledToFill()
                 .ignoresSafeArea()
         )
+        .navigationBarBackButtonHidden(true)
     }
 }
 
@@ -120,7 +121,7 @@ struct StoryPlayerView: View {
 }
 
 func timeString(time: Double) -> String {
-       let minutes = Int(time) / 60
-       let seconds = Int(time) % 60
-       return String(format: "%02d:%02d", minutes, seconds)
-   }
+    let minutes = Int(time) / 60
+    let seconds = Int(time) % 60
+    return String(format: "%02d:%02d", minutes, seconds)
+}
