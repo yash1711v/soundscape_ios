@@ -10,6 +10,8 @@ import SwiftUI
 struct StoryPlayerView: View {
     var episode: Episode
     @State var songPlaying: Bool = false
+    @State private var currentTime: Double = 7
+    @State private var totalDuration: Double = 1000
     
     var body: some View {
         ZStack {
@@ -39,7 +41,26 @@ struct StoryPlayerView: View {
                         .padding(10)
                 }
                 .padding()
-
+                
+                Slider(value: $currentTime, in: 0...totalDuration)
+                    .accentColor(.white)
+                    .padding(.horizontal)
+                
+                HStack {
+                    Text(timeString(time: currentTime))
+                        .font(.wixMadeFont(.regular, fontSize: .titleSmall))
+                        .foregroundColor(.gray)
+                    
+                    Spacer()
+                    
+                    Text(timeString(time: totalDuration))
+                        .font(.wixMadeFont(.regular, fontSize: .titleSmall))
+                        .foregroundColor(.gray)
+                    
+                }
+                .padding(.horizontal)
+                .padding(.bottom, 30)
+                
                 HStack (spacing: 50) {
                     Image(systemName: "shuffle")
                         .foregroundColor(.gray)
@@ -97,3 +118,9 @@ struct StoryPlayerView: View {
 #Preview {
     StoryPlayerView(episode: EpisodeData.sampleEpisodeData)
 }
+
+func timeString(time: Double) -> String {
+       let minutes = Int(time) / 60
+       let seconds = Int(time) % 60
+       return String(format: "%02d:%02d", minutes, seconds)
+   }
