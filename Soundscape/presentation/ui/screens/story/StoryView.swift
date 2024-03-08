@@ -33,9 +33,8 @@ struct StoryView: View {
                     Text("Mystery Tales")
                         .font(.wixMadeFont(.regular, fontSize: .title))
                     Spacer()
-                    Button {
-                        print("hi")
-                    } label: {
+                    NavigationLink(destination: StoryListView(title: "Mystery Tales", mainStorySound: MainStorySoundData.mysteryTalesList)) {
+                        
                         Text("View More >")
                             .font(.wixMadeFont(.regular, fontSize: .subTitle))
                             .foregroundColor(.white)
@@ -59,9 +58,7 @@ struct StoryView: View {
                     Text("Inspirtional Stories")
                         .font(.wixMadeFont(.regular, fontSize: .title))
                     Spacer()
-                    Button {
-                        print("hi")
-                    } label: {
+                    NavigationLink(destination: StoryListView(title: "Inspirtional Stories", mainStorySound: MainStorySoundData.inspirationalStoriesList)) {
                         Text("View More >")
                             .font(.wixMadeFont(.regular, fontSize: .subTitle))
                             .foregroundColor(.white)
@@ -85,9 +82,7 @@ struct StoryView: View {
                     Text("Historical Journeys")
                         .font(.wixMadeFont(.regular, fontSize: .title))
                     Spacer()
-                    Button {
-                        print("hi")
-                    } label: {
+                    NavigationLink(destination: StoryListView(title: "Historical Journeys", mainStorySound: MainStorySoundData.historicalJourneyList)) {
                         Text("View More >")
                             .font(.wixMadeFont(.regular, fontSize: .subTitle))
                             .foregroundColor(.white)
@@ -111,9 +106,7 @@ struct StoryView: View {
                     Text("Fantasy Realms")
                         .font(.wixMadeFont(.regular, fontSize: .title))
                     Spacer()
-                    Button {
-                        print("hi")
-                    } label: {
+                    NavigationLink(destination: StoryListView(title: "Fantasy Realms", mainStorySound: MainStorySoundData.fantasyRealmsList)) {
                         Text("View More >")
                             .font(.wixMadeFont(.regular, fontSize: .subTitle))
                             .foregroundColor(.white)
@@ -137,9 +130,7 @@ struct StoryView: View {
                     Text("Adventure Stories")
                         .font(.wixMadeFont(.regular, fontSize: .title))
                     Spacer()
-                    Button {
-                        print("hi")
-                    } label: {
+                    NavigationLink(destination: StoryListView(title: "Adventure Stories", mainStorySound: MainStorySoundData.adventureStoriesList)) {
                         Text("View More >")
                             .font(.wixMadeFont(.regular, fontSize: .subTitle))
                             .foregroundColor(.white)
@@ -163,9 +154,7 @@ struct StoryView: View {
                     Text("Action Stories")
                         .font(.wixMadeFont(.regular, fontSize: .title))
                     Spacer()
-                    Button {
-                        print("hi")
-                    } label: {
+                    NavigationLink(destination: StoryListView(title: "Action Stories", mainStorySound: MainStorySoundData.actionStoriesList)) {
                         Text("View More >")
                             .font(.wixMadeFont(.regular, fontSize: .subTitle))
                             .foregroundColor(.white)

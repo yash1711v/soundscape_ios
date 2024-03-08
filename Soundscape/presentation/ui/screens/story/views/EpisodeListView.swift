@@ -14,11 +14,12 @@ struct EpisodeListView: View {
         HStack {
             Image(episode.imageName)
                 .resizable()
-                .frame(width: 100, height: 100)
+                .frame(width: 80, height: 80)
                 .clipShape(Circle())
                 .opacity(0.5)
                 .overlay(
-                    Circle().stroke(Color.white, lineWidth: 1)
+                    Circle().stroke(Color.white, lineWidth: 0.5)
+                        .opacity(0.75)
                 )
                 .overlay {
                     ZStack {
@@ -34,10 +35,10 @@ struct EpisodeListView: View {
                         
                     }
                 }
-                .padding(.trailing, 50)
+                .padding(.trailing, 20)
             
             VStack(alignment: .leading) {
-                Text("Episode 1")
+                Text(episode.name)
                     .font(.wixMadeFont(.bold, fontSize: .subHeading))
                 Text("04:09 mins")
                     .font(.wixMadeFont(.regular, fontSize: .titleSmall))
