@@ -32,6 +32,7 @@
 		849DBDAC2B9AF68000A39807 /* PlaylistCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849DBDAB2B9AF68000A39807 /* PlaylistCardView.swift */; };
 		849DBDAE2B9B04DC00A39807 /* StoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849DBDAD2B9B04DC00A39807 /* StoryListView.swift */; };
 		84A4B3532B99D8BC00A3AC68 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4B3522B99D8BC00A3AC68 /* Episode.swift */; };
+		84D57F342B9B1C2E0000D04B /* StoryPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D57F332B9B1C2E0000D04B /* StoryPlayerView.swift */; };
 		B252D5B32B91BC9500F55DD8 /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252D5B22B91BC9500F55DD8 /* StoryCardView.swift */; };
 		B252D5B62B92023C00F55DD8 /* MusicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252D5B52B92023C00F55DD8 /* MusicListView.swift */; };
 		B2729D132B92FDA300FD2B84 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2729D122B92FDA300FD2B84 /* ButtonModifier.swift */; };
@@ -82,6 +83,7 @@
 		849DBDAB2B9AF68000A39807 /* PlaylistCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCardView.swift; sourceTree = "<group>"; };
 		849DBDAD2B9B04DC00A39807 /* StoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListView.swift; sourceTree = "<group>"; };
 		84A4B3522B99D8BC00A3AC68 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		84D57F332B9B1C2E0000D04B /* StoryPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPlayerView.swift; sourceTree = "<group>"; };
 		B252D5B22B91BC9500F55DD8 /* StoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
 		B252D5B52B92023C00F55DD8 /* MusicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListView.swift; sourceTree = "<group>"; };
 		B2729D122B92FDA300FD2B84 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				8402A2B02B8F244700A836CD /* StoryView.swift */,
 				B2D371CB2B970EA20072048E /* StoryDetailView.swift */,
 				849DBDAD2B9B04DC00A39807 /* StoryListView.swift */,
+				84D57F332B9B1C2E0000D04B /* StoryPlayerView.swift */,
 			);
 			path = story;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				8465502F2B95A987008E6176 /* OnboardingNextButtonView.swift in Sources */,
 				B252D5B62B92023C00F55DD8 /* MusicListView.swift in Sources */,
 				847F1B1F2B8F43B000EEE645 /* MoodSelectView.swift in Sources */,
+				84D57F342B9B1C2E0000D04B /* StoryPlayerView.swift in Sources */,
 				B252D5B32B91BC9500F55DD8 /* StoryCardView.swift in Sources */,
 				B2E38B252B9310EB000AAB15 /* BackgroundGradientView.swift in Sources */,
 				B2E38B232B930D0B000AAB15 /* Music.swift in Sources */,

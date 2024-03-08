@@ -39,7 +39,10 @@ struct StoryDetailView: View {
                 
                 LazyVStack(spacing: 15) {
                     ForEach(mainStorySound.episodeList) { episode in
-                        EpisodeListView(episode: episode)
+                        NavigationLink(destination: StoryPlayerView(episode: episode)) {
+                            EpisodeListView(episode: episode)
+                        }
+                        .foregroundColor(.white)
                     }
                 }
             }
