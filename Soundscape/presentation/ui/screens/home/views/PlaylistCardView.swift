@@ -12,11 +12,25 @@ struct PlaylistCardView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Image(playlist.imageName)
-                .resizable()
-                .scaledToFit()
-                .padding(.top)
-                .padding(.horizontal)            
+            if playlist.name == "Explore more" {
+                Image(playlist.imageName)
+                    .resizable()
+                    .frame(width: 150, height: 110)
+                    .padding(.top)
+                    .padding(.horizontal)
+            } else {
+                Image(playlist.imageName)
+                    .resizable()
+                    .frame(width: 150, height: 110)
+                    .padding(.top)
+                    .padding(.horizontal)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.white, lineWidth: 2)
+                            .frame(width: 150, height: 110)
+                            .padding(.top)
+                    )
+            }
             
             Text("\(playlist.listenerCount, specifier: "%.1f")K Listeners")
                 .font(.wixMadeFont(.regular, fontSize: .body))
@@ -37,7 +51,7 @@ struct PlaylistCardView: View {
             }
             .padding(.horizontal)
             
-            Text(playlist.description)
+            Text(playlist.description.first!)
                 .font(.wixMadeFont(.regular, fontSize: .body))
                 .padding(.leading)
                 .padding(.bottom)

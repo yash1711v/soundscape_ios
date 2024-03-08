@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct MusicListView: View {
+    var name: String
+    var imageName: String
+    
     var body: some View {
             ZStack {
                 Color.backgroundGray
                 
                 ScrollView(.vertical, showsIndicators: false) {
-                    Image("sleep")
+                    Image(imageName)
                         .resizable()
-                        .scaledToFill()
-                        .frame(height: 250, alignment: .top)
+                        .frame(height: 240)
                         .background(
                             ZStack {
                                 Rectangle()
@@ -56,11 +58,11 @@ struct MusicListView: View {
                 }
                 
             }
-            .navigationTitle("Sleep")
+            .navigationTitle(name)
             .ignoresSafeArea()
     }
 }
 
 #Preview {
-    MusicListView()
+    MusicListView(name: "Sleep", imageName: "sleep")
 }

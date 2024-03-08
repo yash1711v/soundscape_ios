@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @Binding var tabSelection: Int
     @State private var textSearch: String = ""
     let columns: [GridItem] = [GridItem(.flexible()),
                                GridItem(.flexible())]
@@ -35,7 +36,10 @@ struct HomeView: View {
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack(spacing: 15) {
                                 ForEach(MoodData.moods) { mood in
-                                    NavigationLink(destination: MusicListView()) {
+                                    NavigationLink(destination: 
+                                        MusicListView(
+                                            name: mood.name,
+                                            imageName: mood.imageName)) {
                                         MoodSelectView(mood: mood)
                                             .foregroundColor(.white)
                                     }
@@ -61,7 +65,7 @@ struct HomeView: View {
                                 .font(.wixMadeFont(.regular, fontSize: .title))
                             Spacer()
                             Button {
-                                print("hi")
+                                tabSelection = 2
                             } label: {
                                 Text("View More >")
                                     .font(.wixMadeFont(.regular, fontSize: .subTitle))
@@ -71,21 +75,13 @@ struct HomeView: View {
                         .padding()
                         
                         HStack {
-                            Button {
-                                print("hi")
-                            } label: {
-                                StoryCardView(title: "The Young Scout",
-                                              imageName: "the_young_scout",
-                                              songLength: "4:38 mins")
+                            NavigationLink(destination: StoryDetailView(mainStorySound: MainStorySoundData.sampleStorySound)) {
+                                StoryCardView(mainStorySound: MainStorySoundData.sampleStorySound)
                             }
                             .foregroundColor(.white)
                             
-                            Button {
-                                print("hi")
-                            } label: {
-                                StoryCardView(title: "The Starry Journey",
-                                              imageName: "the_starry_journey",
-                                              songLength: "4:09 mins")
+                            NavigationLink(destination: StoryDetailView(mainStorySound: MainStorySoundData.theStarrryJourneyItem)) {
+                                StoryCardView(mainStorySound: MainStorySoundData.theStarrryJourneyItem)
                             }
                             .foregroundColor(.white)
                         }
@@ -95,7 +91,7 @@ struct HomeView: View {
                             .font(.wixMadeFont(.regular, fontSize: .title))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding()
-                            
+                        
                         LazyVStack {
                             ForEach(StorySoundData.sampleStoryList) { storySound in
                                 Button {
@@ -122,5 +118,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeView(tabSelection: .constant(1))
 }

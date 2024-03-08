@@ -19,7 +19,11 @@ struct StoryView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(MainStorySoundData.miniStoryList) { mainStorySound in
-                            MiniStoryCardView(mainStorySound: mainStorySound)
+                            NavigationLink(destination: StoryDetailView(mainStorySound: mainStorySound)) {
+                                MiniStoryCardView(mainStorySound: mainStorySound)
+                            }
+                            .foregroundColor(.white)
+                            
                         }
                     }
                     .padding(.horizontal)
@@ -42,7 +46,10 @@ struct StoryView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(MainStorySoundData.mysteryTalesList) { mainStorySound in
-                            StoryCardEpView(mainStorySound: mainStorySound)
+                            NavigationLink(destination: StoryDetailView(mainStorySound: mainStorySound)) {
+                                StoryCardEpView(mainStorySound: mainStorySound)
+                            }
+                            .foregroundColor(.white)
                         }
                     }
                     .padding(.horizontal)
@@ -64,7 +71,12 @@ struct StoryView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        
+                        ForEach(MainStorySoundData.inspirationalStoriesList) { mainStorySound in
+                            NavigationLink(destination: StoryDetailView(mainStorySound: mainStorySound)) {
+                                StoryCardEpView(mainStorySound: mainStorySound)
+                            }
+                            .foregroundColor(.white)
+                        }
                     }
                     .padding(.horizontal)
                 }
@@ -85,7 +97,12 @@ struct StoryView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        
+                        ForEach(MainStorySoundData.historicalJourneyList) { mainStorySound in
+                            NavigationLink(destination: StoryDetailView(mainStorySound: mainStorySound)) {
+                                StoryCardEpView(mainStorySound: mainStorySound)
+                            }
+                            .foregroundColor(.white)
+                        }
                     }
                     .padding(.horizontal)
                 }
@@ -106,7 +123,12 @@ struct StoryView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        
+                        ForEach(MainStorySoundData.fantasyRealmsList) { mainStorySound in
+                            NavigationLink(destination: StoryDetailView(mainStorySound: mainStorySound)) {
+                                StoryCardEpView(mainStorySound: mainStorySound)
+                            }
+                            .foregroundColor(.white)
+                        }
                     }
                     .padding(.horizontal)
                 }
@@ -127,7 +149,12 @@ struct StoryView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        
+                        ForEach(MainStorySoundData.adventureStoriesList) { mainStorySound in
+                            NavigationLink(destination: StoryDetailView(mainStorySound: mainStorySound)) {
+                                StoryCardEpView(mainStorySound: mainStorySound)
+                            }
+                            .foregroundColor(.white)
+                        }
                     }
                     .padding(.horizontal)
                 }
@@ -148,7 +175,12 @@ struct StoryView: View {
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        
+                        ForEach(MainStorySoundData.actionStoriesList) { mainStorySound in
+                            NavigationLink(destination: StoryDetailView(mainStorySound: mainStorySound)) {
+                                StoryCardEpView(mainStorySound: mainStorySound)
+                            }
+                            .foregroundColor(.white)
+                        }
                     }
                     .padding(.horizontal)
                 }

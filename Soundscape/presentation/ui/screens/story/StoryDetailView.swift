@@ -44,7 +44,7 @@ struct StoryDetailView: View {
                 }
             }
         }
-        .navigationTitle("The Young Scout")
+        .navigationTitle(mainStorySound.name)
         .ignoresSafeArea()
     }
 }
