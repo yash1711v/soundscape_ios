@@ -36,13 +36,13 @@ struct HomeView: View {
                         ScrollView(.horizontal, showsIndicators: false) {
                             LazyHStack(spacing: 15) {
                                 ForEach(MoodData.moods) { mood in
-                                    NavigationLink(destination: 
-                                        MusicListView(
-                                            name: mood.name,
-                                            imageName: mood.imageName)) {
-                                        MoodSelectView(mood: mood)
-                                            .foregroundColor(.white)
-                                    }
+                                    NavigationLink(destination:
+                                                    MusicListView(
+                                                        name: mood.name,
+                                                        imageName: mood.imageName)) {
+                                                            MoodSelectView(mood: mood)
+                                                        }
+                                                        .foregroundColor(.white)
                                 }
                             }
                         }
@@ -54,8 +54,14 @@ struct HomeView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
                         LazyVGrid(columns: columns) {
-                            ForEach(PlaylistData.playlists) { playlist in
-                                PlaylistCardView(playlist: playlist)
+                            ForEach(PlaylistData.playlistHomeList) { playlist in
+                                NavigationLink(
+                                    destination: playlist.name == "Explore More" ? AnyView(PlaylistListView()) : AnyView(MusicListView(
+                                        name: playlist.name,
+                                        imageName: playlist.imageName)))
+                                { homePlaylistCardView(playlist: playlist) }
+                                .foregroundColor(.white)
+                                
                             }
                         }
                         .padding(.horizontal)
@@ -94,9 +100,7 @@ struct HomeView: View {
                         
                         LazyVStack {
                             ForEach(StorySoundData.sampleStoryList) { storySound in
-                                Button {
-                                    print("hi")
-                                } label: {
+                                NavigationLink(destination: MusicListView(name: storySound.name, imageName: storySound.imageName)) {
                                     StorySoundCardView(storySound: storySound)
                                 }
                                 .foregroundColor(.white)

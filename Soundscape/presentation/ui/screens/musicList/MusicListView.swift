@@ -16,47 +16,39 @@ struct MusicListView: View {
                 Color.backgroundGray
                 
                 ScrollView(.vertical, showsIndicators: false) {
-                    Image(imageName)
-                        .resizable()
-                        .frame(height: 240)
-                        .background(
-                            ZStack {
-                                Rectangle()
-                                    .foregroundColor(.black)
-                                    .opacity(0.7)
-                                    .frame(width: .infinity, height: 60)
-                                    .blur(radius: 10)
-                                    .padding(.top, 190)
+                    Section {
+                        HStack(spacing: 130) {
+                            Button {
+                                print("hi")
+                            } label: {
+                                Label("Play All", systemImage: "play")
+                                    .foregroundColor(.white)
                             }
-                        )
-                    
-                    HStack(spacing: 130) {
-                        Button {
-                            print("hi")
-                        } label: {
-                            Label("Play All", systemImage: "play")
-                                .foregroundColor(.white)
+                            .modifier(OutlineSmallButtonStyle())
+                            
+                            Button {
+                                print("hi")
+                            } label: {
+                                Label("Shuffle", systemImage: "shuffle")
+                                    .foregroundColor(.black)
+                            }
+                            .modifier(FilledSmallButtonStyle())
                         }
-                        .modifier(OutlineSmallButtonStyle())
+                        .padding(.top)
+                        .padding(.bottom)
                         
-                        Button {
-                            print("hi")
-                        } label: {
-                            Label("Shuffle", systemImage: "shuffle")
-                                .foregroundColor(.black)
+                        LazyVStack {
+                            ForEach(MusicData.musicList) { music in
+                                MusicListItemView(music: music)
+                            }
                         }
-                        .modifier(FilledSmallButtonStyle())
-                    }
-                    .padding(.top)
-                    .padding(.bottom)
-                    
-                    LazyVStack {
-                        ForEach(MusicData.musicList) { music in
-                            MusicListItemView(music: music)
-                        }
+                    } header: {
+                        Image(imageName)
+                            .resizable()
+                            .frame(height: 240)
+                            .opacity(0.5)
                     }
                 }
-                
             }
             .navigationTitle(name)
             .ignoresSafeArea()

@@ -2,7 +2,7 @@
 //  PlaylistCardView.swift
 //  Soundscape
 //
-//  Created by Aman Kumar on 29/02/24.
+//  Created by admin on 08/03/24.
 //
 
 import SwiftUI
@@ -11,57 +11,29 @@ struct PlaylistCardView: View {
     var playlist: Playlist
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            if playlist.name == "Explore more" {
-                Image(playlist.imageName)
-                    .resizable()
-                    .frame(width: 150, height: 110)
-                    .padding(.top)
-                    .padding(.horizontal)
-            } else {
-                Image(playlist.imageName)
-                    .resizable()
-                    .frame(width: 150, height: 110)
-                    .padding(.top)
-                    .padding(.horizontal)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 10)
-                            .stroke(Color.white, lineWidth: 2)
-                            .frame(width: 150, height: 110)
-                            .padding(.top)
-                    )
-            }
-            
-            Text("\(playlist.listenerCount, specifier: "%.1f")K Listeners")
-                .font(.wixMadeFont(.regular, fontSize: .body))
-                .padding(.leading)
-            
-            HStack {
+        VStack() {
+            Spacer()
+            VStack() {
                 Text(playlist.name)
-                    .font(.wixMadeFont(.bold, fontSize: .subHeading))
-                
-                Spacer()
-                
-                Button {
-                    print("hi")
-                } label: {
-                    Image(systemName: "arrow.down.circle")
-                        .foregroundColor(.white)
-                }
+                    .font(.wixMadeFont(.bold, fontSize: .titleSmall))
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
             }
-            .padding(.horizontal)
-            
-            Text(playlist.description.first!)
-                .font(.wixMadeFont(.regular, fontSize: .body))
-                .padding(.leading)
-                .padding(.bottom)
+            .frame(width: 180)
+            .background(
+                Rectangle()
+                    .foregroundColor(Color.black.opacity(0.6))
+                    .shadow(color: Color.black, radius: 1,y: 30)
+            )
         }
-        .frame(width: 180)
+        .frame(width: 180, height: 180)
         .background(
-            BackgroundGradientView(topColor: Color("brandPurple"), bottomColor: .gray)
+            Image(playlist.imageName)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
         )
         .cornerRadius(10)
-        .shadow(radius: 10)
     }
 }
 

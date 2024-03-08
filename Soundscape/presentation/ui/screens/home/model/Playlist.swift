@@ -11,7 +11,7 @@ struct Playlist: Hashable, Identifiable {
     let id = UUID()
     let name: String
     let imageName: String
-    let description: [String]
+    let description: [String]?
     let listenerCount: Double
     let arrowToggle: Bool
 }
@@ -53,7 +53,7 @@ struct PlaylistData {
                                          listenerCount: 4.5,
                                          arrowToggle: false)
     
-    static let playlists = [
+    static let playlistHomeList = [
         Playlist(name: "Sleep",
                  imageName: "sleep",
                  description: [
@@ -235,10 +235,120 @@ struct PlaylistData {
                  listenerCount: 4.5,
                  arrowToggle: false),
         
-        Playlist(name: "Explore more",
+        Playlist(name: "Explore More",
                  imageName: "ic_explore_more",
                  description: [""],
                  listenerCount: 4.5,
                  arrowToggle: false)
+    ]
+    
+    static let allPlaylistList = [
+        Playlist(name: "Deep Focus",
+                 imageName: "deepFocus",
+                 description: nil,
+                 listenerCount: 2,
+                 arrowToggle: false),
+        
+        Playlist(name: "My Desk",
+                 imageName: "myDesk",
+                 description: nil,
+                 listenerCount: 2,
+                 arrowToggle: false),
+        
+        Playlist(name: "Coding",
+                 imageName: "coding",
+                 description: nil,
+                 listenerCount: 2,
+                 arrowToggle: false),
+        
+        Playlist(name: "Housework",
+                 imageName: "housework",
+                 description: nil,
+                 listenerCount: 2,
+                 arrowToggle: false),
+        
+        Playlist(name: "Rolling Wheels",
+                 imageName: "rollingWheels",
+                 description: nil,
+                 listenerCount: 2,
+                 arrowToggle: false),
+        
+        Playlist(name: "Productivity",
+                 imageName: "productivity",
+                 description: nil,
+                 listenerCount: 2,
+                 arrowToggle: false),
+        
+        Playlist(name: "At Office",
+                 imageName: "atOffice",
+                 description: nil,
+                 listenerCount: 2,
+                 arrowToggle: false),
+        
+        Playlist(name: "Metro Commute",
+                 imageName: "metroCommute",
+                 description: nil,
+                 listenerCount: 2,
+                 arrowToggle: false),
+        
+        Playlist(name: "Monday Morning Blues",
+                 imageName: "mondayMorningBlues",
+                 description: nil,
+                 listenerCount: 2,
+                 arrowToggle: false),
+        
+        Playlist(name: "Morning Coffee",
+                 imageName: "morningCoffee",
+                 description: nil,
+                 listenerCount: 2,
+                 arrowToggle: false),
+        
+        Playlist(name: "Laundry",
+                 imageName: "laundry",
+                 description: nil,
+                 listenerCount: 2,
+                 arrowToggle: false),
+        
+        Playlist(name: "Thinking",
+                 imageName: "thinking",
+                 description: nil,
+                 listenerCount: 2,
+                 arrowToggle: false),
+        
+        Playlist(name: "Busy Work",
+                 imageName: "busyWork",
+                 description: nil,
+                 listenerCount: 2,
+                 arrowToggle: false),
+        
+        Playlist(name: "Sleep",
+                 imageName: "sleep",
+                 description: nil,
+                 listenerCount: 2,
+                 arrowToggle: false),
+        
+        Playlist(name: "Meditate",
+                 imageName: "meditate",
+                 description: nil,
+                 listenerCount: 2,
+                 arrowToggle: false),
+        
+        Playlist(name: "Motivation",
+                 imageName: "motivation",
+                 description: nil,
+                 listenerCount: 2,
+                 arrowToggle: false),
+        
+        Playlist(name: "Study",
+                 imageName: "study",
+                 description: nil,
+                 listenerCount: 2,
+                 arrowToggle: false),
+        
+        Playlist(name: "Fitness",
+                 imageName: "fitness",
+                 description: nil,
+                 listenerCount: 2,
+                 arrowToggle: false),
     ]
 }
