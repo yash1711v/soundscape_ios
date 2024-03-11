@@ -58,7 +58,7 @@ struct BottomMusicPlayerView: View {
         .background(
             VStack(spacing: 0) {
                 BlurView()
-                Divider()
+                
             }
         )
         .cornerRadius(10, corners: [.topLeft, .topRight])

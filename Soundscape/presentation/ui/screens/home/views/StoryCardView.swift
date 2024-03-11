@@ -22,10 +22,10 @@ struct StoryCardView: View {
                 
                 HStack {
                     Text("\(mainStorySound.listenerCount)K Listeners")
-                        .font(.wixMadeFont(.regular, fontSize: .body))
+                        .font(.wixMadeFont(.regular, fontSize: .small))
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("04.23 mins")
-                        .font(.wixMadeFont(.regular, fontSize: .body))
+                    Text("04:23 mins")
+                        .font(.wixMadeFont(.regular, fontSize: .small))
                 }
                 .padding(.horizontal, 5)
                 .padding(.bottom, 10)

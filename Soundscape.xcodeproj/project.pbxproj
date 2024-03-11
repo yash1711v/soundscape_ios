@@ -19,6 +19,8 @@
 		842020912B9ED2900034B065 /* BottomMusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842020902B9ED2900034B065 /* BottomMusicPlayerView.swift */; };
 		842020932B9EDD4C0034B065 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842020922B9EDD4C0034B065 /* BlurView.swift */; };
 		842020952B9EE1810034B065 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842020942B9EE1810034B065 /* RoundedCorner.swift */; };
+		842020982B9EE7750034B065 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842020972B9EE7750034B065 /* Color.swift */; };
+		8420209A2B9EF3BD0034B065 /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842020992B9EF3BD0034B065 /* MarqueeText.swift */; };
 		8463B0172B8F3F2500EB81DF /* WixMadeforText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8463B0142B8F3F2500EB81DF /* WixMadeforText-Bold.ttf */; };
 		8463B0182B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8463B0152B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf */; };
 		8463B0192B8F3F2500EB81DF /* WixMadeforText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8463B0162B8F3F2500EB81DF /* WixMadeforText-Regular.ttf */; };
@@ -74,6 +76,8 @@
 		842020902B9ED2900034B065 /* BottomMusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMusicPlayerView.swift; sourceTree = "<group>"; };
 		842020922B9EDD4C0034B065 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		842020942B9EE1810034B065 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		842020972B9EE7750034B065 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		842020992B9EF3BD0034B065 /* MarqueeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeText.swift; sourceTree = "<group>"; };
 		8463B0142B8F3F2500EB81DF /* WixMadeforText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WixMadeforText-Bold.ttf"; sourceTree = "<group>"; };
 		8463B0152B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WixMadeforText-SemiBold.ttf"; sourceTree = "<group>"; };
 		8463B0162B8F3F2500EB81DF /* WixMadeforText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WixMadeforText-Regular.ttf"; sourceTree = "<group>"; };
@@ -175,6 +179,7 @@
 		8402A2A92B8F239100A836CD /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				842020962B9EE7690034B065 /* extension */,
 				84D57F352B9B33D80000D04B /* manager */,
 				8463B0062B8F2A3800EB81DF /* screens */,
 				8463B0052B8F2A2F00EB81DF /* views */,
@@ -222,6 +227,14 @@
 			path = setting;
 			sourceTree = "<group>";
 		};
+		842020962B9EE7690034B065 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				842020972B9EE7750034B065 /* Color.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
 		8463B0052B8F2A2F00EB81DF /* views */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +242,7 @@
 				8420208E2B9ECD4A0034B065 /* StaggeredGrid.swift */,
 				842020922B9EDD4C0034B065 /* BlurView.swift */,
 				842020942B9EE1810034B065 /* RoundedCorner.swift */,
+				842020992B9EF3BD0034B065 /* MarqueeText.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -452,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8402A2AF2B8F242200A836CD /* HomeView.swift in Sources */,
+				8420209A2B9EF3BD0034B065 /* MarqueeText.swift in Sources */,
 				B28FE1622B906555009FB75D /* SearchBarView.swift in Sources */,
 				8465503C2B95DB44008E6176 /* ForgoutPasswordView.swift in Sources */,
 				B2D371CA2B9705370072048E /* StoryCardEpView.swift in Sources */,
@@ -468,6 +483,7 @@
 				B252D5B62B92023C00F55DD8 /* MusicListView.swift in Sources */,
 				847F1B1F2B8F43B000EEE645 /* MoodSelectView.swift in Sources */,
 				84D57F342B9B1C2E0000D04B /* StoryPlayerView.swift in Sources */,
+				842020982B9EE7750034B065 /* Color.swift in Sources */,
 				B252D5B32B91BC9500F55DD8 /* StoryCardView.swift in Sources */,
 				B2E38B252B9310EB000AAB15 /* BackgroundGradientView.swift in Sources */,
 				B2E38B232B930D0B000AAB15 /* Music.swift in Sources */,

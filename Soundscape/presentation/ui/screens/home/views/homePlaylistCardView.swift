@@ -67,7 +67,11 @@ struct homePlaylistCardView: View {
         }
         .frame(width: 180)
         .background(
-            BackgroundGradientView(topColor: Color("brandPurple"), bottomColor: .gray)
+            LinearGradient(gradient: Gradient(
+                colors: [Color(hex: 0xB3B5D5).opacity(0.49),
+                         Color(hex: 0xB9A0D9).opacity(0.46)]),
+                           startPoint: .top,
+                           endPoint: .bottom)
         )
         .cornerRadius(10)
         .shadow(radius: 10)

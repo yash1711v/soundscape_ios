@@ -16,7 +16,6 @@ struct StorySoundCardView: View {
                 Text(storySound.name)
                     .font(.wixMadeFont(.bold, fontSize: .subHeading))
                 Text("\(storySound.listenerCount, specifier: "%.1f")K listeners")
-                    .font(.custom("WixMadeforText-Regular", size: 12))
                     .font(.wixMadeFont(.regular, fontSize: .body))
             }
             .padding()
@@ -26,7 +25,11 @@ struct StorySoundCardView: View {
                 .frame(width: 80,height: 80)
         }
         .background(
-            BackgroundGradientView(topColor: Color("brandPurple"), bottomColor: .gray)
+            LinearGradient(gradient: Gradient(
+                colors: [Color(hex: 0xB3B5D5).opacity(0.49),
+                         Color(hex: 0xB9A0D9).opacity(0.46)]),
+                           startPoint: .top,
+                           endPoint: .bottom)
         )
         .cornerRadius(10)
     }

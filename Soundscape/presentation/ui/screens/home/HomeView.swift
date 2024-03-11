@@ -48,7 +48,8 @@ struct HomeView: View {
                         
                         Text("Top Playlists")
                             .font(.wixMadeFont(.regular, fontSize: .title))
-                            .padding()
+                            .padding(.top)
+                            .padding(.horizontal)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
                         StaggeredGrid(list: PlaylistData.playlistHomeList, columns: 2, content: { playlist in
@@ -74,7 +75,8 @@ struct HomeView: View {
                                     .foregroundColor(.white)
                             }
                         }
-                        .padding()
+                        .padding(.bottom)
+                        .padding(.horizontal)
                         
                         HStack {
                             NavigationLink(destination: StoryDetailView(mainStorySound: MainStorySoundData.sampleStorySound)) {
