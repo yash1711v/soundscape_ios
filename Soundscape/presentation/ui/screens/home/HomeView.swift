@@ -35,12 +35,12 @@ struct HomeView: View {
                             LazyHStack(spacing: 15) {
                                 ForEach(MoodData.moods) { mood in
                                     NavigationLink(destination:
-                                                    MusicListView(
-                                                        name: mood.name,
-                                                        imageName: mood.imageName)) {
-                                                            MoodSelectView(mood: mood)
-                                                        }
-                                                        .foregroundColor(.white)
+                                        MusicListView(
+                                            name: mood.name,
+                                            imageName: mood.imageName)) {
+                                        MoodSelectView(mood: mood)
+                                    }
+                                    .foregroundColor(.white)
                                 }
                             }
                         }
@@ -115,6 +115,7 @@ struct HomeView: View {
                     .scaledToFill()
                     .ignoresSafeArea()
             )
+            .padding(.bottom, 60)
         }
     }
 }

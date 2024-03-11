@@ -27,7 +27,9 @@ struct homePlaylistCardView: View {
             } else {
                 Image(playlist.imageName)
                     .resizable()
+                    .scaledToFill()
                     .frame(width: 150, height: 110)
+                    .cornerRadius(10)
                     .padding(.top)
                     .padding(.horizontal)
                     .overlay(

@@ -182,6 +182,7 @@ struct StoryView: View {
                     .ignoresSafeArea()
                 
             )
+            .padding(.bottom, 70)
             .navigationTitle("Story Time")
         }
     }

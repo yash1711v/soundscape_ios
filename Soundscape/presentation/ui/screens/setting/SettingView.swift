@@ -61,6 +61,7 @@ struct SettingView: View {
                         .font(.wixMadeFont(.bold, fontSize: .body))
                 }
             }
+            .padding(.bottom, 60)
             .background(
                 Image("setting_background")
                     .resizable()

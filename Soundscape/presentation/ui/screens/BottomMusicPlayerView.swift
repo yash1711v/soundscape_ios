@@ -17,6 +17,8 @@ struct BottomMusicPlayerView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 30, height: 30)
+                    .cornerRadius(5)
+                    .shadow(radius: 10)
                     .padding(.vertical)
                     .padding(.leading)
                 

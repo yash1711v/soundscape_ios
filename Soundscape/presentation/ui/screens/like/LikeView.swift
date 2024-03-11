@@ -49,6 +49,7 @@ struct LikeView: View {
                     Spacer()
                 }
             }
+            .padding(.bottom, 60)
             .background(
                 Image("like_background")
                     .resizable()

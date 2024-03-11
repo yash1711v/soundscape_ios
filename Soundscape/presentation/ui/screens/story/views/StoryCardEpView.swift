@@ -30,7 +30,7 @@ struct StoryCardEpView: View {
                 .padding(.horizontal, 5)
                 .padding(.bottom, 10)
             }
-            .frame(width: 180)
+            .frame(width: 200)
             .background(
                 Rectangle()
                     .foregroundColor(Color.black.opacity(0.6))
@@ -38,11 +38,12 @@ struct StoryCardEpView: View {
             )
             
         }
-        .frame(width: 180, height: 180)
+        .frame(width: 200, height: 180)
         .background(
             Image(mainStorySound.imageName)
                 .resizable()
-                .scaledToFit()
+                .scaledToFill()
+                .frame(width: 200, height: 180)
         )
         .cornerRadius(10)
     }

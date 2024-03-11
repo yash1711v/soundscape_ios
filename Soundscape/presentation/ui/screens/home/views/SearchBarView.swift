@@ -24,6 +24,7 @@ struct SearchBarView: View {
                 .foregroundColor(.white)
                 .overlay {
                     MarqueeText(text: "Search For Sound Effects, Playlist, Song Name. ", font: .systemFont(ofSize: 15))
+                        .foregroundColor(.gray)
                 }
         }
         .padding(8)
