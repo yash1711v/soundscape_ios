@@ -105,7 +105,7 @@ struct HomeView: View {
                             }
                         }
                         .padding(.horizontal)
-                        .padding(.bottom)
+                        .padding(.bottom, 70)
                     }
                 }
             }
@@ -115,7 +115,6 @@ struct HomeView: View {
                     .scaledToFill()
                     .ignoresSafeArea()
             )
-            .padding(.bottom, 60)
         }
     }
 }

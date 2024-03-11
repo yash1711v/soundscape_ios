@@ -46,10 +46,9 @@ struct LikeView: View {
                             MusicListItemView(music: music)
                         }
                     }
-                    Spacer()
+                    .padding(.bottom, 70)
                 }
             }
-            .padding(.bottom, 60)
             .background(
                 Image("like_background")
                     .resizable()

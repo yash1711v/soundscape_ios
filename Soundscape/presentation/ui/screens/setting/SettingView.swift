@@ -59,9 +59,9 @@ struct SettingView: View {
                     
                     Text("1.0.0")
                         .font(.wixMadeFont(.bold, fontSize: .body))
+                        .padding(.bottom, 70)
                 }
             }
-            .padding(.bottom, 60)
             .background(
                 Image("setting_background")
                     .resizable()

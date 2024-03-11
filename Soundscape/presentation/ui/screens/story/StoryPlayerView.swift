@@ -117,7 +117,6 @@ struct StoryPlayerView: View {
         .background(
             Image("player_background")
                 .resizable()
-                .scaledToFill()
                 .ignoresSafeArea()
         )
         .navigationBarBackButtonHidden(true)

@@ -173,6 +173,7 @@ struct StoryView: View {
                     }
                     .padding(.horizontal)
                 }
+                .padding(.bottom, 80)
                 
             }
             .background(
@@ -182,7 +183,6 @@ struct StoryView: View {
                     .ignoresSafeArea()
                 
             )
-            .padding(.bottom, 70)
             .navigationTitle("Story Time")
         }
     }
