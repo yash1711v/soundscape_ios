@@ -16,6 +16,9 @@
 		8402A2B32B8F245000A836CD /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402A2B22B8F245000A836CD /* LikeView.swift */; };
 		8402A2B52B8F246000A836CD /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402A2B42B8F246000A836CD /* SettingView.swift */; };
 		8420208F2B9ECD4A0034B065 /* StaggeredGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420208E2B9ECD4A0034B065 /* StaggeredGrid.swift */; };
+		842020912B9ED2900034B065 /* BottomMusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842020902B9ED2900034B065 /* BottomMusicPlayerView.swift */; };
+		842020932B9EDD4C0034B065 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842020922B9EDD4C0034B065 /* BlurView.swift */; };
+		842020952B9EE1810034B065 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842020942B9EE1810034B065 /* RoundedCorner.swift */; };
 		8463B0172B8F3F2500EB81DF /* WixMadeforText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8463B0142B8F3F2500EB81DF /* WixMadeforText-Bold.ttf */; };
 		8463B0182B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8463B0152B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf */; };
 		8463B0192B8F3F2500EB81DF /* WixMadeforText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8463B0162B8F3F2500EB81DF /* WixMadeforText-Regular.ttf */; };
@@ -68,6 +71,9 @@
 		8402A2B22B8F245000A836CD /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
 		8402A2B42B8F246000A836CD /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		8420208E2B9ECD4A0034B065 /* StaggeredGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaggeredGrid.swift; sourceTree = "<group>"; };
+		842020902B9ED2900034B065 /* BottomMusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomMusicPlayerView.swift; sourceTree = "<group>"; };
+		842020922B9EDD4C0034B065 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		842020942B9EE1810034B065 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		8463B0142B8F3F2500EB81DF /* WixMadeforText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WixMadeforText-Bold.ttf"; sourceTree = "<group>"; };
 		8463B0152B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WixMadeforText-SemiBold.ttf"; sourceTree = "<group>"; };
 		8463B0162B8F3F2500EB81DF /* WixMadeforText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WixMadeforText-Regular.ttf"; sourceTree = "<group>"; };
@@ -221,6 +227,8 @@
 			children = (
 				B2729D122B92FDA300FD2B84 /* ButtonModifier.swift */,
 				8420208E2B9ECD4A0034B065 /* StaggeredGrid.swift */,
+				842020922B9EDD4C0034B065 /* BlurView.swift */,
+				842020942B9EE1810034B065 /* RoundedCorner.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -237,6 +245,7 @@
 				8402A2AA2B8F23B500A836CD /* home */,
 				8402A29C2B8F039A00A836CD /* SoundscapeTabView.swift */,
 				B2E38B262B936E65000AAB15 /* SplashView.swift */,
+				842020902B9ED2900034B065 /* BottomMusicPlayerView.swift */,
 			);
 			path = screens;
 			sourceTree = "<group>";
@@ -466,13 +475,16 @@
 				8402A2B32B8F245000A836CD /* LikeView.swift in Sources */,
 				B2E38B212B930CC3000AAB15 /* MusicListItemView.swift in Sources */,
 				8465503E2B95EE64008E6176 /* NicknameView.swift in Sources */,
+				842020912B9ED2900034B065 /* BottomMusicPlayerView.swift in Sources */,
 				B2729D132B92FDA300FD2B84 /* ButtonModifier.swift in Sources */,
 				849DBDAE2B9B04DC00A39807 /* StoryListView.swift in Sources */,
 				B28FE16A2B907AE6009FB75D /* StorySound.swift in Sources */,
 				847F1B222B8F459500EEE645 /* Mood.swift in Sources */,
 				8402A2B52B8F246000A836CD /* SettingView.swift in Sources */,
+				842020952B9EE1810034B065 /* RoundedCorner.swift in Sources */,
 				B2D371C52B9700F20072048E /* MiniStoryCardView.swift in Sources */,
 				B2E269022B93046B0034147F /* FontExtension.swift in Sources */,
+				842020932B9EDD4C0034B065 /* BlurView.swift in Sources */,
 				8402A2B12B8F244700A836CD /* StoryView.swift in Sources */,
 				8402A29B2B8F039A00A836CD /* SoundscapeApp.swift in Sources */,
 				846550382B95C27A008E6176 /* LoginView.swift in Sources */,
