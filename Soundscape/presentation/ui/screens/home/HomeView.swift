@@ -10,8 +10,6 @@ import SwiftUI
 struct HomeView: View {
     @Binding var tabSelection: Int
     @State private var textSearch: String = ""
-    let columns: [GridItem] = [GridItem(.flexible()),
-                               GridItem(.flexible())]
     
     var body: some View {
         NavigationView {
@@ -53,17 +51,15 @@ struct HomeView: View {
                             .padding()
                             .frame(maxWidth: .infinity, alignment: .leading)
                         
-                        LazyVGrid(columns: columns, spacing: 10) {
-                            ForEach(PlaylistData.playlistHomeList) { playlist in
-                                NavigationLink(
-                                    destination: playlist.name == "Explore More" ? AnyView(PlaylistListView()) : AnyView(MusicListView(
-                                        name: playlist.name,
-                                        imageName: playlist.imageName)))
-                                { homePlaylistCardView(playlist: playlist) }
-                                .foregroundColor(.white)
-                                
-                            }
-                        }
+                        StaggeredGrid(list: PlaylistData.playlistHomeList, columns: 2, content: { playlist in
+                            NavigationLink(
+                                destination: playlist.name == "Explore More" ? AnyView(PlaylistListView()) : AnyView(MusicListView(
+                                    name: playlist.name,
+                                    imageName: playlist.imageName)))
+                            { homePlaylistCardView(playlist: playlist) }
+                            .foregroundColor(.white)
+                            
+                        })
                         .padding(.horizontal)
                         
                         HStack {

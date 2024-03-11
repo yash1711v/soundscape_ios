@@ -15,6 +15,7 @@
 		8402A2B12B8F244700A836CD /* StoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402A2B02B8F244700A836CD /* StoryView.swift */; };
 		8402A2B32B8F245000A836CD /* LikeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402A2B22B8F245000A836CD /* LikeView.swift */; };
 		8402A2B52B8F246000A836CD /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8402A2B42B8F246000A836CD /* SettingView.swift */; };
+		8420208F2B9ECD4A0034B065 /* StaggeredGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8420208E2B9ECD4A0034B065 /* StaggeredGrid.swift */; };
 		8463B0172B8F3F2500EB81DF /* WixMadeforText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8463B0142B8F3F2500EB81DF /* WixMadeforText-Bold.ttf */; };
 		8463B0182B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8463B0152B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf */; };
 		8463B0192B8F3F2500EB81DF /* WixMadeforText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8463B0162B8F3F2500EB81DF /* WixMadeforText-Regular.ttf */; };
@@ -66,6 +67,7 @@
 		8402A2B02B8F244700A836CD /* StoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryView.swift; sourceTree = "<group>"; };
 		8402A2B22B8F245000A836CD /* LikeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeView.swift; sourceTree = "<group>"; };
 		8402A2B42B8F246000A836CD /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		8420208E2B9ECD4A0034B065 /* StaggeredGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaggeredGrid.swift; sourceTree = "<group>"; };
 		8463B0142B8F3F2500EB81DF /* WixMadeforText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WixMadeforText-Bold.ttf"; sourceTree = "<group>"; };
 		8463B0152B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WixMadeforText-SemiBold.ttf"; sourceTree = "<group>"; };
 		8463B0162B8F3F2500EB81DF /* WixMadeforText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "WixMadeforText-Regular.ttf"; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				B2729D122B92FDA300FD2B84 /* ButtonModifier.swift */,
+				8420208E2B9ECD4A0034B065 /* StaggeredGrid.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				8402A29D2B8F039A00A836CD /* SoundscapeTabView.swift in Sources */,
 				8465502B2B95A904008E6176 /* OnboardingListView.swift in Sources */,
 				84A4B3532B99D8BC00A3AC68 /* Episode.swift in Sources */,
+				8420208F2B9ECD4A0034B065 /* StaggeredGrid.swift in Sources */,
 				8465502F2B95A987008E6176 /* OnboardingNextButtonView.swift in Sources */,
 				B252D5B62B92023C00F55DD8 /* MusicListView.swift in Sources */,
 				847F1B1F2B8F43B000EEE645 /* MoodSelectView.swift in Sources */,
