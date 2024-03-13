@@ -15,8 +15,6 @@ struct MusicListView: View {
     
     var body: some View {
             ZStack {
-                Color.backgroundGray
-                
                 ScrollView(.vertical, showsIndicators: false) {
                     Section {
                         HStack(spacing: 130) {
@@ -54,6 +52,12 @@ struct MusicListView: View {
                                     }
                             }
                         }
+                        .task {
+                            viewModel.getSongSection(songSection: name)
+                        }
+                        if viewModel.isLoading {
+                            LoadingView()
+                        }
                     } header: {
                         Image(imageName)
                             .resizable()
@@ -63,8 +67,10 @@ struct MusicListView: View {
                 }
                 .padding(.bottom, 70)
             }
-            .task {
-                viewModel.getSongSection(songSection: name)
+            .alert(item: $viewModel.alertItem) { alertItem in
+                Alert(title: alertItem.title,
+                      message: alertItem.message,
+                      dismissButton: alertItem.dismissButton)
             }
             .navigationTitle(name)
             .ignoresSafeArea()
@@ -73,11 +79,4 @@ struct MusicListView: View {
 
 #Preview {
     MusicListView(name: "Sleep", imageName: "sleep")
-}
-
-
-func audio(audioFetch: Resource<Any>) -> [AudioFetch] {
-    switch audioFetch {
-    case .error(<#T##String#>, <#T##T?#>)
-    }
 }

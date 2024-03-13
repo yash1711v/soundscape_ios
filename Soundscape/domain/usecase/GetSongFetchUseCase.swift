@@ -16,7 +16,7 @@ final class GetSongFetchUseCase {
         self.songRepository = songRepository
     }
     
-    func execute(songSection: String) async -> Resource<[AudioFetch]> {
-        await songRepository.getSongSection(songSection: songSection)
+    func execute(songSection: String) async throws -> [AudioFetch] {
+        return try await songRepository.getSongSection(songSection: songSection)
     }
 }

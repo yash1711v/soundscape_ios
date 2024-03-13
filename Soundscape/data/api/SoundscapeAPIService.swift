@@ -17,14 +17,18 @@ final class SoundscapeAPIService {
             throw SCError.invalidURL
         }
         
-        let (data, _) = try await URLSession.shared.data(from: url)
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw SCError.invalidResponse
+        }
         
         do {
             let decoder = JSONDecoder()
             let decodedResponse = try decoder.decode(AudioFetchResponse.self, from: data)
             return decodedResponse.data
         } catch {
-            throw SCError.invalidURL
+            throw SCError.invalidData
         }
     }
     
@@ -35,14 +39,18 @@ final class SoundscapeAPIService {
             throw SCError.invalidURL
         }
         
-        let (data, _) = try await URLSession.shared.data(from: url)
+        let (data, response) = try await URLSession.shared.data(from: url)
+        
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw SCError.invalidResponse
+        }
         
         do {
             let decoder = JSONDecoder()
             let decodedResponse = try decoder.decode(AudioFetchResponse.self, from: data)
             return decodedResponse.data
         } catch {
-            throw SCError.invalidURL
+            throw SCError.invalidData
         }
     }
 }

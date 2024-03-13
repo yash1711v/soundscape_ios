@@ -16,21 +16,7 @@ final class SongRepositoryImpl: SongRepository {
         self.songRemoteDataSource = songRemoteDataSource
     }
     
-    private func responseToResource(response: Result<[AudioFetch], Error>) -> Resource<[AudioFetch]> {
-         switch response {
-         case .success(let data):
-             return .success(data)
-         case .failure(let error):
-             return .error(error.localizedDescription, nil)
-         }
-     }
-     
-     func getSongSection(songSection: String) async -> Resource<[AudioFetch]> {
-         do {
-             let fetchedData = try await songRemoteDataSource.getSongSection(songSection: songSection)
-             return responseToResource(response: .success(fetchedData))
-         } catch {
-             return responseToResource(response: .failure(error))
-         }
-     }
+    func getSongSection(songSection: String) async throws -> [AudioFetch] {
+        return try await songRemoteDataSource.getSongSection(songSection: songSection)
+    }
 }

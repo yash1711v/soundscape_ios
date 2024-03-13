@@ -8,5 +8,5 @@
 import Foundation
 
 protocol SongRepository {
-    func getSongSection(songSection: String) async -> Resource<[AudioFetch]>
+    func getSongSection(songSection: String) async throws -> [AudioFetch]
 }
