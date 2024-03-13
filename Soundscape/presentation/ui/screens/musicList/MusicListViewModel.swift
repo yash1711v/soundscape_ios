@@ -13,7 +13,7 @@ import Foundation
     @Published var audioFetch: [AudioFetch] = []
     @Published var alertItem: AlertItem?
     
-    private let getSongFetchUseCase = GetSongFetchUseCase()
+    private let getSongFetchUseCase = GetSongFetchUseCase.shared
     
     func getSongSection(songSection: String) {
         isLoading = true
