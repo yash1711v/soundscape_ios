@@ -74,3 +74,10 @@ struct MusicListView: View {
 #Preview {
     MusicListView(name: "Sleep", imageName: "sleep")
 }
+
+
+func audio(audioFetch: Resource<Any>) -> [AudioFetch] {
+    switch audioFetch {
+    case .error(<#T##String#>, <#T##T?#>)
+    }
+}
