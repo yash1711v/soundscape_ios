@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct MusicPlayerView: View {
-    @EnvironmentObject var viewModel: AppViewModel
-    @State var songPlaying: Bool = false
-    @State private var currentTime: Double = 0
-    @State private var totalDuration: Double = 1000
+    @EnvironmentObject var appViewModel: AppViewModel
     @State private var imageWidth: CGFloat = 260
     
     @State var offset: CGFloat = 0
@@ -20,31 +17,31 @@ struct MusicPlayerView: View {
         VStack {
             Capsule()
                 .fill(Color.gray)
-                .frame(width: viewModel.expand ? 60 : 0, height: viewModel.expand ? 4 : 0)
-                .opacity(viewModel.expand ? 1 : 0)
-                .padding(.top, viewModel.expand ? 10 : 0)
-                .padding(.vertical, viewModel.expand ? 10 : 0)
-            if viewModel.expand {
+                .frame(width: appViewModel.expand ? 60 : 0, height: appViewModel.expand ? 4 : 0)
+                .opacity(appViewModel.expand ? 1 : 0)
+                .padding(.top, appViewModel.expand ? 10 : 0)
+                .padding(.vertical, appViewModel.expand ? 10 : 0)
+            if appViewModel.expand {
                 Text("Story Time")
                     .font(.wixMadeFont(.regular, fontSize: .title))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()
             }
             HStack {
-                Image(viewModel.episode.imageName)
+                Image(appViewModel.episode.imageName)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: viewModel.expand ? imageWidth : 30, height: viewModel.expand ? 300 : 30)
+                    .frame(width: appViewModel.expand ? imageWidth : 30, height: appViewModel.expand ? 300 : 30)
                     .cornerRadius(5)
                     .shadow(radius: 10)
                     .padding(.vertical)
                     .padding(.leading)
-                    .padding(.trailing, viewModel.expand ? 10 : 0)
+                    .padding(.trailing, appViewModel.expand ? 10 : 0)
                     .animation(.bouncy(extraBounce: 0.3), value: imageWidth)
                 
-                if !viewModel.expand {
+                if !appViewModel.expand {
                     VStack(alignment: .leading) {
-                        Text(viewModel.episode.songName)
+                        Text(appViewModel.episode.songName)
                             .font(.wixMadeFont(.regular, fontSize: .title))
                         
                         Text("Story Time")
@@ -54,19 +51,19 @@ struct MusicPlayerView: View {
                     
                     Spacer()
                     
-                    Image(systemName: songPlaying ? "pause.fill" : "arrowtriangle.right.fill")
+                    Image(systemName: appViewModel.isPlaying ? "pause.fill" : "arrowtriangle.right.fill")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 20, height: 20)
                         .padding(.trailing)
                         .onTapGesture {
-                            songPlaying.toggle()
-                            viewModel.playSound(sound: viewModel.episode.songPath)
+                            appViewModel.isPlaying.toggle()
+                            appViewModel.playSound(sound: appViewModel.episode.songPath)
                             
-                            if songPlaying {
-                                viewModel.playSound()
+                            if appViewModel.isPlaying {
+                                appViewModel.playSound()
                             } else {
-                                viewModel.pauseSound()
+                                appViewModel.pauseSound()
                             }
                         }
                     
@@ -88,7 +85,7 @@ struct MusicPlayerView: View {
             
             VStack {
                 HStack {
-                    Text(viewModel.episode.songName)
+                    Text(appViewModel.episode.songName)
                         .font(.wixMadeFont(.bold, fontSize: .heading))
                     Spacer()
                     Image(systemName: "heart.fill")
@@ -100,18 +97,22 @@ struct MusicPlayerView: View {
                 }
                 .padding()
                 
-                Slider(value: $currentTime, in: 0...totalDuration)
-                    .accentColor(.white)
-                    .padding(.horizontal)
+                Slider(value: $appViewModel.currentTime, in: 0...appViewModel.totalTime, onEditingChanged: { editing in
+                    if !editing {
+                        appViewModel.seek(to: appViewModel.currentTime)
+                    }
+                })
+                .accentColor(.white)
+                .padding(.horizontal)
                 
                 HStack {
-                    Text(timeString(time: currentTime))
+                    Text(timeString(time: appViewModel.currentTime))
                         .font(.wixMadeFont(.regular, fontSize: .titleSmall))
                         .foregroundColor(.gray)
                     
                     Spacer()
                     
-                    Text(timeString(time: totalDuration))
+                    Text(timeString(time: appViewModel.totalTime))
                         .font(.wixMadeFont(.regular, fontSize: .titleSmall))
                         .foregroundColor(.gray)
                     
@@ -132,18 +133,18 @@ struct MusicPlayerView: View {
                             .frame(width: 15, height: 15)
                     }
                     
-                    Image(systemName: songPlaying ? "pause.fill" : "arrowtriangle.right.fill")
+                    Image(systemName: appViewModel.isPlaying ? "pause.fill" : "arrowtriangle.right.fill")
                         .resizable()
                         .frame(width: 30, height: 30)
                         .onTapGesture {
-                            songPlaying.toggle()
-                            viewModel.playSound(sound: viewModel.episode.songPath)
+                            appViewModel.isPlaying.toggle()
+                            appViewModel.playSound(sound: appViewModel.episode.songPath)
                             
-                            if songPlaying {
-                                viewModel.playSound()
+                            if appViewModel.isPlaying {
+                                appViewModel.playSound()
                                 imageWidth = 300
                             } else {
-                                viewModel.pauseSound()
+                                appViewModel.pauseSound()
                                 imageWidth = 280
                             }
                         }
@@ -170,14 +171,14 @@ struct MusicPlayerView: View {
                     .padding(60)
             }
             // stretch effect
-            .frame(width: viewModel.expand ? nil : 0, height: viewModel.expand ? nil : 0)
-            .opacity(viewModel.expand ? 1 : 0)
+            .frame(width: appViewModel.expand ? nil : 0, height: appViewModel.expand ? nil : 0)
+            .opacity(appViewModel.expand ? 1 : 0)
         }
-        .frame(maxHeight: viewModel.expand ? .infinity : 60)
+        .frame(maxHeight: appViewModel.expand ? .infinity : 60)
         .background(
             
             VStack(spacing: 0) {
-                if viewModel.expand {
+                if appViewModel.expand {
                     Image("player_background")
                         .resizable()
                 } else {
@@ -187,19 +188,19 @@ struct MusicPlayerView: View {
             }
                 .onTapGesture {
                     withAnimation(.spring) {
-                        viewModel.expand = true
+                        appViewModel.expand = true
                     }
                 }
         )
         .cornerRadius(10, corners: [.topLeft, .topRight])
         .ignoresSafeArea()
-        .offset(y: viewModel.expand ? 0 : -48)
+        .offset(y: appViewModel.expand ? 0 : -48)
         .offset(y: offset)
         .gesture(DragGesture().onEnded(onEnded(value:)).onChanged(onChanged(value:)))
     }
     
     func onChanged(value: DragGesture.Value) {
-        if value.translation.height > 0 && viewModel.expand {
+        if value.translation.height > 0 && appViewModel.expand {
             offset = value.translation.height
         }
     }
@@ -207,7 +208,7 @@ struct MusicPlayerView: View {
     func onEnded(value: DragGesture.Value) {
         withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.95, blendDuration: 0.95)) {
             if value.translation.height > 300 {
-                viewModel.expand = false
+                appViewModel.expand = false
             }
             offset = 0
         }
