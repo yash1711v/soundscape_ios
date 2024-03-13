@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct StoryDetailView: View {
+    @EnvironmentObject var viewModel: AppViewModel
     var mainStorySound: MainStorySound
     
     var body: some View {
@@ -39,10 +40,13 @@ struct StoryDetailView: View {
                 
                 LazyVStack(spacing: 15) {
                     ForEach(mainStorySound.episodeList) { episode in
-                        NavigationLink(destination: StoryPlayerView(episode: episode)) {
-                            EpisodeListView(episode: episode)
-                        }
-                        .foregroundColor(.white)
+                        EpisodeListView(episode: episode)
+                            .onTapGesture {
+                                withAnimation(.spring) {
+                                    viewModel.episode = episode
+                                    viewModel.showBottomPlayer = true
+                                }
+                            }
                     }
                 }
                 .padding(.bottom, 130)

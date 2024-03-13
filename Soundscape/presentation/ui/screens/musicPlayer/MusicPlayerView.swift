@@ -7,43 +7,44 @@
 
 import SwiftUI
 
-struct BottomMusicPlayerView: View {
-    var episode: Episode = EpisodeData.sampleEpisodeData
-    @Binding var expand: Bool
+struct MusicPlayerView: View {
+    @EnvironmentObject var viewModel: AppViewModel
     @State var songPlaying: Bool = false
     @State private var currentTime: Double = 0
     @State private var totalDuration: Double = 1000
-    @StateObject private var soundManager = SoundManager()
+    @State private var imageWidth: CGFloat = 260
+    
     @State var offset: CGFloat = 0
     
     var body: some View {
         VStack {
             Capsule()
                 .fill(Color.gray)
-                .frame(width: expand ? 60 : 0, height: expand ? 4 : 0)
-                .opacity(expand ? 1 : 0)
-                .padding(.top, expand ? 10 : 0)
-                .padding(.vertical, expand ? 10 : 0)
-            if expand {
+                .frame(width: viewModel.expand ? 60 : 0, height: viewModel.expand ? 4 : 0)
+                .opacity(viewModel.expand ? 1 : 0)
+                .padding(.top, viewModel.expand ? 10 : 0)
+                .padding(.vertical, viewModel.expand ? 10 : 0)
+            if viewModel.expand {
                 Text("Story Time")
                     .font(.wixMadeFont(.regular, fontSize: .title))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()
             }
             HStack {
-                Image("theYoungScoutEP1")
+                Image(viewModel.episode.imageName)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: expand ? 300 : 30, height: expand ? 300 : 30)
+                    .frame(width: viewModel.expand ? imageWidth : 30, height: viewModel.expand ? 300 : 30)
                     .cornerRadius(5)
                     .shadow(radius: 10)
                     .padding(.vertical)
                     .padding(.leading)
-                    .padding(.trailing, expand ? 10 : 0)
+                    .padding(.trailing, viewModel.expand ? 10 : 0)
+                    .animation(.bouncy(extraBounce: 0.3), value: imageWidth)
                 
-                if !expand {
+                if !viewModel.expand {
                     VStack(alignment: .leading) {
-                        Text("The Young Scout")
+                        Text(viewModel.episode.songName)
                             .font(.wixMadeFont(.regular, fontSize: .title))
                         
                         Text("Story Time")
@@ -60,6 +61,13 @@ struct BottomMusicPlayerView: View {
                         .padding(.trailing)
                         .onTapGesture {
                             songPlaying.toggle()
+                            viewModel.playSound(sound: viewModel.episode.songPath)
+                            
+                            if songPlaying {
+                                viewModel.playSound()
+                            } else {
+                                viewModel.pauseSound()
+                            }
                         }
                     
                     Image(systemName: "shuffle")
@@ -80,7 +88,7 @@ struct BottomMusicPlayerView: View {
             
             VStack {
                 HStack {
-                    Text(episode.songName)
+                    Text(viewModel.episode.songName)
                         .font(.wixMadeFont(.bold, fontSize: .heading))
                     Spacer()
                     Image(systemName: "heart.fill")
@@ -129,12 +137,14 @@ struct BottomMusicPlayerView: View {
                         .frame(width: 30, height: 30)
                         .onTapGesture {
                             songPlaying.toggle()
-                            soundManager.playSound(sound: episode.songPath)
+                            viewModel.playSound(sound: viewModel.episode.songPath)
                             
                             if songPlaying {
-                                soundManager.audioPlayer?.play()
+                                viewModel.playSound()
+                                imageWidth = 300
                             } else {
-                                soundManager.audioPlayer?.pause()
+                                viewModel.pauseSound()
+                                imageWidth = 280
                             }
                         }
                     
@@ -160,14 +170,14 @@ struct BottomMusicPlayerView: View {
                     .padding(60)
             }
             // stretch effect
-            .frame(width: expand ? nil : 0, height: expand ? nil : 0)
-            .opacity(expand ? 1 : 0)
+            .frame(width: viewModel.expand ? nil : 0, height: viewModel.expand ? nil : 0)
+            .opacity(viewModel.expand ? 1 : 0)
         }
-        .frame(maxHeight: expand ? .infinity : 60)
+        .frame(maxHeight: viewModel.expand ? .infinity : 60)
         .background(
             
             VStack(spacing: 0) {
-                if expand {
+                if viewModel.expand {
                     Image("player_background")
                         .resizable()
                 } else {
@@ -177,19 +187,19 @@ struct BottomMusicPlayerView: View {
             }
                 .onTapGesture {
                     withAnimation(.spring) {
-                        expand = true
+                        viewModel.expand = true
                     }
                 }
         )
         .cornerRadius(10, corners: [.topLeft, .topRight])
         .ignoresSafeArea()
-        .offset(y: expand ? 0 : -48)
+        .offset(y: viewModel.expand ? 0 : -48)
         .offset(y: offset)
         .gesture(DragGesture().onEnded(onEnded(value:)).onChanged(onChanged(value:)))
     }
     
     func onChanged(value: DragGesture.Value) {
-        if value.translation.height > 0 && expand {
+        if value.translation.height > 0 && viewModel.expand {
             offset = value.translation.height
         }
     }
@@ -197,7 +207,7 @@ struct BottomMusicPlayerView: View {
     func onEnded(value: DragGesture.Value) {
         withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.95, blendDuration: 0.95)) {
             if value.translation.height > 300 {
-                expand = false
+                viewModel.expand = false
             }
             offset = 0
         }
@@ -205,5 +215,11 @@ struct BottomMusicPlayerView: View {
 }
 
 #Preview {
-    BottomMusicPlayerView(expand: .constant(true))
+    MusicPlayerView()
+}
+
+func timeString(time: Double) -> String {
+    let minutes = Int(time) / 60
+    let seconds = Int(time) % 60
+    return String(format: "%02d:%02d", minutes, seconds)
 }

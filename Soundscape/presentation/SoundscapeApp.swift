@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct SoundscapeApp: App {
+    var appViewModel = AppViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            SplashView()
+            SplashView().environmentObject(appViewModel)
         }
     }
 }

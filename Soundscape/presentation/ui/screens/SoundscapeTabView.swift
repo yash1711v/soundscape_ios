@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct SoundscapeTabView: View {
+    @EnvironmentObject var viewModel: AppViewModel
     @State private var tabSelection = 1
-    @State private var showBottomPlayer: Bool = true
-    @State var expand: Bool = false
     
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
@@ -40,8 +39,8 @@ struct SoundscapeTabView: View {
                     .tag(4)
             }
             .tint(Color.white)
-            if showBottomPlayer {
-                BottomMusicPlayerView(expand: $expand)
+            if viewModel.showBottomPlayer {
+                MusicPlayerView()
             }
         }
     }
