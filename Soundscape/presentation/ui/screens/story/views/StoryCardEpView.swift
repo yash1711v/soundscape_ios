@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StoryCardEpView: View {
     var mainStorySound: MainStorySound
+    var width: CGFloat = 200
     
     var body: some View {
         VStack() {
@@ -30,7 +31,7 @@ struct StoryCardEpView: View {
                 .padding(.horizontal, 5)
                 .padding(.bottom, 10)
             }
-            .frame(width: 200)
+            .frame(width: width)
             .background(
                 Rectangle()
                     .foregroundColor(Color.black.opacity(0.6))
@@ -38,12 +39,12 @@ struct StoryCardEpView: View {
             )
             
         }
-        .frame(width: 200, height: 180)
+        .frame(width: width, height: 180)
         .background(
             Image(mainStorySound.imageName)
                 .resizable()
                 .scaledToFill()
-                .frame(width: 200, height: 180)
+                .frame(width: width, height: 180)
         )
         .cornerRadius(10)
     }

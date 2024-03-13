@@ -45,6 +45,7 @@ struct StoryDetailView: View {
                         .foregroundColor(.white)
                     }
                 }
+                .padding(.bottom, 130)
             }
         }
         .navigationTitle(mainStorySound.name)

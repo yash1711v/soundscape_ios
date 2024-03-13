@@ -22,14 +22,14 @@ struct StoryListView: View {
                     ForEach(mainStorySound) { mainStorySound in
                         
                         NavigationLink(destination: StoryDetailView(mainStorySound: mainStorySound)) {
-                            StoryCardEpView(mainStorySound: mainStorySound)
+                            StoryCardEpView(mainStorySound: mainStorySound, width: 175)
                         }
                         .foregroundColor(.white)
                         
                     }
                 }
                 .padding(.horizontal)
-                
+                .padding(.bottom, 70)
             }
             .background(
                 Image("story_background")
