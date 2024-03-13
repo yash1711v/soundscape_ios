@@ -11,24 +11,19 @@ struct MusicListItemView: View {
     var audioFetch: AudioFetch
     
     var body: some View {
-        
+        HStack {
+            Text(audioFetch.name)
+                .font(.wixMadeFont(.regular, fontSize: .title))
+            Spacer()
             Button {
                 print("hi")
             } label: {
-                HStack {
-                    Text(audioFetch.name)
-                        .font(.wixMadeFont(.regular, fontSize: .title))
-                    Spacer()
-                    Button {
-                        print("hi")
-                    } label: {
-                        Image(systemName: "heart.fill")
-                            .foregroundColor(.gray)
-                    }
-                }
+                Image(systemName: "heart.fill")
+                    .foregroundColor(.gray)
             }
-            .foregroundColor(.white)
-            .frame(width: 350, height: 40)
+        }
+        .foregroundColor(.white)
+        .frame(width: 350, height: 40)
     }
 }
 

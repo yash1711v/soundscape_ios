@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MusicListView: View {
     @StateObject var viewModel = MusicListViewModel()
+    @EnvironmentObject var appViewModel: AppViewModel
     var name: String
     var imageName: String
     
@@ -41,6 +42,16 @@ struct MusicListView: View {
                         LazyVStack {
                             ForEach(viewModel.audioFetch) { audioFetch in
                                 MusicListItemView(audioFetch: audioFetch)
+                                    .onTapGesture {
+                                        let episode = Episode(name: "",
+                                                              songName: audioFetch.name,
+                                                              imageName: imageName,
+                                                              songPath: audioFetch.assetPath)
+                                        withAnimation(.spring) {
+                                            appViewModel.episode = episode
+                                            appViewModel.showBottomPlayer = true
+                                        }
+                                    }
                             }
                         }
                     } header: {
