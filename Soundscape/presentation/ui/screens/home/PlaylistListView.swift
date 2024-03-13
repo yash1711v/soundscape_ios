@@ -18,14 +18,15 @@ struct PlaylistListView: View {
                 
                 LazyVGrid(columns: columns) {
                     ForEach(PlaylistData.allPlaylistList) { playlist in
-                        NavigationLink(destination:
-                            MusicListView(
-                                name: playlist.name,
-                                imageName: playlist.imageName)) {
-                            PlaylistCardView(playlist: playlist)
-                        }
-                                .foregroundColor(.white)
-                                .padding()
+//                        NavigationLink(destination:
+//                            MusicListView(
+//                                name: playlist.name,
+//                                imageName: playlist.imageName,
+//                                audioFetchList: viewModel.audioFetch)) {
+//                            PlaylistCardView(playlist: playlist)
+//                        }
+//                                .foregroundColor(.white)
+//                                .padding()
                     }
                 }
                 .padding(.horizontal)

@@ -98,7 +98,9 @@ struct HomeView: View {
                         
                         LazyVStack {
                             ForEach(StorySoundData.sampleStoryList) { storySound in
-                                NavigationLink(destination: MusicListView(name: storySound.name, imageName: storySound.imageName)) {
+                                NavigationLink(destination: MusicListView(
+                                    name: storySound.name,
+                                    imageName: storySound.imageName)) {
                                     StorySoundCardView(storySound: storySound)
                                 }
                                 .foregroundColor(.white)

@@ -43,7 +43,7 @@ struct LikeView: View {
                     
                     LazyVStack {
                         ForEach(MusicData.musicList) { music in
-                            MusicListItemView(music: music)
+//                            MusicListItemView(music: music)
                         }
                     }
                     .padding(.bottom, 70)

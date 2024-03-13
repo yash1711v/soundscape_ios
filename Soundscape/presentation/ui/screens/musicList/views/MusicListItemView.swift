@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MusicListItemView: View {
-    var music: Music
+    var audioFetch: AudioFetch
     
     var body: some View {
         
@@ -16,7 +16,7 @@ struct MusicListItemView: View {
                 print("hi")
             } label: {
                 HStack {
-                    Text(music.name)
+                    Text(audioFetch.name)
                         .font(.wixMadeFont(.regular, fontSize: .title))
                     Spacer()
                     Button {
@@ -33,5 +33,5 @@ struct MusicListItemView: View {
 }
 
 #Preview {
-    MusicListItemView(music: MusicData.sampleMusic)
+    MusicListItemView(audioFetch: AudioFetchData.audioFetchSampleData)
 }

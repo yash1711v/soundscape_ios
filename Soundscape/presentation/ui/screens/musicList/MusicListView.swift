@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MusicListView: View {
+    @StateObject var viewModel = MusicListViewModel()
     var name: String
     var imageName: String
     
@@ -38,8 +39,8 @@ struct MusicListView: View {
                         .padding(.bottom)
                         
                         LazyVStack {
-                            ForEach(MusicData.musicList) { music in
-                                MusicListItemView(music: music)
+                            ForEach(viewModel.audioFetch) { audioFetch in
+                                MusicListItemView(audioFetch: audioFetch)
                             }
                         }
                     } header: {
@@ -49,6 +50,10 @@ struct MusicListView: View {
                             .opacity(0.5)
                     }
                 }
+                .padding(.bottom, 70)
+            }
+            .task {
+                viewModel.getSongSection(songSection: name)
             }
             .navigationTitle(name)
             .ignoresSafeArea()
