@@ -8,7 +8,7 @@
 import Foundation
 
 struct AudioFetch: Decodable, Identifiable {
-    let id: Int
+    let id: Int64
     let name: String
     let assetPath: String
     let image: String

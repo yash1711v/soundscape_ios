@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MusicListItemView: View {
     var audioFetch: AudioFetch
+    var onButtonTap: () -> Void
     
     var body: some View {
         HStack {
@@ -16,7 +17,7 @@ struct MusicListItemView: View {
                 .font(.wixMadeFont(.regular, fontSize: .title))
             Spacer()
             Button {
-                print("hi")
+                onButtonTap()
             } label: {
                 Image(systemName: "heart.fill")
                     .foregroundColor(.gray)
@@ -25,8 +26,4 @@ struct MusicListItemView: View {
         .foregroundColor(.white)
         .frame(width: 350, height: 40)
     }
-}
-
-#Preview {
-    MusicListItemView(audioFetch: AudioFetchData.audioFetchSampleData)
 }

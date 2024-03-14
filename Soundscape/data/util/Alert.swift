@@ -15,7 +15,7 @@ struct AlertItem: Identifiable {
 }
 
 struct AlertContext {
-    //Mark: - Network Alerts
+    // MARK: Network Alerts
     static let invalidData = AlertItem(title: Text("Server Error"),
                                        message: Text("The data received from the server was invalid. Please contact support"),
                                        dismissButton: .default(Text("OK")))
@@ -32,7 +32,7 @@ struct AlertContext {
                                        message: Text("Make sure you are connected to internet"),
                                        dismissButton: .default(Text("OK")))
     
-    //Mark: - Account Alerts
+    // MARK: Account Alerts
     static let invalidForm = AlertItem(title: Text("Invalid Form"),
                                        message: Text("Please ensure all fields in the form have been filled out."),
                                        dismissButton: .default(Text("OK")))
@@ -48,4 +48,25 @@ struct AlertContext {
     static let invalidUserData = AlertItem(title: Text("Profile Error"),
                                        message: Text("There was an error."),
                                        dismissButton: .default(Text("OK")))
+    
+    // MARK: Database Alerts
+    static let dataSourceError = AlertItem(title: Text("Database Error"),
+                                           message: Text("There was an error."),
+                                           dismissButton: .default(Text("OK")))
+    
+    static let createError = AlertItem(title: Text("Database Error"),
+                                           message: Text("There was error while saving data"),
+                                           dismissButton: .default(Text("OK")))
+    
+    static let deleteError = AlertItem(title: Text("Database Error"),
+                                           message: Text("There was error while deleting data"),
+                                           dismissButton: .default(Text("OK")))
+    
+    static let updateError = AlertItem(title: Text("Database Error"),
+                                           message: Text("There was error while updating data"),
+                                           dismissButton: .default(Text("OK")))
+    
+    static let fetchError = AlertItem(title: Text("Database Error"),
+                                           message: Text("There was error while fetching data"),
+                                           dismissButton: .default(Text("OK")))
 }

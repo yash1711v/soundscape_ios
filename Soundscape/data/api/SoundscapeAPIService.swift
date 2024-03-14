@@ -14,13 +14,13 @@ final class SoundscapeAPIService {
     
     func getAllSong() async throws -> [AudioFetch] {
         guard let url = URL(string: allSongURL) else {
-            throw SCError.invalidURL
+            throw APIError.invalidURL
         }
         
         let (data, response) = try await URLSession.shared.data(from: url)
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            throw SCError.invalidResponse
+            throw APIError.invalidResponse
         }
         
         do {
@@ -28,7 +28,7 @@ final class SoundscapeAPIService {
             let decodedResponse = try decoder.decode(AudioFetchResponse.self, from: data)
             return decodedResponse.data
         } catch {
-            throw SCError.invalidData
+            throw APIError.invalidData
         }
     }
     
@@ -36,13 +36,13 @@ final class SoundscapeAPIService {
         let songURL = SoundscapeAPIService.baseURL + songSection
         
         guard let url = URL(string: songURL) else {
-            throw SCError.invalidURL
+            throw APIError.invalidURL
         }
         
         let (data, response) = try await URLSession.shared.data(from: url)
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            throw SCError.invalidResponse
+            throw APIError.invalidResponse
         }
         
         do {
@@ -50,7 +50,7 @@ final class SoundscapeAPIService {
             let decodedResponse = try decoder.decode(AudioFetchResponse.self, from: data)
             return decodedResponse.data
         } catch {
-            throw SCError.invalidData
+            throw APIError.invalidData
         }
     }
 }

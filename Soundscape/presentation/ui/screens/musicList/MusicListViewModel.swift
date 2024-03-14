@@ -14,6 +14,7 @@ import Foundation
     @Published var alertItem: AlertItem?
     
     private let getSongFetchUseCase = GetSongFetchUseCase.shared
+    private let saveSongUseCase = SaveSongUseCase.shared
     
     func getSongSection(songSection: String) {
         isLoading = true
@@ -24,7 +25,7 @@ import Foundation
             } catch {
                 if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
                     alertItem = AlertContext.noInternetConnection
-                } else if let scError = error as? SCError {
+                } else if let scError = error as? APIError {
                     switch scError {
                     case .invalidURL:
                         alertItem = AlertContext.invalidURL
@@ -35,6 +36,29 @@ import Foundation
                     }
                 }
                 isLoading = false
+            }
+        }
+    }
+    
+    func saveSong(audioFetch: AudioFetch) {
+        Task {
+            do {
+                try await saveSongUseCase.execute(audioFetch: audioFetch)
+            } catch {
+                if let dbError = error as? DBError {
+                    switch dbError {
+                    case .dataSourceError:
+                        alertItem = AlertContext.dataSourceError
+                    case .createError:
+                        alertItem = AlertContext.createError
+                    case .deleteError:
+                        alertItem = AlertContext.deleteError
+                    case .updateError:
+                        alertItem = AlertContext.updateError
+                    case .fetchError:
+                        alertItem = AlertContext.fetchError
+                    }
+                }
             }
         }
     }

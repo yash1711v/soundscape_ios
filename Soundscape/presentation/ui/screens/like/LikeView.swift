@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LikeView: View {
+    @StateObject var viewModel = LikeViewModel()
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -42,11 +44,19 @@ struct LikeView: View {
                     .padding()
                     
                     LazyVStack {
-                        ForEach(MusicData.musicList) { music in
-//                            MusicListItemView(music: music)
+                        ForEach(viewModel.audioFetch) { audioFetch in
+                            MusicListItemView(audioFetch: audioFetch) {
+                                print("Button tapped")
+                            }
                         }
                     }
+                    .task {
+                        viewModel.getAllSong()
+                    }
                     .padding(.bottom, 70)
+                    if viewModel.isLoading {
+                        LoadingView()
+                    }
                 }
             }
             .background(
@@ -56,6 +66,11 @@ struct LikeView: View {
                     .ignoresSafeArea()
                 
             )
+            .alert(item: $viewModel.alertItem) { alertItem in
+                Alert(title: alertItem.title,
+                      message: alertItem.message,
+                      dismissButton: alertItem.dismissButton)
+            }
             .navigationTitle("Liked Tunes")
         }
     }
