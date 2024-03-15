@@ -38,8 +38,8 @@ struct MusicListView: View {
                         .padding(.bottom)
                         
                         LazyVStack {
-                            ForEach(viewModel.audioFetch) { audioFetch in
-                                MusicListItemView(audioFetch: audioFetch) { viewModel.saveSong(audioFetch: audioFetch) }
+                            ForEach(viewModel.audioFetchList) { audioFetch in
+                                MusicListItemView(audioFetch: audioFetch) { viewModel.saveSong(audioFetch: audioFetch.withIsLiked(true)) }
                                     .onTapGesture {
                                         let episode = Episode(name: "",
                                                               songName: audioFetch.name,

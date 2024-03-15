@@ -38,6 +38,7 @@ final class SongDao {
             existingEntity.assetPath = audioFetch.assetPath
             existingEntity.image = audioFetch.image
             existingEntity.type = audioFetch.type
+            existingEntity.isLiked = audioFetch.isLiked ?? false
         } else {
             // Create a new entity
             let audioFetchEntity = AudioFetchEntity(context: soundscapeDatabase.container.viewContext)
@@ -46,6 +47,7 @@ final class SongDao {
             audioFetchEntity.assetPath = audioFetch.assetPath
             audioFetchEntity.image = audioFetch.image
             audioFetchEntity.type = audioFetch.type
+            audioFetchEntity.isLiked = audioFetch.isLiked ?? false
         }
         soundscapeDatabase.saveContext()
     }
@@ -57,7 +59,8 @@ final class SongDao {
                        name: audioFetchEntity.name!,
                        assetPath: audioFetchEntity.assetPath!,
                        image: audioFetchEntity.image!,
-                       type: audioFetchEntity.type!)
+                       type: audioFetchEntity.type!,
+                       isLiked: audioFetchEntity.isLiked)
         })
     }
     

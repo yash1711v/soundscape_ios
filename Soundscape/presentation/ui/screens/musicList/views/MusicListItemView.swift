@@ -20,7 +20,7 @@ struct MusicListItemView: View {
                 onButtonTap()
             } label: {
                 Image(systemName: "heart.fill")
-                    .foregroundColor(.gray)
+                    .foregroundColor(audioFetch.isLiked ?? false ? .red : .gray)
             }
         }
         .foregroundColor(.white)

@@ -13,6 +13,15 @@ struct AudioFetch: Decodable, Identifiable {
     let assetPath: String
     let image: String
     let type: String
+    var isLiked: Bool? = false
+}
+
+extension AudioFetch {
+    func withIsLiked(_ isLiked: Bool) -> AudioFetch {
+        var modifiedAudioFetch = self
+        modifiedAudioFetch.isLiked = isLiked
+        return modifiedAudioFetch
+    }
 }
 
 struct AudioFetchResponse: Decodable {

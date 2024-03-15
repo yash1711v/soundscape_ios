@@ -10,17 +10,17 @@ import Foundation
 @MainActor final class MusicListViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var selectedAudioFetch: AudioFetch?
-    @Published var audioFetch: [AudioFetch] = []
+    @Published var audioFetchList: [AudioFetch] = []
     @Published var alertItem: AlertItem?
     
     private let getSongFetchUseCase = GetSongFetchUseCase.shared
     private let saveSongUseCase = SaveSongUseCase.shared
-    
+        
     func getSongSection(songSection: String) {
         isLoading = true
         Task {
             do {
-                audioFetch = try await getSongFetchUseCase.execute(songSection: songSection)
+                audioFetchList = try await getSongFetchUseCase.execute(songSection: songSection)
                 isLoading = false
             } catch {
                 if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {

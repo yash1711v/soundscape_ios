@@ -960,8 +960,7 @@
 				B2AF24EE2BA2E8B6004751AD /* Soundscape.xcdatamodel */,
 			);
 			currentVersion = B2AF24EE2BA2E8B6004751AD /* Soundscape.xcdatamodel */;
-			name = Soundscape.xcdatamodeld;
-			path = "Soundscape.xcdatamodeld";
+			path = Soundscape.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
