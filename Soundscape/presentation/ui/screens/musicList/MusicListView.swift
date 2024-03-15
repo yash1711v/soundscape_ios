@@ -39,7 +39,8 @@ struct MusicListView: View {
                         
                         LazyVStack {
                             ForEach(viewModel.audioFetchList) { audioFetch in
-                                MusicListItemView(audioFetch: audioFetch) { viewModel.saveSong(audioFetch: audioFetch.withIsLiked(true)) }
+                                @State var isLiked = viewModel.checkItemInDbList(id: audioFetch.id)
+                                MusicListItemView(audioFetch: audioFetch, isLiked: isLiked) { viewModel.saveSong(audioFetch: audioFetch.withIsLiked(true))}
                                     .onTapGesture {
                                         let episode = Episode(name: "",
                                                               songName: audioFetch.name,
@@ -54,6 +55,7 @@ struct MusicListView: View {
                         }
                         .task {
                             viewModel.getSongSection(songSection: name)
+                            viewModel.getAllSongFromDb()
                         }
                         if viewModel.isLoading {
                             LoadingView()

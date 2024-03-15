@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MusicListItemView: View {
     var audioFetch: AudioFetch
+    var isLiked: Bool = false
     var onButtonTap: () -> Void
     
     var body: some View {
@@ -20,7 +21,7 @@ struct MusicListItemView: View {
                 onButtonTap()
             } label: {
                 Image(systemName: "heart.fill")
-                    .foregroundColor(audioFetch.isLiked ?? false ? .red : .gray)
+                    .foregroundColor(audioFetch.isLiked ?? isLiked ? .red : .gray)
             }
         }
         .foregroundColor(.white)
