@@ -44,9 +44,9 @@ struct LikeView: View {
                     .padding()
                     
                     LazyVStack {
-                        ForEach(viewModel.audioFetch) { audioFetch in
+                        ForEach(viewModel.audioFetchList) { audioFetch in
                             MusicListItemView(audioFetch: audioFetch) {
-                                print("Button tapped")
+                                viewModel.deleteSong(audioFetch: audioFetch)
                             }
                         }
                     }
