@@ -961,7 +961,7 @@
 			);
 			currentVersion = B2AF24EE2BA2E8B6004751AD /* Soundscape.xcdatamodel */;
 			name = Soundscape.xcdatamodeld;
-			path = "/Users/firelord/Work/apps/ios/soundScape-project/soundScape-app/Soundscape/data/db/Soundscape.xcdatamodeld";
+			path = "Soundscape.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
