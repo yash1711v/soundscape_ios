@@ -20,19 +20,33 @@ final class SongDao {
         let request = AudioFetchEntity.fetchRequest()
         request.fetchLimit = 1
         request.predicate = NSPredicate(
-            format: "id = %@", id)
-        let context =  soundscapeDatabase.container.viewContext
-        let audioFetchEntity = try context.fetch(request)[0]
-        return audioFetchEntity
+            format: "id == %lld", id)
+        do {
+            let context = soundscapeDatabase.container.viewContext
+            let audioFetchEntities = try context.fetch(request)
+            return audioFetchEntities.first
+        } catch {
+            throw error
+        }
     }
     
     func saveSong(audioFetch: AudioFetch) throws -> () {
-        let audioFetchEntity = AudioFetchEntity(context: soundscapeDatabase.container.viewContext)
-        audioFetchEntity.id = audioFetch.id
-        audioFetchEntity.name = audioFetch.name
-        audioFetchEntity.assetPath = audioFetch.assetPath
-        audioFetchEntity.image = audioFetch.image
-        audioFetchEntity.type = audioFetch.type
+        // Check if an entity with the same ID already exists
+        if let existingEntity = try getEntityById(audioFetch.id) {
+            // Update existing entity with new data
+            existingEntity.name = audioFetch.name
+            existingEntity.assetPath = audioFetch.assetPath
+            existingEntity.image = audioFetch.image
+            existingEntity.type = audioFetch.type
+        } else {
+            // Create a new entity
+            let audioFetchEntity = AudioFetchEntity(context: soundscapeDatabase.container.viewContext)
+            audioFetchEntity.id = audioFetch.id
+            audioFetchEntity.name = audioFetch.name
+            audioFetchEntity.assetPath = audioFetch.assetPath
+            audioFetchEntity.image = audioFetch.image
+            audioFetchEntity.type = audioFetch.type
+        }
         soundscapeDatabase.saveContext()
     }
     
