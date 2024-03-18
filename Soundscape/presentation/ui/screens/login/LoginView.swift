@@ -27,6 +27,12 @@ struct LoginView: View {
                     Button {
                         Task {
                             try await appViewModel.signInGoogle()
+                            guard let uid = appViewModel.userSession?.uid else {
+                                return
+                            }
+                            UserDefaults.standard.set(uid, forKey: "userUID")
+                            let uidSave = UserDefaults.standard.string(forKey: "userUID")
+                            print(uidSave)
                         }
                     } label: {
                         Image("login_google_button")
@@ -100,6 +106,10 @@ struct LoginView: View {
                     Button {
                         Task {
                             try await appViewModel.signIn(withEmail: email, password: password)
+                            guard let uid = appViewModel.userSession?.uid else {
+                                return
+                            }
+                            UserDefaults.standard.set(uid, forKey: "userUID")
                         }
                     } label: {
                         Image("login_continue_button")

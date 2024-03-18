@@ -35,6 +35,10 @@ struct SignupView: View {
                             return
                         }
                         email = gmail
+                        guard let uid = appViewModel.userSession?.uid else {
+                            return
+                        }
+                        UserDefaults.standard.set(uid, forKey: "userUID")
                         openNicknameView = true
                     }
                 } label: {
@@ -110,6 +114,10 @@ struct SignupView: View {
                 Button {
                     Task {
                         try await appViewModel.createUserAccount(withEmail: email, password: password)
+                        guard let uid = appViewModel.userSession?.uid else {
+                            return
+                        }
+                        UserDefaults.standard.set(uid, forKey: "userUID")
                         openNicknameView = true
                     }
                 } label: {

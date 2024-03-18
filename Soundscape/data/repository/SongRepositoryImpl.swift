@@ -12,11 +12,14 @@ final class SongRepositoryImpl: SongRepository {
     
     let songRemoteDataSource: SongRemoteDataSource
     let songLocalDataSource: SongLocalDataSource
+    let songFirebaseDataSource: SongFirebaseDataSource
     
     init(songRemoteDataSource: SongRemoteDataSource = SongRemoteDataSourceImpl.shared,
-         songLocalDataSource: SongLocalDataSource = SongLocalDataSourceImpl.shared) {
+         songLocalDataSource: SongLocalDataSource = SongLocalDataSourceImpl.shared,
+         songFirebaseDataSource: SongFirebaseDataSource = SongFirebaseDataSourceImpl.shared) {
         self.songRemoteDataSource = songRemoteDataSource
         self.songLocalDataSource = songLocalDataSource
+        self.songFirebaseDataSource = songFirebaseDataSource
     }
     
     // MARK: API calling functions
@@ -30,7 +33,13 @@ final class SongRepositoryImpl: SongRepository {
     }
     
     func saveSong(audioFetch: AudioFetch) async throws -> () {
-        return try await songLocalDataSource.saveSongToDB(audioFetch: audioFetch)
+        do {
+            
+                try await songLocalDataSource.saveSongToDB(audioFetch: audioFetch)
+            
+        } catch {
+            throw error
+        }
     }
     
     func deleteSavedSong(audioFetch: AudioFetch) async throws -> () {
