@@ -8,12 +8,13 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State var emailId: Binding<String> = .constant("")
-    @State var password: Binding<String> = .constant("")
+    @EnvironmentObject var appViewModel: AppViewModel
+    @State var email = ""
+    @State var password = ""
     @State var openTabView: Bool = false
     
     var body: some View {
-        if openTabView {
+        if appViewModel.userSession != nil {
             SoundscapeTabView()
                 .navigationBarHidden(true)
         } else {
@@ -27,6 +28,11 @@ struct LoginView: View {
                         .resizable()
                         .scaledToFit()
                         .padding()
+                        .onTapGesture {
+                            Task {
+                                try await appViewModel.signInGoogle()
+                            }
+                        }
                     
                     HStack {
                         Rectangle()
@@ -48,7 +54,7 @@ struct LoginView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding()
                     
-                    TextField("Type here...", text: emailId)
+                    TextField("Type here...", text: $email)
                         .foregroundColor(.white)
                         .padding(.horizontal, 30)
                         .modifier(OutlineBigButtonStyle())
@@ -66,7 +72,7 @@ struct LoginView: View {
                         .padding()
                     
                     HStack {
-                        TextField("Type here...", text: emailId)
+                        TextField("Type here...", text: $email)
                             .textContentType(.password)
                             .foregroundColor(.white)
                         

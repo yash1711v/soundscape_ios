@@ -7,6 +7,7 @@
 
 import Foundation
 import AVFoundation
+import Firebase
 
 @MainActor
 final class AppViewModel: ObservableObject {
@@ -27,9 +28,28 @@ final class AppViewModel: ObservableObject {
     @Published var alertItem: AlertItem?
     @Published var isLiked = [String : Int]()
     
+    // MARK: login variables
+    @Published var userSession: FirebaseAuth.User?
+    @Published var currentUser: User?
+    
+    // MARK: Usecase
     private let getSongFetchUseCase = GetSongFetchUseCase.shared
     private let saveSongUseCase = SaveSongUseCase.shared
     private let getSaveSongUseCase = GetSavedSongUseCase.shared
+    
+    // MARK: Auth Usecase
+    private let googleLoginUseCase = GoogleLoginUseCase.shared
+    private let loginEmailUseCase = LoginEmailUseCase.shared
+    private let fetchUserUseCase = FetchUserUseCase.shared
+    private let createUserUseCase = CreateUserUseCase.shared
+    private let signOutUseCase = SignOutUseCase.shared
+    private let saveUserUseCase = SaveUserUseCase.shared
+    private let forgotUseCase = ForgoutPasswordUseCase.shared
+    private let deleteAccountUseCase = DeleteAccountUseCase.shared
+    
+    init() {
+        self.userSession = Auth.auth().currentUser
+    }
     
     // MARK: API functions
     func getSongSection(songSection: String) async {
@@ -147,5 +167,73 @@ final class AppViewModel: ObservableObject {
     func seek(to time: Double) {
         let cmTime = CMTime(seconds: time, preferredTimescale: 1)
         audioPlayer?.seek(to: cmTime)
+    }
+    
+    // MARK: Login functions
+    func signIn(withEmail email: String, password: String) async throws {
+        do {
+            userSession = try await loginEmailUseCase.execute(withEmail: email, password: password)
+        } catch {
+            if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
+                alertItem = AlertContext.noInternetConnection
+            }
+        }
+    }
+    
+    func signInGoogle() async throws {
+        do {
+            userSession = try await googleLoginUseCase.execute()
+        } catch {
+            if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
+                alertItem = AlertContext.noInternetConnection
+            }
+        }
+    }
+    
+    func createUserAccount(withEmail email: String, password: String) async throws {
+        do {
+            userSession = try await createUserUseCase.execute(withEmail: email, password: password)
+        } catch {
+            if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
+                alertItem = AlertContext.noInternetConnection
+            }
+        }
+    }
+    
+    func fetchUserAccount() async throws {
+        do {
+            currentUser = try await fetchUserUseCase.execute()
+        } catch {
+            if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
+                alertItem = AlertContext.noInternetConnection
+            }
+        }
+    }
+    
+    func saveUserAccount(uid: String, email: String, nickname: String) async throws {
+        do {
+            let resultBool = try await saveUserUseCase.execute(uid: uid, email: email, nickname: nickname)
+        } catch {
+            if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
+                alertItem = AlertContext.noInternetConnection
+            }
+        }
+    }
+    
+    func signOut() {
+        let resultBool = signOutUseCase.execute()
+    }
+    
+    func deleteAccount() async throws {
+        do {
+            guard let user = userSession else {
+                throw URLError(.cannotFindHost)
+            }
+            let resultBool = try await deleteAccountUseCase.execute(userSession: user)
+        } catch {
+            if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
+                alertItem = AlertContext.noInternetConnection
+            }
+        }
     }
 }

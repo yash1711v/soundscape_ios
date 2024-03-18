@@ -56,6 +56,20 @@
 		84D8194F2BA80E73002A937C /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 84D8194E2BA80E73002A937C /* GoogleSignInSwift */; };
 		84D819512BA80ECD002A937C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84D819502BA80ECD002A937C /* GoogleService-Info.plist */; };
 		84D819542BA80F7C002A937C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D819532BA80F7C002A937C /* AdSupport.framework */; };
+		84D819692BA81CDE002A937C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D819682BA81CDE002A937C /* User.swift */; };
+		84D8196B2BA81D87002A937C /* TopViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8196A2BA81D87002A937C /* TopViewUtil.swift */; };
+		84D8196D2BA81E7A002A937C /* FirebaseAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8196C2BA81E7A002A937C /* FirebaseAuthRepository.swift */; };
+		84D819702BA81F01002A937C /* FirebaseAuthRemoteDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8196F2BA81F01002A937C /* FirebaseAuthRemoteDataSourceImpl.swift */; };
+		84D819732BA82264002A937C /* FirebaseAuthRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D819722BA82264002A937C /* FirebaseAuthRemoteDataSource.swift */; };
+		84D819752BA822A7002A937C /* FirebaseAuthRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D819742BA822A7002A937C /* FirebaseAuthRepositoryImpl.swift */; };
+		84D819782BA82439002A937C /* LoginEmailUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D819772BA82439002A937C /* LoginEmailUseCase.swift */; };
+		84D8197A2BA824EC002A937C /* GoogleLoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D819792BA824EC002A937C /* GoogleLoginUseCase.swift */; };
+		84D8197C2BA828A4002A937C /* FetchUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8197B2BA828A4002A937C /* FetchUserUseCase.swift */; };
+		84D8197E2BA828B2002A937C /* CreateUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8197D2BA828B2002A937C /* CreateUserUseCase.swift */; };
+		84D819802BA828C5002A937C /* SignOutUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8197F2BA828C5002A937C /* SignOutUseCase.swift */; };
+		84D819822BA828DA002A937C /* SaveUserUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D819812BA828DA002A937C /* SaveUserUseCase.swift */; };
+		84D819842BA828ED002A937C /* ForgoutPasswordUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D819832BA828ED002A937C /* ForgoutPasswordUseCase.swift */; };
+		84D819862BA828FB002A937C /* DeleteAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D819852BA828FB002A937C /* DeleteAccountUseCase.swift */; };
 		B228ADDE2BA2CA0C006468E5 /* SongLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228ADDD2BA2CA0C006468E5 /* SongLocalDataSource.swift */; };
 		B228ADE02BA2CA60006468E5 /* SongLocalDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228ADDF2BA2CA60006468E5 /* SongLocalDataSourceImpl.swift */; };
 		B228ADE52BA2CB42006468E5 /* GetSavedSongUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228ADE42BA2CB42006468E5 /* GetSavedSongUseCase.swift */; };
@@ -136,6 +150,20 @@
 		84A4B3522B99D8BC00A3AC68 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		84D819502BA80ECD002A937C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84D819532BA80F7C002A937C /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		84D819682BA81CDE002A937C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		84D8196A2BA81D87002A937C /* TopViewUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewUtil.swift; sourceTree = "<group>"; };
+		84D8196C2BA81E7A002A937C /* FirebaseAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthRepository.swift; sourceTree = "<group>"; };
+		84D8196F2BA81F01002A937C /* FirebaseAuthRemoteDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthRemoteDataSourceImpl.swift; sourceTree = "<group>"; };
+		84D819722BA82264002A937C /* FirebaseAuthRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthRemoteDataSource.swift; sourceTree = "<group>"; };
+		84D819742BA822A7002A937C /* FirebaseAuthRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthRepositoryImpl.swift; sourceTree = "<group>"; };
+		84D819772BA82439002A937C /* LoginEmailUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEmailUseCase.swift; sourceTree = "<group>"; };
+		84D819792BA824EC002A937C /* GoogleLoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLoginUseCase.swift; sourceTree = "<group>"; };
+		84D8197B2BA828A4002A937C /* FetchUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserUseCase.swift; sourceTree = "<group>"; };
+		84D8197D2BA828B2002A937C /* CreateUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserUseCase.swift; sourceTree = "<group>"; };
+		84D8197F2BA828C5002A937C /* SignOutUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutUseCase.swift; sourceTree = "<group>"; };
+		84D819812BA828DA002A937C /* SaveUserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveUserUseCase.swift; sourceTree = "<group>"; };
+		84D819832BA828ED002A937C /* ForgoutPasswordUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgoutPasswordUseCase.swift; sourceTree = "<group>"; };
+		84D819852BA828FB002A937C /* DeleteAccountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountUseCase.swift; sourceTree = "<group>"; };
 		B228ADDD2BA2CA0C006468E5 /* SongLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongLocalDataSource.swift; sourceTree = "<group>"; };
 		B228ADDF2BA2CA60006468E5 /* SongLocalDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongLocalDataSourceImpl.swift; sourceTree = "<group>"; };
 		B228ADE42BA2CB42006468E5 /* GetSavedSongUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSavedSongUseCase.swift; sourceTree = "<group>"; };
@@ -349,6 +377,7 @@
 				8455A0C82BA1A068006E8BA1 /* dataSource */,
 				8455A0C92BA1A071006E8BA1 /* dataSourceImpl */,
 				8455A0C62BA1A048006E8BA1 /* SongRepositoryImpl.swift */,
+				84D819742BA822A7002A937C /* FirebaseAuthRepositoryImpl.swift */,
 			);
 			path = repository;
 			sourceTree = "<group>";
@@ -356,6 +385,7 @@
 		8455A0B32BA18634006E8BA1 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				84D819682BA81CDE002A937C /* User.swift */,
 				8455A0B42BA1868D006E8BA1 /* AudioFetch.swift */,
 			);
 			path = model;
@@ -364,6 +394,7 @@
 		8455A0B62BA1895E006E8BA1 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				84D8196A2BA81D87002A937C /* TopViewUtil.swift */,
 				8455A0B72BA18976006E8BA1 /* APIError.swift */,
 				B2C2A6752BA217DF00035F12 /* Alert.swift */,
 				B2AF24F42BA2F6B7004751AD /* DBError.swift */,
@@ -374,6 +405,7 @@
 		8455A0BE2BA19A55006E8BA1 /* usecase */ = {
 			isa = PBXGroup;
 			children = (
+				84D819762BA8241E002A937C /* firebaseAuth */,
 				B228ADE12BA2CAF6006468E5 /* song */,
 			);
 			path = usecase;
@@ -383,6 +415,7 @@
 			isa = PBXGroup;
 			children = (
 				8455A0C02BA19AA0006E8BA1 /* SongRepository.swift */,
+				84D8196C2BA81E7A002A937C /* FirebaseAuthRepository.swift */,
 			);
 			path = repository;
 			sourceTree = "<group>";
@@ -390,6 +423,7 @@
 		8455A0C82BA1A068006E8BA1 /* dataSource */ = {
 			isa = PBXGroup;
 			children = (
+				84D819712BA82253002A937C /* firebaseAuth */,
 				8455A0CA2BA1A0BD006E8BA1 /* song */,
 			);
 			path = dataSource;
@@ -398,6 +432,7 @@
 		8455A0C92BA1A071006E8BA1 /* dataSourceImpl */ = {
 			isa = PBXGroup;
 			children = (
+				84D8196E2BA81EE6002A937C /* firebaseAuth */,
 				8455A0CD2BA1A0EE006E8BA1 /* song */,
 			);
 			path = dataSourceImpl;
@@ -514,6 +549,37 @@
 				84D819532BA80F7C002A937C /* AdSupport.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		84D8196E2BA81EE6002A937C /* firebaseAuth */ = {
+			isa = PBXGroup;
+			children = (
+				84D8196F2BA81F01002A937C /* FirebaseAuthRemoteDataSourceImpl.swift */,
+			);
+			path = firebaseAuth;
+			sourceTree = "<group>";
+		};
+		84D819712BA82253002A937C /* firebaseAuth */ = {
+			isa = PBXGroup;
+			children = (
+				84D819722BA82264002A937C /* FirebaseAuthRemoteDataSource.swift */,
+			);
+			path = firebaseAuth;
+			sourceTree = "<group>";
+		};
+		84D819762BA8241E002A937C /* firebaseAuth */ = {
+			isa = PBXGroup;
+			children = (
+				84D819772BA82439002A937C /* LoginEmailUseCase.swift */,
+				84D819792BA824EC002A937C /* GoogleLoginUseCase.swift */,
+				84D8197B2BA828A4002A937C /* FetchUserUseCase.swift */,
+				84D8197D2BA828B2002A937C /* CreateUserUseCase.swift */,
+				84D8197F2BA828C5002A937C /* SignOutUseCase.swift */,
+				84D819812BA828DA002A937C /* SaveUserUseCase.swift */,
+				84D819832BA828ED002A937C /* ForgoutPasswordUseCase.swift */,
+				84D819852BA828FB002A937C /* DeleteAccountUseCase.swift */,
+			);
+			path = firebaseAuth;
 			sourceTree = "<group>";
 		};
 		B228ADE12BA2CAF6006468E5 /* song */ = {
@@ -704,9 +770,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D8196B2BA81D87002A937C /* TopViewUtil.swift in Sources */,
 				B2AF24F52BA2F6B7004751AD /* DBError.swift in Sources */,
 				8402A2AF2B8F242200A836CD /* HomeView.swift in Sources */,
 				8420209A2B9EF3BD0034B065 /* MarqueeText.swift in Sources */,
+				84D8197E2BA828B2002A937C /* CreateUserUseCase.swift in Sources */,
+				84D819842BA828ED002A937C /* ForgoutPasswordUseCase.swift in Sources */,
 				B28FE1622B906555009FB75D /* SearchBarView.swift in Sources */,
 				8455A0C72BA1A048006E8BA1 /* SongRepositoryImpl.swift in Sources */,
 				8465503C2B95DB44008E6176 /* ForgoutPasswordView.swift in Sources */,
@@ -719,12 +788,17 @@
 				849DBDAA2B9AF3EB00A39807 /* PlaylistListView.swift in Sources */,
 				B28FE1662B906DE5009FB75D /* homePlaylistCardView.swift in Sources */,
 				8455A0B52BA1868D006E8BA1 /* AudioFetch.swift in Sources */,
+				84D819862BA828FB002A937C /* DeleteAccountUseCase.swift in Sources */,
 				8402A29D2B8F039A00A836CD /* SoundscapeTabView.swift in Sources */,
 				8465502B2B95A904008E6176 /* OnboardingListView.swift in Sources */,
 				84A4B3532B99D8BC00A3AC68 /* Episode.swift in Sources */,
 				8420208F2B9ECD4A0034B065 /* StaggeredGrid.swift in Sources */,
+				84D819732BA82264002A937C /* FirebaseAuthRemoteDataSource.swift in Sources */,
 				8465502F2B95A987008E6176 /* OnboardingNextButtonView.swift in Sources */,
+				84D819822BA828DA002A937C /* SaveUserUseCase.swift in Sources */,
+				84D819752BA822A7002A937C /* FirebaseAuthRepositoryImpl.swift in Sources */,
 				B252D5B62B92023C00F55DD8 /* MusicListView.swift in Sources */,
+				84D819702BA81F01002A937C /* FirebaseAuthRemoteDataSourceImpl.swift in Sources */,
 				847F1B1F2B8F43B000EEE645 /* MoodSelectView.swift in Sources */,
 				842020982B9EE7750034B065 /* Color.swift in Sources */,
 				B252D5B32B91BC9500F55DD8 /* StoryCardView.swift in Sources */,
@@ -740,18 +814,23 @@
 				8465503E2B95EE64008E6176 /* NicknameView.swift in Sources */,
 				842020912B9ED2900034B065 /* MusicPlayerView.swift in Sources */,
 				B2AF24F32BA2EC4D004751AD /* SongDao.swift in Sources */,
+				84D8196D2BA81E7A002A937C /* FirebaseAuthRepository.swift in Sources */,
 				B228ADE72BA2CB50006468E5 /* SaveSongUseCase.swift in Sources */,
 				B2729D132B92FDA300FD2B84 /* ButtonModifier.swift in Sources */,
 				849DBDAE2B9B04DC00A39807 /* StoryListView.swift in Sources */,
 				B28FE16A2B907AE6009FB75D /* StorySound.swift in Sources */,
 				847F1B222B8F459500EEE645 /* Mood.swift in Sources */,
+				84D819782BA82439002A937C /* LoginEmailUseCase.swift in Sources */,
 				B228ADE02BA2CA60006468E5 /* SongLocalDataSourceImpl.swift in Sources */,
 				8402A2B52B8F246000A836CD /* SettingView.swift in Sources */,
 				8455A0A92BA16B54006E8BA1 /* AppViewModel.swift in Sources */,
+				84D819802BA828C5002A937C /* SignOutUseCase.swift in Sources */,
 				842020952B9EE1810034B065 /* RoundedCorner.swift in Sources */,
 				8455A0CC2BA1A0E3006E8BA1 /* SongRemoteDataSource.swift in Sources */,
 				B228ADE92BA2CB65006468E5 /* UpdateSongUseCase.swift in Sources */,
 				B2D371C52B9700F20072048E /* MiniStoryCardView.swift in Sources */,
+				84D8197A2BA824EC002A937C /* GoogleLoginUseCase.swift in Sources */,
+				84D8197C2BA828A4002A937C /* FetchUserUseCase.swift in Sources */,
 				B2E269022B93046B0034147F /* FontExtension.swift in Sources */,
 				842020932B9EDD4C0034B065 /* BlurView.swift in Sources */,
 				8455A0C32BA19E34006E8BA1 /* GetSongFetchUseCase.swift in Sources */,
@@ -772,6 +851,7 @@
 				846550322B95B7B2008E6176 /* LoginSelectionView.swift in Sources */,
 				8455A0B82BA18976006E8BA1 /* APIError.swift in Sources */,
 				8465503A2B95C284008E6176 /* SignupView.swift in Sources */,
+				84D819692BA81CDE002A937C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
