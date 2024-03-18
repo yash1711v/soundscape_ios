@@ -72,12 +72,12 @@ struct LoginView: View {
                         .padding()
                     
                     HStack {
-                        TextField("Type here...", text: $email)
+                        SecureField("Type here...", text: $password)
                             .textContentType(.password)
                             .foregroundColor(.white)
                         
                         Button {
-                            print("hi")
+                            
                         } label: {
                             Image(systemName: "eye")
                                 .foregroundColor(.gray)
@@ -95,10 +95,16 @@ struct LoginView: View {
                             .padding()
                     }
                     
-                    Image("login_continue_button")
-                        .resizable()
-                        .scaledToFit()
-                        .padding()
+                    Button {
+                        Task {
+                            try await appViewModel.signIn(withEmail: email, password: password)
+                        }
+                    } label: {
+                        Image("login_continue_button")
+                            .resizable()
+                            .scaledToFit()
+                            .padding()
+                    }
                     
                     NavigationLink(destination: SignupView()) {
                         HStack {

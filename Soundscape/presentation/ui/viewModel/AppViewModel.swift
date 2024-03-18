@@ -210,9 +210,9 @@ final class AppViewModel: ObservableObject {
         }
     }
     
-    func saveUserAccount(uid: String, email: String, nickname: String) async throws {
+    func saveUserAccount(user: User) async throws {
         do {
-            let resultBool = try await saveUserUseCase.execute(uid: uid, email: email, nickname: nickname)
+            let resultBool = try await saveUserUseCase.execute(user: user)
         } catch {
             if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
                 alertItem = AlertContext.noInternetConnection
@@ -222,6 +222,10 @@ final class AppViewModel: ObservableObject {
     
     func signOut() {
         let resultBool = signOutUseCase.execute()
+        if resultBool {
+            userSession = nil
+            currentUser = nil
+        }
     }
     
     func deleteAccount() async throws {
@@ -230,6 +234,19 @@ final class AppViewModel: ObservableObject {
                 throw URLError(.cannotFindHost)
             }
             let resultBool = try await deleteAccountUseCase.execute(userSession: user)
+            if resultBool {
+                signOut()
+            }
+        } catch {
+            if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
+                alertItem = AlertContext.noInternetConnection
+            }
+        }
+    }
+    
+    func forgoutPassword(withEmail email: String) async throws {
+        do {
+            let resultBool = try await forgotUseCase.execute(withEmail: email)
         } catch {
             if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
                 alertItem = AlertContext.noInternetConnection

@@ -16,5 +16,5 @@ protocol FirebaseAuthRepository {
     func deleteAccount(userSession: Firebase.User) async throws -> Bool
     func fetchUser() async throws -> User?
     func forgotPassword(withEmail email: String) async throws -> Bool
-    func saveUser(uid: String, email: String, nickname: String) async throws -> Bool
+    func saveUser(user: User) async throws -> Bool
 }

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SettingView: View {
+    @EnvironmentObject var appViewModel: AppViewModel
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -17,18 +19,7 @@ struct SettingView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding()
                     
-                    Button {
-                        print("hi")
-                    } label: {
-                        Text("CREATE AN ACCOUNT")
-                            .font(.wixMadeFont(.regular, fontSize: .subTitle))
-                    }
-                    .foregroundColor(.white)
-                    .modifier(OutlineBigButtonStyle())
-                    .padding()
-                    
-                    Text("Already A Member? Log in")
-                        .font(.wixMadeFont(.regular, fontSize: .body))
+                    CreateAccountView()
                     
                     Text("OTHERS")
                         .font(.wixMadeFont(.bold, fontSize: .heading))
@@ -51,6 +42,12 @@ struct SettingView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
                     .padding(.horizontal)
+                    
+                    Button {
+                        appViewModel.signOut()
+                    } label: {
+                        Text("Logout")
+                    }
                     
                     Text("Version")
                         .font(.wixMadeFont(.bold, fontSize: .body))
@@ -75,4 +72,21 @@ struct SettingView: View {
 
 #Preview {
     SettingView()
+}
+
+struct CreateAccountView: View {
+    var body: some View {
+        Button {
+            print("hi")
+        } label: {
+            Text("CREATE AN ACCOUNT")
+                .font(.wixMadeFont(.regular, fontSize: .subTitle))
+        }
+        .foregroundColor(.white)
+        .modifier(OutlineBigButtonStyle())
+        .padding()
+        
+        Text("Already A Member? Log in")
+            .font(.wixMadeFont(.regular, fontSize: .body))
+    }
 }

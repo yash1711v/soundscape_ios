@@ -16,7 +16,7 @@ final class SaveUserUseCase {
         self.firebaseAuthRepository = firebaseAuthRepository
     }
     
-    func execute(uid: String, email: String, nickname: String) async throws -> Bool {
-        return try await firebaseAuthRepository.saveUser(uid: uid, email: email, nickname: nickname)
+    func execute(user: User) async throws -> Bool {
+        return try await firebaseAuthRepository.saveUser(user: user)
     }
 }

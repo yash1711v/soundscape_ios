@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct NicknameView: View {
-    @State var nickname: Binding<String> = .constant("")
+    @EnvironmentObject var appViewModel: AppViewModel
+    @State var nickname = ""
+    var email: String
     
     var body: some View {
         VStack {
@@ -23,17 +25,26 @@ struct NicknameView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
             
-            TextField("Type here...", text: nickname)
+            TextField("Type here...", text: $nickname)
                 .foregroundColor(.white)
                 .padding(.horizontal, 30)
                 .modifier(OutlineBigButtonStyle())
 
             Spacer()
             
-            Image("signup_continue_button")
-                .resizable()
-                .scaledToFit()
-                .padding()
+            Button {
+                Task {
+                    guard let uid = appViewModel.userSession?.uid else {
+                        return
+                    }
+                    try await appViewModel.saveUserAccount(user: User(id: uid, email: email, nickname: nickname))
+                }
+            } label: {
+                Image("signup_continue_button")
+                    .resizable()
+                    .scaledToFit()
+                    .padding()
+            }
             
             Spacer()
         }
@@ -48,5 +59,5 @@ struct NicknameView: View {
 }
 
 #Preview {
-    NicknameView()
+    NicknameView(email: "")
 }

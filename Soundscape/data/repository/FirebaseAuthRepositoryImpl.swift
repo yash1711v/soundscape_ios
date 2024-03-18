@@ -45,7 +45,7 @@ final class FirebaseAuthRepositoryImpl: FirebaseAuthRepository {
         return try await firebaseAuthRemoteDataSource.forgotPassword(withEmail: email)
     }
     
-    func saveUser(uid: String, email: String, nickname: String) async throws -> Bool {
-        return try await firebaseAuthRemoteDataSource.forgotPassword(withEmail: email)
+    func saveUser(user: User) async throws -> Bool {
+        return try await firebaseAuthRemoteDataSource.saveUser(user: user)
     }
 }

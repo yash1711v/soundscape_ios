@@ -71,7 +71,6 @@ final class FirebaseAuthRemoteDataSourceImpl: FirebaseAuthRemoteDataSource {
             try await userSession.delete()
             let uid = userSession.uid
             try await Firestore.firestore().collection("user").document(uid).delete()
-            signOut()
             return true
         } catch {
             print("DEBUG: Failed to delete account with error \(error.localizedDescription)")
@@ -102,9 +101,8 @@ final class FirebaseAuthRemoteDataSourceImpl: FirebaseAuthRemoteDataSource {
         }
     }
     
-    func saveUser(uid: String, email: String, nickname: String) async throws -> Bool {
+    func saveUser(user: User) async throws -> Bool {
         do {
-            let user = User(id: uid, email: email, nickname: nickname)
             let encodeUser = try Firestore.Encoder().encode(user)
             try await Firestore.firestore().collection("user").document(user.id).setData(encodeUser)
             return true

@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct SignupView: View {
-    @State var emailId: Binding<String> = .constant("")
-    @State var password: Binding<String> = .constant("")
+    @EnvironmentObject var appViewModel: AppViewModel
+    @Environment (\.dismiss) var dismiss
+    @State var email = ""
+    @State var password = ""
     @State var openTabView: Bool = false
+    @State var openNicknameView: Bool = false
     
     var body: some View {
         if openTabView {
             SoundscapeTabView()
                 .navigationBarHidden(true)
+        } else if openNicknameView {
+            NicknameView(email: email)
         } else {
             VStack {
                 Text("CREATE AN ACCOUNT")
@@ -48,7 +53,7 @@ struct SignupView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()
                 
-                TextField("Type here...", text: emailId)
+                TextField("Type here...", text: $email)
                     .foregroundColor(.white)
                     .padding(.horizontal, 30)
                     .modifier(OutlineBigButtonStyle())
@@ -66,8 +71,7 @@ struct SignupView: View {
                     .padding()
                 
                 HStack {
-                    TextField("Type here...", text: emailId)
-                        .textContentType(.password)
+                    SecureField("Type here...", text: $password)
                         .foregroundColor(.white)
                     
                     Button {
@@ -80,7 +84,9 @@ struct SignupView: View {
                 .padding(.horizontal, 30)
                 .modifier(OutlineBigButtonStyle())
                 
-                NavigationLink(destination: ForgoutPasswordView()) {
+                NavigationLink {
+                    ForgoutPasswordView()
+                } label: {
                     Text("Forgout Password")
                         .font(.wixMadeFont(.regular, fontSize: .title))
                         .underline()
@@ -89,12 +95,21 @@ struct SignupView: View {
                         .padding()
                 }
                 
-                Image("signup_continue_button")
-                    .resizable()
-                    .scaledToFit()
-                    .padding()
+                Button {
+                    Task {
+                        try await appViewModel.createUserAccount(withEmail: email, password: password)
+                        openNicknameView = true
+                    }
+                } label: {
+                    Image("signup_continue_button")
+                        .resizable()
+                        .scaledToFit()
+                        .padding()
+                }
                 
-                NavigationLink(destination: LoginView()) {
+                Button {
+                    dismiss()
+                } label: {
                     HStack {
                         Text("Already have an account?")
                             .font(.wixMadeFont(.regular, fontSize: .subTitle))

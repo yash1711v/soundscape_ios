@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ForgoutPasswordView: View {
-    @State var emailId: Binding<String> = .constant("")
+    @EnvironmentObject var appViewModel: AppViewModel
+    @State var email = ""
     
     var body: some View {
         VStack {
@@ -23,7 +24,7 @@ struct ForgoutPasswordView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
             
-            TextField("Type here...", text: emailId)
+            TextField("Type here...", text: $email)
                 .foregroundColor(.white)
                 .padding(.horizontal, 30)
                 .modifier(OutlineBigButtonStyle())
@@ -34,10 +35,16 @@ struct ForgoutPasswordView: View {
             
             Spacer()
             
-            Image("login_continue_button")
-                .resizable()
-                .scaledToFit()
-                .padding()
+            Button {
+                Task {
+                    try await appViewModel.forgoutPassword(withEmail: email)
+                }
+            } label: {
+                Image("login_continue_button")
+                    .resizable()
+                    .scaledToFit()
+                    .padding()
+            }
             
             Spacer()
             

@@ -8,7 +8,7 @@
 import Foundation
 
 final class ForgoutPasswordUseCase {
-    static let shared = ForgoutPasswordView()
+    static let shared = ForgoutPasswordUseCase()
     
     let firebaseAuthRepository: FirebaseAuthRepository
     
