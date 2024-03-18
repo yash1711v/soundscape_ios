@@ -9,6 +9,7 @@ import Foundation
 import AVFoundation
 
 final class AppViewModel: ObservableObject {
+    // MARK: Audio player variables
     @Published var showBottomPlayer: Bool = false
     @Published var episode: Episode = EpisodeData.sampleEpisodeData
     @Published var expand: Bool = false
@@ -17,7 +18,100 @@ final class AppViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var currentTime: Double = 0.0
     @Published var totalTime: Double = 0.0
-
+    
+    // MARK: Db and api variables
+    @Published var selectedAudioFetch: AudioFetch?
+    @Published var audioFetchList: [AudioFetch] = []
+    @Published var audioFetchListDb: [AudioFetch] = []
+    @Published var alertItem: AlertItem?
+    @Published var isLiked = [String : Int]()
+    
+    private let getSongFetchUseCase = GetSongFetchUseCase.shared
+    private let saveSongUseCase = SaveSongUseCase.shared
+    private let getSaveSongUseCase = GetSavedSongUseCase.shared
+    
+    // MARK: API functions
+    func getSongSection(songSection: String) async {
+        isLoading = true
+        do {
+            audioFetchList = try await getSongFetchUseCase.execute(songSection: songSection)
+            isLoading = false
+        } catch {
+            if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
+                alertItem = AlertContext.noInternetConnection
+            } else if let scError = error as? APIError {
+                switch scError {
+                case .invalidURL:
+                    alertItem = AlertContext.invalidURL
+                case .invalidResponse:
+                    alertItem = AlertContext.invalidResponse
+                case .invalidData:
+                    alertItem = AlertContext.invalidData
+                }
+            }
+            isLoading = false
+        }
+    }
+    
+    // MARK: DB functions
+    func getAllSongFromDb() async {
+        isLoading = true
+        do {
+            audioFetchListDb = try await getSaveSongUseCase.execute()
+            isLoading = false
+        } catch {
+            if let dbError = error as? DBError {
+                switch dbError {
+                case .dataSourceError:
+                    alertItem = AlertContext.dataSourceError
+                case .createError:
+                    alertItem = AlertContext.createError
+                case .deleteError:
+                    alertItem = AlertContext.deleteError
+                case .updateError:
+                    alertItem = AlertContext.updateError
+                case .fetchError:
+                    alertItem = AlertContext.fetchError
+                }
+            }
+            isLoading = false
+        }
+    }
+    
+    func checkItemInDbList(id: Int64) -> Bool {
+        // MARK: Assuming audioFetchListDb and audioFetchList are arrays of some type
+        let audioFetchListDbDict = Dictionary(uniqueKeysWithValues: audioFetchListDb.map { ($0.id, $0) })
+        
+        if audioFetchListDbDict[id] != nil {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func saveSong(audioFetch: AudioFetch) async {
+        do {
+            try await saveSongUseCase.execute(audioFetch: audioFetch)
+        } catch {
+            if let dbError = error as? DBError {
+                switch dbError {
+                case .dataSourceError:
+                    alertItem = AlertContext.dataSourceError
+                case .createError:
+                    alertItem = AlertContext.createError
+                case .deleteError:
+                    alertItem = AlertContext.deleteError
+                case .updateError:
+                    alertItem = AlertContext.updateError
+                case .fetchError:
+                    alertItem = AlertContext.fetchError
+                }
+            }
+            
+        }
+    }
+    
+    // MARK: Audio player functions
     func playSound(sound: String) {
         guard let url = URL(string: sound) else { return }
         

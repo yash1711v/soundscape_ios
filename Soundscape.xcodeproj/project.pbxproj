@@ -25,7 +25,6 @@
 		8455A0B02BA1805F006E8BA1 /* SoundscapeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455A0AF2BA1805F006E8BA1 /* SoundscapeAPIService.swift */; };
 		8455A0B52BA1868D006E8BA1 /* AudioFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455A0B42BA1868D006E8BA1 /* AudioFetch.swift */; };
 		8455A0B82BA18976006E8BA1 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455A0B72BA18976006E8BA1 /* APIError.swift */; };
-		8455A0BD2BA18B21006E8BA1 /* MusicListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455A0BC2BA18B21006E8BA1 /* MusicListViewModel.swift */; };
 		8455A0C12BA19AA0006E8BA1 /* SongRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455A0C02BA19AA0006E8BA1 /* SongRepository.swift */; };
 		8455A0C32BA19E34006E8BA1 /* GetSongFetchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455A0C22BA19E34006E8BA1 /* GetSongFetchUseCase.swift */; };
 		8455A0C72BA1A048006E8BA1 /* SongRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455A0C62BA1A048006E8BA1 /* SongRepositoryImpl.swift */; };
@@ -103,7 +102,6 @@
 		8455A0AF2BA1805F006E8BA1 /* SoundscapeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapeAPIService.swift; sourceTree = "<group>"; };
 		8455A0B42BA1868D006E8BA1 /* AudioFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFetch.swift; sourceTree = "<group>"; };
 		8455A0B72BA18976006E8BA1 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
-		8455A0BC2BA18B21006E8BA1 /* MusicListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListViewModel.swift; sourceTree = "<group>"; };
 		8455A0C02BA19AA0006E8BA1 /* SongRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRepository.swift; sourceTree = "<group>"; };
 		8455A0C22BA19E34006E8BA1 /* GetSongFetchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSongFetchUseCase.swift; sourceTree = "<group>"; };
 		8455A0C62BA1A048006E8BA1 /* SongRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -523,7 +521,6 @@
 				B2E38B1F2B930C9B000AAB15 /* views */,
 				B2E38B1E2B930C93000AAB15 /* model */,
 				B252D5B52B92023C00F55DD8 /* MusicListView.swift */,
-				8455A0BC2BA18B21006E8BA1 /* MusicListViewModel.swift */,
 			);
 			path = musicList;
 			sourceTree = "<group>";
@@ -710,7 +707,6 @@
 				8455A0A92BA16B54006E8BA1 /* AppViewModel.swift in Sources */,
 				842020952B9EE1810034B065 /* RoundedCorner.swift in Sources */,
 				8455A0CC2BA1A0E3006E8BA1 /* SongRemoteDataSource.swift in Sources */,
-				8455A0BD2BA18B21006E8BA1 /* MusicListViewModel.swift in Sources */,
 				B228ADE92BA2CB65006468E5 /* UpdateSongUseCase.swift in Sources */,
 				B2D371C52B9700F20072048E /* MiniStoryCardView.swift in Sources */,
 				B2E269022B93046B0034147F /* FontExtension.swift in Sources */,
@@ -863,6 +859,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Soundscape/Preview Content\"";
@@ -884,6 +881,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appstesting.Soundscape;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -899,6 +897,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Soundscape/Preview Content\"";
@@ -920,6 +919,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.appstesting.Soundscape;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
