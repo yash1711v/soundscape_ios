@@ -10,12 +10,12 @@ import Firebase
 
 final class SongFirebaseDataSourceImpl: SongFirebaseDataSource {
     static let shared = SongFirebaseDataSourceImpl()
-    let uid = UserDefaults.standard.string(forKey: "userUID")
+    let uid = UserDefaults.standard.string(forKey: "userUID")!
     
     func getSavedSongFromFb() async throws -> [AudioFetch] {
         // Fetch saved songs from Firebase
         do {
-            let querySnapshot = try await Firestore.firestore().collection("song").whereField("userId", isEqualTo: uid!).getDocuments()
+            let querySnapshot = try await Firestore.firestore().collection("song").whereField("userId", isEqualTo: uid).getDocuments()
             
             var songs: [AudioFetch] = []
             for document in querySnapshot.documents {
@@ -37,8 +37,9 @@ final class SongFirebaseDataSourceImpl: SongFirebaseDataSource {
         
     func saveSongToFb(audioFetch: AudioFetch) async throws -> Bool {
         do {
+            print("this is the key: \(uid)")
             let encodeUser = try Firestore.Encoder().encode(audioFetch)
-            try await Firestore.firestore().collection("song").document(uid!).setData(encodeUser)
+            try await Firestore.firestore().collection("song").document(uid).setData(encodeUser)
             return true
         } catch {
             throw error
@@ -47,7 +48,7 @@ final class SongFirebaseDataSourceImpl: SongFirebaseDataSource {
         
     func deleteSavedSongFromFb(audioFetch: AudioFetch) async throws -> Bool {
         do {
-            let querySnapshot = try await Firestore.firestore().collection("song").whereField("userId", isEqualTo: uid!).getDocuments()
+            let querySnapshot = try await Firestore.firestore().collection("song").whereField("userId", isEqualTo: uid).getDocuments()
             
             for document in querySnapshot.documents {
                 do {
@@ -69,7 +70,7 @@ final class SongFirebaseDataSourceImpl: SongFirebaseDataSource {
 
     func updateSavedSongInFb(audioFetch: AudioFetch) async throws -> Bool {
         do {
-            let querySnapshot = try await Firestore.firestore().collection("song").whereField("userId", isEqualTo: uid!).getDocuments()
+            let querySnapshot = try await Firestore.firestore().collection("song").whereField("userId", isEqualTo: uid).getDocuments()
             
             for document in querySnapshot.documents {
                 do {

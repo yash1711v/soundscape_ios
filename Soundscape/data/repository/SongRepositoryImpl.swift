@@ -34,9 +34,10 @@ final class SongRepositoryImpl: SongRepository {
     
     func saveSong(audioFetch: AudioFetch) async throws -> () {
         do {
-            
+            let fbSave = try await songFirebaseDataSource.saveSongToFb(audioFetch: audioFetch)
+            if fbSave {
                 try await songLocalDataSource.saveSongToDB(audioFetch: audioFetch)
-            
+            }
         } catch {
             throw error
         }
