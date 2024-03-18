@@ -6,14 +6,27 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseAnalytics
+import FirebaseAnalyticsSwift
+import FirebaseCore
 
 @main
 struct SoundscapeApp: App {
-    var appViewModel = AppViewModel()
+    @StateObject var appViewModel = AppViewModel()
+    
+    init() {
+        FirebaseApp.configure()
+    }
     
     var body: some Scene {
         WindowGroup {
             SplashView().environmentObject(appViewModel)
+                .onAppear() {
+                    Analytics.logEvent(AnalyticsEventScreenView,
+                                       parameters: [AnalyticsParameterScreenName: "\(SoundscapeApp.self)",
+                                                   AnalyticsParameterScreenClass: "\(SoundscapeApp.self)"])
+                }
         }
     }
 }

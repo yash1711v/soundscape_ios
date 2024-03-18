@@ -8,6 +8,7 @@
 import Foundation
 import AVFoundation
 
+@MainActor
 final class AppViewModel: ObservableObject {
     // MARK: Audio player variables
     @Published var showBottomPlayer: Bool = false
