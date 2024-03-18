@@ -34,9 +34,10 @@ final class FirebaseAuthRemoteDataSourceImpl: FirebaseAuthRemoteDataSource {
         }
     }
     
+    @MainActor
     func signInGoogle() async throws -> Firebase.User? {
         do {
-            guard let topVC = await TopViewUtil.shared.topViewController() else {
+            guard let topVC = TopViewUtil.shared.topViewController() else {
                 throw URLError(.cannotFindHost)
             }
 

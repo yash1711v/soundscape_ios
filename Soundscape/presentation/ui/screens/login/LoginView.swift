@@ -24,15 +24,16 @@ struct LoginView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding()
                     
-                    Image("login_google_button")
-                        .resizable()
-                        .scaledToFit()
-                        .padding()
-                        .onTapGesture {
-                            Task {
-                                try await appViewModel.signInGoogle()
-                            }
+                    Button {
+                        Task {
+                            try await appViewModel.signInGoogle()
                         }
+                    } label: {
+                        Image("login_google_button")
+                            .resizable()
+                            .scaledToFit()
+                            .padding()
+                    }
                     
                     HStack {
                         Rectangle()
