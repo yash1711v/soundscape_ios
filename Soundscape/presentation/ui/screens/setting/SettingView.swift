@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingView: View {
     @EnvironmentObject var appViewModel: AppViewModel
+    @State private var showAlert = false
     
     var body: some View {
         NavigationView {
@@ -19,8 +20,12 @@ struct SettingView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding()
                     
-                    CreateAccountView()
-                    
+                    if appViewModel.userSession == nil {
+                        CreateAccountView()
+                    } else {
+                        LoggedInAccountView(showAlert: $showAlert)
+                    }
+
                     Text("OTHERS")
                         .font(.wixMadeFont(.bold, fontSize: .heading))
                         .foregroundColor(.gray)
@@ -58,6 +63,11 @@ struct SettingView: View {
                         .font(.wixMadeFont(.bold, fontSize: .body))
                         .padding(.bottom, 70)
                 }
+                .task {
+                    Task {
+                        try await appViewModel.fetchUserAccount()
+                    }
+                }
             }
             .background(
                 Image("setting_background")
@@ -65,6 +75,9 @@ struct SettingView: View {
                     .scaledToFill()
                     .ignoresSafeArea()
             )
+            .alert(isPresented: $showAlert) {
+                AlertContext.passwordResetLink
+            }
             .navigationTitle("Settings")
         }
     }
@@ -88,5 +101,51 @@ struct CreateAccountView: View {
         
         Text("Already A Member? Log in")
             .font(.wixMadeFont(.regular, fontSize: .body))
+    }
+}
+
+struct LoggedInAccountView: View {
+    @EnvironmentObject var appViewModel: AppViewModel
+    @Binding var showAlert: Bool
+    
+    var body: some View {
+        Text("Username")
+            .font(.wixMadeFont(.regular, fontSize: .title))
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal)
+        
+        Text(appViewModel.currentUser?.nickname ?? "")
+            .font(.wixMadeFont(.regular, fontSize: .title))
+            .foregroundColor(.gray)
+            .modifier(OutlineBigButtonStyle())
+            .padding()
+        
+        Text("Email")
+            .font(.wixMadeFont(.regular, fontSize: .title))
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal)
+        
+        Text(appViewModel.currentUser?.email ?? "")
+            .font(.wixMadeFont(.regular, fontSize: .title))
+            .foregroundColor(.gray)
+            .modifier(OutlineBigButtonStyle())
+            .padding()
+        
+        Button {
+            Task {
+                guard let email = appViewModel.currentUser?.email else {
+                    return
+                }
+                try await appViewModel.forgoutPassword(withEmail: email)
+                showAlert = true
+            }
+        } label: {
+            Text("Change Password")
+                .font(.wixMadeFont(.regular, fontSize: .title))
+                .underline()
+                .frame(maxWidth: .infinity, alignment: .trailing)
+        }
+        .padding(.bottom)
+        .padding(.horizontal)
     }
 }

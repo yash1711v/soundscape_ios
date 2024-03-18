@@ -86,4 +86,8 @@ struct AlertContext {
     static let wrongPasswordError = AlertItem(title: Text("Login Error"),
                                               message: Text("Wrong password. Please check or reset password"),
                                               dismissButton: .default(Text("OK")))
+    
+    static let passwordResetLink = Alert(title: Text("Mail Sent"),
+                                         message: Text("Your password reset email has been sent."),
+                                         dismissButton: .default(Text("OK")))
 }
