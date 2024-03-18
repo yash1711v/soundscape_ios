@@ -31,6 +31,7 @@ final class AppViewModel: ObservableObject {
     // MARK: login variables
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
+    @Published var isUserDataSaved: Bool = false
     
     // MARK: Usecase
     private let getSongFetchUseCase = GetSongFetchUseCase.shared
@@ -212,7 +213,7 @@ final class AppViewModel: ObservableObject {
     
     func saveUserAccount(user: User) async throws {
         do {
-            let resultBool = try await saveUserUseCase.execute(user: user)
+            isUserDataSaved = try await saveUserUseCase.execute(user: user)
         } catch {
             if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
                 alertItem = AlertContext.noInternetConnection

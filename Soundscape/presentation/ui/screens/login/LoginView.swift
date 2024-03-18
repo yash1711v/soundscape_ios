@@ -18,7 +18,7 @@ struct LoginView: View {
             SoundscapeTabView()
                 .navigationBarHidden(true)
         } else {
-                VStack {
+                ScrollView {
                     Text("LOGIN")
                         .font(.wixMadeFont(.bold, fontSize: .heading))
                         .frame(maxWidth: .infinity, alignment: .leading)

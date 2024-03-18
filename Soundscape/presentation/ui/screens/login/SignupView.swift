@@ -22,16 +22,27 @@ struct SignupView: View {
         } else if openNicknameView {
             NicknameView(email: email)
         } else {
-            VStack {
+            ScrollView {
                 Text("CREATE AN ACCOUNT")
                     .font(.wixMadeFont(.bold, fontSize: .heading))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()
                 
-                Image("signup_google_button")
-                    .resizable()
-                    .scaledToFit()
-                    .padding()
+                Button {
+                    Task {
+                        try await appViewModel.signInGoogle()
+                        guard let gmail = appViewModel.userSession?.email else {
+                            return
+                        }
+                        email = gmail
+                        openNicknameView = true
+                    }
+                } label: {
+                    Image("signup_google_button")
+                        .resizable()
+                        .scaledToFit()
+                        .padding()
+                }
                 
                 HStack {
                     Rectangle()
