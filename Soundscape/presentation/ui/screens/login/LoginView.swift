@@ -66,6 +66,7 @@ struct LoginView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
                         .padding(.top, 5)
+                        .hidden()
                     
                     Text("Enter Password")
                         .font(.wixMadeFont(.bold, fontSize: .title))
@@ -129,6 +130,11 @@ struct LoginView: View {
                             }
                         }
                     
+                }
+                .alert(item: $appViewModel.alertItem) { alertItem in
+                    Alert(title: alertItem.title,
+                          message: alertItem.message,
+                          dismissButton: alertItem.dismissButton)
                 }
                 .background(
                     Image("login_background")

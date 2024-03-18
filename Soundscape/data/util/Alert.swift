@@ -69,4 +69,21 @@ struct AlertContext {
     static let fetchError = AlertItem(title: Text("Database Error"),
                                            message: Text("There was error while fetching data"),
                                            dismissButton: .default(Text("OK")))
+    
+    // MARK: Login alerts
+    static let loginError = AlertItem(title: Text("Login Error"),
+                                    message: Text("There was an error."),
+                                    dismissButton: .default(Text("OK")))
+    
+    static let invalidEmailError = AlertItem(title: Text("Login Error"),
+                                    message: Text("There was an error finding your account"),
+                                    dismissButton: .default(Text("OK")))
+    
+    static let userExistError = AlertItem(title: Text("Login Error"),
+                                    message: Text("Account already exits"),
+                                    dismissButton: .default(Text("OK")))
+    
+    static let wrongPasswordError = AlertItem(title: Text("Login Error"),
+                                              message: Text("Wrong password. Please check or reset password"),
+                                              dismissButton: .default(Text("OK")))
 }

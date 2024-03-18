@@ -75,6 +75,7 @@ struct SignupView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal)
                     .padding(.top, 5)
+                    .hidden()
                 
                 Text("Enter Password")
                     .font(.wixMadeFont(.bold, fontSize: .title))
@@ -149,6 +150,11 @@ struct SignupView: View {
                     .scaledToFill()
                     .ignoresSafeArea()
             )
+            .alert(item: $appViewModel.alertItem) { alertItem in
+                Alert(title: alertItem.title,
+                      message: alertItem.message,
+                      dismissButton: alertItem.dismissButton)
+            }
             .navigationTitle("")
         }
     }

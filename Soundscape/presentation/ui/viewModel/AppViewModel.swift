@@ -176,7 +176,16 @@ final class AppViewModel: ObservableObject {
             userSession = try await loginEmailUseCase.execute(withEmail: email, password: password)
         } catch {
             if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
-                alertItem = AlertContext.noInternetConnection
+                        alertItem = AlertContext.noInternetConnection
+            } else if let firError = error as? AuthError {
+                switch firError {
+                case .invalidEmailError:
+                    alertItem = AlertContext.invalidEmail
+                case .wrongPasswordError:
+                    alertItem = AlertContext.wrongPasswordError
+                default:
+                    alertItem = AlertContext.loginError
+                }
             }
         }
     }
@@ -186,7 +195,14 @@ final class AppViewModel: ObservableObject {
             userSession = try await googleLoginUseCase.execute()
         } catch {
             if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
-                alertItem = AlertContext.noInternetConnection
+                        alertItem = AlertContext.noInternetConnection
+            } else if let firError = error as? AuthError {
+                switch firError {
+                case .invalidEmailError:
+                    alertItem = AlertContext.invalidEmail
+                default:
+                    alertItem = AlertContext.loginError
+                }
             }
         }
     }
@@ -196,7 +212,16 @@ final class AppViewModel: ObservableObject {
             userSession = try await createUserUseCase.execute(withEmail: email, password: password)
         } catch {
             if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
-                alertItem = AlertContext.noInternetConnection
+                        alertItem = AlertContext.noInternetConnection
+            } else if let firError = error as? AuthError {
+                switch firError {
+                case .invalidEmailError:
+                    alertItem = AlertContext.invalidEmail
+                case .userExistError:
+                    alertItem = AlertContext.userExistError
+                default:
+                    alertItem = AlertContext.loginError
+                }
             }
         }
     }

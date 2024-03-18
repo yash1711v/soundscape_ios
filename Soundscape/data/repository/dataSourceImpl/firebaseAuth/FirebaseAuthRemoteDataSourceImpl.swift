@@ -18,9 +18,17 @@ final class FirebaseAuthRemoteDataSourceImpl: FirebaseAuthRemoteDataSource {
         do {
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
             return result.user
-        } catch {
-            print("DEBUG: Failed with error \(error.localizedDescription)")
-            return nil
+        } catch let error as AuthErrorCode {
+            switch error.code {
+            case .invalidEmail:
+                throw AuthError.invalidEmailError
+            case .invalidCredential:
+                throw AuthError.invalidEmailError
+            case .wrongPassword:
+                throw AuthError.wrongPasswordError
+            default:
+                throw AuthError.loginError
+            }
         }
     }
     
@@ -28,9 +36,17 @@ final class FirebaseAuthRemoteDataSourceImpl: FirebaseAuthRemoteDataSource {
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
             return result.user
-        } catch {
-            print("DEBUG: Failed with error \(error.localizedDescription)")
-            return nil
+        } catch let error as AuthErrorCode {
+            switch error.code {
+            case .invalidEmail:
+                throw AuthError.invalidEmailError
+            case .invalidCredential:
+                throw AuthError.invalidEmailError
+            case .emailAlreadyInUse:
+                throw AuthError.userExistError
+            default:
+                throw AuthError.loginError
+            }
         }
     }
     
