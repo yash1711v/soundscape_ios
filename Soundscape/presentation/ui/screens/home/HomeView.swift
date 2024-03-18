@@ -111,6 +111,9 @@ struct HomeView: View {
                     }
                 }
             }
+            .onAppear {
+                UserDefaults.standard.set(true, forKey: "hasShownOnboarding")
+            }
             .background(
                 Image("home_background")
                     .resizable()
