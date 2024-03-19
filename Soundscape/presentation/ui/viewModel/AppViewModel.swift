@@ -6,8 +6,9 @@
 //
 
 import Foundation
-import AVFoundation
 import Firebase
+import AVKit
+import MediaPlayer
 
 @MainActor
 final class AppViewModel: ObservableObject {
@@ -16,6 +17,7 @@ final class AppViewModel: ObservableObject {
     @Published var episode: Episode = EpisodeData.sampleEpisodeData
     @Published var expand: Bool = false
     @Published var audioPlayer: AVPlayer?
+    private let audioSession = AVAudioSession.sharedInstance()
     @Published var isPlaying: Bool = false
     @Published var isLoading: Bool = false
     @Published var currentTime: Double = 0.0
@@ -137,25 +139,36 @@ final class AppViewModel: ObservableObject {
     func playSound(sound: String) {
         guard let url = URL(string: sound) else { return }
         
-        let playerItem = AVPlayerItem(url: url)
-        audioPlayer = AVPlayer(playerItem: playerItem)
-        
-        // Show loader
-        isLoading = true
-        
-        // Calculate total time
-        let asset = AVURLAsset(url: url)
-        let duration = asset.duration
-        totalTime = duration.seconds
-        
-        // Reset seek
-        currentTime = 0.0
-        
-        // Hide loader
-        isLoading = false
+        do {
+            // Show loader
+            isLoading = true
+            
+            try audioSession.setCategory(.playback, mode: .default)
+            try audioSession.setActive(true)
+            let playerItem = AVPlayerItem(url: url)
+            audioPlayer = AVPlayer(playerItem: playerItem)
+            
+            // Calculate total time
+            let asset = AVURLAsset(url: url)
+            let duration = asset.duration
+            totalTime = duration.seconds
+            
+            // Reset seek
+            currentTime = 0.0
+            
+            // Play song
+            audioPlayer?.play()
+            
+            // Hide loader
+            isLoading = false
+        } catch {
+            print("\(error.localizedDescription)")
+        }
     }
     
     func playSound() {
+        setupRemoteTransportControls()
+        setupNowPlaying()
         audioPlayer?.play()
         isPlaying = true
     }
@@ -168,6 +181,48 @@ final class AppViewModel: ObservableObject {
     func seek(to time: Double) {
         let cmTime = CMTime(seconds: time, preferredTimescale: 1)
         audioPlayer?.seek(to: cmTime)
+    }
+    
+    func setupRemoteTransportControls() {
+        // Get the shared MPRemoteCommandCenter
+        let commandCenter = MPRemoteCommandCenter.shared()
+
+        // Add handler for Play Command
+        commandCenter.playCommand.addTarget { [unowned self] event in
+            
+            if !isPlaying {
+                playSound()
+                return .success
+            }
+            return .commandFailed
+        }
+
+        // Add handler for Pause Command
+        commandCenter.pauseCommand.addTarget { [unowned self] event in
+            if isPlaying {
+                pauseSound()
+                return .success
+            }
+            return .commandFailed
+        }
+    }
+    
+    func setupNowPlaying() {
+        // Define Now Playing Info
+        var nowPlayingInfo = [String : Any]()
+        nowPlayingInfo[MPMediaItemPropertyTitle] = "Unstoppable"
+
+        if let image = UIImage(named: "atOffice") {
+            nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size in
+                return image
+            }
+        }
+        nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = audioPlayer?.currentTime
+        nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = audioPlayer?.currentItem?.duration
+        nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = audioPlayer?.rate
+
+        // Set the metadata
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
     }
     
     // MARK: Login functions
