@@ -12,7 +12,7 @@ final class SongDao {
     
     let soundscapeDatabase: SoundscapeDatabase
     
-    init(soundscapeDatabase: SoundscapeDatabase = SoundscapeDatabase()) {
+    init(soundscapeDatabase: SoundscapeDatabase = SoundscapeDatabase.shared) {
         self.soundscapeDatabase = soundscapeDatabase
     }
     

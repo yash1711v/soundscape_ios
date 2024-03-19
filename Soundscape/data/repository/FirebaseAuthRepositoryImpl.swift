@@ -13,7 +13,7 @@ final class FirebaseAuthRepositoryImpl: FirebaseAuthRepository {
     
     let firebaseAuthRemoteDataSource: FirebaseAuthRemoteDataSource
     
-    init(firebaseAuthRemoteDataSource: FirebaseAuthRemoteDataSource = FirebaseAuthRemoteDataSourceImpl()) {
+    init(firebaseAuthRemoteDataSource: FirebaseAuthRemoteDataSource = FirebaseAuthRemoteDataSourceImpl.shared) {
         self.firebaseAuthRemoteDataSource = firebaseAuthRemoteDataSource
     }
     
