@@ -10,25 +10,32 @@ import Firebase
 
 final class SongFirebaseDataSourceImpl: SongFirebaseDataSource {
     static let shared = SongFirebaseDataSourceImpl()
-    let uid = UserDefaults.standard.string(forKey: "userUID")!
+    var uid: String {
+        return UserDefaults.standard.string(forKey: "userUID") ?? ""
+    }
     
     func getSavedSongFromFb() async throws -> [AudioFetch] {
-        // Fetch saved songs from Firebase
         do {
-            let querySnapshot = try await Firestore.firestore().collection("song").whereField("userId", isEqualTo: uid).getDocuments()
+            let querySnapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
             
-            var songs: [AudioFetch] = []
-            for document in querySnapshot.documents {
-                do {
-                    let song = try Firestore.Decoder().decode(AudioFetch.self, from: document.data())
-                    songs.append(song)
-                } catch {
-                    // Handle decoding error here
-                    print("Failed to decode song: \(error.localizedDescription)")
+            if let songData = querySnapshot.data()?["songs"] as? [String: Any] {
+                var songs: [AudioFetch] = []
+                for (_, value) in songData {
+                    if let songDict = value as? [String: Any] {
+                        do {
+                            let song = try Firestore.Decoder().decode(AudioFetch.self, from: songDict)
+                            songs.append(song)
+                        } catch {
+                            // Handle decoding error here
+                            print("Failed to decode song: \(error.localizedDescription)")
+                        }
+                    }
                 }
+                return songs
+            } else {
+                // No songs found
+                return []
             }
-            
-            return songs
         } catch {
             throw error
         }
@@ -37,9 +44,9 @@ final class SongFirebaseDataSourceImpl: SongFirebaseDataSource {
         
     func saveSongToFb(audioFetch: AudioFetch) async throws -> Bool {
         do {
-            print("this is the key: \(uid)")
-            let encodeUser = try Firestore.Encoder().encode(audioFetch)
-            try await Firestore.firestore().collection("song").document(uid).setData(encodeUser)
+            let encodeAudioFetch = try Firestore.Encoder().encode(audioFetch)
+            let songData = ["\(audioFetch.id)": encodeAudioFetch]
+            try await Firestore.firestore().collection("users").document(uid).setData(["songs": songData], merge: true)
             return true
         } catch {
             throw error
@@ -48,45 +55,21 @@ final class SongFirebaseDataSourceImpl: SongFirebaseDataSource {
         
     func deleteSavedSongFromFb(audioFetch: AudioFetch) async throws -> Bool {
         do {
-            let querySnapshot = try await Firestore.firestore().collection("song").whereField("userId", isEqualTo: uid).getDocuments()
-            
-            for document in querySnapshot.documents {
-                do {
-                    let song = try Firestore.Decoder().decode(AudioFetch.self, from: document.data())
-                    if song.id == audioFetch.id {
-                        try await Firestore.firestore().collection("song").document(document.documentID).delete()
-                        return true
-                    }
-                } catch {
-                    // Handle decoding error here
-                    print("Failed to decode song: \(error.localizedDescription)")
-                }
+            let documentReference = Firestore.firestore().collection("users").document(uid)
+            // Get the current document snapshot to retrieve the "song" field
+            let documentSnapshot = try await documentReference.getDocument()
+            if var songData = documentSnapshot.data()?["songs"] as? [String: Any] {
+                // Remove the song data with the given ID
+                songData.removeValue(forKey: String(audioFetch.id))
+                // Update the document with the modified "song" field
+                try await documentReference.updateData(["songs": songData])
+                return true
+            } else {
+                // No songs found
+                return false
             }
-            return false
         } catch {
-            throw error
-        }
-    }
-
-    func updateSavedSongInFb(audioFetch: AudioFetch) async throws -> Bool {
-        do {
-            let querySnapshot = try await Firestore.firestore().collection("song").whereField("userId", isEqualTo: uid).getDocuments()
-            
-            for document in querySnapshot.documents {
-                do {
-                    let song = try Firestore.Decoder().decode(AudioFetch.self, from: document.data())
-                    if song.id == audioFetch.id {
-                        let encodeUser = try Firestore.Encoder().encode(audioFetch)
-                        try await Firestore.firestore().collection("song").document(document.documentID).setData(encodeUser)
-                        return true
-                    }
-                } catch {
-                    // Handle decoding error here
-                    print("Failed to decode song: \(error.localizedDescription)")
-                }
-            }
-            return false
-        } catch {
+            print("delete error: \(error.localizedDescription)")
             throw error
         }
     }

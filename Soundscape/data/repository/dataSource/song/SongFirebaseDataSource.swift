@@ -12,5 +12,4 @@ protocol SongFirebaseDataSource {
     func getSavedSongFromFb() async throws -> [AudioFetch]
     func saveSongToFb(audioFetch: AudioFetch) async throws -> Bool
     func deleteSavedSongFromFb(audioFetch: AudioFetch) async throws -> Bool
-    func updateSavedSongInFb(audioFetch: AudioFetch) async throws -> Bool
 }

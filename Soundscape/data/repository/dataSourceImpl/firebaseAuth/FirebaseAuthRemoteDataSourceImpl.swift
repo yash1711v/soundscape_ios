@@ -87,7 +87,7 @@ final class FirebaseAuthRemoteDataSourceImpl: FirebaseAuthRemoteDataSource {
         do {
             try await userSession.delete()
             let uid = userSession.uid
-            try await Firestore.firestore().collection("user").document(uid).delete()
+            try await Firestore.firestore().collection("users").document(uid).delete()
             return true
         } catch {
             print("DEBUG: Failed to delete account with error \(error.localizedDescription)")
@@ -98,13 +98,30 @@ final class FirebaseAuthRemoteDataSourceImpl: FirebaseAuthRemoteDataSource {
     func fetchUser() async throws -> User? {
         do {
             guard let uid = Auth.auth().currentUser?.uid else { throw URLError(.cannotFindHost)  }
-            guard let snapshot = try? await Firestore.firestore().collection("user").document(uid).getDocument() else { throw URLError(.cannotFindHost) }
-            let currentUser = try? snapshot.data(as: User.self)
-            print("DEBUG: current user is \(String(describing: currentUser))")
-            return currentUser
+            guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else {
+                throw URLError(.cannotFindHost)
+            }
+            
+            if let userData = snapshot.data()?["user"] as? [String: Any] {
+                var users: [User] = []
+                for (_, value) in userData {
+                    if let userDict = value as? [String: Any] {
+                        do {
+                            let user = try Firestore.Decoder().decode(User.self, from: userDict)
+                            users.append(user)
+                        } catch {
+                            // Handle decoding error here
+                            print("Failed to decode song: \(error.localizedDescription)")
+                        }
+                    }
+                }
+                return users.first
+            } else {
+                // No user found
+                return nil
+            }
         } catch {
-            print("DEBUG: Failed to delete account with error \(error.localizedDescription)")
-            return nil
+            throw error
         }
     }
     
@@ -121,7 +138,8 @@ final class FirebaseAuthRemoteDataSourceImpl: FirebaseAuthRemoteDataSource {
     func saveUser(user: User) async throws -> Bool {
         do {
             let encodeUser = try Firestore.Encoder().encode(user)
-            try await Firestore.firestore().collection("user").document(user.id).setData(encodeUser)
+            let userData = ["\(user.id)": encodeUser]
+            try await Firestore.firestore().collection("users").document(user.id).setData(["user": userData], merge: true)
             return true
         } catch {
             print("DEBUG: Failed with error \(error.localizedDescription)")
