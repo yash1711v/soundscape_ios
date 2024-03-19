@@ -37,7 +37,7 @@ struct ForgoutPasswordView: View {
             
             Button {
                 Task {
-                    try await appViewModel.forgoutPassword(withEmail: email)
+                    try await appViewModel.forgotPassword(withEmail: email)
                 }
             } label: {
                 Image("login_continue_button")

@@ -270,7 +270,7 @@ final class AppViewModel: ObservableObject {
         }
     }
     
-    func forgoutPassword(withEmail email: String) async throws {
+    func forgotPassword(withEmail email: String) async throws {
         do {
             let resultBool = try await forgotUseCase.execute(withEmail: email)
         } catch {

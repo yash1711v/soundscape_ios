@@ -10,12 +10,10 @@ import Firebase
 
 final class SongFirebaseDataSourceImpl: SongFirebaseDataSource {
     static let shared = SongFirebaseDataSourceImpl()
-    var uid: String {
-        return UserDefaults.standard.string(forKey: "userUID") ?? ""
-    }
     
     func getSavedSongFromFb() async throws -> [AudioFetch] {
         do {
+            guard let uid = Auth.auth().currentUser?.uid else { throw URLError(.cannotFindHost)  }
             let querySnapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
             
             if let songData = querySnapshot.data()?["songs"] as? [String: Any] {
@@ -44,6 +42,7 @@ final class SongFirebaseDataSourceImpl: SongFirebaseDataSource {
         
     func saveSongToFb(audioFetch: AudioFetch) async throws -> Bool {
         do {
+            guard let uid = Auth.auth().currentUser?.uid else { throw URLError(.cannotFindHost)  }
             let encodeAudioFetch = try Firestore.Encoder().encode(audioFetch)
             let songData = ["\(audioFetch.id)": encodeAudioFetch]
             try await Firestore.firestore().collection("users").document(uid).setData(["songs": songData], merge: true)
@@ -55,6 +54,7 @@ final class SongFirebaseDataSourceImpl: SongFirebaseDataSource {
         
     func deleteSavedSongFromFb(audioFetch: AudioFetch) async throws -> Bool {
         do {
+            guard let uid = Auth.auth().currentUser?.uid else { throw URLError(.cannotFindHost)  }
             let documentReference = Firestore.firestore().collection("users").document(uid)
             // Get the current document snapshot to retrieve the "song" field
             let documentSnapshot = try await documentReference.getDocument()

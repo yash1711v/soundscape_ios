@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 final class SongRepositoryImpl: SongRepository {
     static let shared = SongRepositoryImpl()
@@ -29,58 +30,78 @@ final class SongRepositoryImpl: SongRepository {
     
     // MARK: DB calling functions (crud)
     func getSavedSong() async throws -> [AudioFetch] {
-        do {
-            // Retrieve saved songs from local database
-            let savedSongsFromLocalDB = try await songLocalDataSource.getSavedSongFromDB()
-            
-            if savedSongsFromLocalDB.isEmpty {
-                // Local database is empty, populate it from Firebase
-                let savedSongsFromFirebase = try await songFirebaseDataSource.getSavedSongFromFb()
-                // Populate the local database with songs from Firebase
-                for song in savedSongsFromFirebase {
-                    try await songLocalDataSource.saveSongToDB(audioFetch: song)
+        let uid = Auth.auth().currentUser?.uid
+        if uid == nil {
+            return try await songLocalDataSource.getSavedSongFromDB()
+        } else {
+            do {
+                // Retrieve saved songs from local database
+                let savedSongsFromLocalDB = try await songLocalDataSource.getSavedSongFromDB()
+                
+                if savedSongsFromLocalDB.isEmpty {
+                    // Local database is empty, populate it from Firebase
+                    let savedSongsFromFirebase = try await songFirebaseDataSource.getSavedSongFromFb()
+                    // Populate the local database with songs from Firebase
+                    for song in savedSongsFromFirebase {
+                        try await songLocalDataSource.saveSongToDB(audioFetch: song)
+                    }
+                    // Return saved songs from firebase database as its already fetched
+                    return savedSongsFromFirebase
+                } else {
+                    // Local database is not empty, return saved songs from local database
+                    return savedSongsFromLocalDB
                 }
-                // Return saved songs from local database
-                return savedSongsFromFirebase
-            } else {
-                // Local database is not empty, return saved songs from local database
-                return savedSongsFromLocalDB
+            } catch {
+                throw error
             }
-        } catch {
-            throw error
         }
     }
-
+    
     func saveSong(audioFetch: AudioFetch) async throws -> () {
-        do {
-            let fbSave = try await songFirebaseDataSource.saveSongToFb(audioFetch: audioFetch)
-            if fbSave {
-                try await songLocalDataSource.saveSongToDB(audioFetch: audioFetch)
+        let uid = Auth.auth().currentUser?.uid
+        if uid == nil {
+            return try await songLocalDataSource.saveSongToDB(audioFetch: audioFetch)
+        } else {
+            do {
+                let fbSave = try await songFirebaseDataSource.saveSongToFb(audioFetch: audioFetch)
+                if fbSave {
+                    try await songLocalDataSource.saveSongToDB(audioFetch: audioFetch)
+                }
+            } catch {
+                throw error
             }
-        } catch {
-            throw error
         }
     }
     
     func deleteSavedSong(audioFetch: AudioFetch) async throws -> () {
-        do {
-            let fbDelete = try await songFirebaseDataSource.deleteSavedSongFromFb(audioFetch: audioFetch)
-            if fbDelete {
-                try await songLocalDataSource.deleteSavedSongFromDB(audioFetch: audioFetch)
+        let uid = Auth.auth().currentUser?.uid
+        if uid == nil {
+            return try await songLocalDataSource.deleteSavedSongFromDB(audioFetch: audioFetch)
+        } else {
+            do {
+                let fbDelete = try await songFirebaseDataSource.deleteSavedSongFromFb(audioFetch: audioFetch)
+                if fbDelete {
+                    try await songLocalDataSource.deleteSavedSongFromDB(audioFetch: audioFetch)
+                }
+            } catch {
+                throw error
             }
-        } catch {
-            throw error
         }
     }
     
     func updateSavedSong(audioFetch: AudioFetch) async throws -> () {
-        do {
-            let fbUpdate = try await songFirebaseDataSource.saveSongToFb(audioFetch: audioFetch)
-            if fbUpdate {
-                try await songLocalDataSource.updateSavedSongInDB(audioFetch: audioFetch)
+        let uid = Auth.auth().currentUser?.uid
+        if uid == nil {
+            return try await songLocalDataSource.updateSavedSongInDB(audioFetch: audioFetch)
+        } else {
+            do {
+                let fbUpdate = try await songFirebaseDataSource.saveSongToFb(audioFetch: audioFetch)
+                if fbUpdate {
+                    try await songLocalDataSource.updateSavedSongInDB(audioFetch: audioFetch)
+                }
+            } catch {
+                throw error
             }
-        } catch {
-            throw error
         }
     }
 }

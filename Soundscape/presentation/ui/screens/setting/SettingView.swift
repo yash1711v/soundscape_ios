@@ -136,7 +136,7 @@ struct LoggedInAccountView: View {
                 guard let email = appViewModel.currentUser?.email else {
                     return
                 }
-                try await appViewModel.forgoutPassword(withEmail: email)
+                try await appViewModel.forgotPassword(withEmail: email)
                 showAlert = true
             }
         } label: {
