@@ -20,7 +20,7 @@ struct SettingView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding()
                     
-                    if appViewModel.userSession == nil {
+                    if appViewModel.currentUser == nil {
                         CreateAccountView()
                     } else {
                         LoggedInAccountView(showAlert: $showAlert)
@@ -45,19 +45,41 @@ struct SettingView: View {
                         Label("Privacy Policy", systemImage: "doc.fill")
                             .padding(.bottom, 10)
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            .onTapGesture {
+                                guard let url = URL(string: "http://www.boostproductivity.online/soundscape/privacypolicy") else { return }
+                                UIApplication.shared.open(url)
+                            }
+                        if appViewModel.userSession != nil {
+                            Label("Log out", systemImage: "rectangle.portrait.and.arrow.right.fill")
+                                .padding(.bottom, 10)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .onTapGesture {
+                                    appViewModel.signOut()
+                                }
+                        }
                     }
                     .padding(.horizontal)
                     
-                    Button {
-                        appViewModel.signOut()
-                    } label: {
-                        Text("Logout")
+                    if appViewModel.userSession != nil {
+                        Text("Delete Account")
+                            .font(.wixMadeFont(.regular, fontSize: .subTitle))
+                            .foregroundColor(.errorRed)
+                            .background(
+                                RoundedRectangle(cornerRadius: 30)
+                                    .stroke(.errorRed, lineWidth: 1)
+                                    .frame(width: 370, height: 40)
+                            )
+                            .padding()
+                            .onTapGesture {
+                                Task {
+                                    try await appViewModel.deleteAccount()
+                                }
+                            }
                     }
                     
                     Text("Version")
                         .font(.wixMadeFont(.bold, fontSize: .body))
                         .underline()
-                        .frame(height: 200, alignment: .bottom)
                     
                     Text("1.0.0")
                         .font(.wixMadeFont(.bold, fontSize: .body))
@@ -89,18 +111,23 @@ struct SettingView: View {
 
 struct CreateAccountView: View {
     var body: some View {
-        Button {
-            print("hi")
+        NavigationLink {
+            SignupView()
         } label: {
             Text("CREATE AN ACCOUNT")
                 .font(.wixMadeFont(.regular, fontSize: .subTitle))
+                .modifier(OutlineBigButtonStyle())
+                .padding()
         }
         .foregroundColor(.white)
-        .modifier(OutlineBigButtonStyle())
-        .padding()
         
-        Text("Already A Member? Log in")
-            .font(.wixMadeFont(.regular, fontSize: .body))
+        NavigationLink {
+            LoginView()
+        } label: {
+            Text("Already A Member? Log in")
+                .font(.wixMadeFont(.regular, fontSize: .body))
+        }
+        .foregroundColor(.white)
     }
 }
 

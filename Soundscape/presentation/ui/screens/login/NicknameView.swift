@@ -16,6 +16,11 @@ struct NicknameView: View {
         if appViewModel.isUserDataSaved == true {
             SoundscapeTabView()
                 .navigationBarHidden(true)
+                .task {
+                    Task {
+                        try await appViewModel.fetchUserAccount()
+                    }
+                }
         } else {
             VStack {
                 Spacer()

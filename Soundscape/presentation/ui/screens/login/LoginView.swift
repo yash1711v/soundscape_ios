@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct LoginView: View {
     @EnvironmentObject var appViewModel: AppViewModel
@@ -15,8 +16,13 @@ struct LoginView: View {
     
     var body: some View {
         if appViewModel.userSession != nil {
-            SoundscapeTabView()
-                .navigationBarHidden(true)
+            if appViewModel.currentUser != nil {
+                SoundscapeTabView()
+                    .navigationBarHidden(true)
+            } else {
+                var email = Auth.auth().currentUser?.email ?? ""
+                NicknameView(email: email)
+            }
         } else {
                 ScrollView {
                     Text("LOGIN")
@@ -27,6 +33,7 @@ struct LoginView: View {
                     Button {
                         Task {
                             try await appViewModel.signInGoogle()
+                            try await appViewModel.fetchUserAccount()
                         }
                     } label: {
                         Image("login_google_button")
@@ -100,6 +107,7 @@ struct LoginView: View {
                     Button {
                         Task {
                             try await appViewModel.signIn(withEmail: email, password: password)
+                            try await appViewModel.fetchUserAccount()
                         }
                     } label: {
                         Image("login_continue_button")
