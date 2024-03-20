@@ -49,6 +49,7 @@ struct StoryDetailView: View {
                                     viewModel.showBottomPlayer = true
                                     viewModel.isShuffle = false
                                     viewModel.playSound(sound: viewModel.episode.songPath)
+                                    viewModel.musicPlayerTitle = "Story Time"
                                 }
                                 // Set currentIndex to the index of the selected episode
                                 viewModel.currentIndex = index

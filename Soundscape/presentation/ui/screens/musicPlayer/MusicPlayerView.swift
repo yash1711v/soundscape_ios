@@ -21,7 +21,7 @@ struct MusicPlayerView: View {
                 .padding(.top, appViewModel.expand ? 10 : 0)
                 .padding(.vertical, appViewModel.expand ? 10 : 0)
             if appViewModel.expand {
-                Text("Story Time")
+                Text(appViewModel.musicPlayerTitle)
                     .font(.wixMadeFont(.regular, fontSize: .title))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()
@@ -43,7 +43,7 @@ struct MusicPlayerView: View {
                         Text(appViewModel.episode.songName)
                             .font(.wixMadeFont(.regular, fontSize: .title))
                         
-                        Text("Story Time")
+                        Text(appViewModel.musicPlayerTitle)
                             .font(.wixMadeFont(.regular, fontSize: .subTitle))
                             .foregroundColor(.gray)
                     }
@@ -57,7 +57,6 @@ struct MusicPlayerView: View {
                         .padding(.trailing)
                         .onTapGesture {
                             appViewModel.isPlaying.toggle()
-                            appViewModel.playSound(sound: appViewModel.episode.songPath)
                             
                             if appViewModel.isPlaying {
                                 appViewModel.playSound()

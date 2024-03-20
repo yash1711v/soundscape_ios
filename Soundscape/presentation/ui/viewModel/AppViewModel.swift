@@ -18,6 +18,7 @@ final class AppViewModel: ObservableObject {
     @Published var episodeList: [Episode] = []
     @Published var isShuffle: Bool = false
     @Published var currentIndex: Int = 0
+    @Published var musicPlayerTitle = ""
     @Published var expand: Bool = false
     @Published var audioPlayer: AVPlayer?
     private let audioSession = AVAudioSession.sharedInstance()
@@ -174,8 +175,12 @@ final class AppViewModel: ObservableObject {
                         self.currentTime = player.currentTime().seconds
                         self.setupNowPlaying()
                         
-                        if self.currentTime == self.totalTime && !self.episodeList.isEmpty{
+                        if abs(self.currentTime - self.totalTime) < 0.1 && !self.episodeList.isEmpty && self.currentIndex != (self.episodeList.count - 1) {
                             self.playNextSound()
+                        }
+                        
+                        if abs(self.currentTime - self.totalTime) < 0.1 && !self.episodeList.isEmpty && self.currentIndex == (self.episodeList.count - 1) {
+                            self.pauseSound()
                         }
                     }
                 }
@@ -206,7 +211,6 @@ final class AppViewModel: ObservableObject {
     func playNextSound() {
         // Increment the index to move to the next episode
         currentIndex = (currentIndex + 1) % episodeList.count
-        print(episodeList.count)
         // Get the next episode from the list
         let nextEpisode = episodeList[currentIndex]
         
@@ -220,7 +224,6 @@ final class AppViewModel: ObservableObject {
         if currentIndex != 0 {
             currentIndex = (currentIndex - 1) % episodeList.count
         }
-        print(episodeList.count)
         // Get the next episode from the list
         let nextEpisode = episodeList[currentIndex]
         

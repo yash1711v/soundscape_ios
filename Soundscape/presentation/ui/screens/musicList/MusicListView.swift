@@ -18,20 +18,49 @@ struct MusicListView: View {
                 Section {
                     HStack(spacing: 130) {
                         Button {
-                            print("hi")
+                            // Create episode list
+                            var episodeListNew: [Episode] = []
+                            for audioFetch in appViewModel.audioFetchList {
+                                let episode = Episode(name: "",
+                                                      songName: audioFetch.name,
+                                                      imageName: imageName,
+                                                      songPath: audioFetch.assetPath)
+                                episodeListNew.append(episode)
+                            }
+                            appViewModel.episodeList = episodeListNew
+                            appViewModel.episode = episodeListNew.first ?? EpisodeData.sampleEpisodeData
+                            appViewModel.currentIndex = 0
+                            appViewModel.musicPlayerTitle = name
+                            appViewModel.showBottomPlayer = true
+                            appViewModel.playSound(sound: appViewModel.episode.songPath)
                         } label: {
                             Label("Play All", systemImage: "play")
                                 .foregroundColor(.white)
+                                .modifier(OutlineSmallButtonStyle())
                         }
-                        .modifier(OutlineSmallButtonStyle())
+                        
                         
                         Button {
-                            print("hi")
+                            // Create episode list
+                            var episodeListNew: [Episode] = []
+                            for audioFetch in appViewModel.audioFetchList {
+                                let episode = Episode(name: "",
+                                                      songName: audioFetch.name,
+                                                      imageName: imageName,
+                                                      songPath: audioFetch.assetPath)
+                                episodeListNew.append(episode)
+                            }
+                            appViewModel.episodeList = episodeListNew.shuffled()
+                            appViewModel.episode = appViewModel.episodeList.first ?? EpisodeData.sampleEpisodeData
+                            appViewModel.musicPlayerTitle = name
+                            appViewModel.showBottomPlayer = true
+                            appViewModel.currentIndex = 0
+                            appViewModel.playSound(sound: appViewModel.episode.songPath)
                         } label: {
                             Label("Shuffle", systemImage: "shuffle")
                                 .foregroundColor(.black)
+                                .modifier(FilledSmallButtonStyle())
                         }
-                        .modifier(FilledSmallButtonStyle())
                     }
                     .padding(.top)
                     .padding(.bottom)
@@ -73,6 +102,7 @@ struct MusicListView: View {
                                     appViewModel.showBottomPlayer = true
                                     appViewModel.isShuffle = false
                                     appViewModel.playSound(sound: appViewModel.episode.songPath)
+                                    appViewModel.musicPlayerTitle = name
                                 }
                             }
                         }
