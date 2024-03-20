@@ -22,7 +22,8 @@ final class AppViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var currentTime: Double = 0.0
     @Published var totalTime: Double = 0.0
-    
+    var timeObserverToken: Any?
+
     // MARK: Db and api variables
     @Published var selectedAudioFetch: AudioFetch?
     @Published var audioFetchList: [AudioFetch] = []
@@ -159,6 +160,21 @@ final class AppViewModel: ObservableObject {
             // Setup data to mediaPlayer
             setupNowPlaying()
             
+            audioPlayer?.addPeriodicTimeObserver(forInterval: .init(seconds: 1, preferredTimescale: 1), queue: .main) { [weak self] time in
+                guard let self = self else { return }
+                
+                // Ensure we're on the main actor before accessing audioPlayer
+                Task {
+                    await MainActor.run {
+                        guard let player = self.audioPlayer, player.currentItem?.status == .readyToPlay else {
+                            return
+                        }
+                        self.currentTime = player.currentTime().seconds
+                        self.setupNowPlaying()
+                    }
+                }
+            }
+            
             // Play song
             playSound()
             
@@ -184,6 +200,12 @@ final class AppViewModel: ObservableObject {
     func seek(to time: Double) {
         let cmTime = CMTime(seconds: time, preferredTimescale: 1)
         audioPlayer?.seek(to: cmTime)
+        var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo!
+        
+        nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = currentTime
+
+        // Set the metadata
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
     }
     
     func setupRemoteTransportControls() {
@@ -236,6 +258,7 @@ final class AppViewModel: ObservableObject {
         // Define Now Playing Info
         var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo!
 
+        nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = currentTime
         nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = isPause ? 0 : 1
 
         // Set the metadata
