@@ -22,6 +22,7 @@
 		842020982B9EE7750034B065 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842020972B9EE7750034B065 /* Color.swift */; };
 		8420209A2B9EF3BD0034B065 /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842020992B9EF3BD0034B065 /* MarqueeText.swift */; };
 		8453C1922BAAA104003566D2 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453C1912BAAA104003566D2 /* UIImage.swift */; };
+		8453C1942BAB10D7003566D2 /* AuthenticationFormProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453C1932BAB10D7003566D2 /* AuthenticationFormProtocol.swift */; };
 		8455A0A92BA16B54006E8BA1 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455A0A82BA16B54006E8BA1 /* AppViewModel.swift */; };
 		8455A0B02BA1805F006E8BA1 /* SoundscapeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455A0AF2BA1805F006E8BA1 /* SoundscapeAPIService.swift */; };
 		8455A0B52BA1868D006E8BA1 /* AudioFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455A0B42BA1868D006E8BA1 /* AudioFetch.swift */; };
@@ -126,6 +127,7 @@
 		842020972B9EE7750034B065 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		842020992B9EF3BD0034B065 /* MarqueeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeText.swift; sourceTree = "<group>"; };
 		8453C1912BAAA104003566D2 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		8453C1932BAB10D7003566D2 /* AuthenticationFormProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationFormProtocol.swift; sourceTree = "<group>"; };
 		8455A0A82BA16B54006E8BA1 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		8455A0AF2BA1805F006E8BA1 /* SoundscapeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapeAPIService.swift; sourceTree = "<group>"; };
 		8455A0B42BA1868D006E8BA1 /* AudioFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFetch.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 			children = (
 				842020972B9EE7750034B065 /* Color.swift */,
 				8453C1912BAAA104003566D2 /* UIImage.swift */,
+				8453C1932BAB10D7003566D2 /* AuthenticationFormProtocol.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -798,6 +801,7 @@
 				B28FE1682B907A5C009FB75D /* StorySoundCardView.swift in Sources */,
 				B2D371C72B9703580072048E /* MainStorySound.swift in Sources */,
 				84D8198C2BA86740002A937C /* SongFirebaseDataSourceImpl.swift in Sources */,
+				8453C1942BAB10D7003566D2 /* AuthenticationFormProtocol.swift in Sources */,
 				849DBDAA2B9AF3EB00A39807 /* PlaylistListView.swift in Sources */,
 				B28FE1662B906DE5009FB75D /* homePlaylistCardView.swift in Sources */,
 				8455A0B52BA1868D006E8BA1 /* AudioFetch.swift in Sources */,

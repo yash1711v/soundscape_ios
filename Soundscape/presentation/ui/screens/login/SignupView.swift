@@ -118,6 +118,8 @@ struct SignupView: View {
                         .scaledToFit()
                         .padding()
                 }
+                .disabled(!formIsValid)
+                .opacity(formIsValid ? 1.0 : 0.5)
                 
                 Button {
                     dismiss()
@@ -162,4 +164,15 @@ struct SignupView: View {
 
 #Preview {
     SignupView()
+}
+
+extension SignupView: AuthenticationFormProtocol {
+    var formIsValid: Bool {
+        let emailRegex = #"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"#
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegex)
+        
+        return emailPredicate.evaluate(with: email) &&
+               !password.isEmpty &&
+               password.count > 5
+    }
 }

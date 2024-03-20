@@ -54,6 +54,8 @@ struct NicknameView: View {
                         .scaledToFit()
                         .padding()
                 }
+                .disabled(!formIsValid)
+                .opacity(formIsValid ? 1.0 : 0.5)
                 
                 Spacer()
             }
@@ -72,3 +74,12 @@ struct NicknameView: View {
     NicknameView(email: "")
 }
 
+extension NicknameView: AuthenticationFormProtocol {
+    var formIsValid: Bool {
+        if nickname.isEmpty {
+            return false
+        } else {
+            return true
+        }
+    }
+}
