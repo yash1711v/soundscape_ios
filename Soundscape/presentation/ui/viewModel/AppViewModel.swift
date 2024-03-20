@@ -16,6 +16,7 @@ final class AppViewModel: ObservableObject {
     @Published var showBottomPlayer: Bool = false
     @Published var episode: Episode = EpisodeData.sampleEpisodeData
     @Published var episodeList: [Episode] = []
+    @Published var isShuffle: Bool = false
     @Published var currentIndex: Int = 0
     @Published var expand: Bool = false
     @Published var audioPlayer: AVPlayer?

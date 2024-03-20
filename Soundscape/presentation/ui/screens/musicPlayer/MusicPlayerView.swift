@@ -11,7 +11,6 @@ struct MusicPlayerView: View {
     @EnvironmentObject var appViewModel: AppViewModel
     @State private var imageWidth: CGFloat = 260
     @State var offset: CGFloat = 0
-    @State var isShuffle: Bool = false
     
     var body: some View {
         VStack {
@@ -71,8 +70,12 @@ struct MusicPlayerView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 30, height: 30)
-                        .foregroundColor(.gray)
+                        .foregroundColor(appViewModel.isShuffle ? .white: .gray)
                         .padding(.trailing)
+                        .onTapGesture {
+                            appViewModel.isShuffle = true
+                            appViewModel.episodeList.shuffle()
+                        }
                     
                     Image(systemName: "heart.fill")
                         .resizable()
@@ -122,12 +125,13 @@ struct MusicPlayerView: View {
                 
                 HStack (spacing: 50) {
                     Image(systemName: "shuffle")
-                        .foregroundColor(isShuffle ? .white: .gray)
+                        .foregroundColor(appViewModel.isShuffle ? .white: .gray)
                         .onTapGesture {
-                            isShuffle.toggle()
+                            appViewModel.isShuffle = true
                             appViewModel.episodeList.shuffle()
                         }
                     
+                    // MARK: Previous button
                     HStack(spacing: 0) {
                         Image(systemName: "arrowtriangle.backward.fill")
                             .resizable()
@@ -155,18 +159,17 @@ struct MusicPlayerView: View {
                         }
                     
                     // MARK: Next button
-                        HStack(spacing: 0) {
-                            Image(systemName: "arrowtriangle.forward.fill")
-                                .resizable()
-                                .frame(width: 15, height: 15)
-                            Image(systemName: "arrowtriangle.forward.fill")
-                                .resizable()
-                                .frame(width: 15, height: 15)
-                        }.onTapGesture {
-                            appViewModel.playNextSound()
-                        }
-                    
-                    
+                    HStack(spacing: 0) {
+                        Image(systemName: "arrowtriangle.forward.fill")
+                            .resizable()
+                            .frame(width: 15, height: 15)
+                        Image(systemName: "arrowtriangle.forward.fill")
+                            .resizable()
+                            .frame(width: 15, height: 15)
+                    }.onTapGesture {
+                        appViewModel.playNextSound()
+                    }
+                
                     Image(systemName: "arrow.circlepath")
                         .overlay(
                             Text("1")
@@ -174,7 +177,6 @@ struct MusicPlayerView: View {
                         )
                         .foregroundColor(.gray)
                 }
-                
                 Label("Add Effects", systemImage: "plus")
                     .modifier(OutlineBigButtonStyle())
                     .padding(60)

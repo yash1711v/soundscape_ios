@@ -71,6 +71,7 @@ struct MusicListView: View {
                                 withAnimation(.spring) {
                                     appViewModel.episode = episode
                                     appViewModel.showBottomPlayer = true
+                                    appViewModel.isShuffle = false
                                     appViewModel.playSound(sound: appViewModel.episode.songPath)
                                 }
                             }
