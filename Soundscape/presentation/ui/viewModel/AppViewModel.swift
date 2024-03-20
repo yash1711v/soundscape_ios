@@ -274,6 +274,16 @@ final class AppViewModel: ObservableObject {
             playPreviousSound()
             return .success
         }
+        
+        // Add handler for Change Playback Position Command (Seeking)
+        commandCenter.changePlaybackPositionCommand.addTarget { [unowned self] event in
+            guard let event = event as? MPChangePlaybackPositionCommandEvent else {
+                return .commandFailed
+            }
+            let timeInSeconds = event.positionTime
+            seek(to: timeInSeconds)
+            return .success
+        }
     }
     
     func setupNowPlaying() {
