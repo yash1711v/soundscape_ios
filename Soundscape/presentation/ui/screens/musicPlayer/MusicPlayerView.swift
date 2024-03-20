@@ -203,6 +203,9 @@ struct MusicPlayerView: View {
                     }
                 }
         )
+        .onAppear {
+            appViewModel.setupRemoteTransportControls()
+        }
         .cornerRadius(10, corners: [.topLeft, .topRight])
         .ignoresSafeArea()
         .offset(y: appViewModel.expand ? 0 : -48)

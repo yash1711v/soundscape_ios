@@ -142,7 +142,6 @@ final class AppViewModel: ObservableObject {
     // MARK: Audio player functions
     func playSound(sound: String) {
         guard let url = URL(string: sound) else { return }
-        setupRemoteTransportControls()
         do {
             // Show loader
             isLoading = true
@@ -174,6 +173,10 @@ final class AppViewModel: ObservableObject {
                         }
                         self.currentTime = player.currentTime().seconds
                         self.setupNowPlaying()
+                        
+                        if self.currentTime == self.totalTime && !self.episodeList.isEmpty{
+                            self.playNextSound()
+                        }
                     }
                 }
             }
@@ -258,6 +261,18 @@ final class AppViewModel: ObservableObject {
                 return .success
             }
             return .commandFailed
+        }
+        
+        // Add handler for Next Command
+        commandCenter.nextTrackCommand.addTarget { [unowned self] event in
+            playNextSound()
+            return .success
+        }
+        
+        // Add handler for Previous Command
+        commandCenter.previousTrackCommand.addTarget { [unowned self] event in
+            playPreviousSound()
+            return .success
         }
     }
     
