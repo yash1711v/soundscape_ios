@@ -37,19 +37,37 @@ struct MusicListView: View {
                     .padding(.bottom)
                     
                     LazyVStack {
-                        ForEach(appViewModel.audioFetchList) { audioFetch in
+                        ForEach(appViewModel.audioFetchList.indices, id: \.self) { index in
+                            let audioFetch = appViewModel.audioFetchList[index]
                             @State var isLiked = appViewModel.checkItemInDbList(id: audioFetch.id)
                             MusicListItemView(audioFetch: audioFetch, isLiked: isLiked) {
-                                
                                 Task {
                                     await appViewModel.saveSong(audioFetch: audioFetch.withIsLiked(true))
                                 }
                             }
                             .onTapGesture {
+                                // Set current index to the selected index
+                                appViewModel.currentIndex = index
+                                
+                                // Get the selected episode
+                                let selectedAudioFetch = appViewModel.audioFetchList[index]
                                 let episode = Episode(name: "",
-                                                      songName: audioFetch.name,
+                                                      songName: selectedAudioFetch.name,
                                                       imageName: imageName,
-                                                      songPath: audioFetch.assetPath)
+                                                      songPath: selectedAudioFetch.assetPath)
+                                
+                                // Create episode list
+                                var episodeListNew: [Episode] = []
+                                for audioFetch in appViewModel.audioFetchList {
+                                    let episode = Episode(name: "",
+                                                          songName: audioFetch.name,
+                                                          imageName: imageName,
+                                                          songPath: audioFetch.assetPath)
+                                    episodeListNew.append(episode)
+                                }
+                                appViewModel.episodeList = episodeListNew
+                                
+                                // Update the episode in the view model and play the sound
                                 withAnimation(.spring) {
                                     appViewModel.episode = episode
                                     appViewModel.showBottomPlayer = true

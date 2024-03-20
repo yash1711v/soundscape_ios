@@ -15,6 +15,8 @@ final class AppViewModel: ObservableObject {
     // MARK: Audio player variables
     @Published var showBottomPlayer: Bool = false
     @Published var episode: Episode = EpisodeData.sampleEpisodeData
+    @Published var episodeList: [Episode] = []
+    @Published var currentIndex: Int = 0
     @Published var expand: Bool = false
     @Published var audioPlayer: AVPlayer?
     private let audioSession = AVAudioSession.sharedInstance()
@@ -195,6 +197,32 @@ final class AppViewModel: ObservableObject {
         updateNowPlaying(isPause: true)
         audioPlayer?.pause()
         isPlaying = false
+    }
+    
+    func playNextSound() {
+        // Increment the index to move to the next episode
+        currentIndex = (currentIndex + 1) % episodeList.count
+        print(episodeList.count)
+        // Get the next episode from the list
+        let nextEpisode = episodeList[currentIndex]
+        
+        // Update the episode and play the sound
+        episode = nextEpisode
+        playSound(sound: episode.songPath)
+    }
+    
+    func playPreviousSound() {
+        // Decrement the index to move to the next episode
+        if currentIndex != 0 {
+            currentIndex = (currentIndex - 1) % episodeList.count
+        }
+        print(episodeList.count)
+        // Get the next episode from the list
+        let nextEpisode = episodeList[currentIndex]
+        
+        // Update the episode and play the sound
+        episode = nextEpisode
+        playSound(sound: episode.songPath)
     }
     
     func seek(to time: Double) {

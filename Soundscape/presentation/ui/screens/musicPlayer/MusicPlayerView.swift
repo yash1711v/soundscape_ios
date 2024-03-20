@@ -10,8 +10,8 @@ import SwiftUI
 struct MusicPlayerView: View {
     @EnvironmentObject var appViewModel: AppViewModel
     @State private var imageWidth: CGFloat = 260
-    
     @State var offset: CGFloat = 0
+    @State var isShuffle: Bool = false
     
     var body: some View {
         VStack {
@@ -122,7 +122,11 @@ struct MusicPlayerView: View {
                 
                 HStack (spacing: 50) {
                     Image(systemName: "shuffle")
-                        .foregroundColor(.gray)
+                        .foregroundColor(isShuffle ? .white: .gray)
+                        .onTapGesture {
+                            isShuffle.toggle()
+                            appViewModel.episodeList.shuffle()
+                        }
                     
                     HStack(spacing: 0) {
                         Image(systemName: "arrowtriangle.backward.fill")
@@ -131,6 +135,8 @@ struct MusicPlayerView: View {
                         Image(systemName: "arrowtriangle.backward.fill")
                             .resizable()
                             .frame(width: 15, height: 15)
+                    }.onTapGesture {
+                        appViewModel.playPreviousSound()
                     }
                     
                     Image(systemName: appViewModel.isPlaying ? "pause.fill" : "arrowtriangle.right.fill")
@@ -148,14 +154,18 @@ struct MusicPlayerView: View {
                             }
                         }
                     
-                    HStack(spacing: 0) {
-                        Image(systemName: "arrowtriangle.forward.fill")
-                            .resizable()
-                            .frame(width: 15, height: 15)
-                        Image(systemName: "arrowtriangle.forward.fill")
-                            .resizable()
-                            .frame(width: 15, height: 15)
-                    }
+                    // MARK: Next button
+                        HStack(spacing: 0) {
+                            Image(systemName: "arrowtriangle.forward.fill")
+                                .resizable()
+                                .frame(width: 15, height: 15)
+                            Image(systemName: "arrowtriangle.forward.fill")
+                                .resizable()
+                                .frame(width: 15, height: 15)
+                        }.onTapGesture {
+                            appViewModel.playNextSound()
+                        }
+                    
                     
                     Image(systemName: "arrow.circlepath")
                         .overlay(

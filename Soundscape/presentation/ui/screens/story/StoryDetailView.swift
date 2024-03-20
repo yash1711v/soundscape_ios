@@ -39,14 +39,18 @@ struct StoryDetailView: View {
                     .padding(.top, 20)
                 
                 LazyVStack(spacing: 15) {
-                    ForEach(mainStorySound.episodeList) { episode in
+                    ForEach(mainStorySound.episodeList.indices, id: \.self) { index in
+                        let episode = mainStorySound.episodeList[index]
                         EpisodeListView(episode: episode)
                             .onTapGesture {
+                                viewModel.episodeList = mainStorySound.episodeList
                                 withAnimation(.spring) {
                                     viewModel.episode = episode
                                     viewModel.showBottomPlayer = true
                                     viewModel.playSound(sound: viewModel.episode.songPath)
                                 }
+                                // Set currentIndex to the index of the selected episode
+                                viewModel.currentIndex = index
                             }
                     }
                 }
