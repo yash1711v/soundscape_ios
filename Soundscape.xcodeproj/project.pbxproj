@@ -23,6 +23,10 @@
 		8420209A2B9EF3BD0034B065 /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842020992B9EF3BD0034B065 /* MarqueeText.swift */; };
 		8453C1922BAAA104003566D2 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453C1912BAAA104003566D2 /* UIImage.swift */; };
 		8453C1942BAB10D7003566D2 /* AuthenticationFormProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453C1932BAB10D7003566D2 /* AuthenticationFormProtocol.swift */; };
+		8453C1972BAB17E6003566D2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 8453C1962BAB17E6003566D2 /* Lottie */; };
+		8453C1992BAB1871003566D2 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453C1982BAB1871003566D2 /* LottieView.swift */; };
+		8453C19C2BAB1A65003566D2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453C19B2BAB1A65003566D2 /* SearchView.swift */; };
+		8453C19E2BAB1A97003566D2 /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 8453C19D2BAB1A97003566D2 /* loading.json */; };
 		8455A0A92BA16B54006E8BA1 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455A0A82BA16B54006E8BA1 /* AppViewModel.swift */; };
 		8455A0B02BA1805F006E8BA1 /* SoundscapeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455A0AF2BA1805F006E8BA1 /* SoundscapeAPIService.swift */; };
 		8455A0B52BA1868D006E8BA1 /* AudioFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455A0B42BA1868D006E8BA1 /* AudioFetch.swift */; };
@@ -128,6 +132,9 @@
 		842020992B9EF3BD0034B065 /* MarqueeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeText.swift; sourceTree = "<group>"; };
 		8453C1912BAAA104003566D2 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		8453C1932BAB10D7003566D2 /* AuthenticationFormProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationFormProtocol.swift; sourceTree = "<group>"; };
+		8453C1982BAB1871003566D2 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		8453C19B2BAB1A65003566D2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		8453C19D2BAB1A97003566D2 /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		8455A0A82BA16B54006E8BA1 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		8455A0AF2BA1805F006E8BA1 /* SoundscapeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapeAPIService.swift; sourceTree = "<group>"; };
 		8455A0B42BA1868D006E8BA1 /* AudioFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFetch.swift; sourceTree = "<group>"; };
@@ -216,6 +223,7 @@
 			files = (
 				84D8194A2BA80E5B002A937C /* FirebaseFirestoreSwift in Frameworks */,
 				84D819542BA80F7C002A937C /* AdSupport.framework in Frameworks */,
+				8453C1972BAB17E6003566D2 /* Lottie in Frameworks */,
 				84D819442BA80E5B002A937C /* FirebaseAnalyticsSwift in Frameworks */,
 				84D8194F2BA80E73002A937C /* GoogleSignInSwift in Frameworks */,
 				84D819482BA80E5B002A937C /* FirebaseFirestore in Frameworks */,
@@ -252,6 +260,7 @@
 				8455A0AD2BA17E7B006E8BA1 /* domain */,
 				8402A2A82B8F238700A836CD /* presentation */,
 				8402A29E2B8F039D00A836CD /* Assets.xcassets */,
+				8453C19D2BAB1A97003566D2 /* loading.json */,
 				8463B01A2B8F3F3B00EB81DF /* Info.plist */,
 				84D819502BA80ECD002A937C /* GoogleService-Info.plist */,
 				8402A2A02B8F039D00A836CD /* Preview Content */,
@@ -336,6 +345,14 @@
 				8453C1932BAB10D7003566D2 /* AuthenticationFormProtocol.swift */,
 			);
 			path = extension;
+			sourceTree = "<group>";
+		};
+		8453C19A2BAB1A55003566D2 /* search */ = {
+			isa = PBXGroup;
+			children = (
+				8453C19B2BAB1A65003566D2 /* SearchView.swift */,
+			);
+			path = search;
 			sourceTree = "<group>";
 		};
 		8455A0A72BA16A3C006E8BA1 /* musicPlayer */ = {
@@ -480,6 +497,7 @@
 				842020942B9EE1810034B065 /* RoundedCorner.swift */,
 				842020992B9EF3BD0034B065 /* MarqueeText.swift */,
 				B2E67B8A2BA225C600E29F97 /* LoadingView.swift */,
+				8453C1982BAB1871003566D2 /* LottieView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -487,6 +505,7 @@
 		8463B0062B8F2A3800EB81DF /* screens */ = {
 			isa = PBXGroup;
 			children = (
+				8453C19A2BAB1A55003566D2 /* search */,
 				8455A0A72BA16A3C006E8BA1 /* musicPlayer */,
 				846550302B95B643008E6176 /* login */,
 				B2E38B282B937320000AAB15 /* onboarding */,
@@ -722,6 +741,7 @@
 				84D819492BA80E5B002A937C /* FirebaseFirestoreSwift */,
 				84D8194C2BA80E73002A937C /* GoogleSignIn */,
 				84D8194E2BA80E73002A937C /* GoogleSignInSwift */,
+				8453C1962BAB17E6003566D2 /* Lottie */,
 			);
 			productName = Soundscape;
 			productReference = 8402A2972B8F039A00A836CD /* Soundscape.app */;
@@ -754,6 +774,7 @@
 			packageReferences = (
 				84D819402BA80E5B002A937C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				84D8194B2BA80E73002A937C /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				8453C1952BAB17E6003566D2 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 8402A2982B8F039A00A836CD /* Products */;
 			projectDirPath = "";
@@ -773,6 +794,7 @@
 				8402A2A22B8F039D00A836CD /* Preview Assets.xcassets in Resources */,
 				8463B0192B8F3F2500EB81DF /* WixMadeforText-Regular.ttf in Resources */,
 				8463B0182B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf in Resources */,
+				8453C19E2BAB1A97003566D2 /* loading.json in Resources */,
 				8402A29F2B8F039D00A836CD /* Assets.xcassets in Resources */,
 				84D819512BA80ECD002A937C /* GoogleService-Info.plist in Resources */,
 			);
@@ -795,6 +817,7 @@
 				8455A0C72BA1A048006E8BA1 /* SongRepositoryImpl.swift in Sources */,
 				8465503C2B95DB44008E6176 /* ForgoutPasswordView.swift in Sources */,
 				B228ADEB2BA2CB70006468E5 /* DeleteSongUseCase.swift in Sources */,
+				8453C19C2BAB1A65003566D2 /* SearchView.swift in Sources */,
 				B228ADDE2BA2CA0C006468E5 /* SongLocalDataSource.swift in Sources */,
 				8455A0CF2BA1A104006E8BA1 /* SongRemoteDataSourceImpl.swift in Sources */,
 				B2D371CA2B9705370072048E /* StoryCardEpView.swift in Sources */,
@@ -816,6 +839,7 @@
 				84D819752BA822A7002A937C /* FirebaseAuthRepositoryImpl.swift in Sources */,
 				B252D5B62B92023C00F55DD8 /* MusicListView.swift in Sources */,
 				84D819702BA81F01002A937C /* FirebaseAuthRemoteDataSourceImpl.swift in Sources */,
+				8453C1992BAB1871003566D2 /* LottieView.swift in Sources */,
 				847F1B1F2B8F43B000EEE645 /* MoodSelectView.swift in Sources */,
 				842020982B9EE7750034B065 /* Color.swift in Sources */,
 				B252D5B32B91BC9500F55DD8 /* StoryCardView.swift in Sources */,
@@ -1005,6 +1029,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Soundscape/Preview Content\"";
 				DEVELOPMENT_TEAM = JR75GG23WH;
 				ENABLE_PREVIEWS = YES;
@@ -1043,6 +1068,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Soundscape/Preview Content\"";
 				DEVELOPMENT_TEAM = JR75GG23WH;
 				ENABLE_PREVIEWS = YES;
@@ -1097,6 +1123,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8453C1952BAB17E6003566D2 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.1;
+			};
+		};
 		84D819402BA80E5B002A937C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1116,6 +1150,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8453C1962BAB17E6003566D2 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8453C1952BAB17E6003566D2 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		84D819412BA80E5B002A937C /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 84D819402BA80E5B002A937C /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
