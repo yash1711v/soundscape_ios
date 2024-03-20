@@ -138,7 +138,7 @@ final class AppViewModel: ObservableObject {
     // MARK: Audio player functions
     func playSound(sound: String) {
         guard let url = URL(string: sound) else { return }
-        
+        setupRemoteTransportControls()
         do {
             // Show loader
             isLoading = true
@@ -156,8 +156,11 @@ final class AppViewModel: ObservableObject {
             // Reset seek
             currentTime = 0.0
             
+            // Setup data to mediaPlayer
+            setupNowPlaying()
+            
             // Play song
-            audioPlayer?.play()
+            playSound()
             
             // Hide loader
             isLoading = false
@@ -167,13 +170,13 @@ final class AppViewModel: ObservableObject {
     }
     
     func playSound() {
-        setupRemoteTransportControls()
-        setupNowPlaying()
+        updateNowPlaying(isPause: false)
         audioPlayer?.play()
         isPlaying = true
     }
     
     func pauseSound() {
+        updateNowPlaying(isPause: true)
         audioPlayer?.pause()
         isPlaying = false
     }
@@ -210,16 +213,30 @@ final class AppViewModel: ObservableObject {
     func setupNowPlaying() {
         // Define Now Playing Info
         var nowPlayingInfo = [String : Any]()
-        nowPlayingInfo[MPMediaItemPropertyTitle] = "Unstoppable"
+        nowPlayingInfo[MPMediaItemPropertyTitle] = episode.songName
 
-        if let image = UIImage(named: "atOffice") {
-            nowPlayingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(boundsSize: image.size) { size in
-                return image
+        
+        if let image = UIImage(named: episode.imageName) {
+            nowPlayingInfo[MPMediaItemPropertyArtwork] =
+                MPMediaItemArtwork(boundsSize: image.size) { size in
+                    // Extension used here to return newly sized image
+                    return image.imageWith(newSize: size)
             }
         }
-        nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = audioPlayer?.currentTime
-        nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = audioPlayer?.currentItem?.duration
+        
+        nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = currentTime
+        nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = totalTime
         nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = audioPlayer?.rate
+
+        // Set the metadata
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+    }
+    
+    func updateNowPlaying(isPause: Bool) {
+        // Define Now Playing Info
+        var nowPlayingInfo = MPNowPlayingInfoCenter.default().nowPlayingInfo!
+
+        nowPlayingInfo[MPNowPlayingInfoPropertyPlaybackRate] = isPause ? 0 : 1
 
         // Set the metadata
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo

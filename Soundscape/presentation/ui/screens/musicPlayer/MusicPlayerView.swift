@@ -138,7 +138,6 @@ struct MusicPlayerView: View {
                         .frame(width: 30, height: 30)
                         .onTapGesture {
                             appViewModel.isPlaying.toggle()
-                            appViewModel.playSound(sound: appViewModel.episode.songPath)
                             
                             if appViewModel.isPlaying {
                                 appViewModel.playSound()

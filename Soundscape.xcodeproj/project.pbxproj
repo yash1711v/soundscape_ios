@@ -21,6 +21,7 @@
 		842020952B9EE1810034B065 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842020942B9EE1810034B065 /* RoundedCorner.swift */; };
 		842020982B9EE7750034B065 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842020972B9EE7750034B065 /* Color.swift */; };
 		8420209A2B9EF3BD0034B065 /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842020992B9EF3BD0034B065 /* MarqueeText.swift */; };
+		8453C1922BAAA104003566D2 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8453C1912BAAA104003566D2 /* UIImage.swift */; };
 		8455A0A92BA16B54006E8BA1 /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455A0A82BA16B54006E8BA1 /* AppViewModel.swift */; };
 		8455A0B02BA1805F006E8BA1 /* SoundscapeAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455A0AF2BA1805F006E8BA1 /* SoundscapeAPIService.swift */; };
 		8455A0B52BA1868D006E8BA1 /* AudioFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455A0B42BA1868D006E8BA1 /* AudioFetch.swift */; };
@@ -124,6 +125,7 @@
 		842020942B9EE1810034B065 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		842020972B9EE7750034B065 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		842020992B9EF3BD0034B065 /* MarqueeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeText.swift; sourceTree = "<group>"; };
+		8453C1912BAAA104003566D2 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		8455A0A82BA16B54006E8BA1 /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
 		8455A0AF2BA1805F006E8BA1 /* SoundscapeAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundscapeAPIService.swift; sourceTree = "<group>"; };
 		8455A0B42BA1868D006E8BA1 /* AudioFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFetch.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				842020972B9EE7750034B065 /* Color.swift */,
+				8453C1912BAAA104003566D2 /* UIImage.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -812,6 +815,7 @@
 				847F1B1F2B8F43B000EEE645 /* MoodSelectView.swift in Sources */,
 				842020982B9EE7750034B065 /* Color.swift in Sources */,
 				B252D5B32B91BC9500F55DD8 /* StoryCardView.swift in Sources */,
+				8453C1922BAAA104003566D2 /* UIImage.swift in Sources */,
 				B2AF24F12BA2EA38004751AD /* SoundscapeDatabase.swift in Sources */,
 				B2E38B252B9310EB000AAB15 /* BackgroundGradientView.swift in Sources */,
 				B2E38B232B930D0B000AAB15 /* Music.swift in Sources */,

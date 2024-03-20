@@ -45,6 +45,7 @@ struct StoryDetailView: View {
                                 withAnimation(.spring) {
                                     viewModel.episode = episode
                                     viewModel.showBottomPlayer = true
+                                    viewModel.playSound(sound: viewModel.episode.songPath)
                                 }
                             }
                     }
