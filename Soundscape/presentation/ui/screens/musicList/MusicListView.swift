@@ -71,7 +71,13 @@ struct MusicListView: View {
                             @State var isLiked = appViewModel.checkItemInDbList(id: audioFetch.id)
                             MusicListItemView(audioFetch: audioFetch, isLiked: isLiked) {
                                 Task {
-                                    await appViewModel.saveSong(audioFetch: audioFetch.withIsLiked(true))
+                                    await appViewModel.saveSong(audioFetch:
+                                                            AudioFetch(id: audioFetch.id,
+                                                                       name: audioFetch.name,
+                                                                       assetPath: audioFetch.assetPath,
+                                                                       image: imageName,
+                                                                       type: audioFetch.type,
+                                                                       isLiked: true))
                                 }
                             }
                             .onTapGesture {
@@ -102,7 +108,7 @@ struct MusicListView: View {
                                     appViewModel.showBottomPlayer = true
                                     appViewModel.isShuffle = false
                                     appViewModel.playSound(sound: appViewModel.episode.songPath)
-                                    appViewModel.musicPlayerTitle = name
+                                    appViewModel.musicPlayerTitle = selectedAudioFetch.type
                                 }
                             }
                         }

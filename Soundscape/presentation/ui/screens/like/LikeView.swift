@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LikeView: View {
+    @EnvironmentObject var appViewModel: AppViewModel
     @StateObject var viewModel = LikeViewModel()
     
     var body: some View {
@@ -44,9 +45,41 @@ struct LikeView: View {
                     .padding()
                     
                     LazyVStack {
-                        ForEach(viewModel.audioFetchList) { audioFetch in
+                        ForEach(viewModel.audioFetchList.indices, id: \.self) { index in
+                            let audioFetch = viewModel.audioFetchList[index]
                             MusicListItemView(audioFetch: audioFetch) {
                                 viewModel.deleteSong(audioFetch: audioFetch)
+                            }
+                            .onTapGesture {
+                                // Set current index to the selected index
+                                appViewModel.currentIndex = index
+                                
+                                // Get the selected episode
+                                let selectedAudioFetch = viewModel.audioFetchList[index]
+                                let episode = Episode(name: "",
+                                                      songName: selectedAudioFetch.name,
+                                                      imageName: selectedAudioFetch.image,
+                                                      songPath: selectedAudioFetch.assetPath)
+                                
+                                // Create episode list
+                                var episodeListNew: [Episode] = []
+                                for audioFetch in viewModel.audioFetchList {
+                                    let episode = Episode(name: "",
+                                                          songName: audioFetch.name,
+                                                          imageName: audioFetch.image,
+                                                          songPath: audioFetch.assetPath)
+                                    episodeListNew.append(episode)
+                                }
+                                appViewModel.episodeList = episodeListNew
+                                
+                                // Update the episode in the view model and play the sound
+                                withAnimation(.spring) {
+                                    appViewModel.episode = episode
+                                    appViewModel.showBottomPlayer = true
+                                    appViewModel.isShuffle = false
+                                    appViewModel.playSound(sound: appViewModel.episode.songPath)
+                                    appViewModel.musicPlayerTitle = selectedAudioFetch.type
+                                }
                             }
                         }
                     }

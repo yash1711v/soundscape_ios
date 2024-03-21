@@ -8,4 +8,5 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="StoryFetchEntity" representedClassName="StoryFetchEntity" syncable="YES" codeGenerationType="class"/>
 </model>
