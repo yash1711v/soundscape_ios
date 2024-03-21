@@ -65,7 +65,9 @@ final class StoryDao {
     }
     
     func deleteStory(audioFetch: AudioFetch) throws -> () {
-        let storyFetchEntity = try getEntityById(audioFetch.id)!
+        guard let storyFetchEntity = try getEntityById(audioFetch.id) else {
+            throw DBError.deleteError
+        }
         let context = soundscapeDatabase.container.viewContext
         context.delete(storyFetchEntity)
         do {

@@ -15,31 +15,57 @@ struct LikeView: View {
         NavigationView {
             ZStack {
                 ScrollView(.vertical, showsIndicators: false) {
-                    Text("Your Daily Zen")
+                    Text(viewModel.isSongSelected ? "Your Daily Zen" : "Your Sleep Stories")
                         .font(.wixMadeFont(.bold, fontSize: .subHeading))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding()
                     
                     HStack {
                         Button {
-                            print("hi")
+                            withAnimation(.easeInOut) {
+                                viewModel.isSongSelected = true
+                                viewModel.getAllSong()
+                            }
                         } label: {
                             Label("Tunes", systemImage: "music.note")
                                 .font(.wixMadeFont(.regular, fontSize: .title))
-                                .foregroundColor(.black)
+                                .foregroundColor(viewModel.isSongSelected ? .black : .white)
+                                .background(
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 30)
+                                            .stroke(Color.white, lineWidth: viewModel.isSongSelected ? 0 : 1)
+                                            .frame(width: 150, height: 40)
+                                        
+                                        RoundedRectangle(cornerRadius: 30)
+                                            .frame(width: 150, height: 40)
+                                            .foregroundColor(viewModel.isSongSelected ? .white : .clear)
+                                    }
+                                )
                         }
-                        .modifier(FilledSmallButtonStyle())
                         
                         Spacer()
                         
                         Button {
-                            print("hi")
+                            withAnimation(.easeInOut) {
+                                viewModel.isSongSelected = false
+                                viewModel.getAllStory()
+                            }
                         } label: {
                             Label("Stories", systemImage: "books.vertical")
                                 .font(.wixMadeFont(.regular, fontSize: .title))
-                                .foregroundColor(.white)
+                                .foregroundColor(viewModel.isSongSelected ? .white : .black)
+                                .background(
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 30)
+                                            .stroke(Color.white, lineWidth: viewModel.isSongSelected ? 1 : 0)
+                                            .frame(width: 150, height: 40)
+                                        
+                                        RoundedRectangle(cornerRadius: 30)
+                                            .frame(width: 150, height: 40)
+                                            .foregroundColor(viewModel.isSongSelected ? .clear : .white)
+                                    }
+                                )
                         }
-                        .modifier(OutlineSmallButtonStyle())
                     }
                     .padding(.horizontal, 40)
                     .padding()
@@ -48,7 +74,7 @@ struct LikeView: View {
                         ForEach(viewModel.audioFetchList.indices, id: \.self) { index in
                             let audioFetch = viewModel.audioFetchList[index]
                             MusicListItemView(audioFetch: audioFetch) {
-                                viewModel.deleteSong(audioFetch: audioFetch)
+                                viewModel.isSongSelected ? viewModel.deleteSong(audioFetch: audioFetch) : viewModel.deleteStory(audioFetch: audioFetch)
                             }
                             .onTapGesture {
                                 // Set current index to the selected index
@@ -104,7 +130,7 @@ struct LikeView: View {
                       message: alertItem.message,
                       dismissButton: alertItem.dismissButton)
             }
-            .navigationTitle("Liked Tunes")
+            .navigationTitle(viewModel.isSongSelected ? "Liked Tunes" : "Liked Stories")
         }
     }
 }

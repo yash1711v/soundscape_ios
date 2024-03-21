@@ -65,14 +65,17 @@ final class SongDao {
     }
     
     func deleteSong(audioFetch: AudioFetch) throws -> () {
-        let audioFetchEntity = try getEntityById(audioFetch.id)!
+        guard let audioFetchEntity = try getEntityById(audioFetch.id) else {
+            throw DBError.deleteError
+        }
         let context = soundscapeDatabase.container.viewContext
         context.delete(audioFetchEntity)
         do {
             try context.save()
         } catch {
             context.rollback()
-            fatalError("Error: \(error.localizedDescription)")
+            print("DEBUG: Delete error: \(error.localizedDescription)")
+            throw DBError.deleteError
         }
     }
     
