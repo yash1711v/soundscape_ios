@@ -13,4 +13,9 @@ final class SongRemoteDataSourceImpl: SongRemoteDataSource {
     func getSongSection(songSection: String) async throws -> [AudioFetch] {
         return try await SoundscapeAPIService.shared.getSongSection(songSection: songSection)
     }
+    
+    func getAllSong() async throws -> [AudioFetch] {
+        return try await SoundscapeAPIService.shared.getAllSong()
+    }
+    
 }

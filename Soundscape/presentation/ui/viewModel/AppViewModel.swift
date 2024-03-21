@@ -43,6 +43,7 @@ final class AppViewModel: ObservableObject {
     
     // MARK: Usecase
     private let getSongFetchUseCase = GetSongFetchUseCase.shared
+    private let getAllSongFetchUseCase = GetAllSongFetchUseCase.shared
     private let saveSongUseCase = SaveSongUseCase.shared
     private let getSaveSongUseCase = GetSavedSongUseCase.shared
     private let saveStoryUseCase = SaveStoryUseCase.shared
@@ -63,6 +64,28 @@ final class AppViewModel: ObservableObject {
     }
     
     // MARK: API functions
+    func getAllSong() async {
+        isLoading = true
+        do {
+            audioFetchList = try await getAllSongFetchUseCase.execute()
+            isLoading = false
+        } catch {
+            if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
+                alertItem = AlertContext.noInternetConnection
+            } else if let scError = error as? APIError {
+                switch scError {
+                case .invalidURL:
+                    alertItem = AlertContext.invalidURL
+                case .invalidResponse:
+                    alertItem = AlertContext.invalidResponse
+                case .invalidData:
+                    alertItem = AlertContext.invalidData
+                }
+            }
+            isLoading = false
+        }
+    }
+    
     func getSongSection(songSection: String) async {
         isLoading = true
         do {

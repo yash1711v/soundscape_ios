@@ -13,12 +13,23 @@ struct LottieView: UIViewRepresentable {
     var animationFileName: String
     let loopMode: LottieLoopMode
     
-    func makeUIView(context: Context) -> Lottie.LottieAnimationView {
+    func makeUIView(context: UIViewRepresentableContext<LottieView>) -> UIView {
+        let view = UIView(frame: .zero )
+        
         let animationView = LottieAnimationView(name: animationFileName)
-        animationView.loopMode = loopMode
-        animationView.play()
         animationView.contentMode = .scaleAspectFill
-        return animationView
+        animationView.play()
+        animationView.loopMode = loopMode
+        
+        view.addSubview(animationView)
+        
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            animationView.heightAnchor.constraint(equalTo: view.heightAnchor),
+            animationView.widthAnchor.constraint(equalTo: view.widthAnchor)
+        ])
+        
+        return view
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {

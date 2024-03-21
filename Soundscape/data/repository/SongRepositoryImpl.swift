@@ -28,6 +28,11 @@ final class SongRepositoryImpl: SongRepository {
         return try await songRemoteDataSource.getSongSection(songSection: songSection)
     }
     
+    func getAllSong() async throws -> [AudioFetch] {
+        return try await songRemoteDataSource.getAllSong()
+    }
+    
+    
     // MARK: DB calling functions (crud)
     func getSavedSong() async throws -> [AudioFetch] {
         let uid = Auth.auth().currentUser?.uid

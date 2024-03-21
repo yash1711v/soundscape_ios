@@ -24,7 +24,11 @@ struct HomeView: View {
                     
                     ScrollView(.vertical, showsIndicators: false) {
                         
-                        SearchBarView()
+                        NavigationLink {
+                            SearchView()
+                        } label: {
+                            SearchBarView()
+                        }
                         
                         Text("For Your Daily Mood")
                             .font(.wixMadeFont(.regular, fontSize: .title))

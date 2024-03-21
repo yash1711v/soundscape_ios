@@ -10,6 +10,7 @@ import Foundation
 protocol SongRepository {
     // MARK: API calling functions
     func getSongSection(songSection: String) async throws -> [AudioFetch]
+    func getAllSong() async throws -> [AudioFetch]
     
     // MARK: DB calling functions (crud)
     func getSavedSong() async throws -> [AudioFetch]
