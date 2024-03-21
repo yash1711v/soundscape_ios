@@ -79,6 +79,7 @@
 		84D819882BA858A3002A937C /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D819872BA858A3002A937C /* AuthError.swift */; };
 		84D8198A2BA866E8002A937C /* SongFirebaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D819892BA866E8002A937C /* SongFirebaseDataSource.swift */; };
 		84D8198C2BA86740002A937C /* SongFirebaseDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8198B2BA86740002A937C /* SongFirebaseDataSourceImpl.swift */; };
+		B20AE4472BAC5B2A00864C21 /* DeleteDatabaseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20AE4462BAC5B2A00864C21 /* DeleteDatabaseUseCase.swift */; };
 		B228ADDE2BA2CA0C006468E5 /* SongLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228ADDD2BA2CA0C006468E5 /* SongLocalDataSource.swift */; };
 		B228ADE02BA2CA60006468E5 /* SongLocalDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228ADDF2BA2CA60006468E5 /* SongLocalDataSourceImpl.swift */; };
 		B228ADE52BA2CB42006468E5 /* GetSavedSongUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228ADE42BA2CB42006468E5 /* GetSavedSongUseCase.swift */; };
@@ -192,6 +193,7 @@
 		84D819872BA858A3002A937C /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		84D819892BA866E8002A937C /* SongFirebaseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongFirebaseDataSource.swift; sourceTree = "<group>"; };
 		84D8198B2BA86740002A937C /* SongFirebaseDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongFirebaseDataSourceImpl.swift; sourceTree = "<group>"; };
+		B20AE4462BAC5B2A00864C21 /* DeleteDatabaseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteDatabaseUseCase.swift; sourceTree = "<group>"; };
 		B228ADDD2BA2CA0C006468E5 /* SongLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongLocalDataSource.swift; sourceTree = "<group>"; };
 		B228ADDF2BA2CA60006468E5 /* SongLocalDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongLocalDataSourceImpl.swift; sourceTree = "<group>"; };
 		B228ADE42BA2CB42006468E5 /* GetSavedSongUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSavedSongUseCase.swift; sourceTree = "<group>"; };
@@ -461,6 +463,7 @@
 				B27F47DF2BAC18E600EFE592 /* story */,
 				84D819762BA8241E002A937C /* firebaseAuth */,
 				B228ADE12BA2CAF6006468E5 /* song */,
+				B20AE4462BAC5B2A00864C21 /* DeleteDatabaseUseCase.swift */,
 			);
 			path = usecase;
 			sourceTree = "<group>";
@@ -950,6 +953,7 @@
 				B2E269022B93046B0034147F /* FontExtension.swift in Sources */,
 				842020932B9EDD4C0034B065 /* BlurView.swift in Sources */,
 				8455A0C32BA19E34006E8BA1 /* GetSongFetchUseCase.swift in Sources */,
+				B20AE4472BAC5B2A00864C21 /* DeleteDatabaseUseCase.swift in Sources */,
 				8402A2B12B8F244700A836CD /* StoryView.swift in Sources */,
 				8402A29B2B8F039A00A836CD /* SoundscapeApp.swift in Sources */,
 				846550382B95C27A008E6176 /* LoginView.swift in Sources */,

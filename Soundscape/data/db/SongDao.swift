@@ -49,7 +49,7 @@ final class SongDao {
             audioFetchEntity.type = audioFetch.type
             audioFetchEntity.isLiked = audioFetch.isLiked ?? false
         }
-        soundscapeDatabase.saveContext()
+        try soundscapeDatabase.saveContext()
     }
     
     func getAllSong() throws -> [AudioFetch] {
@@ -84,6 +84,6 @@ final class SongDao {
         audioFetchEntity.assetPath = audioFetch.assetPath
         audioFetchEntity.image = audioFetch.image
         audioFetchEntity.type = audioFetch.type
-        soundscapeDatabase.saveContext()
+        try soundscapeDatabase.saveContext()
     }
 }

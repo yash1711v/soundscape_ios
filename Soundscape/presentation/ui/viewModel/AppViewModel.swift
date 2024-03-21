@@ -46,6 +46,7 @@ final class AppViewModel: ObservableObject {
     private let saveSongUseCase = SaveSongUseCase.shared
     private let getSaveSongUseCase = GetSavedSongUseCase.shared
     private let saveStoryUseCase = SaveStoryUseCase.shared
+    private let deleteDatabaseUseCase = DeleteDatabaseUseCase.shared
     
     // MARK: Auth Usecase
     private let googleLoginUseCase = GoogleLoginUseCase.shared
@@ -162,6 +163,15 @@ final class AppViewModel: ObservableObject {
                 }
             }
             
+        }
+    }
+    
+    // MARK: Common Db functions
+    func deleteDatabase() async {
+        do {
+            try await deleteDatabaseUseCase.execute()
+        } catch {
+            print("DEBUG: Delete db \(error.localizedDescription)")
         }
     }
     

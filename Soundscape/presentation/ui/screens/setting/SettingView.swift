@@ -55,6 +55,9 @@ struct SettingView: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .onTapGesture {
                                     appViewModel.signOut()
+                                    Task {
+                                        await appViewModel.deleteDatabase()
+                                    }
                                 }
                         }
                     }
@@ -73,6 +76,7 @@ struct SettingView: View {
                             .onTapGesture {
                                 Task {
                                     try await appViewModel.deleteAccount()
+                                    await appViewModel.deleteDatabase()
                                 }
                             }
                     }
@@ -80,10 +84,11 @@ struct SettingView: View {
                     Text("Version")
                         .font(.wixMadeFont(.bold, fontSize: .body))
                         .underline()
+                        .padding(.top)
                     
                     Text("1.0.0")
                         .font(.wixMadeFont(.bold, fontSize: .body))
-                        .padding(.bottom, 70)
+                        .padding(.bottom)
                 }
                 .task {
                     Task {
@@ -106,7 +111,7 @@ struct SettingView: View {
 }
 
 #Preview {
-    SettingView()
+    SettingView().environmentObject(AppViewModel())
 }
 
 struct CreateAccountView: View {

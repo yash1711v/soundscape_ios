@@ -22,14 +22,29 @@ final class SoundscapeDatabase {
         }
     }
     
-    func saveContext() {
+    func saveContext() throws {
         let context = container.viewContext
         if context.hasChanges {
             do {
                 try context.save()
             } catch {
-                fatalError("Error: \(error.localizedDescription)")
+                print("DEBUG: Database error \(error.localizedDescription)")
+                throw DBError.dataSourceError
             }
+        }
+    }
+    
+    func deleteDatabase() async throws {
+        guard let storeURL = container.persistentStoreDescriptions.first?.url else {
+            return
+        }
+        do {
+            try container.persistentStoreCoordinator.destroyPersistentStore(at: storeURL, ofType: NSSQLiteStoreType, options: nil)
+            try container.persistentStoreCoordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: nil)
+        } catch {
+            // Handle error
+            print("Error deleting database: \(error.localizedDescription)")
+            throw DBError.dataSourceError
         }
     }
 }

@@ -34,6 +34,7 @@ struct LoginView: View {
                         Task {
                             try await appViewModel.signInGoogle()
                             try await appViewModel.fetchUserAccount()
+                            await appViewModel.deleteDatabase()
                         }
                     } label: {
                         Image("login_google_button")
@@ -108,6 +109,7 @@ struct LoginView: View {
                         Task {
                             try await appViewModel.signIn(withEmail: email, password: password)
                             try await appViewModel.fetchUserAccount()
+                            await appViewModel.deleteDatabase()
                         }
                     } label: {
                         Image("login_continue_button")

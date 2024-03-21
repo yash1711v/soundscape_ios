@@ -47,6 +47,7 @@ struct NicknameView: View {
                             return
                         }
                         try await appViewModel.saveUserAccount(user: User(id: uid, email: email, nickname: nickname))
+                        await appViewModel.deleteDatabase()
                     }
                 } label: {
                     Image("signup_continue_button")
