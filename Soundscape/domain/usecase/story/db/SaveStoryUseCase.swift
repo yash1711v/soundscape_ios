@@ -8,7 +8,7 @@
 import Foundation
 
 final class SaveStoryUseCase {
-    static let shared = SaveSongUseCase()
+    static let shared = SaveStoryUseCase()
     
     let storyRepository: StoryRepository
     

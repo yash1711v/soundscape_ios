@@ -96,6 +96,15 @@ struct MusicPlayerView: View {
                         .frame(width: 20, height: 20)
                         .foregroundColor(.gray)
                         .padding(10)
+                        .onTapGesture {
+                            Task {
+                                if appViewModel.musicPlayerTitle == "Story Time" {
+                                    let episode = appViewModel.episode
+                                    let audioFetchNew = AudioFetch(id: 1, name: episode.songName, assetPath: episode.songPath, image: episode.imageName, type: "Story Time", isLiked: true)
+                                    await appViewModel.saveStory(audioFetch: audioFetchNew)
+                                }
+                            }
+                        }
                 }
                 .padding()
                 

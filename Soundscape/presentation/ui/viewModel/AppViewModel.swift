@@ -34,6 +34,7 @@ final class AppViewModel: ObservableObject {
     @Published var audioFetchListDb: [AudioFetch] = []
     @Published var alertItem: AlertItem?
     @Published var isLiked = [String : Int]()
+    @Published var storyFetchListDb: [AudioFetch] = []
     
     // MARK: login variables
     @Published var userSession: FirebaseAuth.User?
@@ -44,6 +45,7 @@ final class AppViewModel: ObservableObject {
     private let getSongFetchUseCase = GetSongFetchUseCase.shared
     private let saveSongUseCase = SaveSongUseCase.shared
     private let getSaveSongUseCase = GetSavedSongUseCase.shared
+    private let saveStoryUseCase = SaveStoryUseCase.shared
     
     // MARK: Auth Usecase
     private let googleLoginUseCase = GoogleLoginUseCase.shared
@@ -82,7 +84,7 @@ final class AppViewModel: ObservableObject {
         }
     }
     
-    // MARK: DB functions
+    // MARK: Song DB functions
     func getAllSongFromDb() async {
         isLoading = true
         do {
@@ -121,6 +123,29 @@ final class AppViewModel: ObservableObject {
     func saveSong(audioFetch: AudioFetch) async {
         do {
             try await saveSongUseCase.execute(audioFetch: audioFetch)
+        } catch {
+            if let dbError = error as? DBError {
+                switch dbError {
+                case .dataSourceError:
+                    alertItem = AlertContext.dataSourceError
+                case .createError:
+                    alertItem = AlertContext.createError
+                case .deleteError:
+                    alertItem = AlertContext.deleteError
+                case .updateError:
+                    alertItem = AlertContext.updateError
+                case .fetchError:
+                    alertItem = AlertContext.fetchError
+                }
+            }
+            
+        }
+    }
+    
+    // MARK: Story DB functions
+    func saveStory(audioFetch: AudioFetch) async {
+        do {
+            try await saveStoryUseCase.execute(audioFetch: audioFetch)
         } catch {
             if let dbError = error as? DBError {
                 switch dbError {
