@@ -88,6 +88,17 @@
 		B252D5B32B91BC9500F55DD8 /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252D5B22B91BC9500F55DD8 /* StoryCardView.swift */; };
 		B252D5B62B92023C00F55DD8 /* MusicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252D5B52B92023C00F55DD8 /* MusicListView.swift */; };
 		B2729D132B92FDA300FD2B84 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2729D122B92FDA300FD2B84 /* ButtonModifier.swift */; };
+		B27F47D02BAC142400EFE592 /* StoryDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F47CF2BAC142400EFE592 /* StoryDao.swift */; };
+		B27F47D32BAC156E00EFE592 /* StoryLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F47D22BAC156E00EFE592 /* StoryLocalDataSource.swift */; };
+		B27F47D52BAC15BB00EFE592 /* StoryFirebaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F47D42BAC15BB00EFE592 /* StoryFirebaseDataSource.swift */; };
+		B27F47D82BAC15F300EFE592 /* StoryLocalDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F47D72BAC15F300EFE592 /* StoryLocalDataSourceImpl.swift */; };
+		B27F47DA2BAC161500EFE592 /* StoryFirebaseDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F47D92BAC161500EFE592 /* StoryFirebaseDataSourceImpl.swift */; };
+		B27F47DC2BAC168900EFE592 /* StoryRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F47DB2BAC168900EFE592 /* StoryRepositoryImpl.swift */; };
+		B27F47DE2BAC16A000EFE592 /* StoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F47DD2BAC16A000EFE592 /* StoryRepository.swift */; };
+		B27F47E22BAC18FD00EFE592 /* GetSavedStoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F47E12BAC18FD00EFE592 /* GetSavedStoryUseCase.swift */; };
+		B27F47E42BAC190900EFE592 /* SaveStoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F47E32BAC190900EFE592 /* SaveStoryUseCase.swift */; };
+		B27F47E62BAC191600EFE592 /* UpdateStoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F47E52BAC191600EFE592 /* UpdateStoryUseCase.swift */; };
+		B27F47E82BAC192100EFE592 /* DeleteStoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F47E72BAC192100EFE592 /* DeleteStoryUseCase.swift */; };
 		B28FE1622B906555009FB75D /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28FE1612B906555009FB75D /* SearchBarView.swift */; };
 		B28FE1642B906719009FB75D /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28FE1632B906719009FB75D /* Playlist.swift */; };
 		B28FE1662B906DE5009FB75D /* homePlaylistCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28FE1652B906DE5009FB75D /* homePlaylistCardView.swift */; };
@@ -190,6 +201,17 @@
 		B252D5B22B91BC9500F55DD8 /* StoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
 		B252D5B52B92023C00F55DD8 /* MusicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListView.swift; sourceTree = "<group>"; };
 		B2729D122B92FDA300FD2B84 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
+		B27F47CF2BAC142400EFE592 /* StoryDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDao.swift; sourceTree = "<group>"; };
+		B27F47D22BAC156E00EFE592 /* StoryLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryLocalDataSource.swift; sourceTree = "<group>"; };
+		B27F47D42BAC15BB00EFE592 /* StoryFirebaseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFirebaseDataSource.swift; sourceTree = "<group>"; };
+		B27F47D72BAC15F300EFE592 /* StoryLocalDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryLocalDataSourceImpl.swift; sourceTree = "<group>"; };
+		B27F47D92BAC161500EFE592 /* StoryFirebaseDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFirebaseDataSourceImpl.swift; sourceTree = "<group>"; };
+		B27F47DB2BAC168900EFE592 /* StoryRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRepositoryImpl.swift; sourceTree = "<group>"; };
+		B27F47DD2BAC16A000EFE592 /* StoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryRepository.swift; sourceTree = "<group>"; };
+		B27F47E12BAC18FD00EFE592 /* GetSavedStoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSavedStoryUseCase.swift; sourceTree = "<group>"; };
+		B27F47E32BAC190900EFE592 /* SaveStoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveStoryUseCase.swift; sourceTree = "<group>"; };
+		B27F47E52BAC191600EFE592 /* UpdateStoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStoryUseCase.swift; sourceTree = "<group>"; };
+		B27F47E72BAC192100EFE592 /* DeleteStoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteStoryUseCase.swift; sourceTree = "<group>"; };
 		B28FE1612B906555009FB75D /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		B28FE1632B906719009FB75D /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		B28FE1652B906DE5009FB75D /* homePlaylistCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homePlaylistCardView.swift; sourceTree = "<group>"; };
@@ -405,6 +427,7 @@
 			children = (
 				8455A0C82BA1A068006E8BA1 /* dataSource */,
 				8455A0C92BA1A071006E8BA1 /* dataSourceImpl */,
+				B27F47DB2BAC168900EFE592 /* StoryRepositoryImpl.swift */,
 				8455A0C62BA1A048006E8BA1 /* SongRepositoryImpl.swift */,
 				84D819742BA822A7002A937C /* FirebaseAuthRepositoryImpl.swift */,
 			);
@@ -435,6 +458,7 @@
 		8455A0BE2BA19A55006E8BA1 /* usecase */ = {
 			isa = PBXGroup;
 			children = (
+				B27F47DF2BAC18E600EFE592 /* story */,
 				84D819762BA8241E002A937C /* firebaseAuth */,
 				B228ADE12BA2CAF6006468E5 /* song */,
 			);
@@ -446,6 +470,7 @@
 			children = (
 				8455A0C02BA19AA0006E8BA1 /* SongRepository.swift */,
 				84D8196C2BA81E7A002A937C /* FirebaseAuthRepository.swift */,
+				B27F47DD2BAC16A000EFE592 /* StoryRepository.swift */,
 			);
 			path = repository;
 			sourceTree = "<group>";
@@ -453,6 +478,7 @@
 		8455A0C82BA1A068006E8BA1 /* dataSource */ = {
 			isa = PBXGroup;
 			children = (
+				B27F47D12BAC155A00EFE592 /* story */,
 				84D819712BA82253002A937C /* firebaseAuth */,
 				8455A0CA2BA1A0BD006E8BA1 /* song */,
 			);
@@ -462,6 +488,7 @@
 		8455A0C92BA1A071006E8BA1 /* dataSourceImpl */ = {
 			isa = PBXGroup;
 			children = (
+				B27F47D62BAC15DC00EFE592 /* story */,
 				84D8196E2BA81EE6002A937C /* firebaseAuth */,
 				8455A0CD2BA1A0EE006E8BA1 /* song */,
 			);
@@ -654,12 +681,50 @@
 			path = musicList;
 			sourceTree = "<group>";
 		};
+		B27F47D12BAC155A00EFE592 /* story */ = {
+			isa = PBXGroup;
+			children = (
+				B27F47D22BAC156E00EFE592 /* StoryLocalDataSource.swift */,
+				B27F47D42BAC15BB00EFE592 /* StoryFirebaseDataSource.swift */,
+			);
+			path = story;
+			sourceTree = "<group>";
+		};
+		B27F47D62BAC15DC00EFE592 /* story */ = {
+			isa = PBXGroup;
+			children = (
+				B27F47D72BAC15F300EFE592 /* StoryLocalDataSourceImpl.swift */,
+				B27F47D92BAC161500EFE592 /* StoryFirebaseDataSourceImpl.swift */,
+			);
+			path = story;
+			sourceTree = "<group>";
+		};
+		B27F47DF2BAC18E600EFE592 /* story */ = {
+			isa = PBXGroup;
+			children = (
+				B27F47E02BAC18EE00EFE592 /* db */,
+			);
+			path = story;
+			sourceTree = "<group>";
+		};
+		B27F47E02BAC18EE00EFE592 /* db */ = {
+			isa = PBXGroup;
+			children = (
+				B27F47E12BAC18FD00EFE592 /* GetSavedStoryUseCase.swift */,
+				B27F47E32BAC190900EFE592 /* SaveStoryUseCase.swift */,
+				B27F47E52BAC191600EFE592 /* UpdateStoryUseCase.swift */,
+				B27F47E72BAC192100EFE592 /* DeleteStoryUseCase.swift */,
+			);
+			path = db;
+			sourceTree = "<group>";
+		};
 		B2AF24EC2BA2E8A7004751AD /* db */ = {
 			isa = PBXGroup;
 			children = (
 				B2AF24ED2BA2E8B6004751AD /* Soundscape.xcdatamodeld */,
 				B2AF24F02BA2EA38004751AD /* SoundscapeDatabase.swift */,
 				B2AF24F22BA2EC4D004751AD /* SongDao.swift */,
+				B27F47CF2BAC142400EFE592 /* StoryDao.swift */,
 			);
 			path = db;
 			sourceTree = "<group>";
@@ -819,14 +884,17 @@
 				B228ADEB2BA2CB70006468E5 /* DeleteSongUseCase.swift in Sources */,
 				8453C19C2BAB1A65003566D2 /* SearchView.swift in Sources */,
 				B228ADDE2BA2CA0C006468E5 /* SongLocalDataSource.swift in Sources */,
+				B27F47E22BAC18FD00EFE592 /* GetSavedStoryUseCase.swift in Sources */,
 				8455A0CF2BA1A104006E8BA1 /* SongRemoteDataSourceImpl.swift in Sources */,
 				B2D371CA2B9705370072048E /* StoryCardEpView.swift in Sources */,
 				B28FE1682B907A5C009FB75D /* StorySoundCardView.swift in Sources */,
 				B2D371C72B9703580072048E /* MainStorySound.swift in Sources */,
 				84D8198C2BA86740002A937C /* SongFirebaseDataSourceImpl.swift in Sources */,
+				B27F47DE2BAC16A000EFE592 /* StoryRepository.swift in Sources */,
 				8453C1942BAB10D7003566D2 /* AuthenticationFormProtocol.swift in Sources */,
 				849DBDAA2B9AF3EB00A39807 /* PlaylistListView.swift in Sources */,
 				B28FE1662B906DE5009FB75D /* homePlaylistCardView.swift in Sources */,
+				B27F47DC2BAC168900EFE592 /* StoryRepositoryImpl.swift in Sources */,
 				8455A0B52BA1868D006E8BA1 /* AudioFetch.swift in Sources */,
 				84D819862BA828FB002A937C /* DeleteAccountUseCase.swift in Sources */,
 				8402A29D2B8F039A00A836CD /* SoundscapeTabView.swift in Sources */,
@@ -838,6 +906,7 @@
 				84D819822BA828DA002A937C /* SaveUserUseCase.swift in Sources */,
 				84D819752BA822A7002A937C /* FirebaseAuthRepositoryImpl.swift in Sources */,
 				B252D5B62B92023C00F55DD8 /* MusicListView.swift in Sources */,
+				B27F47DA2BAC161500EFE592 /* StoryFirebaseDataSourceImpl.swift in Sources */,
 				84D819702BA81F01002A937C /* FirebaseAuthRemoteDataSourceImpl.swift in Sources */,
 				8453C1992BAB1871003566D2 /* LottieView.swift in Sources */,
 				847F1B1F2B8F43B000EEE645 /* MoodSelectView.swift in Sources */,
@@ -851,11 +920,15 @@
 				8455A0B02BA1805F006E8BA1 /* SoundscapeAPIService.swift in Sources */,
 				B2E67B8B2BA225C600E29F97 /* LoadingView.swift in Sources */,
 				8402A2B32B8F245000A836CD /* LikeView.swift in Sources */,
+				B27F47D02BAC142400EFE592 /* StoryDao.swift in Sources */,
+				B27F47D82BAC15F300EFE592 /* StoryLocalDataSourceImpl.swift in Sources */,
 				B2AF24EF2BA2E8B6004751AD /* Soundscape.xcdatamodeld in Sources */,
 				B2E38B212B930CC3000AAB15 /* MusicListItemView.swift in Sources */,
+				B27F47E82BAC192100EFE592 /* DeleteStoryUseCase.swift in Sources */,
 				8465503E2B95EE64008E6176 /* NicknameView.swift in Sources */,
 				842020912B9ED2900034B065 /* MusicPlayerView.swift in Sources */,
 				B2AF24F32BA2EC4D004751AD /* SongDao.swift in Sources */,
+				B27F47D32BAC156E00EFE592 /* StoryLocalDataSource.swift in Sources */,
 				84D8196D2BA81E7A002A937C /* FirebaseAuthRepository.swift in Sources */,
 				B228ADE72BA2CB50006468E5 /* SaveSongUseCase.swift in Sources */,
 				B2729D132B92FDA300FD2B84 /* ButtonModifier.swift in Sources */,
@@ -865,6 +938,7 @@
 				84D819782BA82439002A937C /* LoginEmailUseCase.swift in Sources */,
 				B228ADE02BA2CA60006468E5 /* SongLocalDataSourceImpl.swift in Sources */,
 				8402A2B52B8F246000A836CD /* SettingView.swift in Sources */,
+				B27F47E62BAC191600EFE592 /* UpdateStoryUseCase.swift in Sources */,
 				8455A0A92BA16B54006E8BA1 /* AppViewModel.swift in Sources */,
 				84D819802BA828C5002A937C /* SignOutUseCase.swift in Sources */,
 				842020952B9EE1810034B065 /* RoundedCorner.swift in Sources */,
@@ -880,6 +954,7 @@
 				8402A29B2B8F039A00A836CD /* SoundscapeApp.swift in Sources */,
 				846550382B95C27A008E6176 /* LoginView.swift in Sources */,
 				B2E38B2C2B937567000AAB15 /* Onboarding.swift in Sources */,
+				B27F47E42BAC190900EFE592 /* SaveStoryUseCase.swift in Sources */,
 				84D819882BA858A3002A937C /* AuthError.swift in Sources */,
 				B28FE1642B906719009FB75D /* Playlist.swift in Sources */,
 				B2D371CC2B970EA20072048E /* StoryDetailView.swift in Sources */,
@@ -890,6 +965,7 @@
 				B228ADE52BA2CB42006468E5 /* GetSavedSongUseCase.swift in Sources */,
 				B2C2A6762BA217DF00035F12 /* Alert.swift in Sources */,
 				849DBDAC2B9AF68000A39807 /* PlaylistCardView.swift in Sources */,
+				B27F47D52BAC15BB00EFE592 /* StoryFirebaseDataSource.swift in Sources */,
 				B2E38B2A2B937489000AAB15 /* OnboardingView.swift in Sources */,
 				B2AF24F72BA2FC05004751AD /* LikeViewModel.swift in Sources */,
 				846550322B95B7B2008E6176 /* LoginSelectionView.swift in Sources */,

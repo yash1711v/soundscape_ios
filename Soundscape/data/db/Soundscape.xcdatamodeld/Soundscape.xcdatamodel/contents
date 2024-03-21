@@ -8,5 +8,12 @@
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
     </entity>
-    <entity name="StoryFetchEntity" representedClassName="StoryFetchEntity" syncable="YES" codeGenerationType="class"/>
+    <entity name="StoryFetchEntity" representedClassName="StoryFetchEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="assetPath" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="isLiked" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+    </entity>
 </model>
