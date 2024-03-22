@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct StoryListView: View {
+    @State var textSearch = ""
     var title: String
     var mainStorySound: [MainStorySound]
     let columns: [GridItem] = [GridItem(.flexible()),
@@ -15,7 +16,7 @@ struct StoryListView: View {
     
     var body: some View {
             ScrollView(.vertical, showsIndicators: false) {
-                SearchBarView()
+                SearchBarView(textSearch: $textSearch)
                     .padding(.bottom)
                 
                 LazyVGrid(columns: columns) {

@@ -9,6 +9,7 @@ import SwiftUI
 import Lottie
 
 struct SearchView: View {
+    @State var textSearch = ""
     @EnvironmentObject var appViewModel: AppViewModel
     
     var body: some View {
@@ -17,7 +18,7 @@ struct SearchView: View {
                 .ignoresSafeArea()
             
             VStack {
-                SearchBarView()
+                SearchBarView(textSearch: $textSearch)
                 ScrollView {
                     LazyVStack {
                         ForEach(appViewModel.audioFetchList.indices, id: \.self) { index in
@@ -25,13 +26,14 @@ struct SearchView: View {
                             @State var isLiked = appViewModel.checkItemInDbList(id: audioFetch.id)
                             MusicListItemView(audioFetch: audioFetch, isLiked: isLiked) {
                                 Task {
-                                    await appViewModel.saveSong(audioFetch:
-                                                                    AudioFetch(id: audioFetch.id,
-                                                                               name: audioFetch.name,
-                                                                               assetPath: audioFetch.assetPath,
-                                                                               image: "atOffice",
-                                                                               type: audioFetch.type,
-                                                                               isLiked: true))
+                                    await appViewModel.saveSong(
+                                        audioFetch: AudioFetch(
+                                            id: audioFetch.id,
+                                            name: audioFetch.name,
+                                            assetPath: audioFetch.assetPath,
+                                            image: "atOffice",
+                                            type: audioFetch.type,
+                                            isLiked: true))
                                 }
                             }
                             .onTapGesture {

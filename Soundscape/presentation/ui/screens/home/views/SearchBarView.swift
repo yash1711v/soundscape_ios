@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct SearchBarView: View {
-    @State private var textSearch: String = ""
-    @State private var text = "Search For Sound Effects, Playlist, Song Name."
-    
+    @Binding var textSearch: String
+    @State var marqText: String = "Search For Sound Effects, Playlist, Song Name. "
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass")
@@ -22,8 +21,15 @@ struct SearchBarView: View {
             
             TextField("", text: $textSearch)
                 .foregroundColor(.white)
+                .onChange(of: textSearch) { newValue in
+                    if newValue.isEmpty {
+                        marqText = "Search For Sound Effects, Playlist, Song Name. "
+                    } else {
+                        marqText = ""
+                    }
+                }
                 .overlay {
-                    MarqueeText(text: "Search For Sound Effects, Playlist, Song Name. ", font: .systemFont(ofSize: 15))
+                    MarqueeText(text: $marqText, font: .systemFont(ofSize: 15))
                         .foregroundColor(.gray)
                 }
         }
@@ -47,5 +53,5 @@ struct SearchBarView: View {
 }
 
 #Preview {
-    SearchBarView()
+    SearchBarView(textSearch: .constant(""))
 }

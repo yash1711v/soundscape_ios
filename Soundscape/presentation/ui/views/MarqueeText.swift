@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MarqueeText: View {
-    @State var text: String
+    @Binding var text: String
     var font: UIFont
     @State var storedSize: CGSize = .zero
     @State var offset: CGFloat = 0

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @Binding var tabSelection: Int
-    @State private var textSearch: String = ""
+    @State var textSearch: String = ""
     
     var body: some View {
         NavigationView {
@@ -27,7 +27,7 @@ struct HomeView: View {
                         NavigationLink {
                             SearchView()
                         } label: {
-                            SearchBarView()
+                            SearchBarView(textSearch: $textSearch)
                         }
                         
                         Text("For Your Daily Mood")

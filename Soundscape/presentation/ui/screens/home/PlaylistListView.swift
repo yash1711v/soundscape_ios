@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct PlaylistListView: View {
+    @State private var textSearch = ""
     let columns: [GridItem] = [GridItem(.flexible()),
                                GridItem(.flexible())]
     
     var body: some View {
         ZStack {
             ScrollView(.vertical, showsIndicators: false) {
-                SearchBarView()
+                SearchBarView(textSearch: $textSearch)
                 
                 LazyVGrid(columns: columns) {
                     ForEach(PlaylistData.allPlaylistList) { playlist in
