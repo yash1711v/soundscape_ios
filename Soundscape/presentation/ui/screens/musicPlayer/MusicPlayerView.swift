@@ -12,7 +12,6 @@ struct MusicPlayerView: View {
     @State private var imageWidth: CGFloat = 260
     @State var offset: CGFloat = 0
     @State var isShowEffectView = false
-    @State var timerDuration = ""
     
     var body: some View {
         VStack {
@@ -190,8 +189,7 @@ struct MusicPlayerView: View {
                 
                 // MARK: Set bottom screen for song and story
                 if appViewModel.musicPlayerTitle != "Story Time" {
-                    SongBottomOptionView(isShowEffectView: $isShowEffectView,
-                                         timerDuration: $timerDuration)
+                    SongBottomOptionView(isShowEffectView: $isShowEffectView)
                         .padding(.horizontal)
                 } else {
                     Label("Add Effects", systemImage: "plus")
@@ -266,21 +264,21 @@ func timeString(time: Double) -> String {
 }
 
 struct SongBottomOptionView: View {
+    @EnvironmentObject var appViewModel: AppViewModel
     @Binding var isShowEffectView: Bool
-    @Binding var timerDuration: String
     
     let timerOptions = ["60 Min", "50 Min", "40 Min", "30 Min", "20 Min", "10 Min", "Off Timer"]
     
     var body: some View {
         HStack(alignment: .bottom) {
             Menu {
-                Picker(selection: $timerDuration, label: EmptyView()) {
+                Picker(selection: $appViewModel.timerDuration, label: EmptyView()) {
                     ForEach(timerOptions, id: \.self) { option in
                         Text(option).tag(option)
                     }
                 }
             } label: {
-                Label("0:00:00", systemImage: "stopwatch.fill")
+                Label(timeString(appViewModel.remainingSeconds), systemImage: "stopwatch.fill")
                     .font(.wixMadeFont(.regular, fontSize: .subTitle))
                     .foregroundColor(.gray)
                     .background(
@@ -288,6 +286,9 @@ struct SongBottomOptionView: View {
                             .stroke(Color.brandPurpleDark,lineWidth: 1)
                             .frame(width: 130, height: 30)
                     )
+            }
+            .onChange(of: appViewModel.timerDuration) { _ in
+                appViewModel.startTimer()
             }
             
             Spacer()
@@ -312,4 +313,10 @@ struct SongBottomOptionView: View {
         .padding(.top, 30)
         .padding()
     }
+}
+
+func timeString(_ seconds: Int) -> String {
+    let minutes = (seconds % 3600) / 60
+    let seconds = (seconds % 3600) % 60
+    return String(format: "00:%02d:%02d", minutes, seconds)
 }

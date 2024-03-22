@@ -28,6 +28,11 @@ final class AppViewModel: ObservableObject {
     @Published var totalTime: Double = 0.0
     var timeObserverToken: Any?
 
+    // MARK: Timer variables
+    @Published var remainingSeconds = 0
+    @Published var timerDuration = ""
+    private var timer: Timer?
+    
     // MARK: Db and api variables
     @Published var selectedAudioFetch: AudioFetch?
     @Published var audioFetchList: [AudioFetch] = []
@@ -378,6 +383,40 @@ final class AppViewModel: ObservableObject {
 
         // Set the metadata
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+    }
+    
+    // MARK: Timer functions
+    func startTimer() {
+        // Cancel the previous timer if it exists
+        timer?.invalidate()
+        
+        remainingSeconds = secondsForTimer(timerDuration)
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async { // Dispatch to main thread
+                if self.remainingSeconds > 0 {
+                    self.remainingSeconds -= 1
+                } else {
+                    self.timer?.invalidate()
+                    self.timer = nil
+                    self.pauseSound()
+                }
+            }
+        }
+    }
+    
+    func secondsForTimer(_ timerDuration: String) -> Int {
+        switch timerDuration {
+        case "60 Min": return 60 * 60
+        case "50 Min": return 50 * 60
+        case "40 Min": return 40 * 60
+        case "30 Min": return 30 * 60
+        case "20 Min": return 20 * 60
+        case "10 Min": return 10 * 60
+        default: return 0
+        }
     }
     
     // MARK: Login functions
