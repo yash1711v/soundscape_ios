@@ -11,6 +11,8 @@ struct MusicPlayerView: View {
     @EnvironmentObject var appViewModel: AppViewModel
     @State private var imageWidth: CGFloat = 260
     @State var offset: CGFloat = 0
+    @State var isShowEffectView = false
+    @State var timerDuration = ""
     
     var body: some View {
         VStack {
@@ -185,10 +187,26 @@ struct MusicPlayerView: View {
                         )
                         .foregroundColor(.gray)
                 }
-                Label("Add Effects", systemImage: "plus")
-                    .modifier(OutlineBigButtonStyle())
-                    .padding(60)
+                
+                // MARK: Set bottom screen for song and story
+                if appViewModel.musicPlayerTitle != "Story Time" {
+                    SongBottomOptionView(isShowEffectView: $isShowEffectView,
+                                         timerDuration: $timerDuration)
+                        .padding(.horizontal)
+                } else {
+                    Label("Add Effects", systemImage: "plus")
+                        .modifier(OutlineBigButtonStyle())
+                        .padding(60)
+                        .onTapGesture {
+                            withAnimation(.easeInOut) {
+                                isShowEffectView = true
+                            }
+                        }
+                }
             }
+            .sheet(isPresented: $isShowEffectView, content: {
+                SoundEffectView()
+            })
             // stretch effect
             .frame(width: appViewModel.expand ? nil : 0, height: appViewModel.expand ? nil : 0)
             .opacity(appViewModel.expand ? 1 : 0)
@@ -238,11 +256,60 @@ struct MusicPlayerView: View {
 }
 
 #Preview {
-    MusicPlayerView()
+    MusicPlayerView().environmentObject(AppViewModel())
 }
 
 func timeString(time: Double) -> String {
     let minutes = Int(time) / 60
     let seconds = Int(time) % 60
     return String(format: "%02d:%02d", minutes, seconds)
+}
+
+struct SongBottomOptionView: View {
+    @Binding var isShowEffectView: Bool
+    @Binding var timerDuration: String
+    
+    let timerOptions = ["60 Min", "50 Min", "40 Min", "30 Min", "20 Min", "10 Min", "Off Timer"]
+    
+    var body: some View {
+        HStack(alignment: .bottom) {
+            Menu {
+                Picker(selection: $timerDuration, label: EmptyView()) {
+                    ForEach(timerOptions, id: \.self) { option in
+                        Text(option).tag(option)
+                    }
+                }
+            } label: {
+                Label("0:00:00", systemImage: "stopwatch.fill")
+                    .font(.wixMadeFont(.regular, fontSize: .subTitle))
+                    .foregroundColor(.gray)
+                    .background(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.brandPurpleDark,lineWidth: 1)
+                            .frame(width: 130, height: 30)
+                    )
+            }
+            
+            Spacer()
+            
+            Button {
+                withAnimation(.easeInOut) {
+                    isShowEffectView = true
+                }
+            } label: {
+                Label("Add Effects", systemImage: "plus")
+                    .font(.wixMadeFont(.regular, fontSize: .subTitle))
+                    .foregroundColor(.gray)
+                    .background(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.brandPurpleDark,lineWidth: 1)
+                            .frame(width: 130, height: 30)
+                    )
+            }
+            .foregroundColor(.white)
+            
+        }
+        .padding(.top, 30)
+        .padding()
+    }
 }

@@ -81,6 +81,7 @@
 		84D8198C2BA86740002A937C /* SongFirebaseDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8198B2BA86740002A937C /* SongFirebaseDataSourceImpl.swift */; };
 		B20AE4472BAC5B2A00864C21 /* DeleteDatabaseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20AE4462BAC5B2A00864C21 /* DeleteDatabaseUseCase.swift */; };
 		B20AE4492BAC726200864C21 /* GetAllSongFetchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20AE4482BAC726200864C21 /* GetAllSongFetchUseCase.swift */; };
+		B2157D092BAD6E5C00EFF86E /* SoundEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2157D082BAD6E5C00EFF86E /* SoundEffectView.swift */; };
 		B228ADDE2BA2CA0C006468E5 /* SongLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228ADDD2BA2CA0C006468E5 /* SongLocalDataSource.swift */; };
 		B228ADE02BA2CA60006468E5 /* SongLocalDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228ADDF2BA2CA60006468E5 /* SongLocalDataSourceImpl.swift */; };
 		B228ADE52BA2CB42006468E5 /* GetSavedSongUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228ADE42BA2CB42006468E5 /* GetSavedSongUseCase.swift */; };
@@ -196,6 +197,7 @@
 		84D8198B2BA86740002A937C /* SongFirebaseDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongFirebaseDataSourceImpl.swift; sourceTree = "<group>"; };
 		B20AE4462BAC5B2A00864C21 /* DeleteDatabaseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteDatabaseUseCase.swift; sourceTree = "<group>"; };
 		B20AE4482BAC726200864C21 /* GetAllSongFetchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllSongFetchUseCase.swift; sourceTree = "<group>"; };
+		B2157D082BAD6E5C00EFF86E /* SoundEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffectView.swift; sourceTree = "<group>"; };
 		B228ADDD2BA2CA0C006468E5 /* SongLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongLocalDataSource.swift; sourceTree = "<group>"; };
 		B228ADDF2BA2CA60006468E5 /* SongLocalDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongLocalDataSourceImpl.swift; sourceTree = "<group>"; };
 		B228ADE42BA2CB42006468E5 /* GetSavedSongUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSavedSongUseCase.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				842020902B9ED2900034B065 /* MusicPlayerView.swift */,
+				B2157D082BAD6E5C00EFF86E /* SoundEffectView.swift */,
 			);
 			path = musicPlayer;
 			sourceTree = "<group>";
@@ -909,6 +912,7 @@
 				84A4B3532B99D8BC00A3AC68 /* Episode.swift in Sources */,
 				8420208F2B9ECD4A0034B065 /* StaggeredGrid.swift in Sources */,
 				84D819732BA82264002A937C /* FirebaseAuthRemoteDataSource.swift in Sources */,
+				B2157D092BAD6E5C00EFF86E /* SoundEffectView.swift in Sources */,
 				8465502F2B95A987008E6176 /* OnboardingNextButtonView.swift in Sources */,
 				84D819822BA828DA002A937C /* SaveUserUseCase.swift in Sources */,
 				84D819752BA822A7002A937C /* FirebaseAuthRepositoryImpl.swift in Sources */,
