@@ -25,7 +25,8 @@ struct MainStorySoundData {
                                                     Episode(name: "Episode 1",
                                                             songName: "The Young Scout",
                                                             imageName: "theYoungScoutEP1",
-                                                            songPath: "http://soundscape.boostproductivity.online/api/getmusic/theYoungScout")
+                                                            songPath: "http://soundscape.boostproductivity.online/api/getmusic/theYoungScout",
+                                                            audioFetchId: 424)
                                                  ])
     
     static let theStarrryJourneyItem = MainStorySound(name: "The Starry Journey",
@@ -36,7 +37,9 @@ struct MainStorySoundData {
                                                         Episode(name: "Episode 1",
                                                                 songName: "The Starry Journey",
                                                                 imageName: "theStarryJourneyEP1",
-                                                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theStarryJourney")])
+                                                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theStarryJourney",
+                                                                audioFetchId: 423)
+                                                      ])
     
     static let miniStoryList = [
         MainStorySound(name: "The Young Scout",
@@ -47,7 +50,8 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "The Young Scout",
                                 imageName: "theYoungScoutEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theYoungScout")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theYoungScout",
+                                audioFetchId: 424)
                        ]),
         
         MainStorySound(name: "The Starry Journey",
@@ -58,7 +62,9 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "The Starry Journey",
                                 imageName: "theStarryJourneyEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theStarryJourney")]),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theStarryJourney",
+                                audioFetchId: 423)
+                       ]),
         
         MainStorySound(name: "City Of the Sun Part 1",
                        imageName: "cityOfTheSunPart1EP1",
@@ -68,17 +74,20 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "City Sun EP1",
                                 imageName: "cityOfTheSunPart1EP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/cityOfTheSunPart1EP1"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/cityOfTheSunPart1EP1",
+                                audioFetchId: 427),
                         
                         Episode(name: "Episode 2",
                                 songName: "City Sun EP2",
                                 imageName: "cityOfTheSunPart1EP2",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/cityOfTheSunPart1EP2"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/cityOfTheSunPart1EP2",
+                                audioFetchId: 428),
                         
                         Episode(name: "Episode 3",
                                 songName: "City Sun EP3",
                                 imageName: "cityOfTheSunPart1EP3",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/cityOfTheSunPart1EP3")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/cityOfTheSunPart1EP3",
+                                audioFetchId: 429)
                        ]),
         
         MainStorySound(name: "The Scar Part 1",
@@ -89,17 +98,20 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "The Scar Part1 EP1",
                                 imageName: "theScarPart1EP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theScarPart1EP1"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theScarPart1EP1",
+                                audioFetchId: 434),
                         
                         Episode(name: "Episode 2",
                                 songName: "The Scar Part1 EP2",
                                 imageName: "theScarPart1EP2",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theScarPart1EP2"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theScarPart1EP2",
+                                audioFetchId: 435),
                         
                         Episode(name: "Episode 3",
                                 songName: "The Scar Part1 EP3",
                                 imageName: "theScarPart1EP3",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theScarPart1EP3")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theScarPart1EP3",
+                                audioFetchId: 436)
                        ])
     ]
     
@@ -112,7 +124,8 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "Painter EP1",
                                 imageName: "twoGreatPaintersEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/twoGreatPaintersEP1")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/twoGreatPaintersEP1",
+                                audioFetchId: 425)
                        ]),
         
         MainStorySound(name: "The Calliph & The Gardner",
@@ -123,12 +136,14 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "The Caliph EP1",
                                 imageName: "theCaliphAndTheGardenerEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theCaliphAndTheGardenerEP1"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theCaliphAndTheGardenerEP1",
+                                audioFetchId: 413),
                         
                         Episode(name: "Episode 2",
                                 songName: "The Caliph EP1",
                                 imageName: "theCaliphAndTheGardenerEP2",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theCaliphAndTheGardenerEP2")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theCaliphAndTheGardenerEP2",
+                                audioFetchId: 414)
                        ]),
         
         MainStorySound(name: "Myth And The Legends Around The World Part 1",
@@ -139,32 +154,38 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "How Thor lost his hammer",
                                 imageName: "howThorLostHisHammerPart1EP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP1"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP1",
+                                audioFetchId: 452),
                         
                         Episode(name: "Episode 2",
                                 songName: "The Ape, the Snake and the Lion",
                                 imageName: "theApeTheSnakeAndTheLionPart1EP2",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP2"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP2",
+                                audioFetchId: 453),
                         
                         Episode(name: "Episode 3",
                                 songName: "The Death of Sir Launcelot",
                                 imageName: "theDeathOfSirLauncelotPart1EP3",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP3"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP3",
+                                audioFetchId: 454),
                         
                         Episode(name: "Episode 4",
                                 songName: "The First Corn",
                                 imageName: "theFirstCornEP4",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP4"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP4",
+                                audioFetchId: 455),
                         
                         Episode(name: "Episode 5",
                                 songName: "The Punishment of Loki",
                                 imageName: "thePunishmentOfLokiPart1EP5",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP5"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP5",
+                                audioFetchId: 456),
                         
                         Episode(name: "Episode 6",
                                 songName: "The Twilight of the Gods",
                                 imageName: "theTwilightOfTheGodsPart1EP6",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP6")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP6",
+                                audioFetchId: 457)
                        ]),
         
         MainStorySound(name: "Myth And The Legends Around the World Part 2",
@@ -175,32 +196,38 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "The Giant behind the Waterfall",
                                 imageName: "theGiantBehindTheWaterfallEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP1"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP1",
+                                audioFetchId: 458),
                         
                         Episode(name: "Episode 2",
                                 songName: "The Old Women",
                                 imageName: "theOldWomenEP2",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP2"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP2",
+                                audioFetchId: 459),
                         
                         Episode(name: "Episode 3",
                                 songName: "His call to Bran",
                                 imageName: "hisCallToBranEP3",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP3"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP3",
+                                audioFetchId: 460),
                         
                         Episode(name: "Episode 4",
                                 songName: "Baldur",
                                 imageName: "baldurEP4",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP4"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP4",
+                                audioFetchId: 461),
                         
                         Episode(name: "Episode 5",
                                 songName: "The Cow of plenty",
                                 imageName: "theCowOfPlentyEP5",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP5"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP5",
+                                audioFetchId: 462),
                         
                         Episode(name: "Episode 6",
                                 songName: "The Bakers Dozen",
                                 imageName: "theBakersDozenEP6",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP6")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP6",
+                                audioFetchId: 463)
                        ]),
     ]
     
@@ -213,7 +240,8 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "Painter EP1",
                                 imageName: "twoGreatPaintersEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/twoGreatPaintersEP1")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/twoGreatPaintersEP1",
+                                audioFetchId: 425)
                        ]),
         
         MainStorySound(name: "The Young Scout",
@@ -224,7 +252,8 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "The Young Scout",
                                 imageName: "theYoungScoutEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theYoungScout")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theYoungScout",
+                                audioFetchId: 424)
                        ]),
         
         MainStorySound(name: "The Lover of Men",
@@ -235,12 +264,14 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "The Lover of Men EP1",
                                 imageName: "theLoverOfManEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theLoverOfManEP1"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theLoverOfManEP1",
+                                audioFetchId: 419),
                         
                         Episode(name: "Episode 2",
                                 songName: "The Lover of Men EP1",
                                 imageName: "theLoverOfManEP2",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theLoverOfManEP2")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theLoverOfManEP2",
+                                audioFetchId: 420)
                        ]),
         
         MainStorySound(name: "Mister Karter",
@@ -251,12 +282,14 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "Mr. Karter - The Kind Heart EP1",
                                 imageName: "mrKarterEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mrKarterEP1"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mrKarterEP1",
+                                audioFetchId: 411),
                         
                         Episode(name: "Episode 2",
                                 songName: "Mr. Karter - The Kind Heart EP2",
                                 imageName: "mrKarterEP2",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mrKarterEP2")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mrKarterEP2",
+                                audioFetchId: 412)
                        ]),
         
         MainStorySound(name: "An Inspirational Man",
@@ -267,7 +300,8 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "An Inspirational Man EP1",
                                 imageName: "anInspirationalManEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/anInspirationalManEP1")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/anInspirationalManEP1",
+                                audioFetchId: 409)
                         
                        ])
     ]
@@ -281,12 +315,14 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "The Lover of Men EP1",
                                 imageName: "theLoverOfManEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theLoverOfManEP1"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theLoverOfManEP1",
+                                audioFetchId: 419),
                         
                         Episode(name: "Episode 2",
                                 songName: "The Lover of Men EP1",
                                 imageName: "theLoverOfManEP2",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theLoverOfManEP2")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theLoverOfManEP2",
+                                audioFetchId: 420)
                        ]),
         
         MainStorySound(name: "Myth And The Legends Around The World Part 1",
@@ -297,32 +333,38 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "How Thor lost his hammer",
                                 imageName: "howThorLostHisHammerPart1EP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP1"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP1",
+                                audioFetchId: 452),
                         
                         Episode(name: "Episode 2",
                                 songName: "The Ape, the Snake and the Lion",
                                 imageName: "theApeTheSnakeAndTheLionPart1EP2",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP2"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP2",
+                                audioFetchId: 453),
                         
                         Episode(name: "Episode 3",
                                 songName: "The Death of Sir Launcelot",
                                 imageName: "theDeathOfSirLauncelotPart1EP3",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP3"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP3",
+                                audioFetchId: 454),
                         
                         Episode(name: "Episode 4",
                                 songName: "The First Corn",
                                 imageName: "theFirstCornEP4",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP4"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP4",
+                                audioFetchId: 455),
                         
                         Episode(name: "Episode 5",
                                 songName: "The Punishment of Loki",
                                 imageName: "thePunishmentOfLokiPart1EP5",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP5"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP5",
+                                audioFetchId: 456),
                         
                         Episode(name: "Episode 6",
                                 songName: "The Twilight of the Gods",
                                 imageName: "theTwilightOfTheGodsPart1EP6",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP6")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart1EP6",
+                                audioFetchId: 457)
                        ]),
         
         MainStorySound(name: "Myth And The Legends Around the World Part 2",
@@ -333,32 +375,38 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "The Giant behind the Waterfall",
                                 imageName: "theGiantBehindTheWaterfallEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP1"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP1",
+                                audioFetchId: 458),
                         
                         Episode(name: "Episode 2",
                                 songName: "The Old Women",
                                 imageName: "theOldWomenEP2",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP2"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP2",
+                                audioFetchId: 459),
                         
                         Episode(name: "Episode 3",
                                 songName: "His call to Bran",
                                 imageName: "hisCallToBranEP3",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP3"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP3",
+                                audioFetchId: 460),
                         
                         Episode(name: "Episode 4",
                                 songName: "Baldur",
                                 imageName: "baldurEP4",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP4"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP4",
+                                audioFetchId: 461),
                         
                         Episode(name: "Episode 5",
                                 songName: "The Cow of plenty",
                                 imageName: "theCowOfPlentyEP5",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP5"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP5",
+                                audioFetchId: 462),
                         
                         Episode(name: "Episode 6",
                                 songName: "The Bakers Dozen",
                                 imageName: "theBakersDozenEP6",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP6")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mythAndTheLegendsAroundTheWorldPart2EP6",
+                                audioFetchId: 463)
                        ]),
         
         MainStorySound(name: "City Of the Sun Part 1",
@@ -369,17 +417,20 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "City Sun EP1",
                                 imageName: "cityOfTheSunPart1EP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/cityOfTheSunPart1EP1"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/cityOfTheSunPart1EP1",
+                                audioFetchId: 427),
                         
                         Episode(name: "Episode 2",
                                 songName: "City Sun EP2",
                                 imageName: "cityOfTheSunPart1EP2",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/cityOfTheSunPart1EP2"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/cityOfTheSunPart1EP2",
+                                audioFetchId: 428),
                         
                         Episode(name: "Episode 3",
                                 songName: "City Sun EP3",
                                 imageName: "cityOfTheSunPart1EP3",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/cityOfTheSunPart1EP3")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/cityOfTheSunPart1EP3",
+                                audioFetchId: 429)
                        ])
     ]
     
@@ -392,7 +443,8 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "The Young Scout",
                                 imageName: "theYoungScoutEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theYoungScout")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theYoungScout",
+                                audioFetchId: 424)
                        ]),
         
         MainStorySound(name: "The Starry Journey",
@@ -403,7 +455,8 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "The Starry Journey",
                                 imageName: "theStarryJourneyEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theStarryJourney")]),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theStarryJourney",
+                                audioFetchId: 423)]),
         
         MainStorySound(name: "Mister Karter",
                        imageName: "mrKarterEP1",
@@ -413,12 +466,14 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "Mr. Karter - The Kind Heart EP1",
                                 imageName: "mrKarterEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mrKarterEP1"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mrKarterEP1",
+                                audioFetchId: 411),
                         
                         Episode(name: "Episode 2",
                                 songName: "Mr. Karter - The Kind Heart EP2",
                                 imageName: "mrKarterEP2",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mrKarterEP2")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/mrKarterEP2",
+                                audioFetchId: 412)
                        ]),
         
         MainStorySound(name: "An Inspirational Man",
@@ -429,7 +484,8 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "An Inspirational Man EP1",
                                 imageName: "anInspirationalManEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/anInspirationalManEP1")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/anInspirationalManEP1",
+                                audioFetchId: 409)
                         
                        ]),
         
@@ -441,7 +497,8 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "The Tale of Squirrel Nutken",
                                 imageName: "theTaleOfSquirrelNutkenEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theTaleOfSquirrelNutken")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theTaleOfSquirrelNutken",
+                                audioFetchId: 444)
                        ])
     ]
     
@@ -454,7 +511,8 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "The Starry Journey",
                                 imageName: "theStarryJourneyEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theStarryJourney")]),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theStarryJourney",
+                                audioFetchId: 423)]),
         
         MainStorySound(name: "The Lover of Men",
                        imageName: "theLoverOfManEP1",
@@ -464,12 +522,14 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "The Lover of Men EP1",
                                 imageName: "theLoverOfManEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theLoverOfManEP1"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theLoverOfManEP1",
+                                audioFetchId: 419),
                         
                         Episode(name: "Episode 2",
                                 songName: "The Lover of Men EP1",
                                 imageName: "theLoverOfManEP2",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theLoverOfManEP2")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theLoverOfManEP2",
+                                audioFetchId: 420)
                        ]),
         
         MainStorySound(name: "The Tale Of Squirrel Nutken",
@@ -480,7 +540,8 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "The Tale of Squirrel Nutken",
                                 imageName: "theTaleOfSquirrelNutkenEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theTaleOfSquirrelNutken")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theTaleOfSquirrelNutken",
+                                audioFetchId: 444)
                        ])
     ]
     
@@ -493,7 +554,8 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "The Young Scout",
                                 imageName: "theYoungScoutEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theYoungScout")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theYoungScout",
+                                audioFetchId: 424)
                        ]),
         
         MainStorySound(name: "The Scar Part 1",
@@ -504,17 +566,20 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "The Scar Part1 EP1",
                                 imageName: "theScarPart1EP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theScarPart1EP1"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theScarPart1EP1",
+                                audioFetchId: 434),
                         
                         Episode(name: "Episode 2",
                                 songName: "The Scar Part1 EP2",
                                 imageName: "theScarPart1EP2",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theScarPart1EP2"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theScarPart1EP2",
+                                audioFetchId: 435),
                         
                         Episode(name: "Episode 3",
                                 songName: "The Scar Part1 EP3",
                                 imageName: "theScarPart1EP3",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theScarPart1EP3")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theScarPart1EP3",
+                                audioFetchId: 436)
                        ]),
         
         MainStorySound(name: "The Midnight Ride",
@@ -525,12 +590,14 @@ struct MainStorySoundData {
                         Episode(name: "Episode 1",
                                 songName: "The Midnight Ride EP1",
                                 imageName: "theMidnightRideEP1",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theMidnightRideEP1"),
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theMidnightRideEP1",
+                                audioFetchId: 421),
                         
                         Episode(name: "Episode 2",
                                 songName: "The Midnight Ride EP2",
                                 imageName: "theMidnightRideEP2",
-                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theMidnightRideEP2")
+                                songPath: "http://soundscape.boostproductivity.online/api/getmusic/theMidnightRideEP2",
+                                audioFetchId: 422)
                        ])
         
     ]

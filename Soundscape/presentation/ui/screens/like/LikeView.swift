@@ -110,7 +110,7 @@ struct LikeView: View {
                         }
                     }
                     .task {
-                        viewModel.getAllSong()
+                        viewModel.isSongSelected ? viewModel.getAllSong() : viewModel.getAllStory()
                     }
                     .padding(.bottom, 70)
                     if viewModel.isLoading {

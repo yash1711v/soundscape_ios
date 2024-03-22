@@ -100,7 +100,7 @@ struct MusicPlayerView: View {
                             Task {
                                 if appViewModel.musicPlayerTitle == "Story Time" {
                                     let episode = appViewModel.episode
-                                    let audioFetchNew = AudioFetch(id: 1, name: episode.songName, assetPath: episode.songPath, image: episode.imageName, type: "Story Time", isLiked: true)
+                                    let audioFetchNew = AudioFetch(id: episode.audioFetchId!, name: episode.songName, assetPath: episode.songPath, image: episode.imageName, type: "Story Time", isLiked: true)
                                     await appViewModel.saveStory(audioFetch: audioFetchNew)
                                 }
                             }
