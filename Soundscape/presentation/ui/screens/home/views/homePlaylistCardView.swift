@@ -10,6 +10,7 @@ import SwiftUI
 struct homePlaylistCardView: View {
     var playlist: Playlist
     @State var showDescription: Bool
+    @State private var currentIndex = 0
     
     init(playlist: Playlist) {
         self.playlist = playlist
@@ -61,11 +62,25 @@ struct homePlaylistCardView: View {
             }
             .padding(.horizontal)
             
-            Text(showDescription ? playlist.description!.first! : "")
+            Text(showDescription ? playlist.description![currentIndex] : "")
                 .font(.wixMadeFont(.regular, fontSize: .body))
                 .multilineTextAlignment(.leading)
                 .padding(.horizontal)
                 .padding(.bottom, showDescription ? 20 : 0)
+                .onAppear {
+                    let lastDate = UserDefaults.standard.object(forKey: "LastDate") as? Date
+                    let currentDate = Date()
+                    
+                    if let lastDate = lastDate, Calendar.current.isDate(lastDate, inSameDayAs: currentDate) {
+                        // If it's the same day, load the last shown index
+                        currentIndex = UserDefaults.standard.integer(forKey: "LastSentIndex")
+                    } else {
+                        // If it's a new day, reset the index and store the new date
+                        currentIndex = (currentIndex + 1) % (playlist.description?.count ?? 0)
+                        UserDefaults.standard.set(currentIndex, forKey: "LastSentIndex")
+                        UserDefaults.standard.set(currentDate, forKey: "LastDate")
+                    }
+                }
         }
         .frame(width: 180)
         .background(
