@@ -59,12 +59,15 @@ struct SoundEffectView: View {
                         ForEach(appViewModel.effectPlayingList.indices, id: \.self) { index in
                             let effect = appViewModel.effectPlayingList[index]
                             Button{
-                                appViewModel.effectPlayingList.remove(at: index)
-                                if index == 0 {
+                                if effectIndex(list: appViewModel.effectPlayingList, effect: effect) == 0 {
                                     appViewModel.pauseEffect1()
+                                    if appViewModel.effectPlayingList.count == 1 {
+                                        appViewModel.pauseEffect2()
+                                    }
                                 } else {
                                     appViewModel.pauseEffect2()
                                 }
+                                appViewModel.effectPlayingList.remove(at: index)
                             } label: {
                                 Image(effect.image)
                                     .resizable()
