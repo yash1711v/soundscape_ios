@@ -121,10 +121,21 @@ struct MusicListView: View {
                         LoadingView()
                     }
                 } header: {
-                    Image(imageName)
-                        .resizable()
-                        .frame(height: 240)
-                        .opacity(0.5)
+                    GeometryReader { geometry in
+                        let offsetY = geometry.frame(in: .global).minY
+                        let isScrolled = offsetY > 0
+                        Spacer()
+                            .frame(height: isScrolled ? 260 + offsetY : 260)
+                            .background {
+                                Image(imageName)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .offset(y: isScrolled ? -offsetY : 0)
+                                    .scaleEffect(isScrolled ? offsetY / 2000 + 1 : 1)
+                                    .opacity(0.5)
+                            }
+                    }
+                    .frame(height: 260)
                 }
             }
             .padding(.bottom, 70)
@@ -140,5 +151,5 @@ struct MusicListView: View {
 }
 
 #Preview {
-    MusicListView(name: "Sleep", imageName: "sleep")
+    MusicListView(name: "Sleep", imageName: "sleep").environmentObject(AppViewModel())
 }
