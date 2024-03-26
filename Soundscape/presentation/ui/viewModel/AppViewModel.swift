@@ -21,6 +21,7 @@ final class AppViewModel: ObservableObject {
     @Published var musicPlayerTitle = ""
     @Published var expand: Bool = false
     @Published var audioPlayer: AVPlayer?
+    @Published var effectPlayer: AVPlayer?
     private let audioSession = AVAudioSession.sharedInstance()
     @Published var isPlaying: Bool = false
     @Published var isLoading: Bool = false
@@ -383,6 +384,35 @@ final class AppViewModel: ObservableObject {
 
         // Set the metadata
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
+    }
+    
+    // MARK: Effect player
+    func playEffect(sound: String) {
+        guard let url = URL(string: sound) else { return }
+        do {
+            // Show loader
+            isLoading = true
+            
+            let playerItem = AVPlayerItem(url: url)
+            effectPlayer = AVPlayer(playerItem: playerItem)
+            
+            
+            // Play song
+            playEffect()
+            
+            // Hide loader
+            isLoading = false
+        } catch {
+            print("\(error.localizedDescription)")
+        }
+    }
+    
+    func playEffect() {
+        effectPlayer?.play()
+    }
+    
+    func pauseEffect() {
+        effectPlayer?.pause()
     }
     
     // MARK: Timer functions

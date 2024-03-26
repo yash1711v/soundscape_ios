@@ -14,6 +14,7 @@ struct SoundEffectView: View {
     
     @State var playingList: [AudioFetch] = []
     @Binding var isShowEffectView: Bool
+    @EnvironmentObject var appViewModel: AppViewModel
     
     var body: some View {
         ZStack {
@@ -69,7 +70,7 @@ struct SoundEffectView: View {
                                 } else {
                                     playingList[0] = effect
                                 }
-                                
+                                appViewModel.playEffect(sound: effect.assetPath)
                             } label: {
                                 Image(effect.image)
                                     .resizable()
@@ -91,6 +92,7 @@ struct SoundEffectView: View {
                                 } else {
                                     playingList[0] = effect
                                 }
+                                appViewModel.playEffect(sound: effect.assetPath)
                             } label: {
                                 Image(effect.image)
                                     .resizable()
@@ -108,5 +110,5 @@ struct SoundEffectView: View {
 }
 
 #Preview {
-    SoundEffectView(isShowEffectView: .constant(true))
+    SoundEffectView(isShowEffectView: .constant(true)).environmentObject(AppViewModel())
 }
