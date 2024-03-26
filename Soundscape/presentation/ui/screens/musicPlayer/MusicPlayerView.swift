@@ -28,17 +28,36 @@ struct MusicPlayerView: View {
                     .padding()
             }
             HStack {
-                Image(appViewModel.episode.imageName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: appViewModel.expand ? imageWidth : 30, height: appViewModel.expand ? 300 : 30)
-                    .cornerRadius(5)
-                    .shadow(radius: 10)
-                    .padding(.vertical)
-                    .padding(.leading)
-                    .padding(.trailing, appViewModel.expand ? 10 : 0)
-                    .animation(.bouncy(extraBounce: 0.3), value: imageWidth)
-                
+                if appViewModel.musicPlayerTitle != "Story Time"
+                    && appViewModel.expand == true {
+                    ZStack {
+                        Image("player_wire")
+                            .resizable()
+                            .scaledToFit()
+                        
+                        Image("player_disc")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 300, height: 400)
+                        
+                        Image(appViewModel.episode.imageName)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 80, height: 80)
+                    }
+                } else {
+                    Image(appViewModel.episode.imageName)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: appViewModel.expand ? imageWidth : 30, height: appViewModel.expand ? 300 : 30)
+                        .cornerRadius(5)
+                        .shadow(radius: 10)
+                        .padding(.vertical)
+                        .padding(.leading)
+                        .padding(.trailing, appViewModel.expand ? 10 : 0)
+                        .animation(.bouncy(extraBounce: 0.3), value: imageWidth)
+                }
+
                 if !appViewModel.expand {
                     VStack(alignment: .leading) {
                         Text(appViewModel.episode.songName)
