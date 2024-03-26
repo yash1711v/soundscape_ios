@@ -21,7 +21,6 @@ final class AppViewModel: ObservableObject {
     @Published var musicPlayerTitle = ""
     @Published var expand: Bool = false
     @Published var audioPlayer: AVPlayer?
-    @Published var effectPlayer: AVPlayer?
     private let audioSession = AVAudioSession.sharedInstance()
     @Published var isPlaying: Bool = false
     @Published var isLoading: Bool = false
@@ -29,6 +28,13 @@ final class AppViewModel: ObservableObject {
     @Published var totalTime: Double = 0.0
     var timeObserverToken: Any?
 
+    // MARK: Effect player
+    @Published var effectPlayer1: AVPlayer?
+    @Published var effectPlayer2: AVPlayer?
+    @Published var effectPlayingList: [AudioFetch] = []
+    @Published var effectVol1: Float = 0.5
+    @Published var effectVol2: Float = 0.5
+    
     // MARK: Timer variables
     @Published var remainingSeconds = 0
     @Published var timerDuration = ""
@@ -386,19 +392,19 @@ final class AppViewModel: ObservableObject {
         MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlayingInfo
     }
     
-    // MARK: Effect player
-    func playEffect(sound: String) {
+    // MARK: Effect players
+    func playEffect1(sound: String) {
         guard let url = URL(string: sound) else { return }
         do {
             // Show loader
             isLoading = true
             
             let playerItem = AVPlayerItem(url: url)
-            effectPlayer = AVPlayer(playerItem: playerItem)
-            
+            effectPlayer1 = AVPlayer(playerItem: playerItem)
+            effectPlayer1?.volume = effectVol1
             
             // Play song
-            playEffect()
+            playEffect1()
             
             // Hide loader
             isLoading = false
@@ -407,12 +413,40 @@ final class AppViewModel: ObservableObject {
         }
     }
     
-    func playEffect() {
-        effectPlayer?.play()
+    func playEffect1() {
+        effectPlayer1?.play()
     }
     
-    func pauseEffect() {
-        effectPlayer?.pause()
+    func pauseEffect1() {
+        effectPlayer1?.pause()
+    }
+    
+    func playEffect2(sound: String) {
+        guard let url = URL(string: sound) else { return }
+        do {
+            // Show loader
+            isLoading = true
+            
+            let playerItem = AVPlayerItem(url: url)
+            effectPlayer2 = AVPlayer(playerItem: playerItem)
+            effectPlayer2?.volume = effectVol2
+            
+            // Play song
+            playEffect2()
+            
+            // Hide loader
+            isLoading = false
+        } catch {
+            print("\(error.localizedDescription)")
+        }
+    }
+    
+    func playEffect2() {
+        effectPlayer2?.play()
+    }
+    
+    func pauseEffect2() {
+        effectPlayer2?.pause()
     }
     
     // MARK: Timer functions

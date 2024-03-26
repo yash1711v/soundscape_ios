@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AudioFetch: Identifiable, Codable {
+struct AudioFetch: Identifiable, Codable, Equatable {
     let id: Int64
     let name: String
     let assetPath: String

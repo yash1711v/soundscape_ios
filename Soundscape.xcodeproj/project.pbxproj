@@ -130,6 +130,7 @@
 		B2E38B2A2B937489000AAB15 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E38B292B937489000AAB15 /* OnboardingView.swift */; };
 		B2E38B2C2B937567000AAB15 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E38B2B2B937567000AAB15 /* Onboarding.swift */; };
 		B2E67B8B2BA225C600E29F97 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E67B8A2BA225C600E29F97 /* LoadingView.swift */; };
+		B2F419B52BB2ED9F008A947C /* SoundEffectSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2F419B42BB2ED9F008A947C /* SoundEffectSettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -250,6 +251,7 @@
 		B2E38B292B937489000AAB15 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		B2E38B2B2B937567000AAB15 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		B2E67B8A2BA225C600E29F97 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		B2F419B42BB2ED9F008A947C /* SoundEffectSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffectSettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -397,6 +399,7 @@
 				B27C35FF2BB2C57900CA3996 /* model */,
 				842020902B9ED2900034B065 /* MusicPlayerView.swift */,
 				B2157D082BAD6E5C00EFF86E /* SoundEffectView.swift */,
+				B2F419B42BB2ED9F008A947C /* SoundEffectSettingView.swift */,
 			);
 			path = musicPlayer;
 			sourceTree = "<group>";
@@ -923,6 +926,7 @@
 				B228ADDE2BA2CA0C006468E5 /* SongLocalDataSource.swift in Sources */,
 				B27F47E22BAC18FD00EFE592 /* GetSavedStoryUseCase.swift in Sources */,
 				8455A0CF2BA1A104006E8BA1 /* SongRemoteDataSourceImpl.swift in Sources */,
+				B2F419B52BB2ED9F008A947C /* SoundEffectSettingView.swift in Sources */,
 				B2D371CA2B9705370072048E /* StoryCardEpView.swift in Sources */,
 				B28FE1682B907A5C009FB75D /* StorySoundCardView.swift in Sources */,
 				B2D371C72B9703580072048E /* MainStorySound.swift in Sources */,

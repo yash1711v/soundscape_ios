@@ -12,9 +12,9 @@ struct SoundEffectView: View {
                                GridItem(.flexible()),
                                GridItem(.flexible())]
     
-    @State var playingList: [AudioFetch] = []
     @Binding var isShowEffectView: Bool
     @EnvironmentObject var appViewModel: AppViewModel
+    @State var isShowingEffectSettingSheet = false
     
     var body: some View {
         ZStack {
@@ -31,15 +31,40 @@ struct SoundEffectView: View {
                             isShowEffectView = false
                         }
                     
-                    Text("Playing")
-                        .font(.wixMadeFont(.semiBold, fontSize: .subTitle))
-                        .padding()
+                    HStack {
+                        Text("Playing")
+                            .font(.wixMadeFont(.semiBold, fontSize: .subTitle))
+                            .padding()
+                        
+                        Spacer()
+                        
+                        if !appViewModel.effectPlayingList.isEmpty {
+                            Image(systemName: "speaker.wave.3.fill")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40, height: 40)
+                                .padding()
+                                .onTapGesture {
+                                    isShowingEffectSettingSheet = true
+                                }
+                        }
+
+                    }
+                    .halfSheet(showSheet: $isShowingEffectSettingSheet, sheeView: {
+                        SoundEffectSettingView(appViewModel: appViewModel)
+                    })
+                    
                     
                     LazyVGrid(columns: columns){
-                        ForEach(playingList.indices, id: \.self) { index in
-                            let effect = playingList[index]
+                        ForEach(appViewModel.effectPlayingList.indices, id: \.self) { index in
+                            let effect = appViewModel.effectPlayingList[index]
                             Button{
-                                playingList.remove(at: index)
+                                appViewModel.effectPlayingList.remove(at: index)
+                                if index == 0 {
+                                    appViewModel.pauseEffect1()
+                                } else {
+                                    appViewModel.pauseEffect2()
+                                }
                             } label: {
                                 Image(effect.image)
                                     .resizable()
@@ -65,12 +90,20 @@ struct SoundEffectView: View {
                     LazyVGrid(columns: columns){
                         ForEach(EffectsSoundData.natureList) { effect in
                             Button{
-                                if (playingList.count < 2) {
-                                    playingList.append(effect)
+                                if (appViewModel.effectPlayingList.count < 2) {
+                                    appViewModel.effectPlayingList.append(effect)
                                 } else {
-                                    playingList[0] = effect
+                                    appViewModel.effectPlayingList[0] = effect
                                 }
-                                appViewModel.playEffect(sound: effect.assetPath)
+                                
+                                // Check if the index of the effect is 0
+                                if effectIndex(list: appViewModel.effectPlayingList, effect: effect) == 0 {
+                                    // If the index is 0, play effect1
+                                    appViewModel.playEffect1(sound: effect.assetPath)
+                                } else {
+                                    // If the index is not 0, play effect2
+                                    appViewModel.playEffect2(sound: effect.assetPath)
+                                }
                             } label: {
                                 Image(effect.image)
                                     .resizable()
@@ -87,12 +120,19 @@ struct SoundEffectView: View {
                     LazyVGrid(columns: columns) {
                         ForEach(EffectsSoundData.asmrList) { effect in
                             Button{
-                                if (playingList.count < 2) {
-                                    playingList.append(effect)
+                                if (appViewModel.effectPlayingList.count < 2) {
+                                    appViewModel.effectPlayingList.append(effect)
                                 } else {
-                                    playingList[0] = effect
+                                    appViewModel.effectPlayingList[0] = effect
                                 }
-                                appViewModel.playEffect(sound: effect.assetPath)
+                                // Check if the index of the effect is 0
+                                if effectIndex(list: appViewModel.effectPlayingList, effect: effect) == 0 {
+                                    // If the index is 0, play effect1
+                                    appViewModel.playEffect1(sound: effect.assetPath)
+                                } else {
+                                    // If the index is not 0, play effect2
+                                    appViewModel.playEffect2(sound: effect.assetPath)
+                                }
                             } label: {
                                 Image(effect.image)
                                     .resizable()
@@ -111,4 +151,8 @@ struct SoundEffectView: View {
 
 #Preview {
     SoundEffectView(isShowEffectView: .constant(true)).environmentObject(AppViewModel())
+}
+
+func effectIndex(list: [AudioFetch], effect: AudioFetch) -> Int {
+    return list.firstIndex(of: effect) ?? 0
 }
