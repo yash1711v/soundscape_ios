@@ -12,31 +12,101 @@ struct SoundEffectView: View {
                                GridItem(.flexible()),
                                GridItem(.flexible())]
     
+    @State var playingList: [AudioFetch] = []
+    @Binding var isShowEffectView: Bool
+    
     var body: some View {
         ZStack {
-            VStack(alignment: .leading) {
-                Text("PLAYING")
-                    .font(.wixMadeFont(.regular, fontSize: .subTitle))
-                
-                VStack {
-                    Text("Waves")
-                    Image("waves")
+            ScrollView {
+                VStack(alignment: .leading) {
+                    Image(systemName: "xmark.circle.fill")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 100, height: 100)
-                }
-                .background(
-                    RoundedRectangle(cornerRadius: 25)
-                        .frame(width: 120, height: 120)
+                        .frame(width: 20, height: 20)
                         .foregroundColor(.gray)
-                )
-                
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding()
+                        .onTapGesture {
+                            isShowEffectView = false
+                        }
+                    
+                    Text("Playing")
+                        .font(.wixMadeFont(.semiBold, fontSize: .subTitle))
+                        .padding()
+                    
+                    LazyVGrid(columns: columns){
+                        ForEach(playingList.indices, id: \.self) { index in
+                            let effect = playingList[index]
+                            Button{
+                                playingList.remove(at: index)
+                            } label: {
+                                Image(effect.image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .overlay {
+                                        Image(systemName: "minus.circle.fill")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 20, height: 20)
+                                            .foregroundColor(.errorRed)
+                                            .offset(x: 50, y: -40)
+                                    }
+                            }
+                        }
+                    }
+                    .padding()
+                    
+                    Divider()
+                    
+                    Text("Nature")
+                        .font(.wixMadeFont(.semiBold, fontSize: .title))
+                        .padding()
+                    LazyVGrid(columns: columns){
+                        ForEach(EffectsSoundData.natureList) { effect in
+                            Button{
+                                if (playingList.count < 2) {
+                                    playingList.append(effect)
+                                } else {
+                                    playingList[0] = effect
+                                }
+                                
+                            } label: {
+                                Image(effect.image)
+                                    .resizable()
+                                    .scaledToFit()
+                            }
+                        }
+                    }
+                    .padding()
+                    
+                    Text("ASMR")
+                        .font(.wixMadeFont(.semiBold, fontSize: .title))
+                        .padding()
+                    
+                    LazyVGrid(columns: columns) {
+                        ForEach(EffectsSoundData.asmrList) { effect in
+                            Button{
+                                if (playingList.count < 2) {
+                                    playingList.append(effect)
+                                } else {
+                                    playingList[0] = effect
+                                }
+                            } label: {
+                                Image(effect.image)
+                                    .resizable()
+                                    .scaledToFit()
+                            }
+                        }
+                    }
+                    .padding()
+                }
             }
         }
         .navigationTitle("Sounds Effects")
+        .background(Image("login_background"))
     }
 }
 
 #Preview {
-    SoundEffectView()
+    SoundEffectView(isShowEffectView: .constant(true))
 }

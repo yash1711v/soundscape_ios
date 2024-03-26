@@ -203,7 +203,7 @@ struct MusicPlayerView: View {
                 }
             }
             .sheet(isPresented: $isShowEffectView, content: {
-                SoundEffectView()
+                SoundEffectView(isShowEffectView: $isShowEffectView)
             })
             // stretch effect
             .frame(width: appViewModel.expand ? nil : 0, height: appViewModel.expand ? nil : 0)
@@ -245,7 +245,7 @@ struct MusicPlayerView: View {
     
     func onEnded(value: DragGesture.Value) {
         withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.95, blendDuration: 0.95)) {
-            if value.translation.height > 300 {
+            if value.translation.height > 200 {
                 appViewModel.expand = false
             }
             offset = 0
@@ -266,30 +266,46 @@ func timeString(time: Double) -> String {
 struct SongBottomOptionView: View {
     @EnvironmentObject var appViewModel: AppViewModel
     @Binding var isShowEffectView: Bool
+    @State var isShowTimerSheet = false
     
     let timerOptions = ["60 Min", "50 Min", "40 Min", "30 Min", "20 Min", "10 Min", "Off Timer"]
     
     var body: some View {
         HStack(alignment: .bottom) {
-            Menu {
-                Picker(selection: $appViewModel.timerDuration, label: EmptyView()) {
-                    ForEach(timerOptions, id: \.self) { option in
-                        Text(option).tag(option)
-                    }
+            Label(timeString(appViewModel.remainingSeconds), systemImage: "stopwatch.fill")
+                .font(.wixMadeFont(.regular, fontSize: .subTitle))
+                .foregroundColor(.gray)
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.brandPurpleDark,lineWidth: 1)
+                        .frame(width: 130, height: 30)
+                )
+                .onTapGesture {
+                    isShowTimerSheet = true
                 }
-            } label: {
-                Label(timeString(appViewModel.remainingSeconds), systemImage: "stopwatch.fill")
-                    .font(.wixMadeFont(.regular, fontSize: .subTitle))
-                    .foregroundColor(.gray)
-                    .background(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.brandPurpleDark,lineWidth: 1)
-                            .frame(width: 130, height: 30)
-                    )
-            }
-            .onChange(of: appViewModel.timerDuration) { _ in
-                appViewModel.startTimer()
-            }
+                .onChange(of: appViewModel.timerDuration) { _ in
+                    appViewModel.startTimer()
+                }
+                .halfSheet(showSheet: $isShowTimerSheet, sheeView: {
+                    VStack {
+                        Text("Set Timer")
+                            .font(.wixMadeFont(.bold, fontSize: .title))
+                        
+                        Text("(Track will be paused after the set timer)")
+                            .font(.wixMadeFont(.bold, fontSize: .body))
+                            .foregroundColor(.gray)
+                        
+                        Divider()
+                        
+                        Picker(selection: $appViewModel.timerDuration, label: EmptyView()) {
+                            ForEach(timerOptions, id: \.self) { option in
+                                Text(option).tag(option)
+                            }
+                        }
+                        .frame(width: .infinity, height: 300)
+                        .pickerStyle(WheelPickerStyle())
+                    }
+                })
             
             Spacer()
             

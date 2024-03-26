@@ -91,6 +91,10 @@
 		B252D5B32B91BC9500F55DD8 /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252D5B22B91BC9500F55DD8 /* StoryCardView.swift */; };
 		B252D5B62B92023C00F55DD8 /* MusicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252D5B52B92023C00F55DD8 /* MusicListView.swift */; };
 		B2729D132B92FDA300FD2B84 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2729D122B92FDA300FD2B84 /* ButtonModifier.swift */; };
+		B27C36012BB2C58500CA3996 /* Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27C36002BB2C58500CA3996 /* Effects.swift */; };
+		B27C36042BB2D8B900CA3996 /* CustomHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27C36032BB2D8B900CA3996 /* CustomHostingController.swift */; };
+		B27C36062BB2D8D900CA3996 /* HalfSheetHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27C36052BB2D8D900CA3996 /* HalfSheetHelper.swift */; };
+		B27C36082BB2D8F200CA3996 /* halfSheetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27C36072BB2D8F200CA3996 /* halfSheetExtension.swift */; };
 		B27F47D02BAC142400EFE592 /* StoryDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F47CF2BAC142400EFE592 /* StoryDao.swift */; };
 		B27F47D32BAC156E00EFE592 /* StoryLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F47D22BAC156E00EFE592 /* StoryLocalDataSource.swift */; };
 		B27F47D52BAC15BB00EFE592 /* StoryFirebaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F47D42BAC15BB00EFE592 /* StoryFirebaseDataSource.swift */; };
@@ -207,6 +211,10 @@
 		B252D5B22B91BC9500F55DD8 /* StoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
 		B252D5B52B92023C00F55DD8 /* MusicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListView.swift; sourceTree = "<group>"; };
 		B2729D122B92FDA300FD2B84 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
+		B27C36002BB2C58500CA3996 /* Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effects.swift; sourceTree = "<group>"; };
+		B27C36032BB2D8B900CA3996 /* CustomHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHostingController.swift; sourceTree = "<group>"; };
+		B27C36052BB2D8D900CA3996 /* HalfSheetHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfSheetHelper.swift; sourceTree = "<group>"; };
+		B27C36072BB2D8F200CA3996 /* halfSheetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = halfSheetExtension.swift; sourceTree = "<group>"; };
 		B27F47CF2BAC142400EFE592 /* StoryDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDao.swift; sourceTree = "<group>"; };
 		B27F47D22BAC156E00EFE592 /* StoryLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryLocalDataSource.swift; sourceTree = "<group>"; };
 		B27F47D42BAC15BB00EFE592 /* StoryFirebaseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryFirebaseDataSource.swift; sourceTree = "<group>"; };
@@ -386,6 +394,7 @@
 		8455A0A72BA16A3C006E8BA1 /* musicPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				B27C35FF2BB2C57900CA3996 /* model */,
 				842020902B9ED2900034B065 /* MusicPlayerView.swift */,
 				B2157D082BAD6E5C00EFF86E /* SoundEffectView.swift */,
 			);
@@ -526,6 +535,7 @@
 		8463B0052B8F2A2F00EB81DF /* views */ = {
 			isa = PBXGroup;
 			children = (
+				B27C36022BB2D8A500CA3996 /* halfBottomSheet */,
 				B2729D122B92FDA300FD2B84 /* ButtonModifier.swift */,
 				8420208E2B9ECD4A0034B065 /* StaggeredGrid.swift */,
 				842020922B9EDD4C0034B065 /* BlurView.swift */,
@@ -688,6 +698,24 @@
 				B252D5B52B92023C00F55DD8 /* MusicListView.swift */,
 			);
 			path = musicList;
+			sourceTree = "<group>";
+		};
+		B27C35FF2BB2C57900CA3996 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				B27C36002BB2C58500CA3996 /* Effects.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		B27C36022BB2D8A500CA3996 /* halfBottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				B27C36032BB2D8B900CA3996 /* CustomHostingController.swift */,
+				B27C36052BB2D8D900CA3996 /* HalfSheetHelper.swift */,
+				B27C36072BB2D8F200CA3996 /* halfSheetExtension.swift */,
+			);
+			path = halfBottomSheet;
 			sourceTree = "<group>";
 		};
 		B27F47D12BAC155A00EFE592 /* story */ = {
@@ -936,6 +964,7 @@
 				B2AF24EF2BA2E8B6004751AD /* Soundscape.xcdatamodeld in Sources */,
 				B2E38B212B930CC3000AAB15 /* MusicListItemView.swift in Sources */,
 				B27F47E82BAC192100EFE592 /* DeleteStoryUseCase.swift in Sources */,
+				B27C36082BB2D8F200CA3996 /* halfSheetExtension.swift in Sources */,
 				8465503E2B95EE64008E6176 /* NicknameView.swift in Sources */,
 				842020912B9ED2900034B065 /* MusicPlayerView.swift in Sources */,
 				B2AF24F32BA2EC4D004751AD /* SongDao.swift in Sources */,
@@ -956,6 +985,7 @@
 				8455A0CC2BA1A0E3006E8BA1 /* SongRemoteDataSource.swift in Sources */,
 				B228ADE92BA2CB65006468E5 /* UpdateSongUseCase.swift in Sources */,
 				B2D371C52B9700F20072048E /* MiniStoryCardView.swift in Sources */,
+				B27C36042BB2D8B900CA3996 /* CustomHostingController.swift in Sources */,
 				84D8197A2BA824EC002A937C /* GoogleLoginUseCase.swift in Sources */,
 				84D8197C2BA828A4002A937C /* FetchUserUseCase.swift in Sources */,
 				B2E269022B93046B0034147F /* FontExtension.swift in Sources */,
@@ -974,9 +1004,11 @@
 				B2D371CE2B97263C0072048E /* EpisodeListView.swift in Sources */,
 				8455A0C12BA19AA0006E8BA1 /* SongRepository.swift in Sources */,
 				84D8198A2BA866E8002A937C /* SongFirebaseDataSource.swift in Sources */,
+				B27C36062BB2D8D900CA3996 /* HalfSheetHelper.swift in Sources */,
 				B228ADE52BA2CB42006468E5 /* GetSavedSongUseCase.swift in Sources */,
 				B2C2A6762BA217DF00035F12 /* Alert.swift in Sources */,
 				849DBDAC2B9AF68000A39807 /* PlaylistCardView.swift in Sources */,
+				B27C36012BB2C58500CA3996 /* Effects.swift in Sources */,
 				B27F47D52BAC15BB00EFE592 /* StoryFirebaseDataSource.swift in Sources */,
 				B2E38B2A2B937489000AAB15 /* OnboardingView.swift in Sources */,
 				B2AF24F72BA2FC05004751AD /* LikeViewModel.swift in Sources */,
