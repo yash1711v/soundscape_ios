@@ -11,6 +11,13 @@ import Lottie
 struct SearchView: View {
     @State var textSearch = ""
     @EnvironmentObject var appViewModel: AppViewModel
+    var filteredAudioFetchList: [AudioFetch] {
+        if textSearch.isEmpty {
+            return appViewModel.audioFetchList
+        } else {
+            return appViewModel.audioFetchList.filter { $0.name.localizedCaseInsensitiveContains(textSearch) }
+        }
+    }
     
     var body: some View {
         ZStack {
@@ -21,8 +28,8 @@ struct SearchView: View {
                 SearchBarView(textSearch: $textSearch)
                 ScrollView {
                     LazyVStack {
-                        ForEach(appViewModel.audioFetchList.indices, id: \.self) { index in
-                            let audioFetch = appViewModel.audioFetchList[index]
+                        ForEach(filteredAudioFetchList.indices, id: \.self) { index in
+                            let audioFetch = filteredAudioFetchList[index]
                             @State var isLiked = appViewModel.checkItemInDbList(id: audioFetch.id)
                             MusicListItemView(audioFetch: audioFetch, isLiked: isLiked) {
                                 Task {
@@ -41,7 +48,7 @@ struct SearchView: View {
                                 appViewModel.currentIndex = index
                                 
                                 // Get the selected episode
-                                let selectedAudioFetch = appViewModel.audioFetchList[index]
+                                let selectedAudioFetch = filteredAudioFetchList[index]
                                 let episode = Episode(name: "",
                                                       songName: selectedAudioFetch.name,
                                                       imageName: "atOffice",
@@ -49,7 +56,7 @@ struct SearchView: View {
                                 
                                 // Create episode list
                                 var episodeListNew: [Episode] = []
-                                for audioFetch in appViewModel.audioFetchList {
+                                for audioFetch in filteredAudioFetchList {
                                     let episode = Episode(name: "",
                                                           songName: audioFetch.name,
                                                           imageName: "atOffice",
