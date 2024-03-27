@@ -28,7 +28,12 @@ struct MusicPlayerView: View {
                     .padding()
             }
             HStack {
-                if appViewModel.musicPlayerTitle != "Story Time"
+                if (appViewModel.episode.songType == "Sad"
+                    || appViewModel.episode.songType == "Romantic"
+                    || appViewModel.episode.songType == "Angry"
+                    || appViewModel.episode.songType == "Anxious"
+                    || appViewModel.episode.songType == "Distracted"
+                    || appViewModel.episode.songType == "Tired")
                     && appViewModel.expand == true {
                     ZStack {
                         Image("player_wire")
@@ -38,12 +43,12 @@ struct MusicPlayerView: View {
                         Image("player_disc")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 300, height: 400)
+                            .frame(width: 280, height: 280)
                         
                         Image(appViewModel.episode.imageName)
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 80, height: 80)
+                            .frame(width: 100, height: 100)
                     }
                 } else {
                     Image(appViewModel.episode.imageName)
@@ -211,14 +216,16 @@ struct MusicPlayerView: View {
                     SongBottomOptionView(isShowEffectView: $isShowEffectView)
                         .padding(.horizontal)
                 } else {
-                    Label("Add Effects", systemImage: "plus")
-                        .modifier(OutlineBigButtonStyle())
-                        .padding(60)
-                        .onTapGesture {
-                            withAnimation(.easeInOut) {
-                                isShowEffectView = true
-                            }
+                    Button {
+                        withAnimation(.easeInOut) {
+                            isShowEffectView = true
                         }
+                    } label: {
+                        Label("Add Effects", systemImage: "plus")
+                    }
+                    .foregroundColor(.white)
+                    .modifier(OutlineBigButtonStyle())
+                    .padding(60)
                 }
             }
             .sheet(isPresented: $isShowEffectView, content: {

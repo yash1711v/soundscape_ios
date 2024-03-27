@@ -14,6 +14,7 @@ struct Episode: Hashable, Identifiable {
     let imageName: String
     let songPath: String
     var audioFetchId: Int64? = 0
+    var songType: String = "Story Time"
 }
 
 struct EpisodeData {

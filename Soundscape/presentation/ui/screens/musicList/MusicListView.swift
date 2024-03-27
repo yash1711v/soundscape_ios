@@ -89,7 +89,8 @@ struct MusicListView: View {
                                 let episode = Episode(name: "",
                                                       songName: selectedAudioFetch.name,
                                                       imageName: imageName,
-                                                      songPath: selectedAudioFetch.assetPath)
+                                                      songPath: selectedAudioFetch.assetPath,
+                                                      songType: selectedAudioFetch.type)
                                 
                                 // Create episode list
                                 var episodeListNew: [Episode] = []
@@ -97,7 +98,8 @@ struct MusicListView: View {
                                     let episode = Episode(name: "",
                                                           songName: audioFetch.name,
                                                           imageName: imageName,
-                                                          songPath: audioFetch.assetPath)
+                                                          songPath: audioFetch.assetPath,
+                                                          songType: selectedAudioFetch.type)
                                     episodeListNew.append(episode)
                                 }
                                 appViewModel.episodeList = episodeListNew

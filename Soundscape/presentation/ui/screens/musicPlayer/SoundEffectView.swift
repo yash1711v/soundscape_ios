@@ -54,7 +54,7 @@ struct SoundEffectView: View {
                         SoundEffectSettingView(appViewModel: appViewModel)
                     })
                     
-                    
+                    // MARK: Now playing grid (max 2 item)
                     LazyVGrid(columns: columns){
                         ForEach(appViewModel.effectPlayingList.indices, id: \.self) { index in
                             let effect = appViewModel.effectPlayingList[index]
@@ -87,9 +87,11 @@ struct SoundEffectView: View {
                     
                     Divider()
                     
-                    Text("Nature")
+                    Text("NATURE")
                         .font(.wixMadeFont(.semiBold, fontSize: .title))
                         .padding()
+                    
+                    // MARK: Nature grid (max 2 item)
                     LazyVGrid(columns: columns){
                         ForEach(EffectsSoundData.natureList) { effect in
                             Button{
@@ -116,10 +118,17 @@ struct SoundEffectView: View {
                     }
                     .padding()
                     
+                    Text("INSTRUMENTAL")
+                        .font(.wixMadeFont(.semiBold, fontSize: .title))
+                        .padding()
+                    
+                    // MARK: Instrumental grid (max 2 item)
+                    
                     Text("ASMR")
                         .font(.wixMadeFont(.semiBold, fontSize: .title))
                         .padding()
                     
+                    // MARK: ASMR grid (max 2 item)
                     LazyVGrid(columns: columns) {
                         ForEach(EffectsSoundData.asmrList) { effect in
                             Button{
@@ -148,7 +157,11 @@ struct SoundEffectView: View {
             }
         }
         .navigationTitle("Sounds Effects")
-        .background(Image("login_background"))
+        .background(
+            Image("soundEffectBackground")
+                .resizable()
+        )
+        .ignoresSafeArea()
     }
 }
 
