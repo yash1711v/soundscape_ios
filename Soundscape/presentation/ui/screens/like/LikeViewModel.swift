@@ -109,7 +109,7 @@ import Foundation
             do {
                 try await deleteStoryUseCase.execute(audioFetch: audioFetch)
                 // MARK: im not sure how you live update, android uses flow
-                audioFetchList = try await getSaveSongUseCase.execute()
+                audioFetchList = try await getSavedStoryUseCase.execute()
                 isLoading = false
             } catch {
                 if let dbError = error as? DBError {

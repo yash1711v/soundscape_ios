@@ -74,7 +74,8 @@ final class StoryDao {
             try context.save()
         } catch {
             context.rollback()
-            fatalError("Error: \(error.localizedDescription)")
+            print("Error: \(error.localizedDescription)")
+            throw DBError.deleteError
         }
     }
     

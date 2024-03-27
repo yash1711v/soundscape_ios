@@ -8,7 +8,7 @@
 import Foundation
 
 final class DeleteStoryUseCase {
-    static let shared = DeleteSongUseCase()
+    static let shared = DeleteStoryUseCase()
     
     let storyRepository: StoryRepository
     
