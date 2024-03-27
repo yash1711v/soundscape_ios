@@ -12,6 +12,7 @@ struct MusicPlayerView: View {
     @State private var imageWidth: CGFloat = 260
     @State var offset: CGFloat = 0
     @State var isShowEffectView = false
+    @State private var isRotating = false
     
     var body: some View {
         VStack {
@@ -44,6 +45,22 @@ struct MusicPlayerView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 280, height: 280)
+                            .rotationEffect(Angle.degrees(isRotating ? 360 : 0))
+                            .id(appViewModel.isPlaying)
+                            .onAppear{
+                                if appViewModel.isPlaying {
+                                    withAnimation(.linear(duration: 5).repeatForever(autoreverses: false)) {
+                                        isRotating.toggle()
+                                    }
+                                }
+                            }
+                            .onChange(of: appViewModel.isPlaying) { newValue in
+                                if newValue {
+                                    withAnimation(.linear(duration: 5).repeatForever(autoreverses: false)) {
+                                        isRotating.toggle()
+                                    }
+                                }
+                            }
                         
                         Image(appViewModel.episode.imageName)
                             .resizable()
