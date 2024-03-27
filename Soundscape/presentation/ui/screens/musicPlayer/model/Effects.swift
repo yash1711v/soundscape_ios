@@ -58,6 +58,48 @@ struct EffectsSoundData {
         )
     ]
     
+    static let instrumentalList = [
+        AudioFetch(
+            id: 425, // random for these
+            name: "Piano",
+            assetPath: "http://soundscape.boostproductivity.online/api/getmusic/Piano",
+            image: "piano",
+            type: "Instrumental"
+        ),
+        
+        AudioFetch(
+            id: 324,
+            name: "Chimes",
+            assetPath: "http://soundscape.boostproductivity.online/api/getmusic/chimes",
+            image: "chimes",
+            type: "Instrumental"
+        ),
+        
+        AudioFetch(
+            id: 254,
+            name: "Violin",
+            assetPath: "http://soundscape.boostproductivity.online/api/getmusic/violinMusic",
+            image: "violin",
+            type: "Instrumental"
+        ),
+        
+        AudioFetch(
+            id: 342,
+            name: "Harp",
+            assetPath: "http://soundscape.boostproductivity.online/api/getmusic/harp",
+            image: "harp",
+            type: "Instrumental"
+        ),
+        
+        AudioFetch(
+            id: 525,
+            name: "Guitar",
+            assetPath: "http://soundscape.boostproductivity.online/api/getmusic/Guitar",
+            image: "Guitar",
+            type: "Instrumental"
+        ),
+    ]
+    
     static let asmrList = [
         AudioFetch(
             id: 58,

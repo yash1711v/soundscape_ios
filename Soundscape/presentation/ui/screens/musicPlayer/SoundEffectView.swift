@@ -123,6 +123,30 @@ struct SoundEffectView: View {
                         .padding()
                     
                     // MARK: Instrumental grid (max 2 item)
+                    LazyVGrid(columns: columns) {
+                        ForEach(EffectsSoundData.instrumentalList) { effect in
+                            Button{
+                                if (appViewModel.effectPlayingList.count < 2) {
+                                    appViewModel.effectPlayingList.append(effect)
+                                } else {
+                                    appViewModel.effectPlayingList[0] = effect
+                                }
+                                // Check if the index of the effect is 0
+                                if effectIndex(list: appViewModel.effectPlayingList, effect: effect) == 0 {
+                                    // If the index is 0, play effect1
+                                    appViewModel.playEffect1(sound: effect.assetPath)
+                                } else {
+                                    // If the index is not 0, play effect2
+                                    appViewModel.playEffect2(sound: effect.assetPath)
+                                }
+                            } label: {
+                                Image(effect.image)
+                                    .resizable()
+                                    .scaledToFit()
+                            }
+                        }
+                    }
+                    .padding()
                     
                     Text("ASMR")
                         .font(.wixMadeFont(.semiBold, fontSize: .title))
