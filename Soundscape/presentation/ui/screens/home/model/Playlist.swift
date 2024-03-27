@@ -18,7 +18,7 @@ struct Playlist: Hashable, Identifiable {
 
 struct PlaylistData {
     static let samplePlaylist = Playlist(name: "Fitness",
-                                         imageName: "home_fitness",
+                                         imageName: "fitness",
                                          description: [
                                             "EmbraceFit: Your journey to a healthier, stronger, and happier you!",
                                             "RunStrong: Every step you take brings you closer to greatness.",
@@ -55,7 +55,7 @@ struct PlaylistData {
     
     static let playlistHomeList = [
         Playlist(name: "Sleep",
-                 imageName: "home_sleep",
+                 imageName: "sleep",
                  description: [
                     "Embrace the night's gentle embrace; sleep is the balm that heals and renews the spirit for a new day.",
                     "Soothe your soul in the cradle of night; sleep is the nightly rehearsal for a refreshed and brighter tomorrow.",
@@ -92,7 +92,7 @@ struct PlaylistData {
         
         
         Playlist(name: "Meditation",
-                 imageName: "home_meditate",
+                 imageName: "meditate",
                  description: [
                     "Inhale peace, exhale chaos. Meditation: the art of finding stillness in the movement of life.",
                     "Breathe deeply. Let thoughts drift like clouds. In meditation, discover the serenity within your own silence.",
@@ -128,7 +128,7 @@ struct PlaylistData {
                  arrowToggle: false),
         
         Playlist(name: "Motivation",
-                 imageName: "home_motivation",
+                 imageName: "motivation",
                  description: [
                     "Craft your life story with purpose, ensuring every chapter is an inspiration to those who read it.",
                     "Great work stems from a deep love for what you do. Passion fuels the journey to excellence.",
@@ -164,7 +164,7 @@ struct PlaylistData {
                  arrowToggle: false),
         
         Playlist(name: "Study",
-                 imageName: "home_study",
+                 imageName: "study",
                  description: [
                     "Study diligently knowledge is the compass guiding you through the vast terrain of endless possibilities and growth.",
                     "Every study session plants seeds of wisdom, cultivating a harvest of knowledge that shapes your future success.",
@@ -200,7 +200,7 @@ struct PlaylistData {
                  arrowToggle: true),
         
         Playlist(name: "Fitness",
-                 imageName: "home_fitness",
+                 imageName: "fitness",
                  description: [
                     "EmbraceFit: Your journey to a healthier, stronger, and happier you!",
                     "RunStrong: Every step you take brings you closer to greatness.",
