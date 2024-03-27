@@ -118,6 +118,8 @@ struct MusicListView: View {
                     .task {
                         if name == "Monday Morning Blues" {
                             await appViewModel.getSongSection(songSection: "monday mornings")
+                        } else if name == "Meditate" {
+                            await appViewModel.getSongSection(songSection: "meditation")
                         } else {
                             await appViewModel.getSongSection(songSection: name)
                         }
