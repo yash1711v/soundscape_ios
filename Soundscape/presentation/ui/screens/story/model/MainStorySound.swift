@@ -140,7 +140,7 @@ struct MainStorySoundData {
                                 audioFetchId: 413),
                         
                         Episode(name: "Episode 2",
-                                songName: "The Caliph EP1",
+                                songName: "The Caliph EP2",
                                 imageName: "theCaliphAndTheGardenerEP2",
                                 songPath: "http://soundscape.boostproductivity.online/api/getmusic/theCaliphAndTheGardenerEP2",
                                 audioFetchId: 414)
