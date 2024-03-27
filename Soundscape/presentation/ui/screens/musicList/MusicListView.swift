@@ -129,21 +129,87 @@ struct MusicListView: View {
                         LoadingView()
                     }
                 } header: {
-                    GeometryReader { geometry in
-                        let offsetY = geometry.frame(in: .global).minY
-                        let isScrolled = offsetY > 0
-                        Spacer()
-                            .frame(height: isScrolled ? 260 + offsetY : 260)
-                            .background {
-                                Image(imageName)
+                    if (name == "Sad?"
+                        || name == "Romantic?"
+                        || name == "Angry?"
+                        || name == "Anxious?"
+                        || name == "Distracted?"
+                        || name == "Tired?")
+                    {
+                        GeometryReader { geometry in
+                            let offsetY = geometry.frame(in: .global).minY
+                            let isScrolled = offsetY > 0
+                            ZStack {
+                                switch(name) {
+                                case "Sad?":
+                                    LinearGradient(colors: [Color(hex: 0xA0C7E7), Color(hex: 0x66899A, alpha: 0)], startPoint: .top, endPoint: .bottom)
+                                        .offset(y: isScrolled ? -offsetY : 0)
+                                        .scaleEffect(isScrolled ? offsetY / 2000 + 1 : 1)
+                                case "Romantic?":
+                                    LinearGradient(colors: [Color(hex: 0xDD7CA2), Color(hex: 0xA77C8D, alpha: 0)], startPoint: .top, endPoint: .bottom)
+                                        .offset(y: isScrolled ? -offsetY : 0)
+                                        .scaleEffect(isScrolled ? offsetY / 2000 + 1 : 1)
+                                case "Angry?":
+                                    LinearGradient(colors: [Color(hex: 0xFFB5AB), Color(hex: 0xD02121, alpha: 0)], startPoint: .top, endPoint: .bottom)
+                                        .offset(y: isScrolled ? -offsetY : 0)
+                                        .scaleEffect(isScrolled ? offsetY / 2000 + 1 : 1)
+                                case "Anxious?":
+                                    LinearGradient(colors: [Color(hex: 0xACACFD), Color(hex: 0x9898B5, alpha: 0)], startPoint: .top, endPoint: .bottom)
+                                        .offset(y: isScrolled ? -offsetY : 0)
+                                        .scaleEffect(isScrolled ? offsetY / 2000 + 1 : 1)
+                                case "Distracted?":
+                                    LinearGradient(colors: [Color(hex: 0xE4FCCC), Color(hex: 0xD1DEB5, alpha: 0)], startPoint: .top, endPoint: .bottom)
+                                        .offset(y: isScrolled ? -offsetY : 0)
+                                        .scaleEffect(isScrolled ? offsetY / 2000 + 1 : 1)
+                                case "Tired?":
+                                    LinearGradient(colors: [Color(hex: 0xD4D4F7), Color(hex: 0x91919E, alpha: 0)], startPoint: .top, endPoint: .bottom)
+                                        .offset(y: isScrolled ? -offsetY : 0)
+                                        .scaleEffect(isScrolled ? offsetY / 2000 + 1 : 1)
+                                default:
+                                    LinearGradient(colors: [Color(hex: 0xDD7CA2), Color(hex: 0xA77C8D, alpha: 0)], startPoint: .top, endPoint: .bottom)
+                                        .offset(y: isScrolled ? -offsetY : 0)
+                                        .scaleEffect(isScrolled ? offsetY / 2000 + 1 : 1)
+                                }
+                                
+                                Image("moodThread")
                                     .resizable()
-                                    .scaledToFill()
+                                    .scaledToFit()
+                                    .padding(.top, 35)
+                                    .padding(.leading, 120)
                                     .offset(y: isScrolled ? -offsetY : 0)
                                     .scaleEffect(isScrolled ? offsetY / 2000 + 1 : 1)
-                                    .opacity(0.5)
                             }
+                            .frame(height: isScrolled ? 150 + offsetY : 150)
+                            ZStack {
+                                HStack{
+                                    Spacer()
+                                    Image(imageName)
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 80, height: 80)
+                                        .padding()
+                                        .padding(.top, 50)
+                                }
+                            }
+                        }
+                        .frame(height: 150)
+                    } else {
+                        GeometryReader { geometry in
+                            let offsetY = geometry.frame(in: .global).minY
+                            let isScrolled = offsetY > 0
+                            Spacer()
+                                .frame(height: isScrolled ? 260 + offsetY : 260)
+                                .background {
+                                    Image(imageName)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .offset(y: isScrolled ? -offsetY : 0)
+                                        .scaleEffect(isScrolled ? offsetY / 2000 + 1 : 1)
+                                        .opacity(0.5)
+                                }
+                        }
+                        .frame(height: 260)
                     }
-                    .frame(height: 260)
                 }
             }
             .padding(.bottom, 70)
