@@ -116,7 +116,11 @@ struct MusicListView: View {
                         }
                     }
                     .task {
-                        await appViewModel.getSongSection(songSection: name)
+                        if name == "Monday Morning Blues" {
+                            await appViewModel.getSongSection(songSection: "monday mornings")
+                        } else {
+                            await appViewModel.getSongSection(songSection: name)
+                        }
                         await appViewModel.getAllSongFromDb()
                     }
                     if appViewModel.isLoading {

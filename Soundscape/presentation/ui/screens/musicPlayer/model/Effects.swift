@@ -95,7 +95,7 @@ struct EffectsSoundData {
             id: 525,
             name: "Guitar",
             assetPath: "http://soundscape.boostproductivity.online/api/getmusic/Guitar",
-            image: "Guitar",
+            image: "guitar",
             type: "Instrumental"
         ),
     ]
