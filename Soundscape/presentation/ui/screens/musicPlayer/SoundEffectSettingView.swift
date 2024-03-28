@@ -22,11 +22,13 @@ struct SoundEffectSettingView: View {
                         .scaledToFit()
                         .frame(width: 40, height: 40)
                         .clipShape(Circle())
-                    Slider(value: $appViewModel.effectVol1, in: 0...1) { _ in
-                        appViewModel.effectPlayer1?.volume = appViewModel.effectVol1
-                    }
-                    .frame(width: 250)
-                    .accentColor(.white)
+                    
+                    CustomSlider(value: $appViewModel.effectVol1, inRange: 0...1, activeFillColor: .white, fillColor: .white, emptyColor: .gray, height: 30, onEditingChanged: { editing in
+                        if !editing {
+                            appViewModel.effectPlayer1?.volume = appViewModel.effectVol1
+                        }
+                    })
+                    .padding(.horizontal)
                 }
                 
                 HStack {
@@ -35,11 +37,13 @@ struct SoundEffectSettingView: View {
                         .scaledToFit()
                         .frame(width: 40, height: 40)
                         .clipShape(Circle())
-                    Slider(value: $appViewModel.effectVol2, in: 0...1) { _ in
-                        appViewModel.effectPlayer2?.volume = appViewModel.effectVol2
-                    }
-                    .frame(width: 250)
-                    .accentColor(.white)
+
+                    CustomSlider(value: $appViewModel.effectVol2, inRange: 0...1, activeFillColor: .white, fillColor: .white, emptyColor: .gray, height: 30, onEditingChanged: { editing in
+                        if !editing {
+                            appViewModel.effectPlayer2?.volume = appViewModel.effectVol2
+                        }
+                    })
+                    .padding(.horizontal)
                 }
             } else {
                 HStack {
@@ -48,11 +52,13 @@ struct SoundEffectSettingView: View {
                         .scaledToFit()
                         .frame(width: 40, height: 40)
                         .clipShape(Circle())
-                    Slider(value: $appViewModel.effectVol1, in: 0...1) { _ in
-                        appViewModel.effectPlayer1?.volume = appViewModel.effectVol1
-                    }
-                    .frame(width: 250)
-                    .accentColor(.white)
+                    
+                    CustomSlider(value: $appViewModel.effectVol1, inRange: 0...1, activeFillColor: .white, fillColor: .white, emptyColor: .gray, height: 30, onEditingChanged: { editing in
+                        if !editing {
+                            appViewModel.effectPlayer1?.volume = appViewModel.effectVol1
+                        }
+                    })
+                    .padding(.horizontal)
                 }
             }
             

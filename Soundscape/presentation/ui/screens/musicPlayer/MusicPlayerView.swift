@@ -157,12 +157,11 @@ struct MusicPlayerView: View {
                 }
                 .padding()
                 
-                Slider(value: $appViewModel.currentTime, in: 0...appViewModel.totalTime, onEditingChanged: { editing in
+                CustomSlider(value: $appViewModel.currentTime, inRange: 0...appViewModel.totalTime, activeFillColor: .white, fillColor: .white, emptyColor: .gray, height: 30, onEditingChanged: { editing in
                     if !editing {
                         appViewModel.seek(to: appViewModel.currentTime)
                     }
                 })
-                .accentColor(.white)
                 .padding(.horizontal)
                 
                 HStack {

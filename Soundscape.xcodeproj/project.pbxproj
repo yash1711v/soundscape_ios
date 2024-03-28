@@ -88,6 +88,7 @@
 		B228ADE72BA2CB50006468E5 /* SaveSongUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228ADE62BA2CB50006468E5 /* SaveSongUseCase.swift */; };
 		B228ADE92BA2CB65006468E5 /* UpdateSongUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228ADE82BA2CB65006468E5 /* UpdateSongUseCase.swift */; };
 		B228ADEB2BA2CB70006468E5 /* DeleteSongUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B228ADEA2BA2CB70006468E5 /* DeleteSongUseCase.swift */; };
+		B22E0BF72BB5A64E00C0BD3A /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22E0BF62BB5A64E00C0BD3A /* CustomSlider.swift */; };
 		B252D5B32B91BC9500F55DD8 /* StoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252D5B22B91BC9500F55DD8 /* StoryCardView.swift */; };
 		B252D5B62B92023C00F55DD8 /* MusicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B252D5B52B92023C00F55DD8 /* MusicListView.swift */; };
 		B2729D132B92FDA300FD2B84 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2729D122B92FDA300FD2B84 /* ButtonModifier.swift */; };
@@ -209,6 +210,7 @@
 		B228ADE62BA2CB50006468E5 /* SaveSongUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveSongUseCase.swift; sourceTree = "<group>"; };
 		B228ADE82BA2CB65006468E5 /* UpdateSongUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateSongUseCase.swift; sourceTree = "<group>"; };
 		B228ADEA2BA2CB70006468E5 /* DeleteSongUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteSongUseCase.swift; sourceTree = "<group>"; };
+		B22E0BF62BB5A64E00C0BD3A /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		B252D5B22B91BC9500F55DD8 /* StoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCardView.swift; sourceTree = "<group>"; };
 		B252D5B52B92023C00F55DD8 /* MusicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListView.swift; sourceTree = "<group>"; };
 		B2729D122B92FDA300FD2B84 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
@@ -546,6 +548,7 @@
 				842020992B9EF3BD0034B065 /* MarqueeText.swift */,
 				B2E67B8A2BA225C600E29F97 /* LoadingView.swift */,
 				8453C1982BAB1871003566D2 /* LottieView.swift */,
+				B22E0BF62BB5A64E00C0BD3A /* CustomSlider.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -955,6 +958,7 @@
 				847F1B1F2B8F43B000EEE645 /* MoodSelectView.swift in Sources */,
 				842020982B9EE7750034B065 /* Color.swift in Sources */,
 				B252D5B32B91BC9500F55DD8 /* StoryCardView.swift in Sources */,
+				B22E0BF72BB5A64E00C0BD3A /* CustomSlider.swift in Sources */,
 				8453C1922BAAA104003566D2 /* UIImage.swift in Sources */,
 				B2AF24F12BA2EA38004751AD /* SoundscapeDatabase.swift in Sources */,
 				B2E38B252B9310EB000AAB15 /* BackgroundGradientView.swift in Sources */,
