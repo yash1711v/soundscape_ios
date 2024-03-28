@@ -92,38 +92,45 @@ struct MusicPlayerView: View {
                     
                     Spacer()
                     
-                    Image(systemName: appViewModel.isPlaying ? "pause.fill" : "arrowtriangle.right.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 20, height: 20)
-                        .padding(.trailing)
-                        .onTapGesture {
-                            appViewModel.isPlaying.toggle()
-                            
-                            if appViewModel.isPlaying {
-                                appViewModel.playSound()
-                            } else {
-                                appViewModel.pauseSound()
-                            }
+                    Button {
+                        appViewModel.isPlaying.toggle()
+                        
+                        if appViewModel.isPlaying {
+                            appViewModel.playSound()
+                        } else {
+                            appViewModel.pauseSound()
                         }
+                    } label: {
+                        Image(systemName: appViewModel.isPlaying ? "pause.fill" : "arrowtriangle.right.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
+                            .padding(.trailing)
+                    }
+                    .foregroundColor(.white)
                     
-                    Image(systemName: "shuffle")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30, height: 30)
-                        .foregroundColor(appViewModel.isShuffle ? .white: .gray)
-                        .padding(.trailing)
-                        .onTapGesture {
-                            appViewModel.isShuffle.toggle()
-                            appViewModel.episodeList.shuffle()
-                        }
+                    Button {
+                        appViewModel.isShuffle.toggle()
+                        appViewModel.episodeList.shuffle()
+                    } label: {
+                        Image(systemName: "shuffle")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
+                            .padding(.trailing)
+                    }
+                    .foregroundColor(appViewModel.isShuffle ? .white: .gray)
                     
-                    Image(systemName: "heart.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(.gray)
-                        .padding(.trailing)
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "heart.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
+                            .padding(.trailing)
+                    }
+                    .foregroundColor(.gray)
                 }
             }
             
@@ -173,59 +180,79 @@ struct MusicPlayerView: View {
                 .padding(.horizontal)
                 .padding(.bottom, 30)
                 
-                HStack (spacing: 50) {
-                    Image(systemName: "shuffle")
-                        .foregroundColor(appViewModel.isShuffle ? .white: .gray)
-                        .onTapGesture {
-                            appViewModel.isShuffle.toggle()
-                            appViewModel.episodeList.shuffle()
-                        }
+                HStack (spacing: 40) {
+                    Button {
+                        appViewModel.isShuffle.toggle()
+                        appViewModel.episodeList.shuffle()
+                    } label: {
+                        Image(systemName: "shuffle")
+                            .imageScale(.large)
+                            .frame(width: 44, height: 44)
+                    }
+                    .foregroundColor(appViewModel.isShuffle ? .white: .gray)
                     
                     // MARK: Previous button
-                    HStack(spacing: 0) {
-                        Image(systemName: "arrowtriangle.backward.fill")
-                            .resizable()
-                            .frame(width: 15, height: 15)
-                        Image(systemName: "arrowtriangle.backward.fill")
-                            .resizable()
-                            .frame(width: 15, height: 15)
-                    }.onTapGesture {
+                    Button {
                         appViewModel.playPreviousSound()
-                    }
-                    
-                    Image(systemName: appViewModel.isPlaying ? "pause.fill" : "arrowtriangle.right.fill")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                        .onTapGesture {
-                            appViewModel.isPlaying.toggle()
-                            
-                            if appViewModel.isPlaying {
-                                appViewModel.playSound()
-                                imageWidth = 300
-                            } else {
-                                appViewModel.pauseSound()
-                                imageWidth = 280
-                            }
+                    } label: {
+                        HStack(spacing: 0) {
+                            Image(systemName: "arrowtriangle.backward.fill")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                            Image(systemName: "arrowtriangle.backward.fill")
+                                .resizable()
+                                .frame(width: 20, height: 20)
                         }
+                        .frame(width: 44, height: 44)
+                    }
+                    .foregroundColor(.white)
+                    
+                    Button {
+                        appViewModel.isPlaying.toggle()
+                        
+                        if appViewModel.isPlaying {
+                            appViewModel.playSound()
+                            imageWidth = 300
+                        } else {
+                            appViewModel.pauseSound()
+                            imageWidth = 280
+                        }
+                    } label: {
+                        Image(systemName: appViewModel.isPlaying ? "pause.fill" : "arrowtriangle.right.fill")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                    }
+                    .foregroundColor(.white)
+                    
                     
                     // MARK: Next button
-                    HStack(spacing: 0) {
-                        Image(systemName: "arrowtriangle.forward.fill")
-                            .resizable()
-                            .frame(width: 15, height: 15)
-                        Image(systemName: "arrowtriangle.forward.fill")
-                            .resizable()
-                            .frame(width: 15, height: 15)
-                    }.onTapGesture {
+                    Button {
                         appViewModel.playNextSound()
+                    } label: {
+                        HStack(spacing: 0) {
+                            Image(systemName: "arrowtriangle.forward.fill")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                            Image(systemName: "arrowtriangle.forward.fill")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                        }
+                        .frame(width: 44, height: 44)
                     }
+                    .foregroundColor(.white)
                 
-                    Image(systemName: "arrow.circlepath")
-                        .overlay(
-                            Text("1")
-                                .font(.wixMadeFont(.bold, fontSize: .body))
-                        )
-                        .foregroundColor(.gray)
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "arrow.circlepath")
+                            .imageScale(.large)
+                            .overlay(
+                                Text("1")
+                                    .font(.wixMadeFont(.bold, fontSize: .body))
+                            )
+                            .frame(width: 44, height: 44)
+                    }
+                    .foregroundColor(.gray)
                 }
                 
                 // MARK: Set bottom screen for song and story
@@ -345,7 +372,7 @@ struct SongBottomOptionView: View {
                                 Text(option).tag(option)
                             }
                         }
-                        .frame(width: .infinity, height: 300)
+                        .frame(height: 300)
                         .pickerStyle(WheelPickerStyle())
                     }
                 })
