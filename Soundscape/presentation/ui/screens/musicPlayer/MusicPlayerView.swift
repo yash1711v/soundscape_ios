@@ -114,7 +114,7 @@ struct MusicPlayerView: View {
                         .foregroundColor(appViewModel.isShuffle ? .white: .gray)
                         .padding(.trailing)
                         .onTapGesture {
-                            appViewModel.isShuffle = true
+                            appViewModel.isShuffle.toggle()
                             appViewModel.episodeList.shuffle()
                         }
                     
@@ -177,7 +177,7 @@ struct MusicPlayerView: View {
                     Image(systemName: "shuffle")
                         .foregroundColor(appViewModel.isShuffle ? .white: .gray)
                         .onTapGesture {
-                            appViewModel.isShuffle = true
+                            appViewModel.isShuffle.toggle()
                             appViewModel.episodeList.shuffle()
                         }
                     
