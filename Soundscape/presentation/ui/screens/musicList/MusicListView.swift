@@ -24,13 +24,14 @@ struct MusicListView: View {
                                 let episode = Episode(name: "",
                                                       songName: audioFetch.name,
                                                       imageName: imageName,
-                                                      songPath: audioFetch.assetPath)
+                                                      songPath: audioFetch.assetPath,
+                                                      songType: audioFetch.type)
                                 episodeListNew.append(episode)
                             }
                             appViewModel.episodeList = episodeListNew
                             appViewModel.episode = episodeListNew.first ?? EpisodeData.sampleEpisodeData
                             appViewModel.currentIndex = 0
-                            appViewModel.musicPlayerTitle = name
+                            appViewModel.musicPlayerTitle = episodeListNew.first?.songType ?? EpisodeData.sampleEpisodeData.songType
                             appViewModel.showBottomPlayer = true
                             appViewModel.playSound(sound: appViewModel.episode.songPath)
                         } label: {
