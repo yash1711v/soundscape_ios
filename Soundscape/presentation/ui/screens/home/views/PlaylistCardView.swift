@@ -26,12 +26,12 @@ struct PlaylistCardView: View {
                     .shadow(color: Color.black, radius: 1,y: 30)
             )
         }
-        .frame(width: 180, height: 180)
+        .frame(width: 170, height: 170)
         .background(
             Image(playlist.imageName)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 200, height: 200)
+                .frame(width: 170, height: 170)
         )
         .cornerRadius(10)
     }

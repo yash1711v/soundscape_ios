@@ -22,7 +22,7 @@ struct PlaylistListView: View {
                 }
                 .foregroundColor(.white)
                 
-                LazyVGrid(columns: columns) {
+                LazyVGrid(columns: columns, spacing: 15) {
                     ForEach(PlaylistData.allPlaylistList) { playlist in
                         NavigationLink{
                             MusicListView(
@@ -32,11 +32,9 @@ struct PlaylistListView: View {
                             PlaylistCardView(playlist: playlist)
                         }
                         .foregroundColor(.white)
-                        .padding()
                     }
                 }
-                .padding(.horizontal)
-                
+                .padding()
             }
         }
         .background(
