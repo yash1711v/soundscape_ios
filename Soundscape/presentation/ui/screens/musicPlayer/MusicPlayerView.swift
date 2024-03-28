@@ -13,6 +13,8 @@ struct MusicPlayerView: View {
     @State var offset: CGFloat = 0
     @State var isShowEffectView = false
     @State private var isRotating = false
+    @State var isRepeatSingle = false
+    @State var isRepeatOn = false
     
     var body: some View {
         VStack {
@@ -241,17 +243,22 @@ struct MusicPlayerView: View {
                     .foregroundColor(.white)
                 
                     Button {
-                        
+                        if !isRepeatOn {
+                            isRepeatOn = true
+                        } else if !isRepeatSingle {
+                            // If repeat is on and currently in single repeat mode, toggle to continuous repeat mode
+                            isRepeatSingle = true
+                        } else {
+                            // If repeat is on and currently in single repeat mode, turn off repeat
+                            isRepeatOn = false
+                            isRepeatSingle = false
+                        }
                     } label: {
-                        Image(systemName: "arrow.circlepath")
+                        Image(systemName: isRepeatSingle ? "repeat.1" : "repeat")
                             .imageScale(.large)
-                            .overlay(
-                                Text("1")
-                                    .font(.wixMadeFont(.bold, fontSize: .body))
-                            )
                             .frame(width: 44, height: 44)
                     }
-                    .foregroundColor(.gray)
+                    .foregroundColor(isRepeatOn ? .white : .gray)
                 }
                 
                 // MARK: Set bottom screen for song and story
@@ -280,7 +287,6 @@ struct MusicPlayerView: View {
         }
         .frame(maxHeight: appViewModel.expand ? .infinity : 60)
         .background(
-            
             VStack(spacing: 0) {
                 if appViewModel.expand {
                     Image("player_background")
@@ -290,11 +296,11 @@ struct MusicPlayerView: View {
                 }
                 
             }
-                .onTapGesture {
-                    withAnimation(.spring) {
-                        appViewModel.expand = true
-                    }
+            .onTapGesture {
+                withAnimation(.spring) {
+                    appViewModel.expand = true
                 }
+            }
         )
         .onAppear {
             appViewModel.setupRemoteTransportControls()
