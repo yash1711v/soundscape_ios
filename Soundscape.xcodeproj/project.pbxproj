@@ -53,7 +53,6 @@
 		849DBDAC2B9AF68000A39807 /* PlaylistCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849DBDAB2B9AF68000A39807 /* PlaylistCardView.swift */; };
 		849DBDAE2B9B04DC00A39807 /* StoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849DBDAD2B9B04DC00A39807 /* StoryListView.swift */; };
 		84A4B3532B99D8BC00A3AC68 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A4B3522B99D8BC00A3AC68 /* Episode.swift */; };
-		84B0895E2BB42D3800646021 /* RepeatAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B0895D2BB42D3800646021 /* RepeatAnimation.swift */; };
 		84D819422BA80E5B002A937C /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 84D819412BA80E5B002A937C /* FirebaseAnalytics */; };
 		84D819442BA80E5B002A937C /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 84D819432BA80E5B002A937C /* FirebaseAnalyticsSwift */; };
 		84D819462BA80E5B002A937C /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 84D819452BA80E5B002A937C /* FirebaseAuth */; };
@@ -182,7 +181,6 @@
 		849DBDAB2B9AF68000A39807 /* PlaylistCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCardView.swift; sourceTree = "<group>"; };
 		849DBDAD2B9B04DC00A39807 /* StoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListView.swift; sourceTree = "<group>"; };
 		84A4B3522B99D8BC00A3AC68 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
-		84B0895D2BB42D3800646021 /* RepeatAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatAnimation.swift; sourceTree = "<group>"; };
 		84D819502BA80ECD002A937C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84D819532BA80F7C002A937C /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		84D819682BA81CDE002A937C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -383,7 +381,6 @@
 				842020972B9EE7750034B065 /* Color.swift */,
 				8453C1912BAAA104003566D2 /* UIImage.swift */,
 				8453C1932BAB10D7003566D2 /* AuthenticationFormProtocol.swift */,
-				84B0895D2BB42D3800646021 /* RepeatAnimation.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -1016,7 +1013,6 @@
 				B2C2A6762BA217DF00035F12 /* Alert.swift in Sources */,
 				849DBDAC2B9AF68000A39807 /* PlaylistCardView.swift in Sources */,
 				B27C36012BB2C58500CA3996 /* Effects.swift in Sources */,
-				84B0895E2BB42D3800646021 /* RepeatAnimation.swift in Sources */,
 				B27F47D52BAC15BB00EFE592 /* StoryFirebaseDataSource.swift in Sources */,
 				B2E38B2A2B937489000AAB15 /* OnboardingView.swift in Sources */,
 				B2AF24F72BA2FC05004751AD /* LikeViewModel.swift in Sources */,
