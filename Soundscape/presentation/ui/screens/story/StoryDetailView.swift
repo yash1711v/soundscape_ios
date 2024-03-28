@@ -58,18 +58,21 @@ struct StoryDetailView: View {
                     GeometryReader { geometry in
                         let offsetY = geometry.frame(in: .global).minY
                         let isScrolled = offsetY > 0
-                        Spacer()
-                            .frame(height: isScrolled ? 250 + offsetY : 250)
-                            .background {
-                                Image(mainStorySound.imageName)
-                                    .resizable()
-                                    
-                                    .offset(y: isScrolled ? -offsetY : 0)
-                                    .scaleEffect(isScrolled ? offsetY / 2000 + 1 : 1)
-                                    .opacity(0.5)
-                            }
+                        ZStack {
+                            LinearGradient(colors: [.backgroundGray, .backgroundGray.opacity(0)], startPoint: .bottom, endPoint: .top)
+                                .offset(y: isScrolled ? -offsetY : 0)
+                                .scaleEffect(isScrolled ? offsetY / 2000 + 1 : 1)
+                                .background {
+                                    Image(mainStorySound.imageName)
+                                        .resizable()
+                                        .offset(y: isScrolled ? -offsetY : 0)
+                                        .scaleEffect(isScrolled ? offsetY / 2000 + 1 : 1)
+                                        .opacity(0.6)
+                                }
+                        }
+                        .frame(height: isScrolled ? 260 + offsetY : 260)
                     }
-                    .frame(height: 250)
+                    .frame(height: 260)
                 }
             }
         }
