@@ -51,7 +51,7 @@ struct SearchView: View {
                                 let selectedAudioFetch = filteredAudioFetchList[index]
                                 let episode = Episode(name: "",
                                                       songName: selectedAudioFetch.name,
-                                                      imageName: "atOffice",
+                                                      imageName: selectedAudioFetch.type == "Story Time" ? "searchStoryBg" : "searchSongBg",
                                                       songPath: selectedAudioFetch.assetPath)
                                 
                                 // Create episode list
@@ -59,7 +59,7 @@ struct SearchView: View {
                                 for audioFetch in filteredAudioFetchList {
                                     let episode = Episode(name: "",
                                                           songName: audioFetch.name,
-                                                          imageName: "atOffice",
+                                                          imageName: selectedAudioFetch.type == "Story Time" ? "searchStoryBg" : "searchSongBg",
                                                           songPath: audioFetch.assetPath)
                                     episodeListNew.append(episode)
                                 }
