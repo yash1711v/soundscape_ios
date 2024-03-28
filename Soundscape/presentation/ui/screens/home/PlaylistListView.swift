@@ -15,7 +15,12 @@ struct PlaylistListView: View {
     var body: some View {
         ZStack {
             ScrollView(.vertical, showsIndicators: false) {
-                SearchBarView(textSearch: $textSearch)
+                NavigationLink {
+                    SearchView()
+                } label: {
+                    SearchBarView(textSearch: $textSearch)
+                }
+                .foregroundColor(.white)
                 
                 LazyVGrid(columns: columns) {
                     ForEach(PlaylistData.allPlaylistList) { playlist in

@@ -16,8 +16,13 @@ struct StoryListView: View {
     
     var body: some View {
             ScrollView(.vertical, showsIndicators: false) {
-                SearchBarView(textSearch: $textSearch)
-                    .padding(.bottom)
+                NavigationLink {
+                    SearchView()
+                } label: {
+                    SearchBarView(textSearch: $textSearch)
+                }
+                .foregroundColor(.white)
+                .padding(.bottom)
                 
                 LazyVGrid(columns: columns) {
                     ForEach(mainStorySound) { mainStorySound in
