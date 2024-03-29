@@ -62,7 +62,8 @@ struct MusicListView: View {
                                 let episode = Episode(name: "",
                                                       songName: audioFetch.name,
                                                       imageName: imageName,
-                                                      songPath: audioFetch.assetPath)
+                                                      songPath: audioFetch.assetPath,
+                                                      songType: audioFetch.type)
                                 episodeListNew.append(episode)
                             }
                             appViewModel.episodeList = episodeListNew.shuffled()

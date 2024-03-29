@@ -26,6 +26,7 @@ final class AppViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var currentTime: Double = 0.0
     @Published var totalTime: Double = 0.0
+    @Published var isRepeatSingle = false
     var timeObserverToken: Any?
 
     // MARK: Effect player
@@ -245,12 +246,17 @@ final class AppViewModel: ObservableObject {
                         self.currentTime = player.currentTime().seconds
                         self.setupNowPlaying()
                         
-                        if abs(self.currentTime - self.totalTime) < 0.1 && !self.episodeList.isEmpty && self.currentIndex != (self.episodeList.count - 1) {
+                        if abs(self.currentTime - self.totalTime) < 0.1 && !self.episodeList.isEmpty && self.currentIndex != (self.episodeList.count - 1) && !self.isRepeatSingle {
                             self.playNextSound()
                         }
                         
                         if abs(self.currentTime - self.totalTime) < 0.1 && !self.episodeList.isEmpty && self.currentIndex == (self.episodeList.count - 1) {
                             self.pauseSound()
+                        }
+                        
+                        if abs(self.currentTime - self.totalTime) < 0.1 && self.isRepeatSingle {
+                            self.seek(to: 0)
+                            self.playSound()
                         }
                     }
                 }

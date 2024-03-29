@@ -13,7 +13,6 @@ struct MusicPlayerView: View {
     @State var offset: CGFloat = 0
     @State var isShowEffectView = false
     @State private var isRotating = false
-    @State var isRepeatSingle = false
     @State var isRepeatOn = false
     
     var body: some View {
@@ -245,16 +244,16 @@ struct MusicPlayerView: View {
                     Button {
                         if !isRepeatOn {
                             isRepeatOn = true
-                        } else if !isRepeatSingle {
+                        } else if !appViewModel.isRepeatSingle {
                             // If repeat is on and currently in single repeat mode, toggle to continuous repeat mode
-                            isRepeatSingle = true
+                            appViewModel.isRepeatSingle = true
                         } else {
                             // If repeat is on and currently in single repeat mode, turn off repeat
                             isRepeatOn = false
-                            isRepeatSingle = false
+                            appViewModel.isRepeatSingle = false
                         }
                     } label: {
-                        Image(systemName: isRepeatSingle ? "repeat.1" : "repeat")
+                        Image(systemName: appViewModel.isRepeatSingle ? "repeat.1" : "repeat")
                             .imageScale(.large)
                             .frame(width: 44, height: 44)
                     }
