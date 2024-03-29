@@ -28,3 +28,7 @@ struct MusicListItemView: View {
         .frame(width: 350, height: 40)
     }
 }
+
+#Preview {
+    MusicListItemView(audioFetch: AudioFetchData.audioFetchSampleData, isLiked: false, onButtonTap: {  })
+}
