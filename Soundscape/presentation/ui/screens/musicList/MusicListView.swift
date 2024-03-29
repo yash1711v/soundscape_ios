@@ -11,7 +11,6 @@ struct MusicListView: View {
     @EnvironmentObject var appViewModel: AppViewModel
     var name: String
     var imageName: String
-    @State var isShuffleSelected = false
     
     var body: some View {
         ZStack {
@@ -36,20 +35,20 @@ struct MusicListView: View {
                             appViewModel.showBottomPlayer = true
                             appViewModel.playSound(sound: appViewModel.episode.songPath)
                             
-                            isShuffleSelected = false
+                            appViewModel.isShuffle = false
                         } label: {
                             Label("Play All", systemImage: "play.fill")
                                 .font(.wixMadeFont(.regular, fontSize: .title))
-                                .foregroundColor(isShuffleSelected ? .white : .black)
+                                .foregroundColor(appViewModel.isShuffle ? .white : .black)
                                 .background(
                                     ZStack {
                                         RoundedRectangle(cornerRadius: 30)
-                                            .stroke(Color.white, lineWidth: isShuffleSelected ? 1 : 0)
+                                            .stroke(Color.white, lineWidth: appViewModel.isShuffle ? 1 : 0)
                                             .frame(width: 150, height: 40)
                                         
                                         RoundedRectangle(cornerRadius: 30)
                                             .frame(width: 150, height: 40)
-                                            .foregroundColor(isShuffleSelected ? .clear : .white)
+                                            .foregroundColor(appViewModel.isShuffle ? .clear : .white)
                                     }
                                 )
                         }
@@ -73,20 +72,20 @@ struct MusicListView: View {
                             appViewModel.currentIndex = 0
                             appViewModel.playSound(sound: appViewModel.episode.songPath)
                             
-                            isShuffleSelected = true
+                            appViewModel.isShuffle = true
                         } label: {
                             Label("Shuffle", systemImage: "shuffle")
                                 .font(.wixMadeFont(.regular, fontSize: .title))
-                                .foregroundColor(isShuffleSelected ? .black : .white)
+                                .foregroundColor(appViewModel.isShuffle ? .black : .white)
                                 .background(
                                     ZStack {
                                         RoundedRectangle(cornerRadius: 30)
-                                            .stroke(Color.white, lineWidth: isShuffleSelected ? 0 : 1)
+                                            .stroke(Color.white, lineWidth: appViewModel.isShuffle ? 0 : 1)
                                             .frame(width: 150, height: 40)
                                         
                                         RoundedRectangle(cornerRadius: 30)
                                             .frame(width: 150, height: 40)
-                                            .foregroundColor(isShuffleSelected ? .white : .clear)
+                                            .foregroundColor(appViewModel.isShuffle ? .white : .clear)
                                     }
                                 )
                         }
