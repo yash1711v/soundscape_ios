@@ -53,6 +53,7 @@ final class AppViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
     @Published var isUserDataSaved: Bool = false
+    @Published var userName: String? = ""
     
     // MARK: Usecase
     private let getSongFetchUseCase = GetSongFetchUseCase.shared
@@ -74,6 +75,7 @@ final class AppViewModel: ObservableObject {
     
     init() {
         self.userSession = Auth.auth().currentUser
+        self.userName = UserDefaults.standard.string(forKey: "userName")
     }
     
     // MARK: API functions
@@ -552,6 +554,8 @@ final class AppViewModel: ObservableObject {
     func fetchUserAccount() async throws {
         do {
             currentUser = try await fetchUserUseCase.execute()
+            UserDefaults.standard.set(currentUser?.nickname, forKey: "userName")
+            userName = currentUser?.nickname
         } catch {
             if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
                 alertItem = AlertContext.noInternetConnection
@@ -574,6 +578,7 @@ final class AppViewModel: ObservableObject {
         if resultBool {
             userSession = nil
             currentUser = nil
+            userName = nil
         }
     }
     

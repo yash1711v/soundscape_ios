@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var appViewModel: AppViewModel
     @Binding var tabSelection: Int
     @State var textSearch: String = ""
     
@@ -16,8 +17,11 @@ struct HomeView: View {
             ZStack {
                 VStack {
                     Group {
-                        Text("Hey, Guest!")
+                        var userName = appViewModel.userName ?? "Guest"
+                        
+                        Text("Hey, \(userName)!")
                             .font(.wixMadeFont(.regular, fontSize: .subTitle))
+                       
                         Text("Listen. Focus. Unwind.")
                             .font(.wixMadeFont(.bold, fontSize: .heading))
                     }
