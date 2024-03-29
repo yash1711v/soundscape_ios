@@ -78,7 +78,7 @@ struct NicknameView: View {
 
 extension NicknameView: AuthenticationFormProtocol {
     var formIsValid: Bool {
-        if nickname.isEmpty {
+        if nickname.isEmpty || nickname.count > 8 {
             return false
         } else {
             return true
