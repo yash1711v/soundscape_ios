@@ -47,7 +47,7 @@ final class AppViewModel: ObservableObject {
     @Published var audioFetchListSongDb: [AudioFetch] = []
     @Published var audioFetchListStoryDb: [AudioFetch] = []
     @Published var alertItem: AlertItem?
-    @Published var isLiked = [String : Int]()
+    @Published var isLiked: Bool = false
     @Published var storyFetchListDb: [AudioFetch] = []
     @Published var likedSongs: [Int64: Bool] = [:]
     

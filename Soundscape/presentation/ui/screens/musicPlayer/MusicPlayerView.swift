@@ -123,15 +123,70 @@ struct MusicPlayerView: View {
                     .foregroundColor(appViewModel.isShuffle ? .white: .gray)
                     
                     Button {
-                        
+                        Task {
+                            if appViewModel.musicPlayerTitle == "Story Time" {
+                                if appViewModel.likedSongs[appViewModel.episode.audioFetchId!] ?? appViewModel.checkStoryInDbList(id: appViewModel.episode.audioFetchId!) {
+                                    await appViewModel.deleteStory(
+                                        audioFetch: AudioFetch(
+                                            id: appViewModel.episode.audioFetchId!,
+                                            name: appViewModel.episode.songName,
+                                            assetPath: appViewModel.episode.songPath,
+                                            image: appViewModel.episode.imageName,
+                                            type: appViewModel.episode.songType,
+                                            isLiked: true))
+                                    appViewModel.likedSongs[appViewModel.episode.audioFetchId!] = false
+                                } else {
+                                    await appViewModel.saveStory(
+                                        audioFetch: AudioFetch(
+                                            id: appViewModel.episode.audioFetchId!,
+                                            name: appViewModel.episode.songName,
+                                            assetPath: appViewModel.episode.songPath,
+                                            image: appViewModel.episode.imageName,
+                                            type: appViewModel.episode.songType,
+                                            isLiked: true))
+                                    appViewModel.likedSongs[appViewModel.episode.audioFetchId!] = true
+                                }
+                            } else {
+                                if appViewModel.likedSongs[appViewModel.episode.audioFetchId!] ?? appViewModel.checkSongInDbList(id: appViewModel.episode.audioFetchId!) {
+                                    await appViewModel.deleteSong(
+                                        audioFetch: AudioFetch(
+                                            id: appViewModel.episode.audioFetchId!,
+                                            name: appViewModel.episode.songName,
+                                            assetPath: appViewModel.episode.songPath,
+                                            image: appViewModel.episode.imageName,
+                                            type: appViewModel.episode.songType,
+                                            isLiked: true))
+                                    appViewModel.likedSongs[appViewModel.episode.audioFetchId!] = false
+                                } else {
+                                    await appViewModel.saveSong(
+                                        audioFetch: AudioFetch(
+                                            id: appViewModel.episode.audioFetchId!,
+                                            name: appViewModel.episode.songName,
+                                            assetPath: appViewModel.episode.songPath,
+                                            image: appViewModel.episode.imageName,
+                                            type: appViewModel.episode.songType,
+                                            isLiked: true))
+                                    appViewModel.likedSongs[appViewModel.episode.audioFetchId!] = true
+                                }
+                            }
+                        }
                     } label: {
                         Image(systemName: "heart.fill")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 20, height: 20)
+                            .foregroundColor(appViewModel.isLiked ? .red : .gray)
                             .padding(.trailing)
                     }
-                    .foregroundColor(.gray)
+                    .onAppear {
+                        appViewModel.isLiked = appViewModel.episode.songType == "Story Time" ? appViewModel.likedSongs[appViewModel.episode.audioFetchId!] ?? appViewModel.checkStoryInDbList(id: appViewModel.episode.audioFetchId!) :
+                        appViewModel.likedSongs[appViewModel.episode.audioFetchId!] ?? appViewModel.checkSongInDbList(id: appViewModel.episode.audioFetchId!)
+                    }
+                    .onChange(of: appViewModel.episode.songType == "Story Time" ? appViewModel.likedSongs[appViewModel.episode.audioFetchId!] ?? appViewModel.checkStoryInDbList(id: appViewModel.episode.audioFetchId!) :
+                                appViewModel.likedSongs[appViewModel.episode.audioFetchId!] ?? appViewModel.checkSongInDbList(id: appViewModel.episode.audioFetchId!)) { _ in
+                        appViewModel.isLiked = appViewModel.episode.songType == "Story Time" ? appViewModel.likedSongs[appViewModel.episode.audioFetchId!] ?? appViewModel.checkStoryInDbList(id: appViewModel.episode.audioFetchId!) :
+                        appViewModel.likedSongs[appViewModel.episode.audioFetchId!] ?? appViewModel.checkSongInDbList(id: appViewModel.episode.audioFetchId!)
+                    }
                 }
             }
             
@@ -140,21 +195,71 @@ struct MusicPlayerView: View {
                     Text(appViewModel.episode.songName)
                         .font(.wixMadeFont(.bold, fontSize: .heading))
                     Spacer()
-                    Image(systemName: "heart.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 20, height: 20)
-                        .foregroundColor(.gray)
-                        .padding(10)
-                        .onTapGesture {
-                            Task {
-                                if appViewModel.musicPlayerTitle == "Story Time" {
-                                    let episode = appViewModel.episode
-                                    let audioFetchNew = AudioFetch(id: episode.audioFetchId!, name: episode.songName, assetPath: episode.songPath, image: episode.imageName, type: "Story Time", isLiked: true)
-                                    await appViewModel.saveStory(audioFetch: audioFetchNew)
+                    Button {
+                        Task {
+                            if appViewModel.musicPlayerTitle == "Story Time" {
+                                if appViewModel.likedSongs[appViewModel.episode.audioFetchId!] ?? appViewModel.checkStoryInDbList(id: appViewModel.episode.audioFetchId!) {
+                                    await appViewModel.deleteStory(
+                                        audioFetch: AudioFetch(
+                                            id: appViewModel.episode.audioFetchId!,
+                                            name: appViewModel.episode.songName,
+                                            assetPath: appViewModel.episode.songPath,
+                                            image: appViewModel.episode.imageName,
+                                            type: appViewModel.episode.songType,
+                                            isLiked: true))
+                                    appViewModel.likedSongs[appViewModel.episode.audioFetchId!] = false
+                                } else {
+                                    await appViewModel.saveStory(
+                                        audioFetch: AudioFetch(
+                                            id: appViewModel.episode.audioFetchId!,
+                                            name: appViewModel.episode.songName,
+                                            assetPath: appViewModel.episode.songPath,
+                                            image: appViewModel.episode.imageName,
+                                            type: appViewModel.episode.songType,
+                                            isLiked: true))
+                                    appViewModel.likedSongs[appViewModel.episode.audioFetchId!] = true
+                                }
+                            } else {
+                                if appViewModel.likedSongs[appViewModel.episode.audioFetchId!] ?? appViewModel.checkSongInDbList(id: appViewModel.episode.audioFetchId!) {
+                                    await appViewModel.deleteSong(
+                                        audioFetch: AudioFetch(
+                                            id: appViewModel.episode.audioFetchId!,
+                                            name: appViewModel.episode.songName,
+                                            assetPath: appViewModel.episode.songPath,
+                                            image: appViewModel.episode.imageName,
+                                            type: appViewModel.episode.songType,
+                                            isLiked: true))
+                                    appViewModel.likedSongs[appViewModel.episode.audioFetchId!] = false
+                                } else {
+                                    await appViewModel.saveSong(
+                                        audioFetch: AudioFetch(
+                                            id: appViewModel.episode.audioFetchId!,
+                                            name: appViewModel.episode.songName,
+                                            assetPath: appViewModel.episode.songPath,
+                                            image: appViewModel.episode.imageName,
+                                            type: appViewModel.episode.songType,
+                                            isLiked: true))
+                                    appViewModel.likedSongs[appViewModel.episode.audioFetchId!] = true
                                 }
                             }
                         }
+                    } label: {
+                        Image(systemName: "heart.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(appViewModel.isLiked ? .red : .gray)
+                            .padding(10)
+                    }
+                }
+                .onAppear {
+                    appViewModel.isLiked = appViewModel.episode.songType == "Story Time" ? appViewModel.likedSongs[appViewModel.episode.audioFetchId!] ?? appViewModel.checkStoryInDbList(id: appViewModel.episode.audioFetchId!) :
+                    appViewModel.likedSongs[appViewModel.episode.audioFetchId!] ?? appViewModel.checkSongInDbList(id: appViewModel.episode.audioFetchId!)
+                }
+                .onChange(of: appViewModel.episode.songType == "Story Time" ? appViewModel.likedSongs[appViewModel.episode.audioFetchId!] ?? appViewModel.checkStoryInDbList(id: appViewModel.episode.audioFetchId!) :
+                            appViewModel.likedSongs[appViewModel.episode.audioFetchId!] ?? appViewModel.checkSongInDbList(id: appViewModel.episode.audioFetchId!)) { _ in
+                    appViewModel.isLiked = appViewModel.episode.songType == "Story Time" ? appViewModel.likedSongs[appViewModel.episode.audioFetchId!] ?? appViewModel.checkStoryInDbList(id: appViewModel.episode.audioFetchId!) :
+                    appViewModel.likedSongs[appViewModel.episode.audioFetchId!] ?? appViewModel.checkSongInDbList(id: appViewModel.episode.audioFetchId!)
                 }
                 .padding()
                 
@@ -304,6 +409,10 @@ struct MusicPlayerView: View {
         )
         .onAppear {
             appViewModel.setupRemoteTransportControls()
+        }
+        .task {
+            await appViewModel.getAllSongFromDb()
+            await appViewModel.getAllStoryFromDb()
         }
         .cornerRadius(10, corners: [.topLeft, .topRight])
         .ignoresSafeArea()

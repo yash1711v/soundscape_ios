@@ -25,6 +25,7 @@ struct MusicListView: View {
                                                       songName: audioFetch.name,
                                                       imageName: imageName,
                                                       songPath: audioFetch.assetPath,
+                                                      audioFetchId: audioFetch.id,
                                                       songType: audioFetch.type)
                                 episodeListNew.append(episode)
                             }
@@ -62,6 +63,7 @@ struct MusicListView: View {
                                                       songName: audioFetch.name,
                                                       imageName: imageName,
                                                       songPath: audioFetch.assetPath,
+                                                      audioFetchId: audioFetch.id,
                                                       songType: audioFetch.type)
                                 episodeListNew.append(episode)
                             }
@@ -133,6 +135,7 @@ struct MusicListView: View {
                                                       songName: selectedAudioFetch.name,
                                                       imageName: imageName,
                                                       songPath: selectedAudioFetch.assetPath,
+                                                      audioFetchId: selectedAudioFetch.id,
                                                       songType: selectedAudioFetch.type)
                                 
                                 // Create episode list
@@ -142,7 +145,8 @@ struct MusicListView: View {
                                                           songName: audioFetch.name,
                                                           imageName: imageName,
                                                           songPath: audioFetch.assetPath,
-                                                          songType: selectedAudioFetch.type)
+                                                          audioFetchId: audioFetch.id,
+                                                          songType: audioFetch.type)
                                     episodeListNew.append(episode)
                                 }
                                 appViewModel.episodeList = episodeListNew
