@@ -30,17 +30,38 @@ struct SearchView: View {
                     LazyVStack {
                         ForEach(filteredAudioFetchList.indices, id: \.self) { index in
                             let audioFetch = filteredAudioFetchList[index]
-                            @State var isLiked = appViewModel.checkItemInDbList(id: audioFetch.id)
-                            MusicListItemView(audioFetch: audioFetch, isLiked: $isLiked) {
+                            let isLiked = Binding(
+                                    get: {
+                                        appViewModel.likedSongs[audioFetch.id] ?? appViewModel.checkItemInDbList(id: audioFetch.id)
+                                    },
+                                    set: { newValue in
+                                        // Update liked status in the view model when changed
+                                        appViewModel.likedSongs[audioFetch.id] = newValue
+                                    }
+                                )
+                            MusicListItemView(audioFetch: audioFetch, isLiked: isLiked) {
                                 Task {
-                                    await appViewModel.saveSong(
-                                        audioFetch: AudioFetch(
-                                            id: audioFetch.id,
-                                            name: audioFetch.name,
-                                            assetPath: audioFetch.assetPath,
-                                            image: "atOffice",
-                                            type: audioFetch.type,
-                                            isLiked: true))
+                                    let selectedAudioFetch = filteredAudioFetchList[index]
+                                    if selectedAudioFetch.type == "Story Time" {
+                                        await appViewModel.saveStory(
+                                            audioFetch: AudioFetch(
+                                                id: audioFetch.id,
+                                                name: audioFetch.name,
+                                                assetPath: audioFetch.assetPath,
+                                                image: "searchStoryBg",
+                                                type: audioFetch.type,
+                                                isLiked: true))
+                                    } else {
+                                        await appViewModel.saveSong(
+                                            audioFetch: AudioFetch(
+                                                id: audioFetch.id,
+                                                name: audioFetch.name,
+                                                assetPath: audioFetch.assetPath,
+                                                image: "searchSongBg",
+                                                type: audioFetch.type,
+                                                isLiked: true))
+                                    }
+                                    appViewModel.likedSongs[audioFetch.id] = true
                                 }
                             }
                             .onTapGesture {
