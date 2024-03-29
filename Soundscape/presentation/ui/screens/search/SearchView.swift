@@ -116,6 +116,7 @@ struct SearchView: View {
                         LottieLoadingView()
                     }
                 }
+                .padding(.bottom, appViewModel.showBottomPlayer ? 60 : 0)
             }
             
         }

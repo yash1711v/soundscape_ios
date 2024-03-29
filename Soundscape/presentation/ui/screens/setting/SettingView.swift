@@ -34,13 +34,13 @@ struct SettingView: View {
                         .padding(.top, 50)
                     
                     Group {
-                        Label("Share app", systemImage: "square.and.arrow.up.fill")
-                            .padding(.bottom, 10)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        Label("Rate our app", systemImage: "star.fill")
-                            .padding(.bottom, 10)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+//                        Label("Share app", systemImage: "square.and.arrow.up.fill")
+//                            .padding(.bottom, 10)
+//                            .frame(maxWidth: .infinity, alignment: .leading)
+//                        
+//                        Label("Rate our app", systemImage: "star.fill")
+//                            .padding(.bottom, 10)
+//                            .frame(maxWidth: .infinity, alignment: .leading)
                         
                         Label("Privacy Policy", systemImage: "doc.fill")
                             .padding(.bottom, 10)
@@ -90,6 +90,7 @@ struct SettingView: View {
                         .font(.wixMadeFont(.bold, fontSize: .body))
                         .padding(.bottom)
                 }
+                .padding(.bottom, appViewModel.showBottomPlayer ? 60 : 10)
                 .task {
                     Task {
                         try await appViewModel.fetchUserAccount()

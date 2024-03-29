@@ -14,8 +14,10 @@ struct MoodSelectView: View {
         VStack {
             Image(mood.imageName)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
+                .scaledToFit()
                 .frame(width: 80)
+                .clipShape(Circle())
+            
             Text(mood.name)
                 .font(.wixMadeFont(.regular, fontSize: .titleSmall))
         }

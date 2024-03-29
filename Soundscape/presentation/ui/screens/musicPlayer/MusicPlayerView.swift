@@ -67,6 +67,7 @@ struct MusicPlayerView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 100, height: 100)
+                            .clipShape(Circle())
                     }
                 } else {
                     Image(appViewModel.episode.imageName)

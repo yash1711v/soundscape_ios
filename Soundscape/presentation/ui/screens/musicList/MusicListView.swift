@@ -162,6 +162,7 @@ struct MusicListView: View {
                             }
                         }
                     }
+                    .padding(.bottom, appViewModel.showBottomPlayer ? 70 : 0)
                     .task {
                         if name == "Monday Morning Blues" {
                             await appViewModel.getSongSection(songSection: "monday mornings")
@@ -234,6 +235,7 @@ struct MusicListView: View {
                                         .resizable()
                                         .scaledToFit()
                                         .frame(width: 80, height: 80)
+                                        .clipShape(Circle())
                                         .padding()
                                         .padding(.top, 50)
                                 }

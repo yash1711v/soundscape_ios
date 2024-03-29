@@ -136,6 +136,7 @@ struct LoginView: View {
                     Text("Continue as Guest")
                         .font(.wixMadeFont(.regular, fontSize: .subTitle))
                         .underline()
+                        .padding(.bottom, appViewModel.showBottomPlayer ? 60 : 10)
                         .onTapGesture {
                             withAnimation(.easeInOut) {
                                 openTabView = true
