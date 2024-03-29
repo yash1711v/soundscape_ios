@@ -44,7 +44,8 @@ final class AppViewModel: ObservableObject {
     // MARK: Db and api variables
     @Published var selectedAudioFetch: AudioFetch?
     @Published var audioFetchList: [AudioFetch] = []
-    @Published var audioFetchListDb: [AudioFetch] = []
+    @Published var audioFetchListSongDb: [AudioFetch] = []
+    @Published var audioFetchListStoryDb: [AudioFetch] = []
     @Published var alertItem: AlertItem?
     @Published var isLiked = [String : Int]()
     @Published var storyFetchListDb: [AudioFetch] = []
@@ -63,6 +64,9 @@ final class AppViewModel: ObservableObject {
     private let getSaveSongUseCase = GetSavedSongUseCase.shared
     private let saveStoryUseCase = SaveStoryUseCase.shared
     private let deleteDatabaseUseCase = DeleteDatabaseUseCase.shared
+    private let deleteSongUseCase = DeleteSongUseCase.shared
+    private let getSavedStoryUseCase = GetSavedStoryUseCase.shared
+    private let deleteStoryUseCase = DeleteStoryUseCase.shared
     
     // MARK: Auth Usecase
     private let googleLoginUseCase = GoogleLoginUseCase.shared
@@ -128,7 +132,7 @@ final class AppViewModel: ObservableObject {
     func getAllSongFromDb() async {
         isLoading = true
         do {
-            audioFetchListDb = try await getSaveSongUseCase.execute()
+            audioFetchListSongDb = try await getSaveSongUseCase.execute()
             isLoading = false
         } catch {
             if let dbError = error as? DBError {
@@ -149,9 +153,45 @@ final class AppViewModel: ObservableObject {
         }
     }
     
-    func checkItemInDbList(id: Int64) -> Bool {
+    func checkSongInDbList(id: Int64) -> Bool {
         // MARK: Assuming audioFetchListDb and audioFetchList are arrays of some type
-        let audioFetchListDbDict = Dictionary(uniqueKeysWithValues: audioFetchListDb.map { ($0.id, $0) })
+        let audioFetchListDbDict = Dictionary(uniqueKeysWithValues: audioFetchListSongDb.map { ($0.id, $0) })
+        
+        if audioFetchListDbDict[id] != nil {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    // MARK: Story Db functions
+    func getAllStoryFromDb() async {
+        isLoading = true
+        do {
+            audioFetchListStoryDb = try await getSavedStoryUseCase.execute()
+            isLoading = false
+        } catch {
+            if let dbError = error as? DBError {
+                switch dbError {
+                case .dataSourceError:
+                    alertItem = AlertContext.dataSourceError
+                case .createError:
+                    alertItem = AlertContext.createError
+                case .deleteError:
+                    alertItem = AlertContext.deleteError
+                case .updateError:
+                    alertItem = AlertContext.updateError
+                case .fetchError:
+                    alertItem = AlertContext.fetchError
+                }
+            }
+            isLoading = false
+        }
+    }
+    
+    func checkStoryInDbList(id: Int64) -> Bool {
+        // MARK: Assuming audioFetchListDb and audioFetchList are arrays of some type
+        let audioFetchListDbDict = Dictionary(uniqueKeysWithValues: audioFetchListStoryDb.map { ($0.id, $0) })
         
         if audioFetchListDbDict[id] != nil {
             return true
@@ -182,6 +222,27 @@ final class AppViewModel: ObservableObject {
         }
     }
     
+    func deleteSong(audioFetch: AudioFetch) async {
+            do {
+                try await deleteSongUseCase.execute(audioFetch: audioFetch)
+            } catch {
+                if let dbError = error as? DBError {
+                    switch dbError {
+                    case .dataSourceError:
+                        alertItem = AlertContext.dataSourceError
+                    case .createError:
+                        alertItem = AlertContext.createError
+                    case .deleteError:
+                        alertItem = AlertContext.deleteError
+                    case .updateError:
+                        alertItem = AlertContext.updateError
+                    case .fetchError:
+                        alertItem = AlertContext.fetchError
+                    }
+            }
+        }
+    }
+    
     // MARK: Story DB functions
     func saveStory(audioFetch: AudioFetch) async {
         do {
@@ -202,6 +263,27 @@ final class AppViewModel: ObservableObject {
                 }
             }
             
+        }
+    }
+    
+    func deleteStory(audioFetch: AudioFetch) async {
+        do {
+            try await deleteStoryUseCase.execute(audioFetch: audioFetch)
+        } catch {
+            if let dbError = error as? DBError {
+                switch dbError {
+                case .dataSourceError:
+                    alertItem = AlertContext.dataSourceError
+                case .createError:
+                    alertItem = AlertContext.createError
+                case .deleteError:
+                    alertItem = AlertContext.deleteError
+                case .updateError:
+                    alertItem = AlertContext.updateError
+                case .fetchError:
+                    alertItem = AlertContext.fetchError
+                }
+            }
         }
     }
     
