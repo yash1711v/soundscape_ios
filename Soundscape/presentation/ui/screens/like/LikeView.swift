@@ -87,7 +87,9 @@ struct LikeView: View {
                                 let episode = Episode(name: "",
                                                       songName: selectedAudioFetch.name,
                                                       imageName: selectedAudioFetch.image,
-                                                      songPath: selectedAudioFetch.assetPath)
+                                                      songPath: selectedAudioFetch.assetPath,
+                                                      audioFetchId: selectedAudioFetch.id,
+                                                      songType: selectedAudioFetch.type)
                                 
                                 // Create episode list
                                 var episodeListNew: [Episode] = []
@@ -95,7 +97,9 @@ struct LikeView: View {
                                     let episode = Episode(name: "",
                                                           songName: audioFetch.name,
                                                           imageName: audioFetch.image,
-                                                          songPath: audioFetch.assetPath)
+                                                          songPath: audioFetch.assetPath,
+                                                          audioFetchId: audioFetch.id,
+                                                          songType: audioFetch.type)
                                     episodeListNew.append(episode)
                                 }
                                 appViewModel.episodeList = episodeListNew
