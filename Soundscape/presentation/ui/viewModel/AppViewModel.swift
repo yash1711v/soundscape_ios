@@ -276,12 +276,16 @@ final class AppViewModel: ObservableObject {
         updateNowPlaying(isPause: false)
         audioPlayer?.play()
         isPlaying = true
+        playEffect1()
+        playEffect2()
     }
     
     func pauseSound() {
         updateNowPlaying(isPause: true)
         audioPlayer?.pause()
         isPlaying = false
+        pauseEffect1()
+        pauseEffect2()
     }
     
     func playNextSound() {
