@@ -21,7 +21,7 @@ struct SearchView: View {
     
     var body: some View {
         ZStack {
-            Color.backgroundGray
+            Color.black
                 .ignoresSafeArea()
             
             VStack {

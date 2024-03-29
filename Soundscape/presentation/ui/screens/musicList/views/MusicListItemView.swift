@@ -18,6 +18,9 @@ struct MusicListItemView: View {
             if audioFetch.name == appViewModel.episode.songName {
                 RoundedRectangle(cornerRadius: 10)
                     .fill(.backgroundGray)
+            } else {
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(.backgroundGray.opacity(0.1))
             }
             HStack {
                 Text(audioFetch.name)
