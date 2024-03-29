@@ -48,6 +48,7 @@ final class AppViewModel: ObservableObject {
     @Published var alertItem: AlertItem?
     @Published var isLiked = [String : Int]()
     @Published var storyFetchListDb: [AudioFetch] = []
+    @Published var likedSongs: [Int64: Bool] = [:]
     
     // MARK: login variables
     @Published var userSession: FirebaseAuth.User?

@@ -96,7 +96,15 @@ struct MusicListView: View {
                     LazyVStack {
                         ForEach(appViewModel.audioFetchList.indices, id: \.self) { index in
                             let audioFetch = appViewModel.audioFetchList[index]
-                            @State var isLiked = appViewModel.checkItemInDbList(id: audioFetch.id)
+                            let isLiked = Binding(
+                                    get: {
+                                        appViewModel.likedSongs[audioFetch.id] ?? appViewModel.checkItemInDbList(id: audioFetch.id)
+                                    },
+                                    set: { newValue in
+                                        // Update liked status in the view model when changed
+                                        appViewModel.likedSongs[audioFetch.id] = newValue
+                                    }
+                                )
                             MusicListItemView(audioFetch: audioFetch, isLiked: isLiked) {
                                 Task {
                                     await appViewModel.saveSong(audioFetch:
@@ -107,6 +115,7 @@ struct MusicListView: View {
                                                                        type: audioFetch.type,
                                                                        isLiked: true))
                                 }
+                                appViewModel.likedSongs[audioFetch.id] = true
                             }
                             .onTapGesture {
                                 // Set current index to the selected index

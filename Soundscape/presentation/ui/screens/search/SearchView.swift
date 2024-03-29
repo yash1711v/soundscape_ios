@@ -31,7 +31,7 @@ struct SearchView: View {
                         ForEach(filteredAudioFetchList.indices, id: \.self) { index in
                             let audioFetch = filteredAudioFetchList[index]
                             @State var isLiked = appViewModel.checkItemInDbList(id: audioFetch.id)
-                            MusicListItemView(audioFetch: audioFetch, isLiked: isLiked) {
+                            MusicListItemView(audioFetch: audioFetch, isLiked: $isLiked) {
                                 Task {
                                     await appViewModel.saveSong(
                                         audioFetch: AudioFetch(

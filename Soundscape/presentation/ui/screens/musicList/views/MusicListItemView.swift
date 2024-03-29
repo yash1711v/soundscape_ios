@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MusicListItemView: View {
     var audioFetch: AudioFetch
-    var isLiked: Bool = false
+    @Binding var isLiked: Bool
     var onButtonTap: () -> Void
     
     var body: some View {
@@ -27,8 +27,4 @@ struct MusicListItemView: View {
         .foregroundColor(.white)
         .frame(width: 350, height: 40)
     }
-}
-
-#Preview {
-    MusicListItemView(audioFetch: AudioFetchData.audioFetchSampleData, isLiked: false, onButtonTap: {  })
 }

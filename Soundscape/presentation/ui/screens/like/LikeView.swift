@@ -10,6 +10,7 @@ import SwiftUI
 struct LikeView: View {
     @EnvironmentObject var appViewModel: AppViewModel
     @StateObject var viewModel = LikeViewModel()
+    @State var isLiked = true
     
     var body: some View {
         NavigationView {
@@ -73,8 +74,9 @@ struct LikeView: View {
                     LazyVStack {
                         ForEach(viewModel.audioFetchList.indices, id: \.self) { index in
                             let audioFetch = viewModel.audioFetchList[index]
-                            MusicListItemView(audioFetch: audioFetch) {
+                            MusicListItemView(audioFetch: audioFetch, isLiked: $isLiked) {
                                 viewModel.isSongSelected ? viewModel.deleteSong(audioFetch: audioFetch) : viewModel.deleteStory(audioFetch: audioFetch)
+                                appViewModel.likedSongs[audioFetch.id] = false
                             }
                             .onTapGesture {
                                 // Set current index to the selected index
