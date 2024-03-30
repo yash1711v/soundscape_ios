@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct MusicPlayerView: View {
     @EnvironmentObject var appViewModel: AppViewModel
@@ -410,6 +411,14 @@ struct MusicPlayerView: View {
         )
         .onAppear {
             appViewModel.setupRemoteTransportControls()
+            InterruptionManager.shared.setupInterruptionHandling()
+            InterruptionManager.shared.resumePlaybackCallback = {
+                // Call your play function here
+                appViewModel.playSound()
+            }
+        }
+        .onDisappear {
+            NotificationCenter.default.removeObserver(self, name: AVAudioSession.interruptionNotification, object: nil)
         }
         .task {
             await appViewModel.getAllSongFromDb()
