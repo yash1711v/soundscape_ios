@@ -16,9 +16,11 @@ struct MiniStoryCardView: View {
             VStack() {
                 Text(mainStorySound.name)
                     .font(.wixMadeFont(.bold, fontSize: .small))
+                    .lineLimit(1)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top, 5)
                     .padding(.horizontal, 5)
+                    .padding(.bottom, 3)
                 
                 HStack {
                     Text("\(mainStorySound.listenerCount)K Listeners")
