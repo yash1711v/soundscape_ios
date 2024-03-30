@@ -61,7 +61,6 @@
 		84D8194A2BA80E5B002A937C /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 84D819492BA80E5B002A937C /* FirebaseFirestoreSwift */; };
 		84D8194D2BA80E73002A937C /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 84D8194C2BA80E73002A937C /* GoogleSignIn */; };
 		84D8194F2BA80E73002A937C /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 84D8194E2BA80E73002A937C /* GoogleSignInSwift */; };
-		84D819512BA80ECD002A937C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84D819502BA80ECD002A937C /* GoogleService-Info.plist */; };
 		84D819542BA80F7C002A937C /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84D819532BA80F7C002A937C /* AdSupport.framework */; };
 		84D819692BA81CDE002A937C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D819682BA81CDE002A937C /* User.swift */; };
 		84D8196B2BA81D87002A937C /* TopViewUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8196A2BA81D87002A937C /* TopViewUtil.swift */; };
@@ -80,6 +79,8 @@
 		84D819882BA858A3002A937C /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D819872BA858A3002A937C /* AuthError.swift */; };
 		84D8198A2BA866E8002A937C /* SongFirebaseDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D819892BA866E8002A937C /* SongFirebaseDataSource.swift */; };
 		84D8198C2BA86740002A937C /* SongFirebaseDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8198B2BA86740002A937C /* SongFirebaseDataSourceImpl.swift */; };
+		84F0B4B82BB8369700F1431D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84F0B4B72BB8369700F1431D /* GoogleService-Info.plist */; };
+		84F0B4BA2BB8393A00F1431D /* SignInAppleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0B4B92BB8393A00F1431D /* SignInAppleHelper.swift */; };
 		B20AE4472BAC5B2A00864C21 /* DeleteDatabaseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20AE4462BAC5B2A00864C21 /* DeleteDatabaseUseCase.swift */; };
 		B20AE4492BAC726200864C21 /* GetAllSongFetchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20AE4482BAC726200864C21 /* GetAllSongFetchUseCase.swift */; };
 		B2157D092BAD6E5C00EFF86E /* SoundEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2157D082BAD6E5C00EFF86E /* SoundEffectView.swift */; };
@@ -183,7 +184,6 @@
 		849DBDAB2B9AF68000A39807 /* PlaylistCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistCardView.swift; sourceTree = "<group>"; };
 		849DBDAD2B9B04DC00A39807 /* StoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryListView.swift; sourceTree = "<group>"; };
 		84A4B3522B99D8BC00A3AC68 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
-		84D819502BA80ECD002A937C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84D819532BA80F7C002A937C /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		84D819682BA81CDE002A937C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		84D8196A2BA81D87002A937C /* TopViewUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewUtil.swift; sourceTree = "<group>"; };
@@ -202,6 +202,9 @@
 		84D819872BA858A3002A937C /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		84D819892BA866E8002A937C /* SongFirebaseDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongFirebaseDataSource.swift; sourceTree = "<group>"; };
 		84D8198B2BA86740002A937C /* SongFirebaseDataSourceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongFirebaseDataSourceImpl.swift; sourceTree = "<group>"; };
+		84F0B4B72BB8369700F1431D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84F0B4B92BB8393A00F1431D /* SignInAppleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAppleHelper.swift; sourceTree = "<group>"; };
+		84F0B4BB2BB8404000F1431D /* Soundscape.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Soundscape.entitlements; sourceTree = "<group>"; };
 		B20AE4462BAC5B2A00864C21 /* DeleteDatabaseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteDatabaseUseCase.swift; sourceTree = "<group>"; };
 		B20AE4482BAC726200864C21 /* GetAllSongFetchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllSongFetchUseCase.swift; sourceTree = "<group>"; };
 		B2157D082BAD6E5C00EFF86E /* SoundEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffectView.swift; sourceTree = "<group>"; };
@@ -296,13 +299,14 @@
 		8402A2992B8F039A00A836CD /* Soundscape */ = {
 			isa = PBXGroup;
 			children = (
+				84F0B4BB2BB8404000F1431D /* Soundscape.entitlements */,
 				8455A0AC2BA17E31006E8BA1 /* data */,
 				8455A0AD2BA17E7B006E8BA1 /* domain */,
 				8402A2A82B8F238700A836CD /* presentation */,
 				8402A29E2B8F039D00A836CD /* Assets.xcassets */,
 				8453C19D2BAB1A97003566D2 /* loading.json */,
+				84F0B4B72BB8369700F1431D /* GoogleService-Info.plist */,
 				8463B01A2B8F3F3B00EB81DF /* Info.plist */,
-				84D819502BA80ECD002A937C /* GoogleService-Info.plist */,
 				8402A2A02B8F039D00A836CD /* Preview Content */,
 			);
 			path = Soundscape;
@@ -600,6 +604,7 @@
 				846550392B95C284008E6176 /* SignupView.swift */,
 				8465503B2B95DB44008E6176 /* ForgoutPasswordView.swift */,
 				8465503D2B95EE64008E6176 /* NicknameView.swift */,
+				84F0B4B92BB8393A00F1431D /* SignInAppleHelper.swift */,
 			);
 			path = login;
 			sourceTree = "<group>";
@@ -904,7 +909,7 @@
 				8463B0182B8F3F2500EB81DF /* WixMadeforText-SemiBold.ttf in Resources */,
 				8453C19E2BAB1A97003566D2 /* loading.json in Resources */,
 				8402A29F2B8F039D00A836CD /* Assets.xcassets in Resources */,
-				84D819512BA80ECD002A937C /* GoogleService-Info.plist in Resources */,
+				84F0B4B82BB8369700F1431D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1023,6 +1028,7 @@
 				846550322B95B7B2008E6176 /* LoginSelectionView.swift in Sources */,
 				8455A0B82BA18976006E8BA1 /* APIError.swift in Sources */,
 				8465503A2B95C284008E6176 /* SignupView.swift in Sources */,
+				84F0B4BA2BB8393A00F1431D /* SignInAppleHelper.swift in Sources */,
 				84D819692BA81CDE002A937C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1154,12 +1160,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Soundscape/Soundscape.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Soundscape/Preview Content\"";
-				DEVELOPMENT_TEAM = JR75GG23WH;
+				DEVELOPMENT_TEAM = B97AZH836R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Soundscape/Info.plist;
@@ -1175,7 +1182,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.appstesting.Soundscape;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sound.scape;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1193,12 +1200,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Soundscape/Soundscape.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Soundscape/Preview Content\"";
-				DEVELOPMENT_TEAM = JR75GG23WH;
+				DEVELOPMENT_TEAM = B97AZH836R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Soundscape/Info.plist;
@@ -1214,7 +1222,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.appstesting.Soundscape;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sound.scape;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

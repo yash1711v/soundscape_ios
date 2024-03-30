@@ -78,6 +78,10 @@ final class AppViewModel: ObservableObject {
     private let forgotUseCase = ForgoutPasswordUseCase.shared
     private let deleteAccountUseCase = DeleteAccountUseCase.shared
     
+    // MARK: Apple signIn
+    @Published var didSignInApple: Bool = false
+    let signInHelper = SignInAppleHelper()
+    
     init() {
         self.userSession = Auth.auth().currentUser
         self.userName = UserDefaults.standard.string(forKey: "userName")
@@ -613,6 +617,31 @@ final class AppViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    func signInApple() async throws {
+        signInHelper.startSignInWithAppleFlow { result in
+            switch result {
+            case .success(let signInAppleResult):
+                Task {
+                    do {
+                        self.userSession = try await self.signInWithApple(tokens: signInAppleResult)
+                        self.didSignInApple = true
+                    } catch {
+                        print(error)
+                    }
+                }
+            case .failure(let error):
+                print(error)
+            }
+            
+        }
+    }
+    
+    func signInWithApple(tokens: SignInWithAppleResult) async throws -> Firebase.User? {
+        let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: tokens.token, rawNonce: tokens.nonce)
+        let result = try await Auth.auth().signIn(with: credential)
+        return result.user
     }
     
     func createUserAccount(withEmail email: String, password: String) async throws {

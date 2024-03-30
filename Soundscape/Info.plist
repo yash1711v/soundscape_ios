@@ -11,12 +11,12 @@
 			<string>GoogleSignIn</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.googleusercontent.apps.345501102077-dh8ue527qrdmdf845r54906rpacp0fph</string>
+				<string>com.googleusercontent.apps.345501102077-6soi2obnhjmeqqgqt8nbf5meimpjk5q1</string>
 			</array>
 		</dict>
 	</array>
 	<key>GIDClientID</key>
-	<string>345501102077-dh8ue527qrdmdf845r54906rpacp0fph.apps.googleusercontent.com</string>
+	<string>345501102077-6soi2obnhjmeqqgqt8nbf5meimpjk5q1.apps.googleusercontent.com</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

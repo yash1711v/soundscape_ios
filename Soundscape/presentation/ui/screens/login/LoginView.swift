@@ -43,6 +43,19 @@ struct LoginView: View {
                             .padding()
                     }
                     
+                    Button {
+                        Task {
+                            try await appViewModel.signInApple()
+                        }
+                    } label: {
+                        SignInWithAppleButton(type: .default, style: .white)
+                            .allowsHitTesting(false)
+                    }
+                    .frame(height: 44)
+                    .cornerRadius(30)
+                    .padding(.horizontal)
+                    
+                    
                     HStack {
                         Rectangle()
                             .foregroundColor(.gray)
