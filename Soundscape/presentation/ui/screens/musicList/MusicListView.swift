@@ -162,7 +162,7 @@ struct MusicListView: View {
                             }
                         }
                     }
-                    .padding(.bottom, appViewModel.showBottomPlayer ? 70 : 0)
+                    .padding(.bottom, appViewModel.showBottomPlayer ? 70 : 20)
                     .task {
                         if name == "Monday Morning Blues" {
                             await appViewModel.getSongSection(songSection: "monday mornings")

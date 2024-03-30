@@ -26,12 +26,10 @@ struct SettingView: View {
                         LoggedInAccountView(showAlert: $showAlert)
                     }
 
-                    Text("OTHERS")
+                    Text("Others")
                         .font(.wixMadeFont(.bold, fontSize: .heading))
-                        .foregroundColor(.gray)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding()
-                        .padding(.top, 50)
                     
                     Group {
 //                        Label("Share app", systemImage: "square.and.arrow.up.fill")
