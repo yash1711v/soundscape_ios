@@ -16,7 +16,7 @@ struct MusicListView: View {
         ZStack {
             ScrollView(.vertical, showsIndicators: false) {
                 Section {
-                    HStack(spacing: 130) {
+                    HStack(spacing: 100) {
                         Button {
                             // Create episode list
                             var episodeListNew: [Episode] = []
