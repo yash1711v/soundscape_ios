@@ -24,7 +24,7 @@ struct NicknameView: View {
         } else {
             VStack {
                 Spacer()
-                Text("HOW ABOUT A NAME?")
+                Text("HOW ABOUT A NICKNAME?")
                     .font(.wixMadeFont(.bold, fontSize: .heading))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()
@@ -78,7 +78,7 @@ struct NicknameView: View {
 
 extension NicknameView: AuthenticationFormProtocol {
     var formIsValid: Bool {
-        if nickname.isEmpty || nickname.count > 8 {
+        if nickname.isEmpty || nickname.count > 12 {
             return false
         } else {
             return true
