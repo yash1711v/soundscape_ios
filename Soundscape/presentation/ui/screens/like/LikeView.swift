@@ -68,8 +68,8 @@ struct LikeView: View {
                                 )
                         }
                     }
-                    .padding(.horizontal, 40)
                     .padding()
+                    .padding(.horizontal, 45)
                     
                     LazyVStack {
                         ForEach(viewModel.audioFetchList.indices, id: \.self) { index in
