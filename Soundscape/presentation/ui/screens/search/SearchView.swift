@@ -83,7 +83,9 @@ struct SearchView: View {
                                 let episode = Episode(name: "",
                                                       songName: selectedAudioFetch.name,
                                                       imageName: selectedAudioFetch.type == "Story Time" ? "searchStoryBg" : "searchSongBg",
-                                                      songPath: selectedAudioFetch.assetPath)
+                                                      songPath: selectedAudioFetch.assetPath,
+                                                      audioFetchId: selectedAudioFetch.id,
+                                                      songType: selectedAudioFetch.type)
                                 
                                 // Create episode list
                                 var episodeListNew: [Episode] = []
@@ -91,7 +93,9 @@ struct SearchView: View {
                                     let episode = Episode(name: "",
                                                           songName: audioFetch.name,
                                                           imageName: selectedAudioFetch.type == "Story Time" ? "searchStoryBg" : "searchSongBg",
-                                                          songPath: audioFetch.assetPath)
+                                                          songPath: audioFetch.assetPath,
+                                                          audioFetchId: audioFetch.id,
+                                                          songType: audioFetch.type)
                                     episodeListNew.append(episode)
                                 }
                                 appViewModel.episodeList = episodeListNew
