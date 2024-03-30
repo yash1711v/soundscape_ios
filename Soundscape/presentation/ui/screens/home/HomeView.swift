@@ -16,15 +16,12 @@ struct HomeView: View {
         NavigationView {
             ZStack {
                 VStack {
-                    Group {
-                        var userName = appViewModel.userName ?? "Guest"
-                        
-                        Text("Hey, \(userName)!")
-                            .font(.wixMadeFont(.regular, fontSize: .subTitle))
-                       
-                        Text("Listen. Focus. Unwind.")
-                            .font(.wixMadeFont(.bold, fontSize: .heading))
-                    }
+                    Text("Hey, \(appViewModel.userName ?? "Guest")!")
+                        .font(.wixMadeFont(.regular, fontSize: .subTitle))
+                        .padding(5)
+                    
+                    Text("Listen. Focus. Unwind.")
+                        .font(.wixMadeFont(.bold, fontSize: .heading))
                     
                     ScrollView(.vertical, showsIndicators: false) {
                         
