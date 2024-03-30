@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PlaylistListView: View {
+    @EnvironmentObject var appViewModel: AppViewModel
     @State private var textSearch = ""
     let columns: [GridItem] = [GridItem(.flexible()),
                                GridItem(.flexible())]
@@ -35,6 +36,7 @@ struct PlaylistListView: View {
                     }
                 }
                 .padding()
+                .padding(.bottom, appViewModel.showBottomPlayer ? 60 : 0)
             }
         }
         .background(
