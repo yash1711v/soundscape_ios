@@ -47,6 +47,11 @@ struct SignupView: View {
                 Button {
                     Task {
                         try await appViewModel.signInApple()
+                        guard let appleMail = appViewModel.userSession?.email else {
+                            return
+                        }
+                        email = appleMail
+                        openNicknameView = true
                     }
                 } label: {
                     SignInWithAppleButton(type: .default, style: .white)
