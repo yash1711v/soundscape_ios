@@ -9,7 +9,7 @@ import SwiftUI
 
 struct homePlaylistCardView: View {
     var playlist: Playlist
-    @State var showDescription: Bool
+    @State var showDescription: Bool = false
     @State private var currentIndex = 0
     
     init(playlist: Playlist) {

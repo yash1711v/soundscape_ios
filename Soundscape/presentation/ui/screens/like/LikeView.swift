@@ -16,6 +16,8 @@ struct LikeView: View {
         NavigationView {
             ZStack {
                 ScrollView(.vertical, showsIndicators: false) {
+                    
+                    
                     Text(viewModel.isSongSelected ? "Your Daily Zen" : "Your Sleep Stories")
                         .font(.wixMadeFont(.bold, fontSize: .subHeading))
                         .frame(maxWidth: .infinity, alignment: .leading)

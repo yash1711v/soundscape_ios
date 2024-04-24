@@ -24,12 +24,14 @@ struct MusicPlayerView: View {
                 .opacity(appViewModel.expand ? 1 : 0)
                 .padding(.top, appViewModel.expand ? 10 : 0)
                 .padding(.vertical, appViewModel.expand ? 10 : 0)
+            
             if appViewModel.expand {
                 Text(appViewModel.musicPlayerTitle)
                     .font(.wixMadeFont(.regular, fontSize: .title))
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()
             }
+            
             HStack {
                 if (appViewModel.episode.songType == "Sad"
                     || appViewModel.episode.songType == "Romantic"
@@ -335,7 +337,12 @@ struct MusicPlayerView: View {
                     
                     // MARK: Next button
                     Button {
+                        if appViewModel.isRepeatSingle{
+                            appViewModel.isRepeatSingle=false
+                            isRepeatOn = true
+                        }
                         appViewModel.playNextSound()
+                    
                     } label: {
                         HStack(spacing: 0) {
                             Image(systemName: "arrowtriangle.forward.fill")
