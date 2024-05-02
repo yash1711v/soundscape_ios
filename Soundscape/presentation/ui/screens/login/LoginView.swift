@@ -20,7 +20,7 @@ struct LoginView: View {
                 SoundscapeTabView()
                     .navigationBarHidden(true)
             } else {
-                var email = Auth.auth().currentUser?.email ?? ""
+                let email = Auth.auth().currentUser?.email ?? ""
                 NicknameView(email: email)
             }
         } else {

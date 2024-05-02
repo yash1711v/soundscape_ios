@@ -336,6 +336,8 @@ final class AppViewModel: ObservableObject {
                         self.setupNowPlaying()
                         
                         if abs(self.currentTime - self.totalTime) < 0.1 && !self.episodeList.isEmpty && self.currentIndex != (self.episodeList.count - 1) && !self.isRepeatSingle {
+                            
+                            print("hello")
                             self.playNextSound()
                         }
                         
@@ -385,6 +387,7 @@ final class AppViewModel: ObservableObject {
         
         // Update the episode and play the sound
         episode = nextEpisode
+        print("heloo")
         playSound(sound: episode.songPath)
     }
     
@@ -507,9 +510,8 @@ final class AppViewModel: ObservableObject {
             
             // Hide loader
             isLoading = false
-        } catch {
-            print("\(error.localizedDescription)")
-        }
+        } 
+      
     }
     
     func playEffect1() {
@@ -572,12 +574,20 @@ final class AppViewModel: ObservableObject {
     
     func secondsForTimer(_ timerDuration: String) -> Int {
         switch timerDuration {
-        case "60 Min": return 60 * 60
-        case "50 Min": return 50 * 60
-        case "40 Min": return 40 * 60
-        case "30 Min": return 30 * 60
-        case "20 Min": return 20 * 60
-        case "10 Min": return 10 * 60
+            
+        case "6 Min": return 6 * 60
+        case "5 Min": return 5 * 60
+        case "4 Min": return 4 * 60
+        case "3 Min": return 3 * 60
+        case "2 Min": return 2 * 60
+        case "1 Min": return 60
+            
+//        case "60 Min": return 60 * 60
+//        case "50 Min": return 50 * 60
+//        case "40 Min": return 40 * 60
+//        case "30 Min": return 30 * 60
+//        case "20 Min": return 20 * 60
+//        case "10 Min": return 10 * 60
         default: return 0
         }
     }
@@ -712,7 +722,7 @@ final class AppViewModel: ObservableObject {
     
     func forgotPassword(withEmail email: String) async throws {
         do {
-            let resultBool = try await forgotUseCase.execute(withEmail: email)
+            _ = try await forgotUseCase.execute(withEmail: email)
         } catch {
             if let urlError = error as? URLError, urlError.code == .notConnectedToInternet {
                 alertItem = AlertContext.noInternetConnection

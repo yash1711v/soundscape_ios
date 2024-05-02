@@ -49,6 +49,7 @@ struct StoryCardEpView: View {
                 .frame(width: width, height: 180)
         )
         .cornerRadius(10)
+        .padding()
     }
 }
 

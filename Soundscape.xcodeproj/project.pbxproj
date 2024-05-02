@@ -81,6 +81,11 @@
 		84D8198C2BA86740002A937C /* SongFirebaseDataSourceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8198B2BA86740002A937C /* SongFirebaseDataSourceImpl.swift */; };
 		84F0B4B82BB8369700F1431D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84F0B4B72BB8369700F1431D /* GoogleService-Info.plist */; };
 		84F0B4BA2BB8393A00F1431D /* SignInAppleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F0B4B92BB8393A00F1431D /* SignInAppleHelper.swift */; };
+		AE75BDA72BE11FA30087505B /* cardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE75BDA62BE11FA30087505B /* cardModel.swift */; };
+		AE75BDAE2BE120180087505B /* StackCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE75BDAD2BE120180087505B /* StackCardView.swift */; };
+		AE75BDB12BE122C70087505B /* StackCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE75BDB02BE122C70087505B /* StackCardViewModel.swift */; };
+		AEB046AE2BE38C9F00560405 /* gridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB046AD2BE38C9F00560405 /* gridView.swift */; };
+		AEB046B02BE38D4800560405 /* StorySoundItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB046AF2BE38D4800560405 /* StorySoundItems.swift */; };
 		B20AE4472BAC5B2A00864C21 /* DeleteDatabaseUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20AE4462BAC5B2A00864C21 /* DeleteDatabaseUseCase.swift */; };
 		B20AE4492BAC726200864C21 /* GetAllSongFetchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20AE4482BAC726200864C21 /* GetAllSongFetchUseCase.swift */; };
 		B2157D092BAD6E5C00EFF86E /* SoundEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2157D082BAD6E5C00EFF86E /* SoundEffectView.swift */; };
@@ -205,6 +210,11 @@
 		84F0B4B72BB8369700F1431D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84F0B4B92BB8393A00F1431D /* SignInAppleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAppleHelper.swift; sourceTree = "<group>"; };
 		84F0B4BB2BB8404000F1431D /* Soundscape.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Soundscape.entitlements; sourceTree = "<group>"; };
+		AE75BDA62BE11FA30087505B /* cardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = cardModel.swift; path = ../../../../../../../../../stackedCards/stackedCards/cardModel.swift; sourceTree = "<group>"; };
+		AE75BDAD2BE120180087505B /* StackCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCardView.swift; sourceTree = "<group>"; };
+		AE75BDB02BE122C70087505B /* StackCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackCardViewModel.swift; sourceTree = "<group>"; };
+		AEB046AD2BE38C9F00560405 /* gridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gridView.swift; sourceTree = "<group>"; };
+		AEB046AF2BE38D4800560405 /* StorySoundItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorySoundItems.swift; sourceTree = "<group>"; };
 		B20AE4462BAC5B2A00864C21 /* DeleteDatabaseUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteDatabaseUseCase.swift; sourceTree = "<group>"; };
 		B20AE4482BAC726200864C21 /* GetAllSongFetchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllSongFetchUseCase.swift; sourceTree = "<group>"; };
 		B2157D082BAD6E5C00EFF86E /* SoundEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffectView.swift; sourceTree = "<group>"; };
@@ -672,6 +682,32 @@
 			path = firebaseAuth;
 			sourceTree = "<group>";
 		};
+		AE75BDA42BE11F660087505B /* StackedCards */ = {
+			isa = PBXGroup;
+			children = (
+				AE75BDAC2BE11FED0087505B /* View */,
+				AE75BDA52BE11F770087505B /* StackeCardModel */,
+			);
+			path = StackedCards;
+			sourceTree = "<group>";
+		};
+		AE75BDA52BE11F770087505B /* StackeCardModel */ = {
+			isa = PBXGroup;
+			children = (
+				AE75BDA62BE11FA30087505B /* cardModel.swift */,
+			);
+			path = StackeCardModel;
+			sourceTree = "<group>";
+		};
+		AE75BDAC2BE11FED0087505B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AE75BDAD2BE120180087505B /* StackCardView.swift */,
+				AE75BDB02BE122C70087505B /* StackCardViewModel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B228ADE12BA2CAF6006468E5 /* song */ = {
 			isa = PBXGroup;
 			children = (
@@ -780,9 +816,12 @@
 		B2D371C32B97007A0072048E /* views */ = {
 			isa = PBXGroup;
 			children = (
+				AE75BDA42BE11F660087505B /* StackedCards */,
 				B2D371C42B9700F20072048E /* MiniStoryCardView.swift */,
 				B2D371C92B9705370072048E /* StoryCardEpView.swift */,
 				B2D371CD2B97263C0072048E /* EpisodeListView.swift */,
+				AEB046AD2BE38C9F00560405 /* gridView.swift */,
+				AEB046AF2BE38D4800560405 /* StorySoundItems.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -938,6 +977,7 @@
 				B2D371CA2B9705370072048E /* StoryCardEpView.swift in Sources */,
 				B28FE1682B907A5C009FB75D /* StorySoundCardView.swift in Sources */,
 				B2D371C72B9703580072048E /* MainStorySound.swift in Sources */,
+				AEB046AE2BE38C9F00560405 /* gridView.swift in Sources */,
 				84D8198C2BA86740002A937C /* SongFirebaseDataSourceImpl.swift in Sources */,
 				B27F47DE2BAC16A000EFE592 /* StoryRepository.swift in Sources */,
 				8453C1942BAB10D7003566D2 /* AuthenticationFormProtocol.swift in Sources */,
@@ -957,6 +997,7 @@
 				84D819822BA828DA002A937C /* SaveUserUseCase.swift in Sources */,
 				84D819752BA822A7002A937C /* FirebaseAuthRepositoryImpl.swift in Sources */,
 				B252D5B62B92023C00F55DD8 /* MusicListView.swift in Sources */,
+				AE75BDB12BE122C70087505B /* StackCardViewModel.swift in Sources */,
 				B27F47DA2BAC161500EFE592 /* StoryFirebaseDataSourceImpl.swift in Sources */,
 				84D819702BA81F01002A937C /* FirebaseAuthRemoteDataSourceImpl.swift in Sources */,
 				8453C1992BAB1871003566D2 /* LottieView.swift in Sources */,
@@ -973,9 +1014,11 @@
 				8402A2B32B8F245000A836CD /* LikeView.swift in Sources */,
 				B27F47D02BAC142400EFE592 /* StoryDao.swift in Sources */,
 				B27F47D82BAC15F300EFE592 /* StoryLocalDataSourceImpl.swift in Sources */,
+				AE75BDA72BE11FA30087505B /* cardModel.swift in Sources */,
 				B2AF24EF2BA2E8B6004751AD /* Soundscape.xcdatamodeld in Sources */,
 				B2E38B212B930CC3000AAB15 /* MusicListItemView.swift in Sources */,
 				B27F47E82BAC192100EFE592 /* DeleteStoryUseCase.swift in Sources */,
+				AE75BDAE2BE120180087505B /* StackCardView.swift in Sources */,
 				B27C36082BB2D8F200CA3996 /* halfSheetExtension.swift in Sources */,
 				8463825E2BB7D017005AC745 /* InterruptionManager.swift in Sources */,
 				8465503E2B95EE64008E6176 /* NicknameView.swift in Sources */,
@@ -995,6 +1038,7 @@
 				8455A0A92BA16B54006E8BA1 /* AppViewModel.swift in Sources */,
 				84D819802BA828C5002A937C /* SignOutUseCase.swift in Sources */,
 				842020952B9EE1810034B065 /* RoundedCorner.swift in Sources */,
+				AEB046B02BE38D4800560405 /* StorySoundItems.swift in Sources */,
 				8455A0CC2BA1A0E3006E8BA1 /* SongRemoteDataSource.swift in Sources */,
 				B228ADE92BA2CB65006468E5 /* UpdateSongUseCase.swift in Sources */,
 				B2D371C52B9700F20072048E /* MiniStoryCardView.swift in Sources */,
@@ -1166,7 +1210,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Soundscape/Preview Content\"";
-				DEVELOPMENT_TEAM = B97AZH836R;
+				DEVELOPMENT_TEAM = 26DY8957GR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Soundscape/Info.plist;
@@ -1182,7 +1226,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sound.scape;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sound.scape8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1206,7 +1250,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Soundscape/Preview Content\"";
-				DEVELOPMENT_TEAM = B97AZH836R;
+				DEVELOPMENT_TEAM = 26DY8957GR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Soundscape/Info.plist;
@@ -1222,7 +1266,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.sound.scape;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sound.scape8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

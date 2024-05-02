@@ -30,7 +30,7 @@ struct MusicListView: View {
                                 episodeListNew.append(episode)
                             }
                             appViewModel.episodeList = episodeListNew
-                            appViewModel.episode = episodeListNew.first ?? EpisodeData.sampleEpisodeData
+                            appViewModel.episode = episodeListNew.last ?? EpisodeData.sampleEpisodeData
                             appViewModel.currentIndex = 0
                             appViewModel.musicPlayerTitle = episodeListNew.first?.songType ?? EpisodeData.sampleEpisodeData.songType
                             appViewModel.showBottomPlayer = true
@@ -57,43 +57,22 @@ struct MusicListView: View {
                         
                         Button {
                             // Create episode list
-                            if(appViewModel.isShuffle)
-                            {
-                                var episodeListNew: [Episode] = []
-                                for audioFetch in appViewModel.audioFetchList {
-                                    let episode = Episode(name: "",
-                                                          songName: audioFetch.name,
-                                                          imageName: imageName,
-                                                          songPath: audioFetch.assetPath,
-                                                          audioFetchId: audioFetch.id,
-                                                          songType: audioFetch.type)
-                                    episodeListNew.append(episode)
-                                }
-                                appViewModel.episodeList = episodeListNew.shuffled()
-                                appViewModel.episode = appViewModel.episodeList.first ?? EpisodeData.sampleEpisodeData
-                                appViewModel.musicPlayerTitle = name
-                                appViewModel.showBottomPlayer = true
-                                appViewModel.currentIndex = 0
-                                appViewModel.playSound(sound: appViewModel.episode.songPath)
-                            }else{
-                                var episodeListNew: [Episode] = []
-                                for audioFetch in appViewModel.audioFetchList {
-                                    let episode = Episode(name: "",
-                                                          songName: audioFetch.name,
-                                                          imageName: imageName,
-                                                          songPath: audioFetch.assetPath,
-                                                          audioFetchId: audioFetch.id,
-                                                          songType: audioFetch.type)
-                                    episodeListNew.append(episode)
-                                }
-                                appViewModel.episodeList = episodeListNew
-                                appViewModel.episode = episodeListNew.first ?? EpisodeData.sampleEpisodeData
-                                appViewModel.currentIndex = 0
-                                appViewModel.musicPlayerTitle = episodeListNew.first?.songType ?? EpisodeData.sampleEpisodeData.songType
-                                appViewModel.showBottomPlayer = true
-                                appViewModel.playSound(sound: appViewModel.episode.songPath)
+                            var episodeListNew: [Episode] = []
+                            for audioFetch in appViewModel.audioFetchList {
+                                let episode = Episode(name: "",
+                                                      songName: audioFetch.name,
+                                                      imageName: imageName,
+                                                      songPath: audioFetch.assetPath,
+                                                      audioFetchId: audioFetch.id,
+                                                      songType: audioFetch.type)
+                                episodeListNew.append(episode)
                             }
-                            
+                            appViewModel.episodeList = episodeListNew.shuffled()
+                            appViewModel.episode = appViewModel.episodeList.first ?? EpisodeData.sampleEpisodeData
+                            appViewModel.musicPlayerTitle = name
+                            appViewModel.showBottomPlayer = true
+                            appViewModel.currentIndex = 0
+                            appViewModel.playSound(sound: appViewModel.episode.songPath)
                             appViewModel.isShuffle.toggle()
                         } label: {
                             Label("Shuffle", systemImage: "shuffle")

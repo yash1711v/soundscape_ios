@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct StackCardViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+class StackCardViewModel: ObservableObject{
+    @Published var cards: [Card] = []
+       
+       // Function to add a new card
+       func addCard(with mainStorySound: MainStorySound) {
 
-#Preview {
-    StackCardViewModel()
+           let newCard = Card(mainStorySound: mainStorySound)
+           cards.append(newCard)
+       }
+    
 }

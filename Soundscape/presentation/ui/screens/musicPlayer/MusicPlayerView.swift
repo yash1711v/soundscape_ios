@@ -469,7 +469,8 @@ struct SongBottomOptionView: View {
     @Binding var isShowEffectView: Bool
     @State var isShowTimerSheet = false
     
-    let timerOptions = ["60 Min", "50 Min", "40 Min", "30 Min", "20 Min", "10 Min", "Off Timer"]
+    let timerOptions = ["6 Min", "5 Min", "4 Min", "3 Min", "2 Min", "1 Min", "Off Timer"]
+    //["60 Min", "50 Min", "40 Min", "30 Min", "20 Min", "10 Min", "Off Timer"]
     
     var body: some View {
         HStack(alignment: .bottom) {

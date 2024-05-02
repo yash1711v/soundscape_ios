@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct StoryView: View {
+    @StateObject var homeModel = StackCardViewModel()
+
+    
+    
+   
+    
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
@@ -16,164 +22,53 @@ struct StoryView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()
                 
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(MainStorySoundData.miniStoryList) { mainStorySound in
-                            NavigationLink(destination: StoryDetailView(mainStorySound: mainStorySound)) {
-                                MiniStoryCardView(mainStorySound: mainStorySound)
-                            }
-                            .foregroundColor(.white)
-                            
-                        }
-                    }
-                    .padding(.horizontal)
-                }
                 
+                StackCardView()
+                    .environmentObject(homeModel)
+                
+                //Aman's Ui Code
+//                ScrollView(.horizontal, showsIndicators: false) {
+//                    HStack {
+//                        ForEach(MainStorySoundData.miniStoryList) { mainStorySound in
+//                            NavigationLink(destination: StoryDetailView(mainStorySound: mainStorySound)) {
+//                                MiniStoryCardView(mainStorySound: mainStorySound)
+//                            }
+//                            .foregroundColor(.white)
+//                             
+//                        }
+//                    }
+//                    .padding(.horizontal)
+//                }
+                
+                 
                 HStack {
-                    Text("Mystery Tales")
+                    Text("Categories")
                         .font(.wixMadeFont(.regular, fontSize: .title))
                     Spacer()
-                    NavigationLink(destination: StoryListView(title: "Mystery Tales", mainStorySound: MainStorySoundData.mysteryTalesList)) {
-                        
-                        Text("View More >")
-                            .font(.wixMadeFont(.regular, fontSize: .subTitle))
-                            .foregroundColor(.white)
-                    }
+                   
                 }
                 .padding()
                 
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(MainStorySoundData.mysteryTalesList) { mainStorySound in
-                            NavigationLink(destination: StoryDetailView(mainStorySound: mainStorySound)) {
-                                StoryCardEpView(mainStorySound: mainStorySound)
-                            }
-                            .foregroundColor(.white)
-                        }
-                    }
-                    .padding(.horizontal)
-                }
+                //Grid for Categories
+                gridView()
                 
-                HStack {
-                    Text("Inspirtional Stories")
-                        .font(.wixMadeFont(.regular, fontSize: .title))
-                    Spacer()
-                    NavigationLink(destination: StoryListView(title: "Inspirtional Stories", mainStorySound: MainStorySoundData.inspirationalStoriesList)) {
-                        Text("View More >")
-                            .font(.wixMadeFont(.regular, fontSize: .subTitle))
-                            .foregroundColor(.white)
-                    }
-                }
-                .padding()
                 
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(MainStorySoundData.inspirationalStoriesList) { mainStorySound in
-                            NavigationLink(destination: StoryDetailView(mainStorySound: mainStorySound)) {
-                                StoryCardEpView(mainStorySound: mainStorySound)
-                            }
-                            .foregroundColor(.white)
-                        }
-                    }
-                    .padding(.horizontal)
-                }
                 
-                HStack {
-                    Text("Historical Journeys")
-                        .font(.wixMadeFont(.regular, fontSize: .title))
-                    Spacer()
-                    NavigationLink(destination: StoryListView(title: "Historical Journeys", mainStorySound: MainStorySoundData.historicalJourneyList)) {
-                        Text("View More >")
-                            .font(.wixMadeFont(.regular, fontSize: .subTitle))
-                            .foregroundColor(.white)
-                    }
-                }
-                .padding()
                 
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(MainStorySoundData.historicalJourneyList) { mainStorySound in
-                            NavigationLink(destination: StoryDetailView(mainStorySound: mainStorySound)) {
-                                StoryCardEpView(mainStorySound: mainStorySound)
-                            }
-                            .foregroundColor(.white)
-                        }
-                    }
-                    .padding(.horizontal)
-                }
+
+//                ScrollView(.horizontal, showsIndicators: false) {
+//                    HStack {
+//                        ForEach(MainStorySoundData.mysteryTalesList) { mainStorySound in
+//                            NavigationLink(destination: StoryDetailView(mainStorySound: mainStorySound)) {
+//                                StoryCardEpView(mainStorySound: mainStorySound)
+//                            }
+//                            .foregroundColor(.white)
+//                        }
+//                    }
+//                    .padding(.horizontal)
+//                }
                 
-                HStack {
-                    Text("Fantasy Realms")
-                        .font(.wixMadeFont(.regular, fontSize: .title))
-                    Spacer()
-                    NavigationLink(destination: StoryListView(title: "Fantasy Realms", mainStorySound: MainStorySoundData.fantasyRealmsList)) {
-                        Text("View More >")
-                            .font(.wixMadeFont(.regular, fontSize: .subTitle))
-                            .foregroundColor(.white)
-                    }
-                }
-                .padding()
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(MainStorySoundData.fantasyRealmsList) { mainStorySound in
-                            NavigationLink(destination: StoryDetailView(mainStorySound: mainStorySound)) {
-                                StoryCardEpView(mainStorySound: mainStorySound)
-                            }
-                            .foregroundColor(.white)
-                        }
-                    }
-                    .padding(.horizontal)
-                }
-                
-                HStack {
-                    Text("Adventure Stories")
-                        .font(.wixMadeFont(.regular, fontSize: .title))
-                    Spacer()
-                    NavigationLink(destination: StoryListView(title: "Adventure Stories", mainStorySound: MainStorySoundData.adventureStoriesList)) {
-                        Text("View More >")
-                            .font(.wixMadeFont(.regular, fontSize: .subTitle))
-                            .foregroundColor(.white)
-                    }
-                }
-                .padding()
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(MainStorySoundData.adventureStoriesList) { mainStorySound in
-                            NavigationLink(destination: StoryDetailView(mainStorySound: mainStorySound)) {
-                                StoryCardEpView(mainStorySound: mainStorySound)
-                            }
-                            .foregroundColor(.white)
-                        }
-                    }
-                    .padding(.horizontal)
-                }
-                
-                HStack {
-                    Text("Action Stories")
-                        .font(.wixMadeFont(.regular, fontSize: .title))
-                    Spacer()
-                    NavigationLink(destination: StoryListView(title: "Action Stories", mainStorySound: MainStorySoundData.actionStoriesList)) {
-                        Text("View More >")
-                            .font(.wixMadeFont(.regular, fontSize: .subTitle))
-                            .foregroundColor(.white)
-                    }
-                }
-                .padding()
-                
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        ForEach(MainStorySoundData.actionStoriesList) { mainStorySound in
-                            NavigationLink(destination: StoryDetailView(mainStorySound: mainStorySound)) {
-                                StoryCardEpView(mainStorySound: mainStorySound)
-                            }
-                            .foregroundColor(.white)
-                        }
-                    }
-                    .padding(.horizontal)
-                }
-                .padding(.bottom, 80)
+            
                 
             }
             .background(
@@ -188,6 +83,25 @@ struct StoryView: View {
     }
 }
 
-#Preview {
-    StoryView()
+
+
+struct Item {
+    var id: Int
+    var name: String
+    var image:String
 }
+
+let items = [
+    Item(id: 1, name: "Mystery Tales",image: "Mysterytales" ),
+    Item(id: 2, name: "Inspirational Stories",image: "InspirationalStory"),
+    Item(id: 3, name: "Historical Journeys",image: "HistoricalJourney"),
+    Item(id: 4, name: "Fantasy Realms",image: "FantasyRealms"),
+    Item(id: 5, name: "Adventure Stories",image: "AdventureStories"),
+    Item(id: 6, name: "Action Stories",image: "ActionStories"),
+    // Add more items...
+]
+    
+    #Preview {
+        StoryView()
+    }
+
