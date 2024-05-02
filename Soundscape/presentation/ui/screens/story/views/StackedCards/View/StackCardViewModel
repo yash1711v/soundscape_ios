@@ -1,0 +1,20 @@
+//
+//  CarouselViewModel.swift
+//  stackedCards
+//
+//  Created by YASH VERMA on 30/04/24.
+//
+
+import SwiftUI
+
+class StackCardViewModel: ObservableObject{
+    @Published var cards = [
+        Card(cardColor: Color.blue,title:"Hello1"),
+        Card(cardColor: Color.purple,title:"Hello2"),
+        Card(cardColor: Color.green,title:"Hello3"),
+        Card(cardColor: Color.yellow,title:"Hello4"),
+        Card(cardColor: Color.orange,title:"Hello5")
+    
+    ]
+    
+}
