@@ -41,7 +41,7 @@ struct StoryDetailView: View {
                             EpisodeListView(episode: episode)
                                 .onTapGesture {
                                     viewModel.episodeList = mainStorySound.episodeList
-                                    withAnimation(.spring) {
+                                    withAnimation(.bouncy) {
                                         viewModel.episode = episode
                                         viewModel.showBottomPlayer = true
                                         viewModel.isShuffle = false

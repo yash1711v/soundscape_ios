@@ -39,6 +39,7 @@ final class AppViewModel: ObservableObject {
     // MARK: Timer variables
     @Published var remainingSeconds = 0
     @Published var timerDuration = ""
+    @Published var PlayBackSpeed : Float = 1.0
     private var timer: Timer?
     
     // MARK: Db and api variables
@@ -570,6 +571,11 @@ final class AppViewModel: ObservableObject {
                 }
             }
         }
+    }
+     func PlayBackSpeedSetted() {
+        // Cancel the previous timer if it exists
+         print("sjcckdomdoc---> " + String(PlayBackSpeed))
+         self.audioPlayer?.rate=PlayBackSpeed
     }
     
     func secondsForTimer(_ timerDuration: String) -> Int {

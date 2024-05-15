@@ -15,6 +15,7 @@ struct MusicPlayerView: View {
     @State var isShowEffectView = false
     @State private var isRotating = false
     @State var isRepeatOn = false
+    @State var PlayBackSpeed = 1.0
     
     var body: some View {
         VStack {
@@ -161,7 +162,8 @@ struct MusicPlayerView: View {
                                             type: appViewModel.episode.songType,
                                             isLiked: true))
                                     appViewModel.likedSongs[appViewModel.episode.audioFetchId!] = false
-                                } else {
+                                }
+                                else {
                                     await appViewModel.saveSong(
                                         audioFetch: AudioFetch(
                                             id: appViewModel.episode.audioFetchId!,
@@ -291,15 +293,31 @@ struct MusicPlayerView: View {
                 .padding(.bottom, 30)
                 
                 HStack (spacing: 40) {
-                    Button {
-                        appViewModel.isShuffle.toggle()
-                        appViewModel.episodeList.shuffle()
-                    } label: {
-                        Image(systemName: "shuffle")
-                            .imageScale(.large)
-                            .frame(width: 44, height: 44)
+                    if appViewModel.musicPlayerTitle != "Story Time" {
+                        Button {
+                            appViewModel.isShuffle.toggle()
+                            appViewModel.episodeList.shuffle()
+                        } label: {
+                            Image(systemName: "shuffle")
+                                .imageScale(.large)
+                                .frame(width: 44, height: 44)
+                        }
+                        .foregroundColor(appViewModel.isShuffle ? .white: .gray)
+                    }else{
+                        Button {
+                            if PlayBackSpeed == 2.0 {
+                                PlayBackSpeed = 1.0
+                                appViewModel.audioPlayer?.rate = Float(PlayBackSpeed)
+                            }else{
+                                PlayBackSpeed = PlayBackSpeed + 0.25
+                                
+                                appViewModel.audioPlayer?.rate = Float(PlayBackSpeed)
+                            }
+                        } label: {
+                           Text(String(PlayBackSpeed)+"x")
+                        }
+                        .foregroundColor(.white)
                     }
-                    .foregroundColor(appViewModel.isShuffle ? .white: .gray)
                     
                     // MARK: Previous button
                     Button {
@@ -343,7 +361,8 @@ struct MusicPlayerView: View {
                         }
                         appViewModel.playNextSound()
                     
-                    } label: {
+                    } 
+                label: {
                         HStack(spacing: 0) {
                             Image(systemName: "arrowtriangle.forward.fill")
                                 .resizable()
@@ -356,23 +375,37 @@ struct MusicPlayerView: View {
                     }
                     .foregroundColor(.white)
                 
-                    Button {
-                        if !isRepeatOn {
-                            isRepeatOn = true
-                        } else if !appViewModel.isRepeatSingle {
-                            // If repeat is on and currently in single repeat mode, toggle to continuous repeat mode
-                            appViewModel.isRepeatSingle = true
-                        } else {
-                            // If repeat is on and currently in single repeat mode, turn off repeat
-                            isRepeatOn = false
-                            appViewModel.isRepeatSingle = false
+                   if appViewModel.musicPlayerTitle != "Story Time" {
+                        Button {
+                            if !isRepeatOn {
+                                isRepeatOn = true
+                            } else if !appViewModel.isRepeatSingle {
+                                // If repeat is on and currently in single repeat mode, toggle to continuous repeat mode
+                                appViewModel.isRepeatSingle = true
+                            } else {
+                                // If repeat is on and currently in single repeat mode, turn off repeat
+                                isRepeatOn = false
+                                appViewModel.isRepeatSingle = false
+                            }
                         }
-                    } label: {
-                        Image(systemName: appViewModel.isRepeatSingle ? "repeat.1" : "repeat")
-                            .imageScale(.large)
-                            .frame(width: 44, height: 44)
-                    }
-                    .foregroundColor(isRepeatOn ? .white : .gray)
+                    label: {
+                            Image(systemName: appViewModel.isRepeatSingle ? "repeat.1" : "repeat")
+                                .imageScale(.large)
+                                .frame(width: 44, height: 44)
+                        }
+                        .foregroundColor(isRepeatOn ? .white : .gray)
+                   }else{
+                       Button {
+                       task:do {
+                           isShowEffectView = true
+                         }
+                       }
+                   label: {
+                           Image("EffectsIcon")
+                               .imageScale(.large)
+                               .frame(width: 44, height: 44)
+                       }
+                   }
                 }
                 
                 // MARK: Set bottom screen for song and story
@@ -380,16 +413,25 @@ struct MusicPlayerView: View {
                     SongBottomOptionView(isShowEffectView: $isShowEffectView)
                         .padding(.horizontal)
                 } else {
-                    Button {
-                        withAnimation(.easeInOut) {
-                            isShowEffectView = true
-                        }
-                    } label: {
-                        Label("Add Effects", systemImage: "plus")
-                    }
-                    .foregroundColor(.white)
-                    .modifier(OutlineBigButtonStyle())
-                    .padding(60)
+                    
+//                    Button("1x") { appViewModel.audioPlayer?.rate=1.0 }
+//                    Button("2x") { appViewModel.audioPlayer?.rate=2.0 }
+//                    Button("3x") { appViewModel.audioPlayer?.rate=3.0 }
+//                    Button("4x") { appViewModel.audioPlayer?.rate=4.0 }
+//                    Button {
+//                        withAnimation(.easeInOut) {
+//                            isShowEffectView = true
+//                        }
+//                    } label: {
+//                        Label("Add Effects", systemImage: "plus")
+//                    }
+//                    .foregroundColor(.white)
+//                    .modifier(OutlineBigButtonStyle())
+//                    .padding(60)
+                    
+                    
+//                    SongBottomOptionViewForStory( isShowEffectView: $isShowEffectView)
+                    
                 }
             }
             .sheet(isPresented: $isShowEffectView, content: {
@@ -532,6 +574,86 @@ struct SongBottomOptionView: View {
         .padding()
     }
 }
+
+
+
+struct SongBottomOptionViewForStory: View {
+    @EnvironmentObject var appViewModel: AppViewModel
+    @Binding var isShowEffectView: Bool
+    @State var isShowTimerPlayBackSheet = false
+    @State private var selectedColor = "1x" // Default selection
+
+    let PlayBackOptions = ["1x", "2x", "3x", "4x"]
+   
+    
+    var body: some View {
+        HStack(alignment: .bottom) {
+            Label("", systemImage: "bolt.badge.clock")
+                .font(.wixMadeFont(.regular, fontSize: .subTitle))
+                .foregroundColor(.gray)
+                .background(
+                    RoundedRectangle(cornerRadius: 20)
+                        .stroke(Color.brandPurpleDark,lineWidth: 1)
+                        .frame(width: 75, height: 30)
+                ).padding(.leading,15)
+                .onTapGesture {
+                    isShowTimerPlayBackSheet = true
+                }
+        
+                .halfSheet(showSheet: $isShowTimerPlayBackSheet, sheeView: {
+                    VStack {
+                        Text("Set PlayBack Speed")
+                            .font(.wixMadeFont(.bold, fontSize: .title))
+                    
+                        Divider()
+                        
+                        Picker(selection: $selectedColor, label: EmptyView()) {
+                            ForEach(PlayBackOptions, id: \.self) { option in
+                                Text(option).tag(option).onTapGesture(count:1,perform: {
+                                    colorDidChange(to: option)
+                                })
+                            }
+                        }
+                       
+                        .frame(height: 300)
+                        .pickerStyle(WheelPickerStyle())
+                        .onChange(of: selectedColor) { newValue in
+                                       colorDidChange(to: newValue)
+                                   }                    }
+                })
+            
+            Spacer()
+            
+            Button {
+                withAnimation(.easeInOut) {
+                    isShowEffectView = true
+                }
+            } label: {
+                Label("Add Effects", systemImage: "plus")
+                    .font(.wixMadeFont(.regular, fontSize: .subTitle))
+                    .foregroundColor(.gray)
+                    .background(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.brandPurpleDark,lineWidth: 1)
+                            .frame(width: 130, height: 30)
+                    )
+            }
+            .foregroundColor(.white)
+            
+        }
+        .padding(.top, 30)
+        .padding()
+    }
+    
+    // Define a function to be called when selectedColor changes
+    func colorDidChange(to newColor: String) {
+        print("Selected color changed to: \(newColor)")
+        // Additional actions can be performed here
+    }
+}
+
+
+
 
 func timeString(_ seconds: Int) -> String {
     let minutes = (seconds % 3600) / 60

@@ -12,8 +12,6 @@ struct StoryView: View {
 
     
     
-   
-    
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
@@ -54,7 +52,8 @@ struct StoryView: View {
                 
                 
                 
-                
+                //Aman's Ui Code
+
 
 //                ScrollView(.horizontal, showsIndicators: false) {
 //                    HStack {
